@@ -1,0 +1,29 @@
+<h1>Search for a game!</h1>
+
+<%= form_tag games_search_path, method: :get do %>
+    <%= text_field_tag :name, nil, placeholder: "Search 347,170 games!" %>
+    <%= submit_tag "Search", name: nil %>
+<% end %>
+
+ 
+<div class="card__container">
+    <% if @games.present? %>
+        <% @games.each do |game| %>
+            <%= link_to game_path(game["slug"]) do %>
+                <div class="card" data-id="<%= game["id"] %>">
+                    <h1><%= game["name"] %></h1> 
+                    <%= image_tag "#{game["background_image"]}", class: "card__image" %>
+
+                    <% if game["platforms"].present? %>
+                        <% game["platforms"].each do |platform| %>
+                            <span><%= platform["platform"]["name"] %></span>
+                        <% end %>
+                    <% end %>
+
+                    <p><%= game["released"] %></p>
+                </div>
+            <% end %>
+        <% end %>
+        
+    <% end %> 
+</div>

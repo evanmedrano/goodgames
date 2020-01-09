@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'pages/home'
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'home#index'
+
+  get '/games/show/:id', to: 'games#show', as: 'game'
+  get '/games/search',   to: 'games#search'
 end
