@@ -9,7 +9,7 @@ class UserGamesController < ApplicationController
         end
         if @user_game.save
             flash[:notice] = "Congrats! You added #{@game.name} to your library!"
-            redirect_to @game
+            redirect_back(fallback_location: @game)
 
         else
             flash[:alert] = "You already added this game to your library!"
@@ -24,11 +24,11 @@ class UserGamesController < ApplicationController
 
         if @user_game.destroy
             flash[:notice] = "You have successfully removed #{@game.name} from your library."
+            redirect_back(fallback_location: root_path)
         else
             flash.now[:alert] = "There was an error removing the game from your library."
+            redirect_to root_path
         end
-
-        redirect_to root_path
     end
 
     private
