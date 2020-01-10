@@ -1,12 +1,18 @@
-<div class="card" data-id="<%= @game["id"] %>">
-    <h1><%= @game["name"] %></h1> 
-    <%= image_tag "#{@game["background_image"]}", class: "card__image" %>
+<div class="card" data-id="<%= @game.id %>">
+    <h1><%= @game.name %></h1> 
+    <%= image_tag "#{@game.background_image}", class: "card__image" %>
 
-    <% if @game["platforms"].present? %>
-        <% @game["platforms"].each do |platform| %>
-            <span><%= platform["platform"]["name"] %></span>
+    <% if @game.platforms.present? %>
+        <% @game.platforms.each do |platform| %>
+            <span><%= platform %></span>
         <% end %>
     <% end %>
 
-    <p><%= @game["released"] %></p>
+    <p><%= @game.released %></p>
 </div>
+<% if !user_signed_in? || (user_signed_in? && !current_user.added_game?(@game)) %>
+    <%= link_to "Add to library", user_games_path(user_game: { game_id: @game.slug, user_id: current_user }), method: :post %>
+<% else %>
+    <%= link_to "Remove from library", user_game_path(@game), method: :delete, 
+        data: { confirm: 'Are you sure you want to remove this game from your library?'} %>
+<% end %>

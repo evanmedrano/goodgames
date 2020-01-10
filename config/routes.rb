@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'my_registrations' }
   root to: 'home#index'
 
-  get '/games/show/:id', to: 'games#show', as: 'game'
-  get '/games/search',   to: 'games#search'
+  resources :games
+  get '/search/games',   to: 'games#search'
+
+  resources :user_games, only: [:create, :destroy]
 end

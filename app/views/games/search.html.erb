@@ -1,6 +1,6 @@
 <h1>Search for a game!</h1>
 
-<%= form_tag games_search_path, method: :get do %>
+<%= form_tag search_games_path, method: :get do %>
     <%= text_field_tag :name, nil, placeholder: "Search 347,170 games!" %>
     <%= submit_tag "Search", name: nil %>
 <% end %>
@@ -19,7 +19,7 @@
                             <span><%= platform["platform"]["name"] %></span>
                         <% end %>
                     <% end %>
-
+                    
                     <p><%= game["released"] %></p>
                 </div>
             <% end %>

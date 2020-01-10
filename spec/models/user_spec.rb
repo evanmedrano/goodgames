@@ -39,4 +39,14 @@ RSpec.describe User, type: :model do
         end
         
     end
+
+    describe "Methods" do
+        # it "shows when a user added a game to it's library" do
+        #     user      = FactoryBot.create(:user)
+        #     game      = FactoryBot.create(:game)
+        #     user_game = FactoryBot.create(:user_game, game: game, user: user)
+
+        #     user.added_game_on(game).to eq user_game.created_at
+        # end
+    end
 end
