@@ -1,4 +1,4 @@
-<div class="card" data-id="<%= @game.id %>">
+<div class="card">
   <h1><%= @game.name %></h1> 
   <%= image_tag "#{@game.background_image}", class: "card__image" %>
 
@@ -10,10 +10,20 @@
 
   <p><%= @game.released %></p>
 </div>
-<%= current_user.added_game?(@game) %>
+
+<h1>Screenshots</h1>
+<% @game_screenshots.each do |screenshot| %>
+  <%= image_tag "#{screenshot["image"]}" %>
+<% end %>
 <% if !user_signed_in? || (user_signed_in? && !current_user.added_game?(@game)) %>
   <%= link_to "Add to library", user_games_path(user_game: { game_id: @game.slug, user_id: current_user }), method: :post %>
 <% else %>
   <%= link_to "Remove from library", user_game_path(@game), method: :delete, 
     data: { confirm: 'Are you sure you want to remove this game from your library?'} %>
 <% end %>
+
+<h1>Also from the same series as <%= @game.name %></h1>
+<%= render 'games', games: @series_games, user: current_user %>
+
+<h1>Similar games</h1>
+<%= render 'games', games: @similar_games, user: current_user %>

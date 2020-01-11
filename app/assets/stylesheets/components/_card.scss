@@ -1,8 +1,23 @@
 .card {
   background-color: lightblue;
+  position: relative;
 
   &:hover {
     cursor: pointer;
+    opacity: 1;
+  }
+
+  &:hover &__btn-wrapper {
+    display: block;
+  }
+
+  &__btn-wrapper {
+    display: none;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__image {
@@ -16,5 +31,13 @@
     grid-gap: 20px;
     max-width: 114rem;
     margin: 0 auto;
+  }
+
+  &__container:hover & {
+    opacity: .5;
+  }
+
+  &__container &:hover {
+    opacity: 1;
   }
 }
