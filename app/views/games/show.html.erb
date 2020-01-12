@@ -11,12 +11,18 @@
   <p><%= @game.released %></p>
 </div>
 
+<h1>Genres</h1>
+
+<% @game.genres.each do |genre| %>
+  <%= genre %>
+<% end %>
+
 <h1>Screenshots</h1>
 <% @game_screenshots.each do |screenshot| %>
   <%= image_tag "#{screenshot["image"]}" %>
 <% end %>
 <% if !user_signed_in? || (user_signed_in? && !current_user.added_game?(@game)) %>
-  <%= link_to "Add to library", user_games_path(user_game: { game_id: @game.slug, user_id: current_user }), method: :post %>
+  <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post %>
 <% else %>
   <%= link_to "Remove from library", user_game_path(@game), method: :delete, 
     data: { confirm: 'Are you sure you want to remove this game from your library?'} %>

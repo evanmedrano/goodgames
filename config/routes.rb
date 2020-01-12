@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  get 'genres/index'
-  get 'genres/show'
+  get 'users/games'
+  root to: 'home#index'
   devise_for :users 
 
   resources :users do 
-    resources :games, only: [:index], as: "game"
+    member do
+      get :games
+    end
   end
 
-  root to: 'home#index'
-
-  resources :games
-  get '/search/games',   to: 'games#search'
+  resources :games do
+    collection do
+      get :search
+    end
+  end
 
   resources :user_games, only: [:create, :destroy]
 

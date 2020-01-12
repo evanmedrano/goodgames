@@ -21,7 +21,7 @@ RSpec.feature "Games", type: :feature do
       click_link "Add to library"
       game = @user.games.first
 
-      expect(page).to have_content "Congrats! You added #{game.name} to your library!"
+      expect(page).to have_content "Congrats! You added a new game to your library!"
       expect(game.name).to eq "Portal 2"
     }.to change(@user.games, :count).by 1
   end
@@ -80,6 +80,22 @@ RSpec.feature "Games", type: :feature do
 
     expect(Game.count).to eq 1
     expect(Game.first.name).to eq "Dota 2"
+  end
+
+  scenario "user visits the genre show page" do
+    genre = "racing"
+
+    visit genre_path(genre)
+
+    expect(page).to have_content "Need For Speed: Hot Pursuit"
+
+    expect {
+      within "#driveclub" do
+        click_button "Add to library"
+      end
+      expect(page).to have_button "Remove from library"
+    }.to change(@user.games, :count).by 1
+
   end
 
 

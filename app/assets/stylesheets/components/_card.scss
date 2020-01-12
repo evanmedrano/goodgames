@@ -7,12 +7,12 @@
     opacity: 1;
   }
 
-  &:hover &__btn-wrapper {
-    display: block;
-  }
+  // &:hover &__btn-wrapper {
+  //   display: block;
+  // }
 
   &__btn-wrapper {
-    display: none;
+    //display: none;
     left: 50%;
     position: absolute;
     text-align: center;

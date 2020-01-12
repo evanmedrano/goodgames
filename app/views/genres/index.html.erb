@@ -1,23 +1,10 @@
 <h1>Search genres!</h1>
-
-<!--
-<ul>
-  <%# @top_genres.each do |genre| %>
-    <li><%#= link_to genre, genre == "RPG" ? genre_path("role-playing-games-rpg") : genre_path(genre)%></li>
-  <%# end %>
-</ul>
--->
-
-<%= form_tag genres_path, method: :get, id: "genre-search" do %>
-  <%= label_tag :genre, "Enter genre name" %>
-  <%= text_field_tag :genre, nil, placeholder: "Search genres!" %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
-
-<% @genres.each do |genre| %>
-  <div class="genre__wrapper">
-    <h1><%= link_to genre["name"], genre_path(genre["name"]) %></h1>
-    <%#= genre["games"] %>
-    <%= render 'games/games', games: @games, user: current_user %>
-  </div>  
-<% end %>
+<div class="card__container">
+  <% @genres.each do |genre| %> 
+    <div class="card" id="<%= genre["slug"] %>">
+      <h2><%= genre["name"] %></h2>
+      <%= image_tag genre["image_background"], class: "card__image"%>
+      <%= button_to "Show more", genre_path(genre["slug"]), method: :get, class: "card__btn btn btn--small" %>
+    </div>
+  <% end %>
+</div>

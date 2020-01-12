@@ -14,6 +14,7 @@ RSpec.describe GamesController, type: :controller do
             get :show, params: { id: game }
             expect(response).to redirect_to root_path
         end
+        
     end
 
 end
