@@ -6,15 +6,14 @@ class Game < ApplicationRecord
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games, source: :user
 
-  TOP_GENRES = ["Action", "Shooter", "RPG", "Strategy", "Puzzle", "Sports", "Racing", "Adventure"]
+  TOP_GENRES = %w{ Action Shooter RPG Strategy Puzzle Sports Racing Adventure }
 
-  # Checks to see if the database already has the game and then defers to RawgAPI to fill in the rest
+  # Checks to see if a game is in the db, if not then we use the JSON data from the api call
   def self.find_in_db(games)
-    games.map { |game| Game.find_by(name: game["name"]) == nil ? game : Game.find_by(name: game["name"]) }
-  end
-
-  def self.get_info(games)
-    games = games.map { |game| RawgAPI.get_game(game["slug"], "genres") }
+    games_in_db = Game.all.pluck(:name)
+    games.map do |game| 
+      games_in_db.include?(game["name"]) ? Game.find_by(name: game["name"]) : game 
+    end
   end
 
 end
