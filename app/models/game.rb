@@ -4,7 +4,7 @@ class Game < ApplicationRecord
   validates :name, uniqueness: true
 
   has_many :user_games, dependent: :destroy
-  has_many :users, through: :user_games, source: :user
+  has_many :users, through: :user_games
 
   TOP_GENRES = %w{ Action Shooter RPG Strategy Puzzle Sports Racing Adventure }
 

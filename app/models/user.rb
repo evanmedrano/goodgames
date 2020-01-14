@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_games, dependent: :destroy
-  has_many :games, through: :user_games, source: :game
-         
+  has_many :games, through: :user_games
+           
   validates :name, presence: true
 
   def added_game?(game)
