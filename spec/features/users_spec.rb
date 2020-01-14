@@ -29,6 +29,10 @@ RSpec.feature "Users", type: :feature do
     visit root_path
     click_link "My games"
 
+    within "##{game.slug}" do
+      expect(page).to have_select("status", selected: "Currently own") 
+    end
+
     expect(page).to have_button  "Remove from library" 
     expect(page).to have_content "#{game.name}"
   end
@@ -44,8 +48,9 @@ RSpec.feature "Users", type: :feature do
 
     visit "/users/#{other_user.id}/games"
 
-    expect(page).to have_button  "Add to library" 
-    expect(page).to have_content "#{game.name}"
+    expect(page).to     have_button  "Add to library" 
+    expect(page).to_not have_button "Remove from library"
+    expect(page).to     have_content "#{game.name}"
     
   end
 end

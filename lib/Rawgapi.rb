@@ -14,22 +14,22 @@ class RawgAPI
   attr_accessor :name, :description, :released, :platforms, :background_image, :id, :genres, :slug, :website, :esrb_rating, :clip, :image_background
 
   def initialize(response)
-    self.name             = response["name"]
-    self.description      = response["description"]
-    self.id               = response["id"]
-    self.slug             = response["slug"]
+    @name             = response["name"]
+    @description      = response["description"]
+    @id               = response["id"]
+    @slug             = response["slug"]
 
     #if statement to differentiate between game and genre searches
     if response.include?("platforms")
-      self.released         = response["released"]
-      self.background_image = response["background_image"]
-      self.website          = response["website"]
-      self.clip             = response.dig("clip", "clips", "640")
-      self.esrb_rating      = response.dig("esrb_rating", "name")
-      self.platforms        = get_names(response["platforms"])
-      self.genres           = get_names(response["genres"])
+      @released         = response["released"]
+      @background_image = response["background_image"]
+      @website          = response["website"]
+      @clip             = response.dig("clip", "clips", "640")
+      @esrb_rating      = response.dig("esrb_rating", "name")
+      @platforms        = get_names(response["platforms"])
+      @genres           = get_names(response["genres"])
     else
-      self.image_background = response["image_background"]
+      @image_background = response["image_background"]
     end
   end
 

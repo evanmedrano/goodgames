@@ -1,3 +1,10 @@
 <h1>My games</h1>
+<ul>
+  <li><%= link_to "Currently own", games_user_path(@user, status: 'Currently own') %></li>
+  <li><%= link_to "Owned", games_user_path(@user, status: 'Owned') %></li>
+  <li><%= link_to "Beat", games_user_path(@user, status: 'Beat') %></li>
+  <li><%= link_to "Playing", games_user_path(@user, status: 'Playing') %></li>
+  <li><%= link_to "Wishlist", games_user_path(@user, status:'Wishlisht') %></li>
+</ul>
 
 <%= render 'games/games', games: @games, user: @user %>

@@ -95,7 +95,20 @@ RSpec.feature "Games", type: :feature do
       end
       expect(page).to have_button "Remove from library"
     }.to change(@user.games, :count).by 1
+  end
 
+  scenario "user changes their game status", js: true do
+    login_as(@user, scope: :user)
+    user_game = FactoryBot.create(:user_game, user: @user)
+    game = user_game.game
+
+    visit games_user_path(@user)
+
+    within "##{game.slug}" do
+      select "Beat", from: "status"
+    end
+    expect(page).to have_content "You successfully changed your game status to 'Beat'"
+    expect(user_game.reload.status).to eq "Beat"
   end
 
 

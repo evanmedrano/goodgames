@@ -12,14 +12,20 @@
       <p><%= game["released"] %></p>
       
       <div class="card__btn-wrapper">
-        <% if !user_signed_in? || user_signed_in? && !current_user.added_game?(game) %>
-          <%= button_to "Add to library", games_path(game: { slug: game["slug"] }), 
-            class: "card__btn btn btn--small" %>
-        <% elsif user == current_user %>
+        <%= button_to "Show more", game_path(game["slug"]), method: :get, class: "card__btn btn btn--small" %>
+        
+        <% if game.is_a?(Game) && game.was_added?(user, game) && user == current_user %>
+          <%= form_with url: user_game_path(UserGame.find_game(user, game)), 
+            id: "game-status", method: :patch, local: true do |f| %>
+            <%= f.select "status", 
+              options_for_select(game.statuses, game.current_status(user)), {}, onchange: "this.form.submit()" %>
+          <% end %>
           <%= button_to "Remove from library", user_game_path(game["id"]), method: :delete, 
             data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "card__btn btn btn--small" %>
+        <% else %>
+          <%= button_to "Add to library", games_path(game: { slug: game["slug"] }), 
+            class: "card__btn btn btn--small" %>        
         <% end %>
-        <%= button_to "Show more", game_path(game["slug"]), method: :get, class: "card__btn btn btn--small" %>
       </div>
     </div> <!--/Card-->
   <% end %>

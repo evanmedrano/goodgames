@@ -16,4 +16,23 @@ class Game < ApplicationRecord
     end
   end
 
+  def self.filter_by_status(user, status)
+    joins(:user_games).where(user_games: { user_id: user.id, status: status })
+  end
+
+  def current_status(user)
+    user_games.find_by(user: user).status
+  end
+
+  def was_added?(user, game)
+    games = Game.joins(:user_games).where(user_games: {user: user }).pluck(:name)
+    games.include?(game.name) 
+
+  end
+
+  def statuses
+    options = %w{ Currently\ own Owned Beat Playing Wishlist }
+  end
+
+
 end

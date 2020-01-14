@@ -17,7 +17,9 @@ class GamesController < ApplicationController
 
     @game = Game.find_or_create_by(slug: game.slug) do |new_game|
       game.instance_values.each do |attribute, value|
-        new_game.write_attribute(attribute, value)
+        # Avoid copying the game's id value from the API and instead increment 
+        # the id values from within the app
+        new_game.write_attribute(attribute, value) unless attribute == "id"
       end
     end
     

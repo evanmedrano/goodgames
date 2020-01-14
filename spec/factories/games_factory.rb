@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :game do
     sequence(:name)  { |n| "Game #{n}" }    
+    sequence(:slug)  { |n| "game-#{n}" }
     description      "This is a test game"
     released         "10/23/2020"
     background_image "url text"
