@@ -10,9 +10,13 @@
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
       <% end %>
 
-      <li><%= link_to "Find a game", search_games_path %></li>
-      <% Game::TOP_GENRES.each do |genre| %>
-        <li><%= link_to genre, genre == "RPG" ? genre_path("role-playing-games-rpg") : genre_path(genre)%></li>
+      <li><%= link_to "Find a game", games_path %></li>
+      <% top_genres.each do |genre| %>
+        <li><%= link_to genre, genre_path(convert_to_slug(genre)) %></li>
+      <% end %>
+
+      <% top_platforms.each do |platform| %>
+        <li><%= link_to platform, platform_path(convert_to_slug(platform)) %></li>
       <% end %>
     </ul>
   </nav>

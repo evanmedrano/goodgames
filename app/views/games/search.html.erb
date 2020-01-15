@@ -1,9 +1,0 @@
-<h1>Search for a game!</h1>
-
-<%= form_tag search_games_path, method: :get, id: "game-search" do %>
-  <%= label_tag :name, "Enter game name" %>
-  <%= text_field_tag :name, nil, placeholder: "Search 347,170 games!" %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
- 
-<%= render 'games', games: @games, user: current_user %>

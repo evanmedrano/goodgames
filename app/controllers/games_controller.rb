@@ -1,10 +1,23 @@
 class GamesController < ApplicationController
   require 'Rawgapi'
   before_action :authenticate_user!, only: [:create]
+  before_action :set_game, only: [:show, :discover]
+
+  def index
+    #? Sets the search response to either the name from a user search or it defaults as an empty search which loads a list of games
+    response = params[:query].presence || "''" 
+
+    games = RawgAPI.search_all_games(response)
+    @games = Game.find_in_db(games)
+
+    if @games.empty?
+    flash.now[:alert] = "Cannot find game in database! Try another search."
+      render :search
+    end
+  end
 
   def show 
     begin
-      @game = Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) || RawgAPI.get_game(params[:id])
       set_related_content(@game)
 
       @users_who_beat_game    = User.same_game_status(@game, "Beat", current_user)
@@ -36,23 +49,19 @@ class GamesController < ApplicationController
       flash[:alert] = "There was an error adding #{@game.name} to your library."
       redirect_back(fallback_location: root_path)
     end
-
   end
 
-  def search
-    #? Sets the search response to either the name from a user search or it defaults as an empty search which loads a list of games
-    response = params[:name].presence || "''" 
-
-    games = RawgAPI.search_all_games(response)
+  def discover 
+    games = RawgAPI.get_game_content(@game.slug, "suggested")
     @games = Game.find_in_db(games)
-
-    if @games.empty?
-      flash.now[:alert] = "Cannot find game in database! Try another search."
-      render :search
-    end
   end
+
 
   private
+
+    def set_game
+      @game = Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) || RawgAPI.get_game(params[:id])
+    end
 
     def set_related_content(game)
       similar_games = RawgAPI.get_game_content(game.slug, "suggested")

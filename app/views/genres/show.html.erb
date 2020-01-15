@@ -1,10 +1,4 @@
-<h1>
-  <% if @genre.name == "role-playing-games-rpg" %>
-  RPG
-  <% else %>
-    <%= @genre.name %>
-  <% end %>
-</h1>
+<h1><%= @genre.name %></h1>
 <%= @genre.description.html_safe %>
 
 <%= render 'games/games', games: @games, user: current_user %>

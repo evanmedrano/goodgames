@@ -51,7 +51,7 @@ RSpec.feature "Games", type: :feature do
   end
   
   scenario "user adds game from search results" do
-    visit search_games_path
+    visit games_path
     fill_in "Enter game name", with: "dota 2"
     within "#game-search" do
       click_button "Search"
@@ -133,6 +133,21 @@ RSpec.feature "Games", type: :feature do
 
     expect(page).to have_content "Users who have beat #{@game.name}"
     expect(page).to have_content "#{@user.name}"
+  end
+
+  scenario "user finds similar games" do
+    visit games_path
+    fill_in "Enter game name", with: "Borderlands 2"
+    within "#game-search" do
+      click_button "Search"
+    end
+
+    within "#borderlands-2" do
+      click_button "Games like this"
+    end
+
+    expect(page).to have_content "Games like Borderlands 2!"
+    expect(page).to have_content "Borderlands: The Pre-Sequel"
   end
 
 end

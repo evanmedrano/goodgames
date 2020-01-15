@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'platforms/index'
-  get 'platforms/show'
-  get 'users/games'
   root to: 'home#index'
   devise_for :users 
 
@@ -11,11 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games do
-    collection do
-      get :search
-    end
-  end
+  resources :games 
+
+  get "discover/games-like-:id", to: "games#discover", as: "discover"
 
   resources :user_games, only: [:create, :update, :destroy]
 
