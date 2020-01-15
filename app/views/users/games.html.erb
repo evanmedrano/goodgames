@@ -1,10 +1,15 @@
-<h1>My games</h1>
+  <h1>
+    <%= @user == current_user ? "My" : "#{@user.name}'s" %> games 
+    <% if params[:status] %>
+      - <%= params[:status] %>
+    <% end %>
+  </h1>
+
 <ul>
-  <li><%= link_to "Currently own", games_user_path(@user, status: 'Currently own') %></li>
-  <li><%= link_to "Owned", games_user_path(@user, status: 'Owned') %></li>
-  <li><%= link_to "Beat", games_user_path(@user, status: 'Beat') %></li>
-  <li><%= link_to "Playing", games_user_path(@user, status: 'Playing') %></li>
-  <li><%= link_to "Wishlist", games_user_path(@user, status:'Wishlisht') %></li>
+  <li><%= link_to "All games", games_user_path(@user) %></li>
+  <% game_statuses.each do |status| %>
+    <li><%= link_to status, games_user_path(@user, status: status) %></li>
+  <% end %>
 </ul>
 
 <%= render 'games/games', games: @games, user: @user %>

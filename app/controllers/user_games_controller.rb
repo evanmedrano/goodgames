@@ -5,10 +5,10 @@ class UserGamesController < ApplicationController
     @user_game = UserGame.find_by(id: params[:id])
 
     if @user_game.update(user_game_params)
-      flash[:notice] = "You successfully changed your game status to '#{@user_game.status}'!"
+      flash[:notice] = "You successfully updated #{@user_game.game_name}!"
       redirect_back(fallback_location: root_path)
     else
-      flash[:alert] = "There was an error updating the game status."
+      flash[:alert] = "There was an error updating the game."
       redirect_back(fallback_location: root_path)
     end
   end
@@ -30,7 +30,7 @@ class UserGamesController < ApplicationController
   private
   
     def user_game_params
-      params.permit(:user, :game, :status)
+      params.permit(:user, :game, :status, :platform)
     end
 
 end

@@ -10,8 +10,18 @@ class UserGame < ApplicationRecord
   
   default_scope { order(created_at: :desc) }
 
+  delegate :name, to: :game, prefix: true
+
+  before_create :add_platform
+
   def self.find_game(user, game)
     joins(:user, :game).where(user: user, game: game).ids
   end
+
+  private
+
+    def add_platform
+      write_attribute(:platform, game.platforms.first)
+    end
   
 end

@@ -1,0 +1,10 @@
+<h1>Search platforms!</h1>
+<div class="card__container">
+  <% @platforms.each do |platform| %> 
+    <div class="card" id="<%= platform["slug"] %>">
+      <h2><%= platform["name"] %></h2>
+      <%= image_tag platform["image_background"], class: "card__image"%>
+      <%= button_to "Show more", platform_path(platform["slug"]), method: :get, class: "card__btn btn btn--small" %>
+    </div>
+  <% end %>
+</div>

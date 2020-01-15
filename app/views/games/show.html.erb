@@ -1,6 +1,6 @@
 <div class="card">
   <h1><%= @game.name %></h1> 
-  <%= image_tag "#{@game.background_image}", class: "card__image" %>
+  <%#= image_tag "#{@game.background_image}", class: "card__image" %>
 
   <% if @game.platforms.present? %>
     <% @game.platforms.each do |platform| %>
@@ -13,9 +13,9 @@
 
 <h1>Genres</h1>
 
-<% @game.genres.each do |genre| %>
-  <%= genre %>
-<% end %>
+<%# @game.genres.each do |genre| %>
+  <%#= genre %>
+<%# end %>
 
 <h1>Screenshots</h1>
 <% @game_screenshots.each do |screenshot| %>
@@ -33,3 +33,17 @@
 
 <h1>Similar games</h1>
 <%= render 'games', games: @similar_games, user: current_user %>
+
+<% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
+  <h1>Users who have beat <%= @game.name %> </h1>
+  <% @users_who_beat_game.each do |user| %>
+    <h2><%= link_to user.name, games_user_path(user) %></h2>
+  <% end %>
+<% end %>
+
+<% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
+  <h1>Users who are playing <%= @game.name %></h1>
+  <% @users_who_are_playing.each do |user| %>
+    <h2><%= link_to user.name, games_user_path(user) %></h2>
+  <% end %>
+<% end %>

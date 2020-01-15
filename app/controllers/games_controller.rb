@@ -6,6 +6,11 @@ class GamesController < ApplicationController
     begin
       @game = Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) || RawgAPI.get_game(params[:id])
       set_related_content(@game)
+
+      @users_who_beat_game    = User.same_game_status(@game, "Beat", current_user)
+
+      @users_who_are_playing  = User.same_game_status(@game, "Playing", current_user)
+      
     rescue TypeError
       flash[:alert] = "Sorry, that game does not exist in our database!"
       redirect_to search_games_path

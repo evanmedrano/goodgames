@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def games
     begin
     @user = User.find_by(id: params[:id])
-      if params[:status] 
+      if params[:status]
         @games = Game.filter_by_status(@user, params[:status])
       else
         @games = @user.games

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'platforms/index'
+  get 'platforms/show'
   get 'users/games'
   root to: 'home#index'
   devise_for :users 
@@ -17,5 +19,6 @@ Rails.application.routes.draw do
 
   resources :user_games, only: [:create, :update, :destroy]
 
-  resources :genres, only: [:index, :show]
+  resources :genres,    only: [:index, :show]
+  resources :platforms, only: [:index, :show]
 end

@@ -9,7 +9,12 @@ class User < ApplicationRecord
            
   validates :name, presence: true
 
+  def self.same_game_status(game, status, user)
+    joins(:user_games).where(user_games: { game: game, status: status }).reject { |u| u == user }
+  end
+
   def added_game?(game)
     self.games.include?(game)
   end
+
 end

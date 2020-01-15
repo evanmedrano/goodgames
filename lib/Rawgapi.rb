@@ -9,6 +9,10 @@ class RawgAPI
 
   GENRES_INDEX_URI = "/api/genres?search=''"
   GENRE_URI = "/api/genres/"
+
+  PLATFORMS_INDEX_URI = "/api/platforms?search=''"
+  PLATFORM_URI = "/api/platforms/"
+
   format :json
 
   attr_accessor :name, :description, :released, :platforms, :background_image, :id, :genres, :slug, :website, :esrb_rating, :clip, :image_background
@@ -34,13 +38,22 @@ class RawgAPI
   end
 
   def self.search_all_games(search, controller="games")
-    response = controller == "genres" ? get("/api/games?genres=" + search) : get(GAMES_INDEX_URI + CGI.escape(search))
-    
+    if controller != "games"
+      response = get("/api/games?#{controller}=" + search.to_s) 
+    else
+      response = get(GAMES_INDEX_URI + CGI.escape(search))
+    end
     self.collection_query(response)
   end
 
   def self.get_all_genres
     response = get(GENRES_INDEX_URI)
+
+    self.collection_query(response)
+  end
+
+  def self.get_all_platforms
+    response = get(PLATFORMS_INDEX_URI)
 
     self.collection_query(response)
   end
@@ -60,10 +73,13 @@ class RawgAPI
   
   def self.get_genre(genre)
     response = get(GENRE_URI + CGI.escape(genre))
-
     self.single_query(response)
   end
 
+  def self.get_platform(platform)
+    response = get(PLATFORM_URI + CGI.escape(platform))
+    self.single_query(response)
+  end
 
   private
 

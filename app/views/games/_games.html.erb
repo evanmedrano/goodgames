@@ -2,7 +2,7 @@
   <% games.each do |game| %>
     <div class="card" id="<%= game["slug"] %>">
       <h1><%= game["name"] %></h1> 
-      <%= image_tag "#{game["background_image"]}", class: "card__image" %>
+      <%#= image_tag "#{game["background_image"]}", class: "card__image" %>
 
       <% if game["platforms"].present? %>
         <% game["platforms"].each do |platform| %>
@@ -18,7 +18,9 @@
           <%= form_with url: user_game_path(UserGame.find_game(user, game)), 
             id: "game-status", method: :patch, local: true do |f| %>
             <%= f.select "status", 
-              options_for_select(game.statuses, game.current_status(user)), {}, onchange: "this.form.submit()" %>
+              options_for_select(game_statuses, game.current_status(user)), {}, onchange: "this.form.submit()" %>
+              <%= f.select "platform", 
+              options_for_select(game.platforms, game.current_platform(user)), {}, onchange: "this.form.submit()" %>
           <% end %>
           <%= button_to "Remove from library", user_game_path(game["id"]), method: :delete, 
             data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "card__btn btn btn--small" %>
