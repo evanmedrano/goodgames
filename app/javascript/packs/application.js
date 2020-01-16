@@ -15,3 +15,30 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+window.onload = function () { //executes code after DOM loads
+  //--- select all <video> on the page
+  const games = document.getElementsByClassName('card')
+  //const posters = document.getElementsByClassName('card__poster')
+  // Loop over the selected elements and add event listeners
+  for (let i = 0; i < games.length; i++) {
+    // var sourceMP4 = document.createElement("source");
+    // sourceMP4.type = "video/mp4";
+    // sourceMP4.src = games[i].src;
+    // games[i].appendChild(sourceMP4);
+    
+    
+    games[i].addEventListener('mouseover', function (e) {
+      games[i].querySelector('video').play()
+    })
+    games[i].addEventListener('mouseout', function (e) {
+      games[i].querySelector('video').pause()
+      //var setPoster = e.target.poster
+      // e.target.src = ""
+      // e.target.removeAttribute("src")
+      // var poster = games[i].attr("poster")
+      // e.target.poster = ""
+      // e.target.poster = setPoster
+    })
+  }
+}

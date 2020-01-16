@@ -20,13 +20,15 @@ class GamesController < ApplicationController
     begin
       set_related_content(@game)
 
+      @comments = @game.comments
+
       @users_who_beat_game    = User.same_game_status(@game, "Beat", current_user)
 
       @users_who_are_playing  = User.same_game_status(@game, "Playing", current_user)
       
     rescue TypeError
       flash[:alert] = "Sorry, that game does not exist in our database!"
-      redirect_to search_games_path
+      redirect_to games_path
     end
   end
 

@@ -1,0 +1,6 @@
+<h1>Showing <%= pluralize @comments.length, "comment" %></h1>
+<% @comments.each do |comment| %>
+  <h3><%= comment.title %></h3>
+  <p><%= comment.body %></p>
+  <p>- <%= comment.user_name %></p>
+<% end %>

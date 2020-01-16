@@ -14,10 +14,12 @@ module ApplicationHelper
 
   def convert_to_slug(name)
     slug = case name
-      when "Playstation 4" then "playstation4"
-      when "Xbox One" then "xbox-one"
-      when "Nintendo Switch" then "nintendo-switch"
-      when "RPG" then "role-playing-games-rpg"
+      when /Playstation 4/i   then "playstation4"
+      when /Playstation 3/i   then "playstation3"
+      when /Xbox One/i        then "xbox-one"
+      when /Xbox 360/i        then "xbox360"
+      when /Nintendo Switch/i then "nintendo-switch"
+      when /RPG/i             then "role-playing-games-rpg"
       else name
     end
     slug

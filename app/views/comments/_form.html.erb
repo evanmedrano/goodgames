@@ -1,0 +1,11 @@
+<% form_url    = comment.persisted? ? game_comment_path : game_comments_path %>
+<% form_method = comment.persisted? ? :patch : :post %>
+<% submit_text = comment.persisted? ? "Edit comment" : "Add comment" %>
+
+<%= form_with model: comment, url: form_url, method: form_method, local: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "Add a title for your comment" %> <br /><br />
+  <%= f.label :body, "Comment" %>
+  <%= f.text_area  :body,  placeholder: "Add a title for your comment", size: "60x12" %> <br /><br />
+  <%= f.submit submit_text %>
+<% end %>

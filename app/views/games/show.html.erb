@@ -1,21 +1,33 @@
-<div class="card">
-  <h1><%= @game.name %></h1> 
-  <%#= image_tag "#{@game.background_image}", class: "card__image" %>
+<h1><%= @game.name %></h1> 
+<%#= image_tag @game.background_image, class: "card__image" %>
 
-  <% if @game.platforms.present? %>
-    <% @game.platforms.each do |platform| %>
-      <span><%= platform %></span>
-    <% end %>
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+  <h3><%= comment.title %></h3>
+  <p><%= comment.body %></p>
+  <p>- <%= comment.user_name %></p>
+  <% if comment.user == current_user %>
+    <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id) %>
+    <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
+<% end %>
 
-  <p><%= @game.released %></p>
-</div>
+<%= link_to "Add a comment", new_game_comment_path(@game) %>
+<%= link_to "All comments", game_comments_path(@game) %>
+
+<% if @game.platforms.present? %>
+  <% @game.platforms.each do |platform| %>
+    <%= link_to platform, platform_path(convert_to_slug(platform)) %>
+  <% end %>
+<% end %>
+
+<p><%= @game.released %></p>
 
 <h1>Genres</h1>
 
-<%# @game.genres.each do |genre| %>
-  <%#= genre %>
-<%# end %>
+<% @game.genres.each do |genre| %>
+  <%= link_to genre, genre_path(genre) %>
+<% end %>
 
 <h1>Screenshots</h1>
 <% @game_screenshots.each do |screenshot| %>

@@ -2,7 +2,16 @@
   <% games.each do |game| %>
     <div class="card" id="<%= game["slug"] %>">
       <h1><%= game["name"] %></h1> 
-      <%= image_tag "#{game["background_image"]}", class: "card__image" %>
+
+      <% if game["clip"] != nil %>
+        <% if game.is_a?(Hash) %>
+          <%= video_tag game["clip"]["clip"], poster: game["background_image"], muted: true, class: "card__video" %>
+        <% else %>
+          <%= video_tag game.clip, poster: game["background_image"], muted: true, class: "card__video" %>
+        <% end %>
+      <% else %>
+        <%= image_tag game["background_image"], class: "card__image" %>
+      <% end %>
 
       <% if game["platforms"].present? %>
         <% game["platforms"].each do |platform| %>

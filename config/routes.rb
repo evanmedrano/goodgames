@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games 
+  resources :games do
+    resources :comments
+  end
 
   get "discover/games-like-:id", to: "games#discover", as: "discover"
 

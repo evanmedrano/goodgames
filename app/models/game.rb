@@ -3,6 +3,7 @@ class Game < ApplicationRecord
 
   validates :name, uniqueness: true
 
+  has_many :comments, dependent: :destroy
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
 

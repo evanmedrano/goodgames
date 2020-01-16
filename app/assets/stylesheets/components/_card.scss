@@ -20,9 +20,14 @@
     transform: translate(-50%, -50%);
   }
 
-  &__image {
+  &__image, &__video {
     display: block;
     width: 100%;
+  }
+
+  &__video[poster] {
+    object-fit: cover;
+    object-position: top;
   }
 
   &__container {
