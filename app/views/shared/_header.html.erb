@@ -1,23 +1,57 @@
 <header>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if !user_signed_in? %>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <% else %>
-        <li><%= link_to "My games", games_user_path(current_user) %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-      <% end %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to "GoodGames", root_path, class: "navbar-brand"  %>
+    <%= button_tag class: "navbar-toggler", type: "button", data: { toggle: "collapse", target: "#navbarTogglerDemo02" }, 
+      aria: { controls: "navbarTogglerDemo02", expanded: false, label: "Toggle navigation" } do %>
+      <span class="navbar-toggler-icon"></span>
+    <% end %>
 
-      <li><%= link_to "Find a game", games_path %></li>
-      <% top_genres.each do |genre| %>
-        <li><%= link_to genre, genre_path(convert_to_slug(genre)) %></li>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <%= form_tag games_path, method: :get, class: "form-inline my-2 my-lg-0", id: "game-search" do %>
+        <%= text_field_tag :query, nil, placeholder: "Search 347,170 games!", class: "form-control mr-sm-2" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <%= link_to root_path, class: "nav-link" do %>
+            Home
+            <span class="sr-only">(current)</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Find a game", games_path, class: "nav-link" %>
+        </li>
 
-      <% top_platforms.each do |platform| %>
-        <li><%= link_to platform, platform_path(convert_to_slug(platform)) %></li>
-      <% end %>
-    </ul>
+        <li class="nav-item dropdown">
+          <%= link_to "Genres", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" },
+            aria: { haspopup: true, expanded: false } %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% top_genres.each do |genre| %>
+              <%= link_to genre, genre_path(convert_to_slug(genre)), class: "dropdown-item" %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "All genres", genres_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <%= link_to "Platforms", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: { toggle: "dropdown" },
+            aria: { haspopup: true, expanded: false } %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% top_platforms.each do |platform| %>
+              <%= link_to platform, platform_path(convert_to_slug(platform)), class: "dropdown-item" %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "All platforms", platforms_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <% if !user_signed_in? %>
+          <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "My games", games_user_path(current_user), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
 </header>

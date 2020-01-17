@@ -4,19 +4,24 @@
     <title>Goodgames</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render 'shared/header' %>
-    <% if flash[:notice] %>
-        <p><%= notice %></p>
-    <% end %>
-    <% if flash[:alert] %>
-        <p><%= alert %></p>
-    <% end %>
-    <%= yield %>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div class="container--full">
+      <%= render 'shared/header' %>
+      <% if flash[:notice] %>
+          <p><%= notice %></p>
+      <% end %>
+      <% if flash[:alert] %>
+          <p><%= alert %></p>
+      <% end %>
+    
+      <%= yield %>
+    </div>
   </body>
 </html>

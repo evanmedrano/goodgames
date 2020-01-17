@@ -10,7 +10,7 @@
           <%= video_tag game.clip, poster: game["background_image"], muted: true, class: "card__video" %>
         <% end %>
       <% else %>
-        <%= image_tag game["background_image"], class: "card__image" %>
+        <%= image_tag "#{game["background_image"]}", class: "card__image" %>
       <% end %>
 
       <% if game["platforms"].present? %>

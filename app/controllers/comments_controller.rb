@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_game
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :check_game_class
+
 
   def index
     @comments = @game.comments
@@ -65,4 +67,12 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:title, :body)
   end
+
+  def check_game_class
+    if @game.instance_of?(RawgAPI)
+      flash[:alert] = "Sorry, that game is not in the database. Add it to your library so you can add a comment!"
+      redirect_to games_path
+    end
+  end
+
 end

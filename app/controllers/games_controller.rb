@@ -20,7 +20,7 @@ class GamesController < ApplicationController
     begin
       set_related_content(@game)
 
-      @comments = @game.comments
+      @comments = @game.comments if @game.is_a?(Game) # Only set the comments for games in the database
 
       @users_who_beat_game    = User.same_game_status(@game, "Beat", current_user)
 
