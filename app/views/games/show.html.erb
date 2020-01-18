@@ -1,5 +1,5 @@
 <h1><%= @game.name %></h1> 
-<%= image_tag @game.background_image, class: "card__image" %>
+<%#= image_tag @game.background_image, class: "card__image" %>
 
 <!-- Only show comments for games that are persisted in the database -->
 <% if @game.is_a?(Game) %>

@@ -12,16 +12,15 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="container--full">
+    <div class="container">
       <%= render 'shared/header' %>
       <% if flash[:notice] %>
-          <p><%= notice %></p>
+          <div class="alert alert-success"><%= notice %></div>
       <% end %>
       <% if flash[:alert] %>
-          <p><%= alert %></p>
+          <div class="alert alert-danger"><%= alert %></div>
       <% end %>
-    
-      <%= yield %>
     </div>
+    <%= yield %>
   </body>
 </html>

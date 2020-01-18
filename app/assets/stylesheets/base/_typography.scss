@@ -1,14 +1,21 @@
 .heading {
   font-weight: 800;
 
+  &--massive {
+    font-size: 20rem;
+  }
+
   &--jumbo {
-    font-size: 12rem;
+    font-size: 10rem;
   }
 
 
   &--large {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
+}
+
+.color {
 
   &--green {
     color: $green;
@@ -16,5 +23,21 @@
 
   &--yellow {
     color: $yellow;
+  }
+
+  &--red {
+    color: $red;
+  }
+
+  &--blue {
+    color: $blue;
+  }
+  
+  &--logo-left {
+    color: $logo-left;
+  }
+
+  &--logo-right {
+    color: $logo-right;
   }
 }

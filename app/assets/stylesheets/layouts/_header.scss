@@ -1,0 +1,61 @@
+.header {
+  .navbar-brand {
+    font-size: 2.5rem;
+  }
+
+  .form-inline {
+    width: 45%;
+    &:focus {
+      outline: none;
+    }
+    
+    #nav-query {
+      border-radius: 3rem;
+      font-size: 1.4rem;
+      padding: .5rem 2rem;
+      transition: all .2s;
+      width: 80%;
+      &:focus {
+        border: 1px solid $green;
+        box-shadow: none;
+        width: 95%;
+      }
+    }
+    @media only screen and (max-width: 975px) {
+      width: 100%;
+    }
+  }
+
+  .nav-item {
+    z-index: 10;
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
+  }
+
+  .navbar.navbar-light .nav-link {
+    color: $green;
+    font-size: 1.4rem;
+    &:hover,
+    &.dropdown-toggle:focus {
+      color: $red;
+    }
+    @media only screen and (min-width: 975px) and (max-width: 1200px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .dropdown-item {
+    color: $blue;
+    font-size: 1.4rem;
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  .navbar-collapse.show {
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 1000;
+  }
+}

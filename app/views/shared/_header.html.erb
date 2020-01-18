@@ -1,18 +1,19 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to "GoodGames", root_path, class: "navbar-brand"  %>
-    <%= button_tag class: "navbar-toggler", type: "button", data: { toggle: "collapse", target: "#navbarTogglerDemo02" }, 
-      aria: { controls: "navbarTogglerDemo02", expanded: false, label: "Toggle navigation" } do %>
+<header class="header vh-10">
+  <nav class="navbar navbar-expand-lg navbar-light h-100">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <span class="color--logo-left">G</span>ood<span class="color--logo-right">G</span>ames
+    <% end %>
+    <%= button_tag class: "navbar-toggler", type: "button", data: { toggle: "collapse", target: "#headerToggler" }, 
+      aria: { controls: "headerToggler", expanded: false, label: "Toggle navigation" } do %>
       <span class="navbar-toggler-icon"></span>
     <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <%= form_tag games_path, method: :get, class: "form-inline my-2 my-lg-0", id: "game-search" do %>
-        <%= text_field_tag :query, nil, placeholder: "Search 347,170 games!", class: "form-control mr-sm-2" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-outline-success my-2 my-sm-0" %>
+    <div class="collapse navbar-collapse" id="headerToggler">
+      <%= form_tag games_path, method: :get, class: "form-inline my-2 my-lg-0 mr-auto", id: "nav-search" do %>
+        <%= text_field_tag :query, nil, placeholder: "Search 347,170 games!", id: "nav-query", class: "form-control" %>
       <% end %>
       <ul class="navbar-nav mt-2 mt-lg-0">
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to root_path, class: "nav-link" do %>
             Home
             <span class="sr-only">(current)</span>
@@ -49,7 +50,7 @@
           <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
         <% else %>
           <li class="nav-item"><%= link_to "My games", games_user_path(current_user), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class: "nav-link" %></li>
         <% end %>
       </ul>
     </div>

@@ -52,8 +52,9 @@ RSpec.feature "Games", type: :feature do
   
   scenario "user adds game from search results" do
     visit games_path
-    fill_in "Enter game name", with: "dota 2"
+    
     within "#game-search" do
+      fill_in "Enter game name", with: "dota 2"
       click_button "Search"
     end
 
@@ -137,8 +138,9 @@ RSpec.feature "Games", type: :feature do
 
   scenario "user finds similar games" do
     visit games_path
-    fill_in "Enter game name", with: "Borderlands 2"
+    
     within "#game-search" do
+      fill_in "Enter game name", with: "Borderlands 2"
       click_button "Search"
     end
 
