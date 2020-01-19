@@ -25,4 +25,7 @@ module ApplicationHelper
     slug
   end
 
+  def date_formatter(date)
+    Date.parse(date).strftime("%m-%d-%Y")
+  end
 end

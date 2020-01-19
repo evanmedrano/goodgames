@@ -10,3 +10,19 @@
   display: inline-block;
   transform: scale(-1, 1);
 }
+
+//* COLORS
+.bg {
+  &--yellow {
+    background-color: $yellow;
+  }
+  &--blue {
+    background-color: $blue;
+  }
+  &--green {
+    background-color: $green;
+  }
+  &--red {
+    background-color: $red;
+  }
+}

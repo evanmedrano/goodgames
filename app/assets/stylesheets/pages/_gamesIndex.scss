@@ -1,0 +1,22 @@
+.games.index {
+  #game-search {
+    width: 75%;
+     &:focus {
+      outline: none;
+    }
+
+    #query {
+      border-radius: 3rem;
+      font-size: 1.4rem;
+      padding: 2rem 2rem 2.5rem 2rem;
+      width: 100%;
+      &:hover {
+        border: 1px solid $red;
+      }
+      &:focus {
+        border: 1px solid $yellow;
+        box-shadow: none;
+      }
+    }
+  }
+}

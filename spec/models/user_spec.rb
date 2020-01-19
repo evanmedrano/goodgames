@@ -4,49 +4,21 @@ RSpec.describe User, type: :model do
   
   describe "Validations" do
     it "is valid with a name, email, and password" do
-      user = FactoryBot.create(:user)
+      user = FactoryBot.build_stubbed(:user)
 
       expect(user).to be_valid
     end
 
-    it "is invalid without a name" do
-      user = FactoryBot.build(:user, name: nil)
-
-      user.valid?
-      expect(user.errors.messages[:name]).to include "can't be blank"
-    end
-
-    it "is invalid without an email" do
-      user = FactoryBot.build(:user, email: nil)
-
-      user.valid?
-      expect(user.errors.messages[:email]).to include "can't be blank"
-    end
-
-    it "is invalid without a password" do
-      user = FactoryBot.build(:user, password: nil)
-
-      user.valid?
-      expect(user.errors.messages[:password]).to include "can't be blank"
-    end
-
-    it "is invalid if email is already taken" do
-      user       = FactoryBot.create(:user)
-      other_user = FactoryBot.build(:user, email: user.email)
-
-      other_user.valid?
-      expect(other_user.errors.messages[:email]).to include "has already been taken"
-    end
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_presence_of :password }
+    it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     
   end
 
   describe "Associations" do
-    it "can have many comments" do
-      user      = FactoryBot.create(:user)
-      comment   = FactoryBot.create(:comment, user: user)
-      comment_2 = FactoryBot.create(:comment, user: user)
-
-      expect(user.comments.count).to eq 2
-    end
+    it { is_expected.to have_many :comments }
+    it { is_expected.to have_many :user_games }
+    it { is_expected.to have_many :games }
   end
 end

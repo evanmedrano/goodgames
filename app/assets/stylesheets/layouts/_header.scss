@@ -15,6 +15,9 @@
       padding: .5rem 2rem;
       transition: all .2s;
       width: 80%;
+      &:hover {
+        border: 1px solid $blue;
+      }
       &:focus {
         border: 1px solid $green;
         box-shadow: none;
@@ -50,6 +53,13 @@
     font-size: 1.4rem;
     &:hover {
       color: $yellow;
+    }
+  }
+
+  .navbar-toggler {
+    z-index: 1000;
+    &:focus {
+      outline: none;
     }
   }
 

@@ -1,44 +1,81 @@
-<div class="card__container">
-  <% games.each do |game| %>
-    <div class="card" id="<%= game["slug"] %>">
-      <h1><%= game["name"] %></h1> 
-
-      <% if game["clip"] != nil %>
-        <% if game.is_a?(Hash) %>
-          <%= video_tag game["clip"]["clip"], poster: game["background_image"], muted: true, class: "card__video" %>
-        <% else %>
-          <%= video_tag game.clip, poster: game["background_image"], muted: true, class: "card__video" %>
-        <% end %>
-      <% else %>
-        <%= image_tag "#{game["background_image"]}", class: "card__image" %>
-      <% end %>
-
-      <% if game["platforms"].present? %>
-        <% game["platforms"].each do |platform| %>
-          <span><%= game.is_a?(Hash) ? platform["platform"]["name"] : platform %></span>
-        <% end %>
-      <% end %>
-      <p><%= game["released"] %></p>
-      
-      <div class="card__btn-wrapper">
-        <%= button_to "Show more", game_path(game["slug"]), method: :get, class: "card__btn btn btn--small" %>
-        <%= button_to "Games like this", discover_path(game["slug"]), method: :get, class: "card__btn btn btn--small" %>
-        
-        <% if game.is_a?(Game) && game.was_added?(user, game) && user == current_user %>
-          <%= form_with url: user_game_path(UserGame.find_game(user, game)), 
-            id: "#{game["slug"]}-game-status", method: :patch, local: true do |f| %>
-            <%= f.select "status", 
-              options_for_select(game_statuses, game.current_status(user)), {}, onchange: "this.form.submit()", id: "#{game["slug"]}-status" %>
-              <%= f.select "platform",
-              options_for_select(game.platforms, game.current_platform(user)), {}, onchange: "this.form.submit()", id: "#{game["slug"]}-platform" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <% games.each do |game| %>
+      <div class="card col-lg-3 col-md-5 col-sm-12 mx-4 my-5 p-0" id="<%= game["slug"] %>">
+        <% if game["clip"] != nil %>
+          <% if game.is_a?(Hash) %>
+            <%= video_tag game["clip"]["clip"], poster: game["background_image"], muted: true, class: "card-img-top" %>
+          <% else %>
+            <%= video_tag game.clip, poster: game["background_image"], muted: true, class: "card-img-top" %>
           <% end %>
-          <%= button_to "Remove from library", user_game_path(game["id"]), method: :delete, 
-            data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "card__btn btn btn--small" %>
         <% else %>
-          <%= button_to "Add to library", games_path(game: { slug: game["slug"] }), 
-            class: "card__btn btn btn--small" %>        
+          <%= image_tag "#{game["background_image"]}", class: "card-img-top" %>
         <% end %>
-      </div>
-    </div> <!--/Card-->
-  <% end %>
+
+       <div class="card-body d-flex flex-column justify-content-between p-0">
+          <div class="text-center p-3">
+            <h1><%= link_to game["name"], game_path(game["slug"]), class: "card-title text--green card__heading" %></h1> 
+          </div>
+
+          <div class="card__btn-wrapper">
+            <%= link_to "Show more", game_path(game["slug"]), method: :get, class: "btn--green btn" %>
+            <%= link_to "Games like this", discover_path(game["slug"]), method: :get, class: "btn--yellow my-3 btn" %>
+            
+            <% if game.is_a?(Game) && game.was_added?(user, game) && user == current_user %>
+              <%= form_with url: user_game_path(UserGame.find_game(user, game)), class: "form-inline d-flex flex-column",
+                id: "#{game["slug"]}-game-status", method: :patch, local: true do |f| %>
+                <%= f.label :status, "Gaming status", class: "my-3 font-weight-bold text--blue text--default-size" %>
+                <%= f.select "status", options_for_select(game_statuses, game.current_status(user)), {}, 
+                onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{game["slug"]}-status" %>
+                <%= f.label :platform, class: "my-3 font-weight-bold text--blue text--default-size" %>
+                <%= f.select "platform", options_for_select(game.platforms, game.current_platform(user)), {}, 
+                  onchange: "this.form.submit()", class: "mb-4 custom-select custom-select-lg w-100", id: "#{game["slug"]}-platform" %>
+              <% end %>
+              <%= link_to "Remove from library", user_game_path(game["id"]), method: :delete, 
+                data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "btn--red btn mt-5" %>
+            <% else %>
+              <%= link_to "Add to library", games_path(game: { slug: game["slug"] }), method: :post, class: "btn btn--blue" %>        
+            <% end %>
+          </div>
+
+          <div class="mt-5 card__info">
+            <div class="d-flex align-items-center px-3">
+              <%= fa_icon "gamepad", class: "card__icon mr-3" %>
+              <% if game["platforms"].present? %>
+                <% game["platforms"].first(2).each do |platform| %>
+                  <% if game.is_a?(Hash) %>
+                      <span class="d-inline-block mr-3 font-weight-bold"><%= platform["platform"]["name"] %></span>
+                  <% else %>
+                    <span class="d-inline-block mr-3 font-weight-bold"><%= platform %></span>
+                  <% end %>
+                <% end %>
+                <% if game["platforms"].length > 2 %>
+                  <span class="d-inline-block">+<%= game["platforms"].length - 2 %></span>
+                <% end %>
+              <% end %> <br />
+            </div>
+            
+            <div class="d-flex align-items-center mt-3 mb-5 px-4">
+              <%= fa_icon "chess-knight", class: "card__icon mr-4" %>
+              <% if game["genres"].present? %>
+                <% game["genres"].first(2).each do |genre| %>
+                  <span class="d-inline-block mr-3 font-weight-bold"><%= genre["name"] %></span>
+                <% end %>
+                <% if game["genres"].length > 2 %>
+                  <span class="d-inline-block">+<%= game["genres"].length - 2 %></span>
+                <% end %>
+              <% end %>
+            </div>
+
+            <% if game["released"].present? %>
+              <div class="bg-light p-3 d-flex">
+                <p class="mr-3 font-weight-bolder text--red">Released</p>
+                <span><%= date_formatter(game["released"]) %></span>
+              </div>
+            <% end %>
+          </div>
+       </div>
+      </div> <!--/Card-->
+    <% end %>
+  </div>
 </div>

@@ -19,13 +19,7 @@ class GamesController < ApplicationController
   def show 
     begin
       set_related_content(@game)
-
       @comments = @game.comments if @game.is_a?(Game) # Only set the comments for games in the database
-
-      @users_who_beat_game    = User.same_game_status(@game, "Beat", current_user)
-
-      @users_who_are_playing  = User.same_game_status(@game, "Playing", current_user)
-      
     rescue TypeError
       flash[:alert] = "Sorry, that game does not exist in our database!"
       redirect_to games_path
@@ -73,6 +67,10 @@ class GamesController < ApplicationController
 
       series_games = RawgAPI.get_game_content(game.slug, "game-series")
       @series_games = Game.find_in_db(series_games)
+
+      @users_who_beat_game    = User.same_game_status(game, "Beat", current_user)
+
+      @users_who_are_playing  = User.same_game_status(game, "Playing", current_user)
     end
     
 end

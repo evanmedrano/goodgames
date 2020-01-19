@@ -1,48 +1,50 @@
 .card {
-  background-color: lightblue;
-  position: relative;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 1;
+  border: none !important;
+  border-bottom: 4px solid $yellow !important;
+  border-radius: 0 !important;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,0.5);
+  transition: all .2s;
+  @media only screen and (min-width: 700px) {
+    &:hover {
+      border-bottom: 4px solid $blue !important;
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
+      transform: scale(1.1);
+      z-index: 10;
+    }
   }
 
-  // &:hover &__btn-wrapper {
-  //   display: block;
-  // }
-
-  &__btn-wrapper {
-    //display: none;
-    left: 50%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &__image, &__video {
-    display: block;
-    width: 100%;
-  }
-
-  &__video[poster] {
+  &-img-top[poster] {
     object-fit: cover;
     object-position: top;
   }
 
-  &__container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    max-width: 114rem;
-    margin: 0 auto;
+  &__heading {
+    &:hover {
+      color: $red;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
-  &__container:hover & {
-    opacity: .5;
+  &__info {
+    font-size: 1.3rem;
+  }
+  &:hover &__info {
+    display: none;
   }
 
-  &__container &:hover {
-    opacity: 1;
+  &__icon {
+    color: $blue;
+    font-size: 2rem;
+  }
+
+  &__btn-wrapper {
+    display: none;
+  }
+  &:hover &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
   }
 }

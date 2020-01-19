@@ -2,11 +2,10 @@ class UserGame < ApplicationRecord
   belongs_to :user
   belongs_to :game
 
-  validates :user, uniqueness: { scope: :game, message: "already added this game to your library!" }
+  validates :user, uniqueness: { scope: :game_id }
 
   validates :status, presence: true, 
-                   inclusion: { in: %w{ Currently\ own Owned Beat Playing Wishlist },
-                     message: "%{value} is not a valid status" }
+                   inclusion: { in: %w{ Currently\ own Owned Beat Playing Wishlist } }
   
   default_scope { order(created_at: :desc) }
 
@@ -21,7 +20,7 @@ class UserGame < ApplicationRecord
   private
 
     def add_platform
-      write_attribute(:platform, game.platforms.first)
+      write_attribute(:platform, game.platforms.first) 
     end
   
 end

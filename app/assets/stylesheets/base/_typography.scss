@@ -15,7 +15,7 @@
   }
 }
 
-.color {
+.text {
 
   &--green {
     color: $green;
@@ -39,5 +39,9 @@
 
   &--logo-right {
     color: $logo-right;
+  }
+
+  &--default-size {
+    font-size: 1.4rem;
   }
 }

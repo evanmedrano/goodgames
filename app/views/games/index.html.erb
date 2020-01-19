@@ -1,9 +1,13 @@
-<h1>Search for a game!</h1>
-
-<%= form_tag games_path, method: :get, id: "game-search" do %>
-  <%= label_tag :query, "Enter game name" %>
-  <%= text_field_tag :query, nil, placeholder: "Search 347,170 games!" %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
- 
-<%= render 'games', games: @games, user: current_user %>
+<div class="container mt-5">
+  <h1 class="text-center heading heading--large">
+    <span class="text--red">G</span>ather your <span class="text--blue">G</span>ames!
+  </h1>
+  
+  <div class="d-flex justify-content-center mt-5 mb-4">
+    <%= form_tag games_path, method: :get, class: "form-inline my-2 my-lg-0", id: "game-search" do %>
+      <%= text_field_tag :query, nil, class: "form-control", placeholder: "Search 347,170 games!" %>
+    <% end %>
+  </div>
+   
+  <%= render 'games', games: @games, user: current_user %>
+</div>
