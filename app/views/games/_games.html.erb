@@ -34,7 +34,7 @@
                 <%= f.select "status", options_for_select(game_statuses, game.current_status(user)), {}, 
                 onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{game["slug"]}-status" %>
                 <%= f.label :platform, class: "my-3 font-weight-bold text--blue text--default-size" %>
-                <%= f.select "platform", options_for_select(game.platforms, game.current_platform(user)), {}, 
+                <%= f.select "platform", options_for_select(game.platform_names, game.current_platform(user)), {}, 
                   onchange: "this.form.submit()", class: "mb-4 custom-select custom-select-lg w-100", id: "#{game["slug"]}-platform" %>
               <% end %>
               <%= link_to "Remove from library", user_game_path(game["id"]), method: :delete, 
@@ -50,11 +50,7 @@
               <%= fa_icon "gamepad", class: "card__icon mr-3" %>
               <% if game["platforms"].present? %>
                 <% game["platforms"].first(2).each do |platform| %>
-                  <% if game.is_a?(Hash) %>
-                      <span class="d-inline-block mr-3 font-weight-bold"><%= platform["platform"]["name"] %></span>
-                  <% else %>
-                    <span class="d-inline-block mr-3 font-weight-bold"><%= platform %></span>
-                  <% end %>
+                  <span class="d-inline-block mr-3 font-weight-bold"><%= platform_info(platform, "name") %></span>
                 <% end %>
                 <% if game["platforms"].length > 2 %>
                   <span class="d-inline-block">+<%= game["platforms"].length - 2 %></span>

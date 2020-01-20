@@ -30,7 +30,7 @@ class RawgAPI
       @website          = response["website"]
       @clip             = response.dig("clip", "clips", "640")
       @esrb_rating      = response.dig("esrb_rating", "name")
-      @platforms        = get_names(response["platforms"])
+      @platforms        = response["platforms"]
       @genres           = get_names(response["genres"])
     else
       @image_background = response["image_background"]
@@ -85,7 +85,7 @@ class RawgAPI
 
     # Returns the names for each platform or genre within array
     def get_names(attribute)
-      attribute.first.include?("platform") ? attribute.map { |a| a["platform"]["name"] } : attribute.map { |a| a["name"] }
+      attribute.map { |a| a["name"] }
     end
 
     def self.collection_query(response)

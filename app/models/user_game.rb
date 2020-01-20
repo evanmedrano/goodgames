@@ -11,7 +11,7 @@ class UserGame < ApplicationRecord
 
   delegate :name, to: :game, prefix: true
 
-  before_create :add_platform
+  before_create :add_platform # Sets the first platform from game platforms array
 
   def self.find_game(user, game)
     joins(:user, :game).where(user: user, game: game).ids
@@ -20,7 +20,8 @@ class UserGame < ApplicationRecord
   private
 
     def add_platform
-      write_attribute(:platform, game.platforms.first) 
+      platform = game.platforms.first.dig("platform", "name")
+      write_attribute(:platform, platform) 
     end
   
 end

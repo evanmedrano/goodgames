@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
 
   validates :user, :game, :title, :body, presence: true 
 
-  delegate :name, to: :user, prefix: true
+  delegate :first_name, to: :user, prefix: true
 end

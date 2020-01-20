@@ -25,6 +25,10 @@ module ApplicationHelper
     slug
   end
 
+  def platform_info(platform, info)
+    platform.dig("platform", info)
+  end
+
   def date_formatter(date)
     Date.parse(date).strftime("%m-%d-%Y")
   end

@@ -1,89 +1,127 @@
 <body style="background: url(<%= @game.background_image %>) no-repeat; ">
-  <div class="container mt-2">
+  <div class="container mt-5">
     <div class="row align-items-end">
-      <div class="col-7">
+      <div class="col-lg-7 col-md-12" id="<%= @game.slug %>">
         <h1 class="heading heading--large text--blue"><%= @game.name %></h1>
-        <p class="game__details">Released <span class="text--blue"><%= date_formatter(@game.released) %></span></p>
+        <% if @game.released.present? %>
+          <p class="game__details">Released <span class="text--blue"><%= date_formatter(@game.released) %></span></p>
+        <% end %>
+        <!-- GAME VIDEO -->
         <% if @game.clip != nil %>
-          <%= video_tag @game.clip, controls: true, muted: true, autoplay: :autoplay, loop: :loop, class: "mb-3"  %>
+          <%= video_tag @game.clip, controls: true, muted: true, autoplay: :autoplay, loop: :loop, class: "w-100" %>
         <% end %>
-        <% if @game.is_a?(Game) && @game.was_added?(current_user, @game) %>
-          <%= form_with url: user_game_path(UserGame.find_game(current_user, @game)), class: "form-inline d-flex flex-column",
-            id: "#{@game.slug}-game-status", method: :patch, local: true do |f| %>
-            <%= f.label :status, "Gaming status", class: "my-3 font-weight-bold text--blue text--default-size" %>
-            <%= f.select "status", options_for_select(game_statuses, @game.current_status(current_user)), {}, 
-            onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{@game.slug}-status" %>
-            <%= f.label :platform, class: "my-3 font-weight-bold text--blue text--default-size" %>
-            <%= f.select "platform", options_for_select(@game.platforms, @game.current_platform(current_user)), {}, 
-              onchange: "this.form.submit()", class: "mb-4 custom-select custom-select-lg w-100", id: "#{@game.slug}-platform" %>
-          <% end %>
-          <%= link_to "Remove from library", user_game_path(@game["id"]), method: :delete, 
-            data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "btn--red btn-block btn" %>
-        <% else %>
-          <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block" %>        
-        <% end %>
-        <%= link_to "Games like this", discover_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
       </div>
 
-      <div class="col-5">
-        <div class="">
+      <div class="col-lg-5 col-md-12">
+        <!-- PLATFORMS/GENRES/SCREENSHOTS -->
+        <div class="py-3 text-center">
           <% if @game.platforms.present? %>
             <% @game.platforms.each do |platform| %>
-              <%= link_to platform, platform_path(convert_to_slug(platform)), class: "game__details" %>
+              <%= link_to platform_info(platform, "name"), platform_path(platform_info(platform, "slug")), class: "btn btn--green" %>
             <% end %>
-          <% end %>
-          <% @game.genres.each do |genre| %>
-            <%= link_to genre, genre_path(genre), class: "game__details" %>
           <% end %>
         </div>
-        <% @game_screenshots.each do |screenshot| %>
-          <%= image_tag screenshot["image"], class: "game__screenshot" %>
-        <% end %>
+         <div class="py-3 text-center">
+            <% @game.genres.each do |genre| %>
+              <%= link_to genre, genre_path(genre), class: "btn btn--red" %>
+            <% end %>
+         </div>
+        
+        <div class="d-none d-lg-block">
+          <% @game_screenshots.each do |screenshot| %>
+            <%= image_tag screenshot["image"], alt: "Screenshot of #{@game.name}", class: "game__screenshot" %>
+          <% end %>
+        </div>
       </div>
-    </div>
-                  
+    </div> <!-- /ROW -->
+
+    <div class="row mt-10 px-5 align-items-start">
+      <div class="col-lg-7 pr-5 mt-10">
+        <!-- GAME LIBRARY BUTTONS -->
+        <div class="game__form">
+          <% if @game.is_a?(Game) && @game.was_added?(current_user, @game) %>
+            <%= form_with url: user_game_path(UserGame.find_game(current_user, @game)), class: "form-inline d-flex flex-column",
+              id: "#{@game.slug}-game-status", method: :patch, local: true do |f| %>
+              <%= f.label :status, "Gaming status", class: "my-3 font-weight-bold text--green text--default-size" %>
+              <%= f.select "status", options_for_select(game_statuses, @game.current_status(current_user)), {}, 
+              onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{@game.slug}-status" %>
+              <%= f.label :platform, class: "my-3 font-weight-bold text--green text--default-size" %>
+              <%= f.select "platform", options_for_select(@game.platform_names, @game.current_platform(current_user)), {}, 
+                onchange: "this.form.submit()", class: "mb-5 custom-select custom-select-lg w-100", id: "#{@game.slug}-platform" %>
+            <% end %>
+            <%= link_to "Remove from library", user_game_path(@game["id"]), method: :delete, 
+              data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "btn--red btn-block btn mt-3" %>
+          <% else %>
+            <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block mt-3" %>        
+          <% end %>
+          
+          <%= link_to "Games like this", discover_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
+        </div>
+      </div>
+
+      <!-- COMMENTS -->
+      <div class="col-lg-5 mt-10">
         <!-- Only show comments for games that are persisted in the database -->
         <% if @game.is_a?(Game) %>
-          <h2>Comments</h2>
-          <% @comments.each do |comment| %>
-            <h3><%= comment.title %></h3>
-            <p><%= comment.body %></p>
-            <p>- <%= comment.user_name %></p>
-            <% if comment.user == current_user %>
-              <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id) %>
-              <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          <h2 class="heading heading--big text--green text-center"><u>Comments</u></h2>
+          <% @comments.first(3).each do |comment| %>
+            <div class="comment__box">
+              <h3 class="comment comment__title"><%= comment.title %></h3>
+              <p class="comment comment__body"><%= comment.body %></p>
+              <div class="d-flex align-items-center position-relative">
+                <span class="comment comment__user mr-3">-<%= comment.user_first_name %></span>
+                <%= link_to games_user_path(comment.user), class: "comment comment__profile" do %>
+                  check out <%= comment.user_first_name %>'s game library &raquo; 
+                <% end %>
+              </div>
+              <div class="text-right mt-5">
+                <% if comment.user == current_user %>
+                  <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id), class: "comment comment__edit" %>
+                  <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" }, 
+                    class: "comment comment__delete ml-2" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="text-center">
+            <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn--green" %>
+            <% if @comments.any? %>
+              <%= link_to "All comments", game_comments_path(@game), class: "btn btn--yellow" %>
             <% end %>
-          <% end %>
-          <%= link_to "Add a comment", new_game_comment_path(@game) %>
-          <%= link_to "All comments", game_comments_path(@game) %>
+          </div>
         <% end %>
-  
-      <div class="col-6 bg-danger">
+      </div>
+    </div> <!-- /ROW -->
+
+    <div class="row mt-10">
+      <div class="col-6">
         <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
-          <h1>Users who have beat <%= @game.name %> </h1>
+          <h2 class="heading heading--big text--blue">Users who have beat <%= @game.name %> </h2>
           <% @users_who_beat_game.each do |user| %>
-            <h2><%= link_to user.name, games_user_path(user) %></h2>
-          <% end %>
-        <% end %>
-        
-        <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
-          <h1>Users who are playing <%= @game.name %></h1>
-          <% @users_who_are_playing.each do |user| %>
-            <h2><%= link_to user.name, games_user_path(user) %></h2>
+            <h2 class="heading heading--big text--blue"><%= link_to user.name, games_user_path(user) %></h2>
           <% end %>
         <% end %>
       </div>
-    </div>
-  
-    <div class="row justify-content-center">
-      <h1>Also from the same series as <%= @game.name %></h1>
-      <%= render 'games', games: @series_games, user: current_user %>
+      <div class="col-6">
+        <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
+          <h2 class="heading heading--big text--blue">Users who are playing <%= @game.name %></h2>
+          <% @users_who_are_playing.each do |user| %>
+            <h2 class="heading heading--big text--blue"><%= link_to user.name, games_user_path(user) %></h2>
+          <% end %>
+        <% end %>
+      </div>
+    </div> <!-- /ROW -->
+
+    <!-- SIMILAR GAMES -->   
+    <div class="row justify-content-center mt-10 px-5">
+      <% if @series_games.any? %>
+        <h2 class="heading heading--big text--blue"><u>Also from the same series as <%= @game.name %></u></h2>
+        <%= render 'games', games: @series_games, user: current_user %>
+      <% end %>
       
-      <h1>Similar games</h1>
+      <h2 class="heading heading--big text--blue"><u>Similar games</u></h2>
       <%= render 'games', games: @similar_games.first(6), user: current_user %>
-    </div>
+    </div> <!-- /ROW -->
         
-  </div>
-  
-  
+  </div> <!-- /CONTAINER -->
 </body>

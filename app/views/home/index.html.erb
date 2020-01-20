@@ -47,7 +47,7 @@
         <% @games.each_with_index do |game, i| %>
           <div class="card game-<%= i %>">
             <h2 class="card__title"><%= game.name %></h2>
-            <%= image_tag game.background_image, class: "card__image" %>
+            <%#= image_tag game.background_image, class: "card__image" %>
             <%= link_to "See more", game_path(game), class: "btn btn--yellow" %>
           </div> 
         <% end %>

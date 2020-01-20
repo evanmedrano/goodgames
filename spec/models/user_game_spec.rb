@@ -31,7 +31,8 @@ RSpec.describe UserGame, type: :model do
     end
 
     it "automatically sets the user_game platform equal to the added game's first platform" do
-      expect(user_game.platform).to eq user_game.game.platforms.first
+      game_first_platform = user_game.game.platforms.first.dig("platform", "name")
+      expect(user_game.platform).to eq game_first_platform
     end
   end
   

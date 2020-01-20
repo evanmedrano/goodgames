@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def show 
+  def show
     begin
       set_related_content(@game)
       @comments = @game.comments if @game.is_a?(Game) # Only set the comments for games in the database

@@ -7,6 +7,7 @@ class Game < ApplicationRecord
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
 
+
   # Checks to see if a game is in the db, if not then we use the JSON data from the api call
   def self.find_in_db(games)
     games_in_db = Game.all.pluck(:name)
@@ -23,6 +24,10 @@ class Game < ApplicationRecord
     user_games.find_by(user: user).status
   end
 
+  def platform_names
+    platforms.map { |platform| platform.dig("platform", "name") }
+  end
+
   def current_platform(user)
     user_games.find_by(user: user).platform
   end
@@ -31,5 +36,5 @@ class Game < ApplicationRecord
     games = Game.joins(:user_games).where(user_games: {user: user }).pluck(:name)
     games.include?(game.name) 
   end
-
+ 
 end
