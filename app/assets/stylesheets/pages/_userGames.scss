@@ -1,0 +1,32 @@
+.status {
+  &__list {
+    display: flex;
+    font-size: 1.8rem;
+    list-style: none;
+    justify-content: center;
+    margin: 2rem 0 4rem 0;
+
+    @media only screen and (max-width: 800px) {
+      display: grid;
+      margin: 2rem 0 0 0;
+      text-align: center;
+    }
+  }
+
+  &__list-item {
+    &:not(:last-child) {
+      margin-right: 2rem;
+
+      @media only screen and (max-width: 800px) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__list-link {
+    color: $blue;
+    &:hover {
+      color: $red;
+    }
+  }
+}

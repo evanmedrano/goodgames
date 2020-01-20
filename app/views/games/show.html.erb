@@ -1,62 +1,89 @@
-<h1><%= @game.name %></h1> 
-<%#= image_tag @game.background_image, class: "card__image" %>
+<body style="background: url(<%= @game.background_image %>) no-repeat; ">
+  <div class="container mt-2">
+    <div class="row align-items-end">
+      <div class="col-7">
+        <h1 class="heading heading--large text--blue"><%= @game.name %></h1>
+        <p class="game__details">Released <span class="text--blue"><%= date_formatter(@game.released) %></span></p>
+        <% if @game.clip != nil %>
+          <%= video_tag @game.clip, controls: true, muted: true, autoplay: :autoplay, loop: :loop, class: "mb-3"  %>
+        <% end %>
+        <% if @game.is_a?(Game) && @game.was_added?(current_user, @game) %>
+          <%= form_with url: user_game_path(UserGame.find_game(current_user, @game)), class: "form-inline d-flex flex-column",
+            id: "#{@game.slug}-game-status", method: :patch, local: true do |f| %>
+            <%= f.label :status, "Gaming status", class: "my-3 font-weight-bold text--blue text--default-size" %>
+            <%= f.select "status", options_for_select(game_statuses, @game.current_status(current_user)), {}, 
+            onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{@game.slug}-status" %>
+            <%= f.label :platform, class: "my-3 font-weight-bold text--blue text--default-size" %>
+            <%= f.select "platform", options_for_select(@game.platforms, @game.current_platform(current_user)), {}, 
+              onchange: "this.form.submit()", class: "mb-4 custom-select custom-select-lg w-100", id: "#{@game.slug}-platform" %>
+          <% end %>
+          <%= link_to "Remove from library", user_game_path(@game["id"]), method: :delete, 
+            data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "btn--red btn-block btn" %>
+        <% else %>
+          <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block" %>        
+        <% end %>
+        <%= link_to "Games like this", discover_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
+      </div>
 
-<!-- Only show comments for games that are persisted in the database -->
-<% if @game.is_a?(Game) %>
-  <h2>Comments</h2>
-  <% @comments.each do |comment| %>
-    <h3><%= comment.title %></h3>
-    <p><%= comment.body %></p>
-    <p>- <%= comment.user_name %></p>
-    <% if comment.user == current_user %>
-      <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id) %>
-      <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
-  <% end %>
-  <%= link_to "Add a comment", new_game_comment_path(@game) %>
-  <%= link_to "All comments", game_comments_path(@game) %>
-<% end %>
-
-<% if @game.platforms.present? %>
-  <% @game.platforms.each do |platform| %>
-    <%= link_to platform, platform_path(convert_to_slug(platform)) %>
-  <% end %>
-<% end %>
-
-<p><%= @game.released %></p>
-
-<h1>Genres</h1>
-<%# @game.genres.each do |genre| %>
-  <%#= link_to genre, genre_path(genre) %>
-<%# end %>
-
-<h1>Screenshots</h1>
-<% @game_screenshots.each do |screenshot| %>
-  <%= image_tag "#{screenshot["image"]}" %>
-<% end %>
-<% if !user_signed_in? || (user_signed_in? && !current_user.added_game?(@game)) %>
-  <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post %>
-<% else %>
-  <%= link_to "Remove from library", user_game_path(@game), method: :delete, 
-    data: { confirm: 'Are you sure you want to remove this game from your library?'} %>
-<% end %>
-
-<h1>Also from the same series as <%= @game.name %></h1>
-<%= render 'games', games: @series_games, user: current_user %>
-
-<h1>Similar games</h1>
-<%= render 'games', games: @similar_games, user: current_user %>
-
-<% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
-  <h1>Users who have beat <%= @game.name %> </h1>
-  <% @users_who_beat_game.each do |user| %>
-    <h2><%= link_to user.name, games_user_path(user) %></h2>
-  <% end %>
-<% end %>
-
-<% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
-  <h1>Users who are playing <%= @game.name %></h1>
-  <% @users_who_are_playing.each do |user| %>
-    <h2><%= link_to user.name, games_user_path(user) %></h2>
-  <% end %>
-<% end %>
+      <div class="col-5">
+        <div class="">
+          <% if @game.platforms.present? %>
+            <% @game.platforms.each do |platform| %>
+              <%= link_to platform, platform_path(convert_to_slug(platform)), class: "game__details" %>
+            <% end %>
+          <% end %>
+          <% @game.genres.each do |genre| %>
+            <%= link_to genre, genre_path(genre), class: "game__details" %>
+          <% end %>
+        </div>
+        <% @game_screenshots.each do |screenshot| %>
+          <%= image_tag screenshot["image"], class: "game__screenshot" %>
+        <% end %>
+      </div>
+    </div>
+                  
+        <!-- Only show comments for games that are persisted in the database -->
+        <% if @game.is_a?(Game) %>
+          <h2>Comments</h2>
+          <% @comments.each do |comment| %>
+            <h3><%= comment.title %></h3>
+            <p><%= comment.body %></p>
+            <p>- <%= comment.user_name %></p>
+            <% if comment.user == current_user %>
+              <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id) %>
+              <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          <% end %>
+          <%= link_to "Add a comment", new_game_comment_path(@game) %>
+          <%= link_to "All comments", game_comments_path(@game) %>
+        <% end %>
+  
+      <div class="col-6 bg-danger">
+        <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
+          <h1>Users who have beat <%= @game.name %> </h1>
+          <% @users_who_beat_game.each do |user| %>
+            <h2><%= link_to user.name, games_user_path(user) %></h2>
+          <% end %>
+        <% end %>
+        
+        <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
+          <h1>Users who are playing <%= @game.name %></h1>
+          <% @users_who_are_playing.each do |user| %>
+            <h2><%= link_to user.name, games_user_path(user) %></h2>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  
+    <div class="row justify-content-center">
+      <h1>Also from the same series as <%= @game.name %></h1>
+      <%= render 'games', games: @series_games, user: current_user %>
+      
+      <h1>Similar games</h1>
+      <%= render 'games', games: @similar_games.first(6), user: current_user %>
+    </div>
+        
+  </div>
+  
+  
+</body>

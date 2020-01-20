@@ -13,6 +13,10 @@
   &--large {
     font-size: 5.5rem;
   }
+
+  &--big {
+    font-size: 4rem;
+  }
 }
 
 .text {
@@ -43,5 +47,35 @@
 
   &--default-size {
     font-size: 1.4rem;
+  }
+}
+
+.link {
+  &--green {
+    color: $green;
+     &:hover {
+      color: $yellow;
+    }
+  }
+
+  &--yellow {
+    color: $yellow;
+     &:hover {
+      color: $blue;
+    }
+  }
+
+  &--red {
+    color: $red;
+    &:hover {
+      color: $green;
+    }
+  }
+
+  &--blue {
+    color: $blue;
+     &:hover {
+      color: $red;
+    }
   }
 }

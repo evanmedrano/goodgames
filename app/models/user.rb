@@ -18,4 +18,8 @@ class User < ApplicationRecord
     self.games.include?(game)
   end
 
+  def first_name
+    name.split[0]
+  end
+
 end

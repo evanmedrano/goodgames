@@ -5,7 +5,11 @@
     <h2 class="hero__text text-white">All the games you <span class="text--red">love</span> in one place</h2>
     <div class="btn__wrapper mt-5">
       <%= link_to "Build your library", games_path, class: "btn btn--green mr-3" %>
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn--blue" %>
+      <% if user_signed_in? %>
+        <%= link_to "My games", games_user_path(current_user), class: "btn btn--blue" %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn--blue" %>
+      <% end %>
     </div>
   </div>
 </section>
