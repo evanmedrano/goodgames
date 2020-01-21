@@ -1,10 +1,18 @@
-<h1>Search genres!</h1>
-<div class="card__container">
-  <% @genres.each do |genre| %> 
-    <div class="card" id="<%= genre["slug"] %>">
-      <h2><%= genre["name"] %></h2>
-      <%= image_tag genre["image_background"], class: "card__image"%>
-      <%= button_to "Show more", genre_path(genre["slug"]), method: :get, class: "card__btn btn btn--small" %>
-    </div>
-  <% end %>
+<div class="container p-0 mt-5">
+  <h1 class="text-center heading heading--large">
+    <u><span class="text--red">G</span>ather your <span class="text--blue">G</span>enres!</u>
+  </h1>
+  <div class="row justify-content-center">
+    <% @genres.each do |genre| %> 
+      <div class="card mx-4 my-5 p-0 col-lg-3 col-md-5 col-sm-12" id="<%= genre["slug"] %>">
+        <%= image_tag genre["image_background"], class: "w-100"%>
+        <div class="card-body d-flex flex-column justify-content-between p-0">
+          <h2 class="text-center heading heading--normal p-2">
+            <%= link_to genre["name"], genre_path(genre["slug"]), class: "link--blue" %>
+          </h2>
+          <%= link_to "Show more", genre_path(genre["slug"]), class: "btn btn--yellow" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

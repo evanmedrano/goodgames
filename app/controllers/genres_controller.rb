@@ -11,6 +11,8 @@ class GenresController < ApplicationController
 
       games = RawgAPI.search_all_games(@genre.slug, "genres")
       @games = Game.find_in_db(games)
+
+      @game_genre_count = Game.filter_by_genre(@genre.name, current_user).size
     rescue TypeError
       flash[:alert] = "Sorry, that genre does not exist in the database"
       redirect_to genres_path

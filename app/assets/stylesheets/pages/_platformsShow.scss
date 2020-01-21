@@ -1,0 +1,18 @@
+body.platforms.show {
+  background-size: 100% auto !important; 
+  background-color: rgba(255,255,255,0.7) !important;
+  background-blend-mode: lighten !important;
+}
+
+.platform {
+
+  &__description {
+    background-color: rgba(255,255,255,.7);
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.8;
+    margin-top: 3rem;
+    padding: 3rem;
+  }
+}
