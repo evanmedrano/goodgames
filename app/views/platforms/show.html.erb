@@ -1,15 +1,21 @@
 <body style="background: url(<%= @platform.image_background %>) no-repeat;">
   <div class="container p-5">
-     <div class="d-flex justify-content-between align-items-end px-5">
+    <div class="d-sm-flex flex-md-row-reverse flex-sm-column justify-content-sm-between align-items-md-baseline text-md-left text-right px-5">
+      <h1 class="heading heading--large ml-5 text-right"><u><%= @platform.name %></u></h1>
       <% if user_signed_in? %>
-        <h2>You have 0 <%= @platform.name %> games, add some to your library!</h2>
+        <h2>
+          You currently have 
+          <%= link_to games_user_path(current_user), class: "platform__game-count" do %>
+            <%= pluralize(current_user.games.count, "#{@platform.name} game") %>
+          <% end %>
+          in your gaming library
+        </h2>
       <% end %>
-      <h1 class="heading heading--large text-right"><u><%= @platform.name %></u></h1>
-   </div>
-    <div class="platform__description">
+    </div>
+    <div class="platform__description d-none d-sm-block">
       <%= @platform.description.html_safe %>
     </div>
+  
+    <%= render 'games/games', games: @games, user: current_user %>
   </div>
-
-  <%= render 'games/games', games: @games, user: current_user %>
 </body>

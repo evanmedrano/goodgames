@@ -68,9 +68,9 @@ class GamesController < ApplicationController
       series_games = RawgAPI.get_game_content(game.slug, "game-series")
       @series_games = Game.find_in_db(series_games)
 
-      @users_who_beat_game    = User.same_game_status(game, "Beat", current_user)
+      @users_who_beat_game    = User.same_game_status(game, "Beat", current_user).first(5)
 
-      @users_who_are_playing  = User.same_game_status(game, "Playing", current_user)
+      @users_who_are_playing  = User.same_game_status(game, "Playing", current_user).first(5)
     end
     
 end

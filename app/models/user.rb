@@ -10,6 +10,8 @@ class User < ApplicationRecord
            
   validates :name, presence: true
 
+  scope :filter_user_game_genre, -> (genre) { joins(:games).merge(Game.filter_by_genre(genre)) }
+
   def self.same_game_status(game, status, user)
     joins(:user_games).where(user_games: { game: game, status: status }).reject { |u| u == user }
   end
@@ -20,6 +22,10 @@ class User < ApplicationRecord
 
   def first_name
     name.split[0]
+  end
+
+  def game_genre_count(genre)
+    self.class.filter_user_game_genre(genre).where(id: id).count
   end
 
 end

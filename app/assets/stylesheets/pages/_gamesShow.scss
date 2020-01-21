@@ -11,27 +11,49 @@ body.games.show {
       color: $red !important;
     }
   }
+}
 
-  .game {
+.game {
     
-    &__details {
-      color: #000;
-      font-size: 1.8rem;
-    }
+  &__details {
+    color: #000;
+    font-size: 1.8rem;
+  }
 
-    &__screenshot {
-      margin: 1.5rem 1rem .4rem 0;
-      width: 45%;
-    }
+  &__screenshot {
+    flex: 1 1 0;
+    margin-top: 3rem;
+    transition: all .3s;
+    width: 0;
 
-    &__form {
-      background-color: #fff;
-      box-shadow: 0 .5rem 1rem rgba(0,0,0,.4);
-      padding: 3rem;
+    &:not(:first-child) {
+      margin-left: 1rem;
     }
+  }
 
-    &__comment-link {
-      
-    }
+  &__screenshot-box:hover &__screenshot {
+    opacity: .5;
+  }
+
+  &__screenshot-box &__screenshot:hover {
+    opacity: 1;
+    transform: scale(1.75);
+    z-index: 10;
+  }
+
+  &__form {
+    background-color: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.4);
+    padding: 3rem;
+  }
+
+  &__comment-link {
+    
+  }
+
+  &__gamer-statuses {
+    background-color: rgba(255,255,255,.4);
+    border-radius: 3rem;
+    padding: 2rem 2rem 2rem 0;
   }
 }

@@ -2,9 +2,14 @@
   <div class="container mt-5">
     <div class="row align-items-end">
       <div class="col-lg-7 col-md-12" id="<%= @game.slug %>">
-        <h1 class="heading heading--large text--blue"><%= @game.name %></h1>
+        <h1 class="heading heading--large text--blue text-lg-left text-right">
+          <%= @game.name %>
+        </h1>
         <% if @game.released.present? %>
-          <p class="game__details">Released <span class="text--blue"><%= date_formatter(@game.released) %></span></p>
+          <p class="game__details text-lg-left text-right">
+            Released:
+            <span class="text--blue font-weight-bold"><%= date_formatter(@game.released) %></span>
+          </p>
         <% end %>
         <!-- GAME VIDEO -->
         <% if @game.clip != nil %>
@@ -13,30 +18,69 @@
       </div>
 
       <div class="col-lg-5 col-md-12">
+        <!-- OTHER USERS GAME STATUS -->
+        <div class="text-right game__gamer-statuses">
+          <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
+            <h2 class="heading heading--normal text--blue mb-3">
+              Gamers <u>playing</u> 
+              <span class="text--red mt-3"><%= @game.name %></span>
+            </h2>
+            <% @users_who_are_playing.each do |user| %>
+              <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
+            <% end %>
+          <% else %>
+            <h2 class="heading mb-3">
+              There are no other gamers currently playing
+              <p class="text--red mt-3"><%= @game.name %></p>
+            </h2>
+          <% end %>
+        </div>
+        
+        <div class="text-right game__gamer-statuses my-3">
+          <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
+            <h2 class="heading heading--normal text--blue mb-3">
+              Gamers who <u>beat</u>
+              <span class="text--red mt-3"><%= @game.name %></span>
+            </h2>
+            <% @users_who_beat_game.each do |user| %>
+              <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
+            <% end %> 
+          <% else %>
+            <h2 class="heading mb-3">
+              There are no other gamers who beat
+              <p class="text--red mt-3"><%= @game.name %></p>
+            </h2> 
+          <% end %>
+        </div>
+      
         <!-- PLATFORMS/GENRES/SCREENSHOTS -->
-        <div class="py-3 text-center">
+        <div class="py-3 text-right">
           <% if @game.platforms.present? %>
             <% @game.platforms.each do |platform| %>
-              <%= link_to platform_info(platform, "name"), platform_path(platform_info(platform, "slug")), class: "btn btn--green" %>
+              <%= link_to platform_info(platform, "name"), platform_path(platform_info(platform, "slug")), class: "btn btn--green mt-3" %>
             <% end %>
           <% end %>
         </div>
-         <div class="py-3 text-center">
+         <div class="py-3 text-right">
             <% @game.genres.each do |genre| %>
-              <%= link_to genre, genre_path(genre), class: "btn btn--red" %>
+              <%= link_to genre, genre_path(convert_to_slug(genre)), class: "btn btn--red" %>
             <% end %>
          </div>
-        
-        <div class="d-none d-lg-block">
+      </div>
+    </div> <!-- /ROW -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="d-none d-lg-flex text-center game__screenshot-box">
           <% @game_screenshots.each do |screenshot| %>
             <%= image_tag screenshot["image"], alt: "Screenshot of #{@game.name}", class: "game__screenshot" %>
           <% end %>
         </div>
       </div>
-    </div> <!-- /ROW -->
+    </div>
 
     <div class="row mt-10 px-5 align-items-start">
-      <div class="col-lg-7 pr-5 mt-10">
+      <div class="col-lg-7 pr-5 mt-lg-3">
         <!-- GAME LIBRARY BUTTONS -->
         <div class="game__form">
           <% if @game.is_a?(Game) && @game.was_added?(current_user, @game) %>
@@ -60,10 +104,10 @@
       </div>
 
       <!-- COMMENTS -->
-      <div class="col-lg-5 mt-10">
+      <div class="col-lg-5">
         <!-- Only show comments for games that are persisted in the database -->
         <% if @game.is_a?(Game) %>
-          <h2 class="heading heading--big text--green text-center"><u>Comments</u></h2>
+          <h2 class="heading heading--big text--green text-center my-5 mt-lg-0"><u>Comments</u></h2>
           <% @comments.first(3).each do |comment| %>
             <div class="comment__box">
               <h3 class="comment comment__title"><%= comment.title %></h3>
@@ -93,25 +137,6 @@
       </div>
     </div> <!-- /ROW -->
 
-    <div class="row mt-10">
-      <div class="col-6">
-        <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
-          <h2 class="heading heading--big text--blue">Users who have beat <%= @game.name %> </h2>
-          <% @users_who_beat_game.each do |user| %>
-            <h2 class="heading heading--big text--blue"><%= link_to user.name, games_user_path(user) %></h2>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="col-6">
-        <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
-          <h2 class="heading heading--big text--blue">Users who are playing <%= @game.name %></h2>
-          <% @users_who_are_playing.each do |user| %>
-            <h2 class="heading heading--big text--blue"><%= link_to user.name, games_user_path(user) %></h2>
-          <% end %>
-        <% end %>
-      </div>
-    </div> <!-- /ROW -->
-
     <!-- SIMILAR GAMES -->   
     <div class="row justify-content-center mt-10 px-5">
       <% if @series_games.any? %>
@@ -120,7 +145,7 @@
       <% end %>
       
       <h2 class="heading heading--big text--blue"><u>Similar games</u></h2>
-      <%= render 'games', games: @similar_games.first(6), user: current_user %>
+      <%= render 'games', games: @similar_games.first(9), user: current_user %>
     </div> <!-- /ROW -->
         
   </div> <!-- /CONTAINER -->

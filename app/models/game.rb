@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
 
-  scope :filter_by_genre, -> (genre, user) { joins(:users).where('genres @>ARRAY[?]::varchar[]', genre).where('user_id = ?', user.id) }
+  scope :filter_by_genre, -> (genre) { where('genres @>ARRAY[?]::varchar[]', genre) }
 
   # Checks to see if a game is in the db, if not then we use the JSON data from the api call
   def self.find_in_db(games)

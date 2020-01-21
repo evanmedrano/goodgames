@@ -12,7 +12,10 @@ body.platforms.show {
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.8;
-    margin-top: 3rem;
+    margin: 3rem 0;
     padding: 3rem;
+    @media only screen and (min-width: 570px) and (max-width: 770px) {
+      font-size: 1.3rem;
+    }
   }
 }
