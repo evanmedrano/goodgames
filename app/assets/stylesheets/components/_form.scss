@@ -16,4 +16,18 @@
     font-size: 1.5rem !important;
     padding: 2rem !important;
   }
+
+  &__check-label {
+    font-size: 1.3rrem;
+    margin-left: 1rem
+  }
+
+  &__check-input {
+    font-size: 2.5rem;
+  }
+
+  &--centered {
+    margin: 0 auto;
+    width: 50%;
+  }
 }

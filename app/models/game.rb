@@ -3,11 +3,12 @@ class Game < ApplicationRecord
 
   validates :name, uniqueness: true
 
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
 
-  scope :filter_by_genre, -> (genre) { where('genres @>ARRAY[?]::varchar[]', genre) }
+  scope :filter_by_genre,    -> (genre)    { where('genres @> ARRAY[?]::varchar[]', genre) }
+  scope :filter_by_platform, -> (platform) { where('platforms @> ?', [{ platform: { name: platform } }].to_json) }
 
   # Checks to see if a game is in the db, if not then we use the JSON data from the api call
   def self.find_in_db(games)

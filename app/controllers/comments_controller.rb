@@ -22,14 +22,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @game.comments.new(comment_params)
+    @comment = @game.comments.build(comment_params)
     @comment.user = current_user
     
     if @comment.save
       flash[:notice] = "Successfully added a comment for #{@game.name}!"
       redirect_to @game
     else
-      flash[:error] = "There was an error leaving a comment."
+      flash.now[:error] = "There was an error leaving a comment."
       render :new
     end
   end

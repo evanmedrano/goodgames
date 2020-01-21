@@ -28,7 +28,7 @@ RSpec.feature "Comments", type: :feature do
     
     expect(page).to have_content "#{comment.title}"
     expect(page).to have_content "#{comment.body}"
-    expect(page).to have_content "- #{comment.user_name}"
+    expect(page).to have_content "#{comment.user_first_name}"
   end
 
   scenario "guest tries to add a comment to a game" do
@@ -72,7 +72,7 @@ RSpec.feature "Comments", type: :feature do
     
     expect(page).to have_content "#{comment.title}"
     expect(page).to have_content "#{comment.body}"
-    expect(page).to have_content "- #{comment.user_name}"
+    expect(page).to have_content "#{comment.user_first_name}"
   end
 
   scenario "user deletes their comment" do
@@ -88,7 +88,7 @@ RSpec.feature "Comments", type: :feature do
 
     expect(page).to_not have_content "#{@comment.title}"
     expect(page).to_not have_content "#{@comment.body}"
-    expect(page).to_not have_content "- #{@comment.user_name}"
+    expect(page).to_not have_content "#{@comment.user_first_name}"
   end
 
 end

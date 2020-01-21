@@ -4,9 +4,10 @@
     <div class="text-center">
       <%= link_to "Back to #{@game.name}", game_path(@game), class: "link--red heading heading--normal" %>
     </div>
-    <% @comments.each do |comment| %>
+    <% @comments.each do |comment| %> 
       <div class="comment__box">
         <h3 class="comment comment__title"><%= comment.title %></h3>
+        <p class="mb-4 text--red">comment made on <%= date_formatter(comment.created_at) %></p>
         <p class="comment comment__body"><%= comment.body %></p>
         <div class="d-flex align-items-center position-relative">
           <span class="comment comment__user mr-3">-<%= comment.user_first_name %></span>

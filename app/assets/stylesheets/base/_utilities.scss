@@ -11,6 +11,10 @@
   transform: scale(-1, 1);
 }
 
+.u-remove-list-style {
+  list-style: none;
+}
+
 //* COLORS
 .bg {
   &--yellow {

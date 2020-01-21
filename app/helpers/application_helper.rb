@@ -14,6 +14,9 @@ module ApplicationHelper
 
   def convert_to_slug(name)
     case name
+    when /Playstation 4/i         then "playstation4"
+    when /Xbox One/i              then "xbox-one"
+    when /Nintendo Switch/        then "nintendo-switch"
     when /Massively Multiplayer/i then "massively-multiplayer"
     when /RPG/i                   then "role-playing-games-rpg"
     when /Board Games/i           then "board-games"
@@ -26,6 +29,6 @@ module ApplicationHelper
   end
 
   def date_formatter(date)
-    Date.parse(date).strftime("%m-%d-%Y")
+    Date.parse(date.to_s).strftime("%m-%d-%Y")
   end
 end

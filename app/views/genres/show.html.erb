@@ -6,7 +6,7 @@
         <h2>
           You currently have 
           <%= link_to games_user_path(current_user), class: "genre__game-count" do %>
-            <%= pluralize(current_user.game_genre_count(@genre.name), "#{@genre.name} game") %>
+            <%= pluralize(current_user.genre_game_count(@genre.name), "#{@genre.name} game") %>
           <% end %>
           in your gaming library
         </h2>

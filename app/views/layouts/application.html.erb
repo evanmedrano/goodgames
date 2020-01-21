@@ -15,12 +15,15 @@
     <div class="container">
       <%= render 'shared/header' %>
       <% if flash[:notice] %>
-          <div class="alert alert-success"><%= notice %></div>
+          <div class="alert alert-success text-center heading heading--normal"><%= notice %></div>
       <% end %>
       <% if flash[:alert] %>
-          <div class="alert alert-danger"><%= alert %></div>
+          <div class="alert alert-danger text-center heading heading--normal"><%= alert %></div>
       <% end %>
     </div>
     <%= yield %>
+    <div class="container-flud">
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

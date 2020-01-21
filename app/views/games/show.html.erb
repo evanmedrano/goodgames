@@ -111,7 +111,8 @@
           <% @comments.first(3).each do |comment| %>
             <div class="comment__box">
               <h3 class="comment comment__title"><%= comment.title %></h3>
-              <p class="comment comment__body"><%= comment.body %></p>
+              <p class="mb-4 text--red">comment made on <%= date_formatter(comment.created_at) %></p>
+              <p class="comment comment__body"><%= comment.body %> </p>
               <div class="d-flex align-items-center position-relative">
                 <span class="comment comment__user mr-3">-<%= comment.user_first_name %></span>
                 <%= link_to games_user_path(comment.user), class: "comment comment__profile" do %>
