@@ -1,0 +1,19 @@
+.form {
+
+  &__box {
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,1);
+  }
+
+  &__label {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__field {
+    font-size: 1.5rem !important;
+    padding: 2rem !important;
+  }
+}

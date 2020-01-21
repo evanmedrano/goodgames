@@ -1,0 +1,43 @@
+//////////////////////////////////////////////////////////
+//! SHARED AMONGST ALL ACTIONS
+body.comments {
+  background-size: 100% auto !important; 
+  background-color: rgba(255,255,255,0.7) !important;
+  background-blend-mode: lighten !important;
+
+  .nav-link {
+    color: #000 !important;
+    &:hover {
+      color: $red !important;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////
+//! INDEX ACTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+//! NEW ACTION
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+//! EDIT ACTION
+
