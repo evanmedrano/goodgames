@@ -13,6 +13,8 @@ class RawgAPI
   PLATFORMS_INDEX_URI = "/api/platforms?search=''"
   PLATFORM_URI = "/api/platforms/"
 
+  USER_AGENT = {"User-Agent" => "GoodGames (+gooooodgames.herokuapp.com)"}
+
   format :json
 
   attr_accessor :name, :description, :released, :platforms, :background_image, :id, :genres, :slug, :website, :esrb_rating, :clip, :image_background
@@ -39,45 +41,69 @@ class RawgAPI
 
   def self.search_all_games(search, controller="games")
     if controller != "games"
-      response = get("/api/games?#{controller}=" + search.to_s) 
+      response = get("/api/games?#{controller}=" + search.to_s, {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      }) 
     else
-      response = get(GAMES_INDEX_URI + CGI.escape(search))
+      response = get(GAMES_INDEX_URI + CGI.escape(search), {
+        headers: USER_AGENT,
+        debug_output: STDOUT, # To show that User-Agent is GoodGames
+      })
     end
     self.collection_query(response)
   end
 
   def self.get_all_genres
-    response = get(GENRES_INDEX_URI)
+    response = get(GENRES_INDEX_URI, {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
 
     self.collection_query(response)
   end
 
   def self.get_all_platforms
-    response = get(PLATFORMS_INDEX_URI)
+    response = get(PLATFORMS_INDEX_URI, {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
 
     self.collection_query(response)
   end
 
   def self.get_game_content(game, slug)
     extra_game_content_uri = "/api/games/#{game}/#{slug}"
-    response = get(extra_game_content_uri)
+    response = get(extra_game_content_uri, {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
     
     self.collection_query(response)
   end
 
   def self.get_game(game)
-    response = get(GAME_URI + CGI.escape(game))
+    response = get(GAME_URI + CGI.escape(game), {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
 
     self.single_query(response)
   end
   
   def self.get_genre(genre)
-    response = get(GENRE_URI + CGI.escape(genre))
+    response = get(GENRE_URI + CGI.escape(genre), {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
     self.single_query(response)
   end
 
   def self.get_platform(platform)
-    response = get(PLATFORM_URI + CGI.escape(platform))
+    response = get(PLATFORM_URI + CGI.escape(platform), {
+        headers: USER_AGENT,
+        debug_output: STDOUT, 
+      })
     self.single_query(response)
   end
 

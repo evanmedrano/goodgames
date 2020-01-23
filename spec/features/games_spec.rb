@@ -11,7 +11,7 @@ RSpec.feature "Games", type: :feature do
   scenario "user adds a game to their library" do
     visit game_path(@game.slug)
     
-    within "##{@game.slug}" do
+    within ".game__form" do
       click_link "Add to library"
     end
 
@@ -34,7 +34,7 @@ RSpec.feature "Games", type: :feature do
     visit game_path(@game)
 
     expect {
-      within "##{@game.slug}" do
+      within ".game__form" do
         click_link "Add to library"
       end
     }.to change(user_two.games, :count).by 1
@@ -85,7 +85,7 @@ RSpec.feature "Games", type: :feature do
 
     visit game_path(@game)
 
-    within "##{@game.slug}" do
+    within ".game__form" do
       select "Beat", from: "status"
     end
     expect(page).to have_content "You successfully updated #{user_game.game_name}!"
@@ -98,7 +98,7 @@ RSpec.feature "Games", type: :feature do
 
     visit game_path(@game)
 
-    within "##{@game.slug}" do
+    within ".game__form" do
       select "iOS", from: "platform"
     end
     expect(page).to have_content "You successfully updated #{user_game.game_name}!"
@@ -112,16 +112,14 @@ RSpec.feature "Games", type: :feature do
 
     visit game_path(@game)
 
-    # It should not show any content if the current user is the ONLY person playing the game
-    expect(page).to_not have_content "Users who are playing #{@game.name}"
-    expect(page).to_not have_content "#{@user.name}"
+    expect(page).to have_content "There are no other gamers currently playing\n#{@game.name}"
 
     other_user = FactoryBot.create(:user)
     login_as(other_user, scope: :user)
 
     visit game_path(@game)
 
-    expect(page).to have_content "Users who are playing #{@game.name}"
+    expect(page).to have_content "Gamers playing #{@game.name}"
     expect(page).to have_content "#{@user.name}"
   end
 
@@ -133,16 +131,14 @@ RSpec.feature "Games", type: :feature do
     
     visit game_path(@game)
 
-    # It should not show any content if the current user is the ONLY person beat the game
-    expect(page).to_not have_content "Users who have beat #{@game.name}"
-    expect(page).to_not have_content "#{@user.name}"
+    expect(page).to have_content "There are no other gamers who beat\n#{@game.name}"
 
     other_user = FactoryBot.create(:user)
     login_as(other_user, scope: :user)
 
     visit game_path(@game)
 
-    expect(page).to have_content "Users who have beat #{@game.name}"
+    expect(page).to have_content "Gamers who beat #{@game.name}"
     expect(page).to have_content "#{@user.name}"
   end
 
