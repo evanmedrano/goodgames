@@ -5,14 +5,13 @@ class GamesController < ApplicationController
 
   def index
     #? Sets the search response to either the name from a user search or it defaults as an empty search which loads a list of games
-    response = params[:query].presence || "''" 
 
-    games = RawgAPI.search_all_games(response)
+    games = RawgApi::Game.all(query)
     @games = Game.find_in_db(games)
 
     if @games.empty?
-    flash.now[:alert] = "Cannot find game in database! Try another search."
-      render :search
+      flash.now[:alert] = "Cannot find game in database! Try another search."
+      render :index
     end
   end
 
@@ -57,6 +56,10 @@ class GamesController < ApplicationController
 
     def set_game
       @game = Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) || RawgAPI.get_game(params[:id])
+    end
+
+    def query
+      params.fetch(:query, "")
     end
 
     def set_related_content(game)

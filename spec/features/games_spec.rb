@@ -10,7 +10,7 @@ RSpec.feature "Games", type: :feature do
 
   scenario "user adds a game to their library" do
     visit game_path(@game.slug)
-    
+
     within ".game__form" do
       click_link "Add to library"
     end
@@ -18,10 +18,10 @@ RSpec.feature "Games", type: :feature do
     expect(page).to have_content "Congrats! You added a new game to your library!"
     expect(@user.games.first.name).to eq "Portal 2"
     expect(@user.games.count).to eq 1
-    
+
     user_game = @user.user_games.first
     platform_name = @game.platforms.first.dig("platform", "name")
-    
+
     expect(user_game.platform).to eq platform_name
   end
 
@@ -55,7 +55,7 @@ RSpec.feature "Games", type: :feature do
     expect(@user.games.count).to eq 0
     expect(Game.count).to eq 1 # Should not remove the game itself, just the game from user's library
   end
-  
+
   scenario "user adds game from search results" do
     skip "Trying to figure out how to hover in tests"
 
@@ -128,7 +128,7 @@ RSpec.feature "Games", type: :feature do
     user_game = @user.user_games.first
 
     user_game.update_attribute(:status, "Beat")
-    
+
     visit game_path(@game)
 
     expect(page).to have_content "There are no other gamers who beat\n#{@game.name}"
@@ -145,7 +145,7 @@ RSpec.feature "Games", type: :feature do
   scenario "user finds similar games" do
     skip "Trying to figure out how to hover in tests"
     visit games_path
-    
+
     within "#game-search" do
       page.fill_in "query", with: "Borderlands 2"
       click_button "Search"
