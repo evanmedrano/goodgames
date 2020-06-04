@@ -1,6 +1,4 @@
 class Game < ApplicationRecord
-  require 'Rawgapi'
-
   validates :name, uniqueness: true
 
   has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
@@ -14,7 +12,7 @@ class Game < ApplicationRecord
   def self.find_in_db(games)
     games_in_db = Game.all.pluck(:name)
     games.map do |game| 
-      games_in_db.include?(game["name"]) ? Game.find_by(name: game["name"]) : game 
+      games_in_db.include?(game.name) ? Game.find_by(name: game.name) : game 
     end
   end
 
