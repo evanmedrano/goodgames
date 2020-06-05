@@ -35,7 +35,7 @@
             </h2>
           <% end %>
         </div>
-        
+
         <div class="text-right game__gamer-statuses my-3">
           <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
             <h2 class="heading heading--normal text--blue mb-3">
@@ -44,26 +44,35 @@
             </h2>
             <% @users_who_beat_game.each do |user| %>
               <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
-            <% end %> 
+            <% end %>
           <% else %>
             <h2 class="heading mb-3">
               There are no other gamers who beat
               <p class="text--red mt-3"><%= @game.name %></p>
-            </h2> 
+            </h2>
           <% end %>
         </div>
-      
+
         <!-- PLATFORMS/GENRES/SCREENSHOTS -->
         <div class="py-3 text-right">
           <% if @game.platforms.present? %>
             <% @game.platforms.each do |platform| %>
-              <%= link_to platform_info(platform, "name"), platform_path(platform_info(platform, "slug")), class: "btn btn--green mt-3" %>
+              <%= link_to(
+                platform_info(platform, "name"),
+                platform_path(platform_info(platform, "slug")),
+                class: "btn btn--green mt-3"
+              ) %>
             <% end %>
           <% end %>
         </div>
+
          <div class="py-3 text-right">
             <% @game.genres.each do |genre| %>
-              <%= link_to genre, genre_path(convert_to_slug(genre)), class: "btn btn--red" %>
+              <%= link_to(
+                genre_info(genre, "name"),
+                genre_path(genre_info(genre, "slug")),
+                class: "btn btn--red"
+              ) %>
             <% end %>
          </div>
       </div>
@@ -72,7 +81,7 @@
     <div class="row">
       <div class="col-12">
         <div class="d-none d-lg-flex text-center game__screenshot-box">
-          <% @game_screenshots.each do |screenshot| %>
+          <% @game.screenshots.each do |screenshot| %>
             <%= image_tag screenshot["image"], alt: "Screenshot of #{@game.name}", class: "game__screenshot" %>
           <% end %>
         </div>
@@ -98,7 +107,7 @@
           <% else %>
             <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block mt-3" %>        
           <% end %>
-          
+
           <%= link_to "Games like this", discover_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
         </div>
       </div>
@@ -138,15 +147,17 @@
       </div>
     </div> <!-- /ROW -->
 
-    <!-- SIMILAR GAMES -->   
+    <!-- SUGGESTED GAMES -->   
     <div class="row justify-content-center mt-10 px-5">
-      <% if @series_games.any? %>
-        <h2 class="heading heading--big text--blue"><u>Also from the same series as <%= @game.name %></u></h2>
-        <%= render 'games', games: @series_games, user: current_user %>
+      <% if @game.series_games.any? %>
+        <h2 class="heading heading--big text--blue">
+          <u>Also from the same series as <%= @game.name %></u>
+        </h2>
+        <%= render 'games', games: @game.series_games, user: current_user %>
       <% end %>
       
-      <h2 class="heading heading--big text--blue"><u>Similar games</u></h2>
-      <%= render 'games', games: @similar_games.first(9), user: current_user %>
+      <h2 class="heading heading--big text--blue"><u>Suggested games</u></h2>
+      <%= render 'games', games: @game.suggested_games.first(9), user: current_user %>
     </div> <!-- /ROW -->
         
   </div> <!-- /CONTAINER -->
