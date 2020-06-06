@@ -1,17 +1,30 @@
 <div class="container mt-5">
   <h1 class="text-center heading heading--large">
-    <span class="text--green"><%= @user.first_name %>'s</span> games 
+    <span class="text--green"><%= @user.first_name %>'s</span> games
     <% if params[:status] %>
       - <span class="text--green"><%= params[:status] %></span>
     <% end %>
   </h1>
-  
+
   <ul class="status__list">
-    <li class="status__list-item"><%= link_to "All games", games_user_path(@user), class: "status__list-link" %></li>
+    <li class="status__list-item">
+      <%= link_to(
+        "All games",
+        games_user_path(@user),
+        class: "status__list-link"
+      ) %>
+    </li>
+
     <% game_statuses.each do |status| %>
-      <li class="status__list-item"><%= link_to status, games_user_path(@user, status: status), class: "status__list-link" %></li>
+      <li class="status__list-item">
+        <%= link_to(
+          status,
+          games_user_path(@user, status: status),
+          class: "status__list-link"
+        )%>
+      </li>
     <% end %>
   </ul>
-  
-  <%= render 'games/games', games: @games, user: @user %> 
+
+  <%= render 'games/games', games: @games %>
 </div>

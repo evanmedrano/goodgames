@@ -109,21 +109,20 @@
         <div class="game__form">
           <% if @game.was_added?(current_user, @game) %>
             <%= render "form", game: @game %>
-            <%= link_to(
+            <%= button_to(
               "Remove from library",
               user_game_path(@game["id"]),
               method: :delete,
               data: {
                 confirm: 'Are you sure you want to remove this game from your library?'
               },
-              class: "btn--red btn-block btn mt-3",
+              class: "btn--red btn-block btn mt-3 w-100",
             ) %>
           <% else %>
-            <%= link_to(
+            <%= button_to(
               "Add to library",
               games_path(game: { slug: @game.slug }),
-              method: :post,
-              class: "btn btn--blue btn-block mt-3",
+              class: "btn btn--blue btn-block mt-3 w-100",
             ) %>
           <% end %>
 
@@ -200,11 +199,11 @@
         <h2 class="heading heading--big text--blue">
           <u>Also from the same series as <%= @game.name %></u>
         </h2>
-        <%= render 'games', games: @game.series_games, user: current_user %>
+        <%= render 'games', games: @game.series_games %>
       <% end %>
 
       <h2 class="heading heading--big text--blue"><u>Suggested games</u></h2>
-      <%= render 'games', games: @game.suggested_games.first(9), user: current_user %>
+      <%= render 'games', games: @game.suggested_games.first(12) %>
     </div> <!-- /ROW -->
   </div> <!-- /CONTAINER -->
 </body>
