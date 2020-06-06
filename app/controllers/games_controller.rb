@@ -1,79 +1,60 @@
 class GamesController < ApplicationController
-  require 'Rawgapi'
   before_action :authenticate_user!, only: [:create]
-  before_action :set_game, only: [:show, :discover]
+  before_action :set_game, only: [:show]
 
   def index
-    #? Sets the search response to either the name from a user search or it defaults as an empty search which loads a list of games
-
-    games = RawgApi::Game.all(query)
-    @games = Game.find_in_db(games)
+    @games = RawgApi::Game.all(query)
 
     if @games.empty?
-      flash.now[:alert] = "Cannot find game in database! Try another search."
-      render :index
+      redirect_to games_url, alert: "Sorry, that game isn't in our database."
     end
   end
 
   def show
-    begin
-      set_related_content(@game)
-      @comments = @game.comments if @game.is_a?(Game) # Only set the comments for games in the database
-    rescue TypeError
-      flash[:alert] = "Sorry, that game does not exist in our database!"
-      redirect_to games_path
-    end
+    raise TypeError if @game.name.nil?
+  rescue TypeError
+    redirect_to games_url, alert: "Sorry, that game isn't in our database."
   end
 
   def create
-    game = Game.find_by(slug: params[:game][:slug]) || RawgAPI.get_game(params[:game][:slug])
+    game = RawgApi::Game.new(game_params)
 
-    @game = Game.find_or_create_by(slug: game.slug) do |new_game|
-      game.instance_values.each do |attribute, value|
-        # Avoid copying the game's id value from the API and instead increment 
-        # the id values from within the app
-        new_game.write_attribute(attribute, value) unless attribute == "id"
-      end
-    end
-    
-    if @game.save
-      current_user.games << @game
-      flash[:alert] = "Congrats! You added a new game to your library!"
-      redirect_back(fallback_location: @game)
+    if game.save
+      current_user.games << Game.find_by(slug: game.slug)
+      flash[:notice] = 'Congrats! You added a new game to your library!'
+      redirect_back(fallback_location: root_url)
     else
-      flash[:alert] = "There was an error adding #{@game.name} to your library."
-      redirect_back(fallback_location: root_path)
+      flash[:alert] = "There was an error adding the game to your library."
+      redirect_back(fallback_location: root_url)
     end
   end
-
-  def discover 
-    games = RawgAPI.get_game_content(@game.slug, "suggested")
-    @games = Game.find_in_db(games)
-  end
-
 
   private
 
-    def set_game
-      @game = Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) || RawgAPI.get_game(params[:id])
-    end
+  def set_game
+    @game = persisted_game? || RawgApi::Game.find(params[:id])
 
-    def query
-      params.fetch(:query, "")
-    end
+    RawgApi::Game.set_related_game_content(@game) unless @game.name.nil?
+  end
 
-    def set_related_content(game)
-      similar_games = RawgAPI.get_game_content(game.slug, "suggested")
-      @similar_games = Game.find_in_db(similar_games)
+  def persisted_game?
+    Game.includes(:comments).find_by(slug: params[:id]) ||
+      Game.includes(:comments).find_by(id: params[:id])
+  end
 
-      @game_screenshots = RawgAPI.get_game_content(game.slug, "screenshots")
+  def game_params
+    params.require(:game).permit(:slug)
+  end
 
-      series_games = RawgAPI.get_game_content(game.slug, "game-series")
-      @series_games = Game.find_in_db(series_games)
+  def query
+    params.fetch(:query, '')
+  end
 
-      @users_who_beat_game    = User.same_game_status(game, "Beat", current_user).first(5)
+#   def set_related_content(game)
+#     @users_who_beat_game =
+#       User.same_game_status(game, 'Beat', current_user).first(5)
 
-      @users_who_are_playing  = User.same_game_status(game, "Playing", current_user).first(5)
-    end
-    
+#     @users_who_are_playing =
+#       User.same_game_status(game, 'Playing', current_user).first(5)
+#   end
 end

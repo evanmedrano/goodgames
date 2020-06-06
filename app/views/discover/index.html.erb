@@ -1,5 +1,5 @@
 <div class="container mt-5">
   <h1 class="text-center heading heading--big">Games like <%= link_to @game.name, game_path(@game), class: "link--red" %></h1>
-   
-  <%= render 'games', games: @games, user: current_user %>
+
+  <%= render 'games/games', games: @game.suggested_games, user: current_user %>
 </div>
