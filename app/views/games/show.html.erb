@@ -108,7 +108,7 @@
             <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block mt-3" %>        
           <% end %>
 
-          <%= link_to "Games like this", discover_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
+          <%= link_to "Games like this", game_discover_index_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
         </div>
       </div>
 
@@ -117,7 +117,7 @@
         <!-- Only show comments for games that are persisted in the database -->
         <% if @game.is_a?(Game) %>
           <h2 class="heading heading--big text--green text-center my-5 mt-lg-0"><u>Comments</u></h2>
-          <% @comments.first(3).each do |comment| %>
+          <% @game.comments.first(3).each do |comment| %>
             <div class="comment__box">
               <h3 class="comment comment__title"><%= comment.title %></h3>
               <p class="mb-4 text--red">comment made on <%= date_formatter(comment.created_at) %></p>
@@ -139,7 +139,7 @@
           <% end %>
           <div class="text-center">
             <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn--green" %>
-            <% if @comments.any? %>
+            <% if @game.comments.any? %>
               <%= link_to "All comments", game_comments_path(@game), class: "btn btn--yellow" %>
             <% end %>
           </div>

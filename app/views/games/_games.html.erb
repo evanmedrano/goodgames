@@ -6,11 +6,7 @@
       <div class="card mx-4 my-5 p-0 col-lg-3 col-md-5 col-sm-12" id="<%= game.slug %>">
         <!-- GAME CLIPS/IMAGES -->
         <% if game.clip != nil %>
-          <% if game.is_a?(Game) %>
-            <%= video_tag game.clip, poster: game.background_image, muted: true, class: "card-img-top" %>
-          <% else %>
-            <%= video_tag game.clip["clip"], poster: game.background_image, muted: true, class: "card-img-top" %>
-          <% end %>
+          <%= video_tag game.clip, poster: game.background_image, muted: true, class: "card-img-top" %>
         <% else %>
           <%= image_tag "#{game.background_image}", class: "card-img-top" %>
         <% end %>
@@ -24,7 +20,7 @@
           <!-- CARD BUTTONS -->
           <div class="card__btn-wrapper">
             <%= link_to "Show more", game_path(game.slug), method: :get, class: "btn--green btn" %>
-            <%= link_to "Games like this", discover_path(game.slug), method: :get, class: "btn--yellow my-3 btn" %>
+            <%= link_to "Games like this", game_discover_index_path(game.slug), method: :get, class: "btn--yellow my-3 btn" %>
             
             <% if game.is_a?(Game) && game.was_added?(user, game) && user == current_user %>
               <%= form_with url: user_game_path(UserGame.find_game(user, game)), class: "form-inline d-flex flex-column",
@@ -62,7 +58,7 @@
               <%= fa_icon "chess-knight", class: "card__icon mr-4" %>
               <% if game.genres.present? %>
                 <% game.genres.first(2).each do |genre| %>
-                  <span class="d-inline-block mr-3 font-weight-bold"><%= genre["name"] %></span>
+                  <span class="d-inline-block mr-3 font-weight-bold"><%= genre_info(genre, "name") %></span>
                 <% end %>
                 <% if game.genres.length > 2 %>
                   <span class="d-inline-block">+<%= game.genres.length - 2 %></span>

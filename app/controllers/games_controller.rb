@@ -1,59 +1,45 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
-  before_action :set_game, only: %i[show discover]
+  before_action :authenticate_user!, only: [:create]
+  before_action :set_game, only: [:show]
 
   def index
     @games = RawgApi::Game.all(query)
 
     if @games.empty?
-      flash.now[:alert] = 'Cannot find game in database! Try another search.'
-      render :index
+      redirect_to games_url, alert: "Sorry, that game isn't in our database."
     end
   end
 
   def show
-    begin
-      @comments = @game.comments if @game.is_a?(Game) # Only set the comments for games in the database
-    rescue TypeError
-      flash[:alert] = 'Sorry, that game does not exist in our database!'
-      redirect_to games_url
-    end
+    raise TypeError if @game.name.nil?
+  rescue TypeError
+    redirect_to games_url, alert: "Sorry, that game isn't in our database."
   end
 
   def create
-    game = Game.new(game_params).tap do |game|
-      response = RawgApi::Game.find(game.slug)
-
-      response.instance_values.each do |attribute, value|
-        unless attribute == 'id'
-          game.send("#{attribute}=", value) if game.respond_to?("#{attribute}=")
-        end
-      end
-    end
+    game = RawgApi::Game.new(game_params)
 
     if game.save
-      current_user.games << game
-      flash[:alert] = 'Congrats! You added a new game to your library!'
+      current_user.games << Game.find_by(slug: game.slug)
+      flash[:notice] = 'Congrats! You added a new game to your library!'
       redirect_back(fallback_location: root_url)
     else
-      flash[:alert] = "There was an error adding #{game.name} to your library."
+      flash[:alert] = "There was an error adding the game to your library."
       redirect_back(fallback_location: root_url)
     end
-  end
-
-  def discover
-    games = RawgAPI.get_game_content(@game.slug, 'suggested')
-    @games = Game.find_in_db(games)
   end
 
   private
 
   def set_game
-    @game =
-      Game.find_by(slug: params[:id]) || Game.find_by(id: params[:id]) ||
-        RawgApi::Game.find(params[:id])
+    @game = persisted_game? || RawgApi::Game.find(params[:id])
 
-    RawgApi::Game.set_related_game_content(@game, "suggested_games", "series_games", "screenshots")
+    RawgApi::Game.set_related_game_content(@game) unless @game.name.nil?
+  end
+
+  def persisted_game?
+    Game.includes(:comments).find_by(slug: params[:id]) ||
+      Game.includes(:comments).find_by(id: params[:id])
   end
 
   def game_params
