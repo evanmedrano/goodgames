@@ -1,0 +1,34 @@
+<%= form_with(
+  url: user_game_path(UserGame.find_game(current_user, game)),
+  class: "form-inline d-flex flex-column",
+  id: "#{game.slug}-game-status",
+  method: :patch,
+  local: true
+) do |f| %>
+  <%= f.label(
+    :status,
+    "Gaming status",
+    class: "my-3 font-weight-bold text--green text--default-size"
+  ) %>
+  <%= f.select(
+    "status",
+    options_for_select(game_statuses, game.current_status(current_user)),
+    {},
+    onchange: "this.form.submit()",
+    class: "custom-select custom-select-lg w-100",
+    id: "#{game.slug}-status"
+  ) %>
+
+  <%= f.label(
+    :platform,
+    class: "my-3 font-weight-bold text--green text--default-size"
+  ) %>
+  <%= f.select(
+    "platform",
+    options_for_select(game.platform_names, game.current_platform(current_user)),
+    {},
+    onchange: "this.form.submit()",
+    class: "mb-5 custom-select custom-select-lg w-100",
+    id: "#{game.slug}-platform"
+  ) %>
+<% end %>

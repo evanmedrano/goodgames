@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
-    @games = RawgApi::Game.all(query)
+    @games = RawgApi::GameService.all(query)
 
     if @games.empty?
       redirect_to games_url, alert: "Sorry, that game isn't in our database."
@@ -32,29 +32,21 @@ class GamesController < ApplicationController
   private
 
   def set_game
-    @game = persisted_game? || RawgApi::Game.find(params[:id])
+    @game = persisted_game? || RawgApi::GameService.find(params[:id])
 
-    RawgApi::Game.set_related_game_content(@game) unless @game.name.nil?
-  end
-
-  def persisted_game?
-    Game.includes(:comments).find_by(slug: params[:id]) ||
-      Game.includes(:comments).find_by(id: params[:id])
-  end
-
-  def game_params
-    params.require(:game).permit(:slug)
+    RawgApi::GameService.set_related_game_content(@game) unless @game.name.nil?
   end
 
   def query
     params.fetch(:query, '')
   end
 
-#   def set_related_content(game)
-#     @users_who_beat_game =
-#       User.same_game_status(game, 'Beat', current_user).first(5)
+  def game_params
+    params.require(:game).permit(:slug)
+  end
 
-#     @users_who_are_playing =
-#       User.same_game_status(game, 'Playing', current_user).first(5)
-#   end
+  def persisted_game?
+    Game.includes(:comments, :users).find_by(slug: params[:id]) ||
+      Game.includes(:comments, :users).find_by(id: params[:id])
+  end
 end

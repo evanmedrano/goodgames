@@ -5,27 +5,38 @@
         <h1 class="heading heading--large text--blue text-lg-left text-right">
           <%= @game.name %>
         </h1>
+
         <% if @game.released.present? %>
           <p class="game__details text-lg-left text-right">
             Released:
-            <span class="text--blue font-weight-bold"><%= date_formatter(@game.released) %></span>
+            <span class="text--blue font-weight-bold">
+              <%= date_formatter(@game.released) %>
+            </span>
           </p>
         <% end %>
+
         <!-- GAME VIDEO -->
         <% if @game.clip != nil %>
-          <%= video_tag @game.clip, controls: true, muted: true, autoplay: :autoplay, loop: :loop, class: "w-100" %>
+          <%= video_tag(
+            @game.clip,
+            controls: true,
+            muted: true,
+            autoplay: :autoplay,
+            loop: :loop,
+            class: "w-100"
+          ) %>
         <% end %>
       </div>
 
       <div class="col-lg-5 col-md-12">
         <!-- OTHER USERS GAME STATUS -->
         <div class="text-right game__gamer-statuses">
-          <% if !@users_who_are_playing.nil? && @users_who_are_playing.size > 0  %>
+          <% if @game.users_playing.any? %>
             <h2 class="heading heading--normal text--blue mb-3">
               Gamers <u>playing</u> 
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
-            <% @users_who_are_playing.each do |user| %>
+            <% @game.users_playing.each do |user| %>
               <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
             <% end %>
           <% else %>
@@ -37,12 +48,12 @@
         </div>
 
         <div class="text-right game__gamer-statuses my-3">
-          <% if !@users_who_beat_game.nil? && @users_who_beat_game.size > 0 %>
+          <% if @game.users_finished.any? %>
             <h2 class="heading heading--normal text--blue mb-3">
               Gamers who <u>beat</u>
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
-            <% @users_who_beat_game.each do |user| %>
+            <% @game.users_finished.each do |user| %>
               <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
             <% end %>
           <% else %>
@@ -60,7 +71,7 @@
               <%= link_to(
                 platform_info(platform, "name"),
                 platform_path(platform_info(platform, "slug")),
-                class: "btn btn--green mt-3"
+                class: "btn btn--green mt-3",
               ) %>
             <% end %>
           <% end %>
@@ -71,7 +82,7 @@
               <%= link_to(
                 genre_info(genre, "name"),
                 genre_path(genre_info(genre, "slug")),
-                class: "btn btn--red"
+                class: "btn btn--red",
               ) %>
             <% end %>
          </div>
@@ -82,7 +93,11 @@
       <div class="col-12">
         <div class="d-none d-lg-flex text-center game__screenshot-box">
           <% @game.screenshots.each do |screenshot| %>
-            <%= image_tag screenshot["image"], alt: "Screenshot of #{@game.name}", class: "game__screenshot" %>
+            <%= image_tag(
+              screenshot["image"],
+              alt: "Screenshot of #{@game.name}",
+              class: "game__screenshot",
+            ) %>
           <% end %>
         </div>
       </div>
@@ -92,62 +107,94 @@
       <div class="col-lg-7 pr-5 mt-lg-3">
         <!-- GAME LIBRARY BUTTONS -->
         <div class="game__form">
-          <% if @game.is_a?(Game) && @game.was_added?(current_user, @game) %>
-            <%= form_with url: user_game_path(UserGame.find_game(current_user, @game)), class: "form-inline d-flex flex-column",
-              id: "#{@game.slug}-game-status", method: :patch, local: true do |f| %>
-              <%= f.label :status, "Gaming status", class: "my-3 font-weight-bold text--green text--default-size" %>
-              <%= f.select "status", options_for_select(game_statuses, @game.current_status(current_user)), {}, 
-              onchange: "this.form.submit()", class: "custom-select custom-select-lg w-100", id: "#{@game.slug}-status" %>
-              <%= f.label :platform, class: "my-3 font-weight-bold text--green text--default-size" %>
-              <%= f.select "platform", options_for_select(@game.platform_names, @game.current_platform(current_user)), {}, 
-                onchange: "this.form.submit()", class: "mb-5 custom-select custom-select-lg w-100", id: "#{@game.slug}-platform" %>
-            <% end %>
-            <%= link_to "Remove from library", user_game_path(@game["id"]), method: :delete, 
-              data: { confirm: 'Are you sure you want to remove this game from your library?'}, class: "btn--red btn-block btn mt-3" %>
+          <% if @game.was_added?(current_user, @game) %>
+            <%= render "form", game: @game %>
+            <%= link_to(
+              "Remove from library",
+              user_game_path(@game["id"]),
+              method: :delete,
+              data: {
+                confirm: 'Are you sure you want to remove this game from your library?'
+              },
+              class: "btn--red btn-block btn mt-3",
+            ) %>
           <% else %>
-            <%= link_to "Add to library", games_path(game: { slug: @game.slug }), method: :post, class: "btn btn--blue btn-block mt-3" %>        
+            <%= link_to(
+              "Add to library",
+              games_path(game: { slug: @game.slug }),
+              method: :post,
+              class: "btn btn--blue btn-block mt-3",
+            ) %>
           <% end %>
 
-          <%= link_to "Games like this", game_discover_index_path(@game.slug), method: :get, class: "btn--yellow my-3 btn btn-block" %>
+          <%= link_to(
+            "Games like this",
+            game_discover_index_path(@game.slug),
+            class: "btn--yellow my-3 btn btn-block"
+          ) %>
         </div>
       </div>
 
       <!-- COMMENTS -->
       <div class="col-lg-5">
-        <!-- Only show comments for games that are persisted in the database -->
-        <% if @game.is_a?(Game) %>
-          <h2 class="heading heading--big text--green text-center my-5 mt-lg-0"><u>Comments</u></h2>
-          <% @game.comments.first(3).each do |comment| %>
-            <div class="comment__box">
-              <h3 class="comment comment__title"><%= comment.title %></h3>
-              <p class="mb-4 text--red">comment made on <%= date_formatter(comment.created_at) %></p>
-              <p class="comment comment__body"><%= comment.body %> </p>
-              <div class="d-flex align-items-center position-relative">
-                <span class="comment comment__user mr-3">-<%= comment.user_first_name %></span>
-                <%= link_to games_user_path(comment.user), class: "comment comment__profile" do %>
-                  check out <%= comment.user_first_name %>'s game library &raquo; 
-                <% end %>
-              </div>
-              <div class="text-right mt-5">
-                <% if comment.user == current_user %>
-                  <%= link_to "Edit comment", edit_game_comment_path(game_id: @game.id, id: comment.id), class: "comment comment__edit" %>
-                  <%= link_to "Delete comment", game_comment_path(game_id: @game.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?" }, 
-                    class: "comment comment__delete ml-2" %>
-                <% end %>
-              </div>
+        <h2 class="heading heading--big text--green text-center my-5 mt-lg-0">
+          <u>Comments</u>
+        </h2>
+        <% @game.comments.first(3).each do |comment| %>
+          <div class="comment__box">
+            <h3 class="comment comment__title"><%= comment.title %></h3>
+            <p class="mb-4 text--red">
+              comment made on <%= date_formatter(comment.created_at) %>
+            </p>
+            <p class="comment comment__body"><%= comment.body %></p>
+            <div class="d-flex align-items-center position-relative">
+              <span class="comment comment__user mr-3">
+                -<%= comment.user_first_name %>
+              </span>
+              <%= link_to(
+                games_user_path(comment.user),
+                class: "comment comment__profile"
+              ) do %>
+                check out <%= comment.user_first_name %>'s game library &raquo;
+              <% end %>
             </div>
-          <% end %>
-          <div class="text-center">
-            <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn--green" %>
-            <% if @game.comments.any? %>
-              <%= link_to "All comments", game_comments_path(@game), class: "btn btn--yellow" %>
-            <% end %>
+            <div class="text-right mt-5">
+              <% if comment.user == current_user %>
+                <%= link_to(
+                  "Edit comment",
+                  edit_game_comment_path(game_id: @game.id, id: comment.id),
+                  class: "comment comment__edit",
+                ) %>
+                <%= link_to(
+                  "Delete comment",
+                  game_comment_path(game_id: @game.id, id: comment.id),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  class: "comment comment__delete ml-2",
+                ) %>
+              <% end %>
+            </div>
           </div>
         <% end %>
+
+        <div class="text-center">
+          <%= link_to(
+            "Add a comment",
+            new_game_comment_path(@game),
+            class: "btn btn--green"
+          ) %>
+          <% if @game.comments.any? %>
+            <%= link_to(
+              "All comments",
+              game_comments_path(@game),
+              class: "btn btn--yellow"
+            ) %>
+          <% end %>
+        </div>
       </div>
     </div> <!-- /ROW -->
 
-    <!-- SUGGESTED GAMES -->   
+    <!-- SUGGESTED GAMES -->
     <div class="row justify-content-center mt-10 px-5">
       <% if @game.series_games.any? %>
         <h2 class="heading heading--big text--blue">
@@ -155,10 +202,9 @@
         </h2>
         <%= render 'games', games: @game.series_games, user: current_user %>
       <% end %>
-      
+
       <h2 class="heading heading--big text--blue"><u>Suggested games</u></h2>
       <%= render 'games', games: @game.suggested_games.first(9), user: current_user %>
     </div> <!-- /ROW -->
-        
   </div> <!-- /CONTAINER -->
 </body>
