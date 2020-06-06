@@ -1,5 +1,9 @@
 class Game < ApplicationRecord
-  attr_accessor :suggested_games, :series_games, :screenshots
+  attr_accessor :suggested_games,
+                :series_games,
+                :screenshots,
+                :users_playing,
+                :users_finished
 
   validates :name, presence: true, uniqueness: true
 
