@@ -32,7 +32,7 @@ class Game < ApplicationRecord
   end
 
   def platform_names
-    platforms.map { |platform| platform.dig("platform", "name") }
+    platforms.map { |platform| platform["name"] }
   end
 
   def current_platform(user)

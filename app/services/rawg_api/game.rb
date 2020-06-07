@@ -11,6 +11,7 @@ module RawgApi
     def initialize(args = {})
       super(args)
       self.clip = args["clip"]["clip"] if self.clip.respond_to?(:[])
+      self.platforms = fetch_platform_data(args["platforms"])
     end
 
     def save
@@ -32,6 +33,12 @@ module RawgApi
     end
 
     private
+
+    def fetch_platform_data(platforms)
+      if platforms
+        platforms.map! { |platform| platform.dig("platform") }
+      end
+    end
 
     def find_or_create_game(game)
       ::Game.find_or_initialize_by(slug: game.slug).tap do |new_game|

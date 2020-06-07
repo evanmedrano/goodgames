@@ -23,19 +23,6 @@ module ApplicationHelper
     end
   end
 
-  def platform_info(platform, info)
-    platform.dig("platform", info)
-  end
-
-  def genre_info(genre, info)
-    if genre[info] == info
-      formatted_json = genre.gsub(/=>/, ": ")
-      JSON.parse(formatted_json)[info]
-    else
-      genre[info]
-    end
-  end
-
   def date_formatter(date)
     Date.parse(date.to_s).strftime("%m-%d-%Y")
   end

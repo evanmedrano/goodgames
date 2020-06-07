@@ -4,9 +4,9 @@ class UserGame < ApplicationRecord
 
   validates :user, uniqueness: { scope: :game_id }
 
-  validates :status, presence: true, 
+  validates :status, presence: true,
                    inclusion: { in: %w{ Currently\ own Owned Beat Playing Wishlist } }
-  
+
   default_scope { order(created_at: :desc) }
 
   delegate :name, to: :game, prefix: true
@@ -19,9 +19,8 @@ class UserGame < ApplicationRecord
 
   private
 
-    def add_platform
-      platform = game.platforms.first.dig("platform", "name")
-      write_attribute(:platform, platform) 
-    end
-  
+  def add_platform
+    platform = game.platforms.first["name"]
+    write_attribute(:platform, platform)
+  end
 end
