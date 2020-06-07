@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
   private 
 
   def set_game
-    @game = Game.find_by(slug: params[:game_id]) || Game.find_by(id: params[:game_id]) || RawgAPI.get_game(params[:game_id])
+    @game = Game.find_by(slug: params[:game_id]) || Game.find_by(id: params[:game_id]) || Rawgapi.get_game(params[:game_id])
   end
 
   def set_comment
@@ -69,7 +69,7 @@ class CommentsController < ApplicationController
   end
 
   def check_game_class
-    if @game.instance_of?(RawgAPI)
+    if @game.instance_of?(Rawgapi)
       flash[:alert] = "Sorry, that game is not in the database. Add it to your library so you can add a comment!"
       redirect_to games_path
     end

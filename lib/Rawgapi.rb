@@ -1,7 +1,7 @@
 require 'httparty'
 require 'cgi' #* Allows us to use the escape method on the search input, so it gets url encoded 
 
-class RawgAPI
+class Rawgapi
   include HTTParty
   base_uri "api.rawg.io"
   GAMES_INDEX_URI = "/api/games?search="
