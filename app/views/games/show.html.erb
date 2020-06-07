@@ -69,8 +69,8 @@
           <% if @game.platforms.present? %>
             <% @game.platforms.each do |platform| %>
               <%= link_to(
-                platform_info(platform, "name"),
-                platform_path(platform_info(platform, "slug")),
+                platform["name"],
+                platform_path(platform["slug"]),
                 class: "btn btn--green mt-3",
               ) %>
             <% end %>
@@ -80,8 +80,8 @@
          <div class="py-3 text-right">
             <% @game.genres.each do |genre| %>
               <%= link_to(
-                genre_info(genre, "name"),
-                genre_path(genre_info(genre, "slug")),
+                genre["name"],
+                genre_path(genre["slug"]),
                 class: "btn btn--red",
               ) %>
             <% end %>
