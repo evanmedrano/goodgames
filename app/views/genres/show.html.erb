@@ -3,19 +3,21 @@
     <div class="d-sm-flex flex-md-row-reverse flex-sm-column justify-content-sm-between align-items-md-baseline text-md-left text-right px-5">
       <h1 class="heading heading--large ml-5 text-right"><u><%= @genre.name %></u></h1>
       <% if user_signed_in? %>
+        <!--
         <h2>
-          You currently have 
+          You currently have
           <%= link_to games_user_path(current_user), class: "genre__game-count" do %>
-            <%= pluralize(current_user.genre_game_count(@genre.name), "#{@genre.name} game") %>
+            <%#= pluralize(current_user.genre_game_count(@genre.name), "#{@genre.name} game") %>
           <% end %>
           in your gaming library
         </h2>
+        -->
       <% end %>
     </div>
     <div class="genre__description d-none d-sm-block">
       <%= @genre.description.html_safe %>
     </div>
   
-    <%= render 'games/games', games: @games %>
+    <%= render 'games/games', games: @genre.games %>
   </div>
 </body>

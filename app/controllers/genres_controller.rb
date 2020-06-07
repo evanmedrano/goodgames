@@ -1,20 +1,19 @@
 class GenresController < ApplicationController
-  require 'Rawgapi'
+  before_action :set_genre, only: [:show]
 
   def index
-    @genres = RawgAPI.get_all_genres
+    @genres = RawgApi::GenreService.all
   end
 
   def show
-    begin
-      @genre = RawgAPI.get_genre(params[:id])
-
-      games = RawgAPI.search_all_games(@genre.slug, "genres")
-      @games = Game.find_in_db(games)
-    rescue TypeError
-      flash[:alert] = "Sorry, that genre does not exist in the database"
-      redirect_to genres_path
-    end
+    raise TypeError if @genre.name.nil?
+  rescue TypeError
+    redirect_to genres_path, alert: "Sorry, could not find the genre."
   end
-    
+
+  private
+
+  def set_genre
+    @genre = RawgApi::GenreService.find(params[:id])
+  end
 end
