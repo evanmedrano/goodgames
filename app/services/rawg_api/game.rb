@@ -6,7 +6,14 @@ module RawgApi
                   :series_games,
                   :screenshots,
                   :users_playing,
-                  :users_finished
+                  :users_finished,
+                  :released,
+                  :platforms,
+                  :background_image,
+                  :genres,
+                  :esrb_rating,
+                  :clip,
+                  :website
 
     def initialize(args = {})
       super(args)

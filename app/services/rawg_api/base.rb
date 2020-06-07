@@ -3,15 +3,8 @@ module RawgApi
     attr_accessor :errors,
                   :name,
                   :description,
-                  :released,
-                  :platforms,
-                  :background_image,
                   :id,
-                  :genres,
                   :slug,
-                  :website,
-                  :esrb_rating,
-                  :clip,
                   :image_background
 
     def initialize(args = {})

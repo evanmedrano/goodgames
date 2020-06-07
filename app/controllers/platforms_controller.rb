@@ -1,18 +1,19 @@
 class PlatformsController < ApplicationController
-  require 'Rawgapi'
+  before_action :set_platform, only: [:show]
 
   def index
-    @platforms = Rawgapi.get_all_platforms
+    @platforms = RawgApi::PlatformService.all
   end
 
   def show
-    begin
-      @platform = Rawgapi.get_platform(params[:id])
-      games = Rawgapi.search_all_games(@platform.id, "platforms")
-      @games = Game.find_in_db(games)
-    rescue TypeError
-      flash[:alert] = "Sorry, that platform does not exist in the database"
-      redirect_to platforms_path
-    end
+    raise TypeError if @platform.name.nil?
+  rescue TypeError
+    redirect_to platforms_path, alert: "Sorry, could not find the platform."
+  end
+
+  private
+
+  def set_platform
+    @platform = RawgApi::PlatformService.find(params[:id])
   end
 end
