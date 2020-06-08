@@ -1,7 +1,7 @@
 module RawgApi
   class GameService
     class << self
-      def all(query, params = "search")
+      def all(query = "", params = "search")
         query = CGI.escape(query)
         response = RawgApi::Request.get("/games?#{params}=#{query}")
 

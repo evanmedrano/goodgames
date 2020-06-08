@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/random-endpoint-here
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:26:21 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 01:26:21 GMT
+      Location:
+      - https://api.rawg.io/api/random-endpoint-here
+      Cf-Request-Id:
+      - 0332eb46d80000c5f818b82200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe7b1e2ebfc5f8-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:26:21 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/random-endpoint-here
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:26:22 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6e0c66e8389dbbbe2404e63ef750e1c71591575981; expires=Wed, 08-Jul-20
+        00:26:21 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Language:
+      - en
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 0332eb4737000091a415aec200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe7b1ebeab91a4-EWR
+    body:
+      encoding: UTF-8
+      string: "<h1>Not Found</h1><p>The requested resource was not found on this server.</p>"
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:26:22 GMT
+recorded_with: VCR 5.0.0

@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:42:51 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 01:42:51 GMT
+      Location:
+      - https://api.rawg.io/api/games/
+      Cf-Request-Id:
+      - 0332fa602e0000effddc154200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe9346b9ffeffd-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:42:51 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:42:51 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=df70f58c8e5b3576a8b1b4668d07e4d201591576971; expires=Wed, 08-Jul-20
+        00:42:51 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Language:
+      - en
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 0332fa60fd00000ce9023c1200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe9347fc540ce9-EWR
+    body:
+      encoding: UTF-8
+      string: "<h1>Not Found</h1><p>The requested resource was not found on this server.</p>"
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:42:52 GMT
+recorded_with: VCR 5.0.0

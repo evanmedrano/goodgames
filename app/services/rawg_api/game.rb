@@ -17,8 +17,8 @@ module RawgApi
 
     def initialize(args = {})
       super(args)
-      self.clip = args["clip"]["clip"] if self.clip.respond_to?(:[])
-      self.platforms = fetch_platform_data(args["platforms"])
+      self.clip = parse_clips(args)
+      self.platforms = parse_platforms(args) if respond_to?(:map)
     end
 
     def save
@@ -41,10 +41,12 @@ module RawgApi
 
     private
 
-    def fetch_platform_data(platforms)
-      if platforms
-        platforms.map! { |platform| platform.dig("platform") }
-      end
+    def parse_clips(args = {})
+      args.fetch("clip", {})["clip"] if clip.respond_to?(:[])
+    end
+
+    def parse_platforms(args = {})
+      args.fetch("platforms", []).map! { |platform| platform.dig("platform") }
     end
 
     def find_or_create_game(game)

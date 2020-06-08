@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/platforms/pc
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:55:02 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 01:55:02 GMT
+      Location:
+      - https://api.rawg.io/api/platforms/pc
+      Cf-Request-Id:
+      - '033305896e00000ca9048fc200000001'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fea52249680ca9-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:55:02 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/platforms/pc
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:55:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1307'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7b6daf4d53b4452e01b9b6be201275f91591577702; expires=Wed, 08-Jul-20
+        00:55:02 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, HEAD, OPTIONS
+      Path:
+      - api-platform-detail
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '0333058a0a0000efc89d010200000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fea5234de0efc8-EWR
+    body:
+      encoding: UTF-8
+      string: '{"id":4,"name":"PC","slug":"pc","games_count":228444,"image_background":"https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg","description":"<p>PC
+        games, or personal computer games, started with the video game crash of 1983.
+        PC games became popular after the development of the microprocessor and microcomputer.
+        Some of the first PC games were Bertie the Brain, OXO and Spacewar!<br />\nAs
+        the 3D graphics accelerators became faster and CPU power improved, PC games
+        became more realistic and more accessible to produce. The PC market sales
+        rocketed in the 80s when IBM computers and sound cards were generated. The
+        platform involves different peripherals, gaming hardware, and software. These
+        are mouse and keyboard; gamepads and motion controllers aren&#39;t obligatory,
+        but still popularly accepted. Better hardware improves the game&#39;s accuracy;
+        it usually lets the players use more NPCs than equivalents on other platforms.
+        With the platform, the players can perform every sort of game. For example,
+        shooters are easy to play due to the mouse controllers. However, the main
+        reason for the PC games popularity is their lower prices and the backward
+        compatibility with older titles, which leaves much to be desired on cosoles.</p>","image":null,"year_start":null,"year_end":null}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:55:03 GMT
+recorded_with: VCR 5.0.0
