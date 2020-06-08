@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games?search=randomunsuccessfulquery
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 12:51:35 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 13:51:35 GMT
+      Location:
+      - https://api.rawg.io/api/games?search=randomunsuccessfulquery
+      Cf-Request-Id:
+      - '0335958c6a0000e6f47e358200000001'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5a02bec0aad6e6f4-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 12:51:35 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games?search=randomunsuccessfulquery
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 12:51:35 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da721de4ca94071ba51f8b5c25ebd073c1591620695; expires=Wed, 08-Jul-20
+        12:51:35 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Path:
+      - api-game-list
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '0335958ddf0000e74836b93200000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5a02bec2f9e4e748-EWR
+    body:
+      encoding: UTF-8
+      string: '{"count":0,"next":null,"previous":null,"results":[],"user_platforms":false}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 12:51:36 GMT
+recorded_with: VCR 5.0.0

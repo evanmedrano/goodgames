@@ -39,7 +39,7 @@
               game_discover_index_path(game.slug),
               class: "btn--yellow my-3 btn"
             ) %>
-            <% if game.was_added?(current_user, game) %>
+            <% if current_user.added_game?(game) %>
               <%= render "games/form", game: game %>
               <%= button_to(
                 "Remove from library",

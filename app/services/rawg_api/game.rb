@@ -18,7 +18,7 @@ module RawgApi
     def initialize(args = {})
       super(args)
       self.clip = parse_clips(args)
-      self.platforms = parse_platforms(args) if respond_to?(:map)
+      self.platforms = parse_platforms(args)
     end
 
     def save
@@ -46,7 +46,9 @@ module RawgApi
     end
 
     def parse_platforms(args = {})
-      args.fetch("platforms", []).map! { |platform| platform.dig("platform") }
+      if platforms.respond_to?(:map)
+        args.fetch("platforms", []).map { |platform| platform.dig("platform") }
+      end
     end
 
     def find_or_create_game(game)
@@ -61,9 +63,7 @@ module RawgApi
 
     def set_attribute_values(response, game)
       response.instance_values.each do |attribute, value|
-        unless attribute == 'id'
-          game.send("#{attribute}=", value) if game.respond_to?("#{attribute}=")
-        end
+        game.send("#{attribute}=", value) if game.respond_to?("#{attribute}=")
       end
     end
   end
