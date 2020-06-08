@@ -23,7 +23,8 @@
             muted: true,
             autoplay: :autoplay,
             loop: :loop,
-            class: "w-100"
+            skip_pipeline: true,
+            class: "w-100",
           ) %>
         <% end %>
       </div>
@@ -33,7 +34,7 @@
         <div class="text-right game__gamer-statuses">
           <% if @game.users_playing.any? %>
             <h2 class="heading heading--normal text--blue mb-3">
-              Gamers <u>playing</u> 
+              Gamers <u>playing</u>
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
             <% @game.users_playing.each do |user| %>
@@ -107,7 +108,7 @@
       <div class="col-lg-7 pr-5 mt-lg-3">
         <!-- GAME LIBRARY BUTTONS -->
         <div class="game__form">
-          <% if @game.was_added?(current_user, @game) %>
+          <% if current_user.added_game?(@game) %>
             <%= render "form", game: @game %>
             <%= button_to(
               "Remove from library",

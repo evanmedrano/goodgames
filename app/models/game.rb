@@ -6,10 +6,13 @@ class Game < ApplicationRecord
                 :users_finished
 
   validates :name, presence: true, uniqueness: true
+  validates :slug, presence: true, uniqueness: true
 
   has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
+
+  default_scope { order(created_at: :desc) }
 
   scope :filter_by_genre,    -> (genre)    { where('genres @> ARRAY[?]::varchar[]', genre) }
   scope :filter_by_platform, -> (platform) { where('platforms @> ?', [{ platform: { name: platform } }].to_json) }
@@ -17,9 +20,10 @@ class Game < ApplicationRecord
   # Checks to see if a game is in the db, if not then we use the JSON data from
   # the api call
   def self.find_in_db(games)
-    games_in_db = Game.all.pluck(:name)
+    game_ids = Game.all.pluck(:id)
+
     games.map do |game|
-      games_in_db.include?(game.name) ? Game.find_by(name: game.name) : game
+      game_ids.include?(game.id) ? Game.find_by(id: game.id) : game
     end
   end
 
@@ -37,10 +41,5 @@ class Game < ApplicationRecord
 
   def current_platform(user)
     user_games.find_by(user: user).platform
-  end
-
-  def was_added?(user, game)
-    games = Game.joins(:user_games).where(user_games: {user: user }).pluck(:name)
-    games.include?(game.name) 
   end
 end

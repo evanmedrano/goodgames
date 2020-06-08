@@ -12,7 +12,7 @@ class DiscoverController < ApplicationController
   def set_game
     @game = persisted_game? || RawgApi::GameService.find(params[:game_id])
 
-    RawgApi::GameService.get_suggested_games(@game) unless @game.name.nil?
+    RawgApi::GameService.set_suggested_games(@game) unless @game.name.nil?
   end
 
   def persisted_game?
