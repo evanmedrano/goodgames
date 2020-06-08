@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/genres/action
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:52:03 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 01:52:03 GMT
+      Location:
+      - https://api.rawg.io/api/genres/action
+      Cf-Request-Id:
+      - 033302cb380000e861d2a0f200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fea0becf31e861-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:52:03 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/genres/action
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:52:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1168'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcbaa72c4e38536c8dda52a8c28037dd81591577523; expires=Wed, 08-Jul-20
+        00:52:03 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, HEAD, OPTIONS
+      Path:
+      - api-genre-detail
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 033302cbbb00000cbdbab3c200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fea0bf98de0cbd-EWR
+    body:
+      encoding: UTF-8
+      string: '{"id":4,"name":"Action","slug":"action","games_count":87823,"image_background":"https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg","description":"<p>The
+        action game is a genre that includes fights, puzzles, and strategies emphasizing
+        coordination and reaction. It includes a large variety of sub-genres like
+        fighting, beat &#39;em ups, shooters, survivals, mazes, and platforms; sometimes
+        even multiplayer online battles and real-time strategies. Usually, the player
+        performs as the protagonist with its unique abilities; some games add power-ups
+        along the way. The character aims to complete levels, collect items, avoid
+        obstacles, and battle against antagonists. It&#39;s necessary to avoid severe
+        injuries during fights; if the health bar goes low, the player loses. Some
+        games have an unbeatable number of enemies, and the only goal is to maximize
+        score and survive for as long as possible. There might be a boss enemy who
+        appears at the last level; he has unique abilities and a longer health bar.
+        Pong is one of the first action games, released in 1972; the latest include
+        Battlefield, Assasin&#39;s Creed, Fortnite and Dark Souls.</p>"}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:52:03 GMT
+recorded_with: VCR 5.0.0

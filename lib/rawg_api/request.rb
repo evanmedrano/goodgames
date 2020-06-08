@@ -6,7 +6,7 @@ module RawgApi
     base_uri "api.rawg.io/api"
     USER_AGENT = { "User-Agent" => "GoodGames (+gooooodgames.herokuapp.com)" }
 
-    def get(path, options = {})
+    def self.get(path, options = {})
       super(path, { headers: USER_AGENT, debug_output: STDOUT }.merge(options))
     end
   end

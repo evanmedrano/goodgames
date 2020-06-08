@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:26:21 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 08 Jun 2020 01:26:21 GMT
+      Location:
+      - https://api.rawg.io/api/
+      Cf-Request-Id:
+      - 0332eb447c0000f0497612b200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe7b1a6a29f049-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:26:21 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 08 Jun 2020 00:26:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc33326fb606d798b7b459ca48d0ec5e11591575981; expires=Wed, 08-Jul-20
+        00:26:21 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, HEAD, OPTIONS
+      Path:
+      - api-api-root
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 0332eb44d60000f00def1d9200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 59fe7b1afa5cf00d-EWR
+    body:
+      encoding: UTF-8
+      string: "{}"
+    http_version: 
+  recorded_at: Mon, 08 Jun 2020 00:26:21 GMT
+recorded_with: VCR 5.0.0
