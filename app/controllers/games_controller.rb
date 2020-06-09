@@ -34,7 +34,9 @@ class GamesController < ApplicationController
   def set_game
     @game = persisted_game? || fetch_game_data
 
-    RawgApi::GameService.set_related_game_content(@game) unless @game.name.nil?
+    if @game.name
+      RawgApi::GameService.set_related_game_content(@game, current_user)
+    end
   end
 
   def query

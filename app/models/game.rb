@@ -14,17 +14,24 @@ class Game < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
-  scope :filter_by_genre,    -> (genre)    { where('genres @> ARRAY[?]::varchar[]', genre) }
-  scope :filter_by_platform, -> (platform) { where('platforms @> ?', [{ platform: { name: platform } }].to_json) }
-
   # Checks to see if a game is in the db, if not then we use the JSON data from
   # the api call
   def self.find_in_db(games)
+    return if games.empty?
+
     game_ids = Game.all.pluck(:id)
 
     games.map do |game|
       game_ids.include?(game.id) ? Game.find_by(id: game.id) : game
     end
+  end
+
+  def self.filter_by_genre(genre)
+    where('genres @> ?', [{name: genre}].to_json)
+  end
+
+  def self.filter_by_platform(platform)
+    where('platforms @> ?', [{name: platform}].to_json)
   end
 
   def self.filter_by_status(user, status)
@@ -35,11 +42,11 @@ class Game < ApplicationRecord
     user_games.find_by(user: user).status
   end
 
-  def platform_names
-    platforms.map { |platform| platform["name"] }
-  end
-
   def current_platform(user)
     user_games.find_by(user: user).platform
+  end
+
+  def platform_names
+    platforms.map { |platform| platform["name"] }
   end
 end

@@ -1,11 +1,11 @@
 class UserGame < ApplicationRecord
-  belongs_to :user
-  belongs_to :game
+  belongs_to :game, touch: true
+  belongs_to :user, touch: true
 
+  validates :status,
+            presence: true,
+            inclusion: { in: %w[Currently\ own Owned Beat Playing Wishlist] }
   validates :user, uniqueness: { scope: :game_id }
-
-  validates :status, presence: true,
-                   inclusion: { in: %w{ Currently\ own Owned Beat Playing Wishlist } }
 
   default_scope { order(created_at: :desc) }
 
