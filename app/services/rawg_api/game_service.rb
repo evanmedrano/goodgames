@@ -1,7 +1,7 @@
 module RawgApi
   class GameService
     class << self
-      def all(query = "", params = "search")
+      def all(query = '', params = 'search')
         query = CGI.escape(query)
         response = RawgApi::Request.get("/games?#{params}=#{query}")
 
@@ -43,21 +43,25 @@ module RawgApi
       def set_screenshots(game)
         response = RawgApi::Request.get("/games/#{game.slug}/screenshots")
 
-        screenshots = response.fetch("results", [])
+        screenshots = response.fetch('results', [])
 
         game.screenshots = screenshots
       end
 
       def set_users_playing(game, user)
-        game.users_playing = User.same_game_status(game, "Playing", user)
+        game.users_playing =
+          User.same_game_status(
+            current_user: user, game: game, status: 'Playing'
+          )
       end
 
       def set_users_finished(game, user)
-        game.users_finished = User.same_game_status(game, "Beat", user)
+        game.users_finished =
+          User.same_game_status(current_user: user, game: game, status: 'Beat')
       end
 
       def parse_games(response)
-        games = response.fetch("results", []).map { |game| Game.new(game) }
+        games = response.fetch('results', []).map { |game| Game.new(game) }
 
         ::Game.find_in_db(games)
       end
