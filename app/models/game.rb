@@ -5,12 +5,12 @@ class Game < ApplicationRecord
                 :users_playing,
                 :users_finished
 
-  validates :name, presence: true, uniqueness: true
-  validates :slug, presence: true, uniqueness: true
-
-  has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
+  include Commentable
   has_many :user_games, dependent: :destroy
   has_many :users, through: :user_games
+
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
 
   default_scope { order(created_at: :desc) }
 

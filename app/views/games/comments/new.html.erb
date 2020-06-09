@@ -1,0 +1,19 @@
+<body style="background: url(<%= @game.background_image %>) no-repeat;">
+  <div class="container">
+    <div class="form__box my-2 pt-3 pb-5 px-5">
+      <h1 class="heading heading--large text-center text--green">
+        <u>New Comment</u>
+      </h1>
+
+      <div class="text-center">
+        <%= link_to(
+          "Back to #{@game.name}",
+          game_path(@game),
+          class: "link--red heading heading--normal",
+        ) %>
+      </div>
+
+      <%= render "comments/form", commentable: @game %>
+    </div>
+  </div>
+</body>

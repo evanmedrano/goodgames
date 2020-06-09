@@ -149,13 +149,13 @@
             <p class="comment comment__body"><%= comment.body %></p>
             <div class="d-flex align-items-center position-relative">
               <span class="comment comment__user mr-3">
-                -<%= comment.user_first_name %>
+                -<%= comment.user.name %>
               </span>
               <%= link_to(
                 games_user_path(comment.user),
                 class: "comment comment__profile"
               ) do %>
-                check out <%= comment.user_first_name %>'s game library &raquo;
+                check out <%= comment.user.name %>'s game library &raquo;
               <% end %>
             </div>
             <div class="text-right mt-5">
@@ -180,7 +180,7 @@
         <div class="text-center">
           <%= link_to(
             "Add a comment",
-            new_game_comment_path(@game),
+            new_game_comment_path(@game.slug),
             class: "btn btn--green"
           ) %>
           <% if @game.comments.any? %>

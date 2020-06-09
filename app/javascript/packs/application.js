@@ -50,3 +50,4 @@ window.onload = function () { //executes code after DOM loads
     })
   }
 }
+import "controllers"

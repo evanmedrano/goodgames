@@ -1,8 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :user
-  belongs_to :game
+  belongs_to :commentable, polymorphic: true, touch: true
+  belongs_to :user, touch: true
 
-  validates :user, :game, :title, :body, presence: true 
-
-  delegate :first_name, to: :user, prefix: true
+  validates :body, presence: true, length: { maximum: 300 }
+  validates :title, length: { maximum: 50 }
 end

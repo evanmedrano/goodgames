@@ -1,28 +1,23 @@
-<% form_url    = comment.persisted? ? game_comment_path : game_comments_path %>
-<% form_method = comment.persisted? ? :patch : :post %>
-<% submit_text = comment.persisted? ? "Edit comment" : "Add comment" %>
-<% heading_text = comment.persisted? ? "Edit comment" : "New comment" %>
-
-<body style="background: url(<%= @game.background_image %>) no-repeat;">  
-  <div class="container">
-    <div class="form__box my-2 pt-3 pb-5 px-5">
-      <h1 class="heading heading--large text-center text--green"><u><%= heading_text %></u></h1>
-      <div class="text-center">
-        <%= link_to "Back to #{@game.name}", game_path(@game), class: "link--red heading heading--normal" %>
-      </div>
-      <%= form_with model: [game, comment], url: form_url, method: form_method, local: true do |f| %>
-        <%= render "devise/shared/error_messages", resource: comment %>
-
-        <div class="form-group">
-          <%= f.label :title, class: "form__label" %>
-          <%= f.text_field :title, placeholder: "Exceptional!", class: "form-control form__field" %> 
-        </div>
-        <div class="form-group">
-          <%= f.label :body, "Comment", class: "form__label" %>
-          <%= f.text_area  :body,  placeholder: "This game is a joy to play!!", size: "50x8", class: "form-control form__field" %> 
-        </div>
-        <%= f.submit submit_text, class: "btn btn-block btn--green mt-5" %>
-      <% end %> 
-    </div>
+<%= form_with model: [commentable, Comment.new], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: "form__label" %>
+    <%= f.text_field(
+      :title,
+      placeholder: "Exceptional!",
+      autofocus: true,
+      class: "form-control form__field",
+    ) %>
   </div>
-</body>
+
+  <div class="form-group">
+    <%= f.label :body, "Comment", class: "form__label" %>
+    <%= f.text_area(
+      :body,
+      placeholder: "Enter your amazing comment!!",
+      size: "50x8",
+      class: "form-control form__field",
+    ) %>
+  </div>
+
+  <%= f.submit "Add comment", class: "btn btn-block btn--green mt-5" %>
+<% end %>

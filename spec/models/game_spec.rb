@@ -1,13 +1,15 @@
 require 'rails_helper'
+require 'models/concerns/commentable_spec'
 
-RSpec.describe Game, type: :model do
-  describe "Validations" do
-    it { is_expected.to validate_uniqueness_of :name }
+describe Game do
+  context "associations" do
+    it { should have_many :user_games }
+    it { should have_many :users }
+    it_behaves_like :commentable
   end
-  
-  describe "Associations" do
-    it { is_expected.to have_many :comments }
-    it { is_expected.to have_many :user_games }
-    it { is_expected.to have_many :users }
+
+  context "validations" do
+    it { should validate_uniqueness_of(:name).case_insensitive }
+    it { should validate_uniqueness_of(:slug).case_insensitive }
   end
 end
