@@ -32,7 +32,7 @@ class GamesController < ApplicationController
   private
 
   def set_game
-    @game = persisted_game? || RawgApi::GameService.find(params[:id])
+    @game = persisted_game? || fetch_game_data
 
     RawgApi::GameService.set_related_game_content(@game) unless @game.name.nil?
   end
@@ -48,5 +48,9 @@ class GamesController < ApplicationController
   def persisted_game?
     Game.includes(:comments, :users).find_by(slug: params[:id]) ||
       Game.includes(:comments, :users).find_by(id: params[:id])
+  end
+
+  def fetch_game_data
+    RawgApi::GameService.find(params[:id])
   end
 end

@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :games, only: [:index, :show, :create] do
-    resources :comments
     resources :discover, only: [:index]
+    resources :comments, module: :games
   end
 
   resources :user_games, only: [:create, :update, :destroy]
