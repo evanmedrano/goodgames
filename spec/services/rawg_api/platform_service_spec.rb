@@ -17,7 +17,6 @@ describe RawgApi::PlatformService do
       it "returns the correct platform data" do
         VCR.use_cassette("returns the correct platform data") do
           response = described_class.find("pc")
-          byebug
 
           expect(response.name).to eq("PC")
         end

@@ -101,8 +101,20 @@ RSpec.configure do |config|
 =end
 end
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library        :rails
+  end
+end
+
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.ignore_localhost = true
   config.hook_into :webmock
 end
 
+Capybara.configure do |config|
+  config.raise_server_errors = false
+  config.server = :puma, { Silent: true }
+end

@@ -6,19 +6,19 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  resources :games, only: [:index, :show, :create] do
+    resources :comments, module: :games
+    resources :discover, only: [:index]
+  end
+
+  resources :genres,    only: [:index, :show]
+  resources :platforms, only: [:index, :show]
+
   resources :users do
     member do
       get :games
     end
   end
 
-  resources :games, only: [:index, :show, :create] do
-    resources :discover, only: [:index]
-    resources :comments, module: :games
-  end
-
-  resources :user_games, only: [:create, :update, :destroy]
-
-  resources :genres,    only: [:index, :show]
-  resources :platforms, only: [:index, :show]
+  resources :user_games, only: [:update, :destroy]
 end
