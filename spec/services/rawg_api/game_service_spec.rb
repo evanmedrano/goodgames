@@ -10,7 +10,6 @@ describe RawgApi::GameService do
             expect(response.count).to eq(20)
          end
       end
-      #end
     end
 
     context "with a successful query" do
@@ -77,7 +76,7 @@ describe RawgApi::GameService do
     it "returns suggested games" do
       VCR.use_cassette("returns suggested games") do
         game = create(:game, slug: "portal-2")
-        described_class.get_suggested_games(game)
+        described_class.set_suggested_games(game)
 
         expect(game.suggested_games.any?).to eq(true)
       end

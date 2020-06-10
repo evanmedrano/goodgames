@@ -8,7 +8,7 @@
     <div class="btn__wrapper mt-5">
       <%= link_to "Build your library", games_path, class: "btn btn--green mr-3" %>
       <% if user_signed_in? %>
-        <%= link_to "My games", games_user_path(current_user), class: "btn btn--blue" %>
+        <%= link_to "My games", user_library_path(current_user), class: "btn btn--blue" %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "btn btn--blue" %>
       <% end %>
