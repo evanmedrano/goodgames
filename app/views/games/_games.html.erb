@@ -9,10 +9,15 @@
             game.clip,
             poster: game.background_image,
             muted: true,
-            class: "card-img-top"
+            skip_pipeline: true,
+            class: "card-img-top",
           ) %>
         <% else %>
-          <%= image_tag "#{game.background_image}", class: "card-img-top" %>
+          <%= image_tag(
+            "#{game.background_image}",
+            skip_pipeline: true,
+            class: "card-img-top",
+          ) %>
         <% end %>
 
         <!-- CARD BODY -->

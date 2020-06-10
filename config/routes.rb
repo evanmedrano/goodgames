@@ -14,10 +14,8 @@ Rails.application.routes.draw do
   resources :genres,    only: [:index, :show]
   resources :platforms, only: [:index, :show]
 
-  resources :users do
-    member do
-      get :games
-    end
+  resources :users, only: [] do
+    resource :library, only: [:show], module: :users
   end
 
   resources :user_games, only: [:update, :destroy]

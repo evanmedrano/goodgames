@@ -22,7 +22,7 @@ FactoryBot.define do
   factory :game do
     name
     slug
-    background_image { "image.jpg" }
+    background_image { "logo.png" }
     clip { "clip text" }
     description { "This is a test game" }
     esrb_rating { "E for Everyone" }
