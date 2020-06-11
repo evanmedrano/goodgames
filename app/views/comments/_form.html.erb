@@ -1,4 +1,12 @@
-<%= form_with model: [commentable, Comment.new], local: true do |f| %>
+<% form_url = comment.persisted? ? game_comment_path : game_comments_path %>
+<% form_method = comment.persisted? ? "patch" : "post" %>
+
+<%= form_with(
+    model: [commentable, comment],
+    local: true,
+    method: form_method,
+    url: form_url,
+  ) do |f| %>
   <div class="form-group">
     <%= f.label :title, class: "form__label" %>
     <%= f.text_field(
@@ -19,5 +27,5 @@
     ) %>
   </div>
 
-  <%= f.submit "Add comment", class: "btn btn-block btn--teal mt-5" %>
+  <%= f.submit class: "btn btn-block btn--teal mt-5" %>
 <% end %>

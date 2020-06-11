@@ -1,8 +1,12 @@
 class Games::CommentsController < CommentsController
-  before_action :set_game, only: [:new]
-  before_action :set_commentable, only: [:create]
+  before_action :set_game, only: [:new, :edit]
+  before_action :set_comment, only: [:edit]
+  before_action :set_commentable, only: [:create, :update, :destroy]
 
   def new
+  end
+
+  def edit
   end
 
   private
@@ -13,6 +17,10 @@ class Games::CommentsController < CommentsController
 
   def set_commentable
     @commentable = find_persisted_game || persist_new_game_data
+  end
+
+  def set_comment
+    @comment = @game.comments.find_by(id: params[:id])
   end
 
   def find_persisted_game
