@@ -1,3 +1,5 @@
+<% content_for(:title, "#{@genre.name} games | GoodGames") %>
+
 <body style="background: url(<%= @genre.image_background %>) no-repeat;">
   <div class="container p-5">
     <div class="d-sm-flex flex-md-row-reverse flex-sm-column justify-content-sm-between align-items-md-baseline text-md-left text-right px-5">
@@ -17,7 +19,7 @@
     <div class="genre__description d-none d-sm-block">
       <%= @genre.description.html_safe %>
     </div>
-  
+
     <%= render 'games/games', games: @genre.games %>
   </div>
 </body>

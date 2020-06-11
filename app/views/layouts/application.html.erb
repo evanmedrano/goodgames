@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Goodgames</title>
+    <title><%= title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +13,23 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <div class="container">
-      <%= render 'shared/header' %>
+      <%= render "header" %>
       <% if flash[:notice] %>
-          <div class="alert alert-success text-center heading heading--normal"><%= notice %></div>
+        <div class="alert alert-success text-center heading heading--normal">
+          <%= notice %>
+        </div>
       <% end %>
       <% if flash[:alert] %>
-          <div class="alert alert-danger text-center heading heading--normal"><%= alert %></div>
+        <div class="alert alert-danger text-center heading heading--normal">
+          <%= alert %>
+        </div>
       <% end %>
     </div>
+
     <%= yield %>
+
     <div class="container-fluid p-0 mt-auto">
-      <%= render 'shared/footer' %>
+      <%= render "footer" %>
     </div>
   </body>
 </html>
