@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :user_games, only: [:update, :destroy]
+
+  get '*unmatched_route', to: 'errors#show'
 end

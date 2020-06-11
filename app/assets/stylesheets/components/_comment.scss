@@ -2,8 +2,8 @@
   font-size: 1.4rem;
 
   &__box {
-    background-color: #fff;
-    border-top: 8px solid $blue;
+    background-color: $white;
+    border-top: 8px solid $blue-300;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,.3);
@@ -15,18 +15,14 @@
       transform: scale(1.1) translateY(-1rem);
     }
   }
-  
+
   &__title {
     font-size: 3rem;
     font-weight: 600;
   }
 
-  &__body {
-
-  }
-
   &__user {
-    color: $green;
+    color: $teal-300;
     font-size: 1.8rem;
   }
 
@@ -36,7 +32,7 @@
     opacity: 0;
     transition: all .5s;
     &:hover {
-      color: $yellow;
+      color: $yellow-300;
     }
   }
 
@@ -48,15 +44,14 @@
   &__edit {
     &,
     &:hover {
-      color: $blue;
+      color: $blue-300;
     }
   }
 
   &__delete {
     &,
     &:hover {
-      color: $red;
+      color: $red-300;
     }
-    
   }
 }

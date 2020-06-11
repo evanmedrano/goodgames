@@ -1,11 +1,67 @@
-//* COLORS 
-$red:    #DE0029;
-$green:  #00AA9E;
-$yellow: #F3C204;
-$blue:   #336DB3;
+// Type scale
+$fs-1: 1rem;
+$fs-2: 1.2rem;
+$fs-3: 1.4rem;
+$fs-4: 1.6rem;
+$fs-5: 1.8rem;
+$fs-6: 2.0rem;
+$fs-7: 2.4rem;
+$fs-8: 3.0rem;
+$fs-9: 3.6rem;
+$fs-10: 4.8rem;
+$fs-11: 6.0rem;
+$fs-12: 7.2rem;
 
-$logo-left: #EC424B;
-$logo-right: #015AB8;
+// Spacing scale (su = spacing unit)
+$su-1: .4rem;
+$su-2: .8rem;
+$su-3: 1.2rem;
+$su-4: 1.6rem;
+$su-5: 2.4rem;
+$su-6: 3.2rem;
+$su-7: 4.0rem;
+$su-8: 4.8rem;
+$su-9: 6.4rem;
+$su-10: 9.6rem;
+
+// Colors
+
+$blue-100: hsl(213, 56%, 75%);
+$blue-200: hsl(213, 56%, 55%);
+$blue-300: hsl(213, 56%, 45%);
+$blue-400: hsl(213, 56%, 35%);
+$blue-500: hsl(213, 56%, 25%);
+
+$yellow-100: hsl(48, 97%, 78%);
+$yellow-200: hsl(48, 97%, 58%);
+$yellow-300: hsl(48, 97%, 48%);
+$yellow-400: hsl(48, 97%, 38%);
+$yellow-500: hsl(48, 97%, 28%);
+
+$teal-100: hsl(176, 100%, 63%);
+$teal-200: hsl(176, 100%, 43%);
+$teal-300: hsl(176, 100%, 33%);
+$teal-400: hsl(176, 100%, 23%);
+$teal-500: hsl(176, 100%, 13%);
+
+$red-100: hsl(349, 100%, 74%);
+$red-200: hsl(349, 100%, 54%);
+$red-300: hsl(349, 100%, 44%);
+$red-400: hsl(349, 100%, 34%);
+$red-500: hsl(349, 100%, 24%);
+
+// Match homepage image
+$logo-left: hsl(357, 82%, 59%);
+$logo-right: hsl(211, 99%, 36%);
 
 
+// Neutrals
+$neutral-100: hsl(149, 8%, 95%);
+$neutral-200: hsl(149, 8%, 80%);
+$neutral-300: hsl(149, 8%, 61%);
+$neutral-400: hsl(149, 8%, 45%);
+$neutral-500: hsl(149, 8%, 25%);
 
+// Basic
+$black: hsl(0, 0, 0);
+$white: hsl(0, 0, 100%);

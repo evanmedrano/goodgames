@@ -6,17 +6,16 @@ body.games.show {
 .games.show {
 
   .nav-link {
-    color: #000 !important;
+    color: $black !important;
     &:hover {
-      color: $red !important;
+      color: $red-300 !important;
     }
   }
 }
 
 .game {
-    
   &__details {
-    color: #000;
+    color: $black;
     font-size: 1.8rem;
   }
 

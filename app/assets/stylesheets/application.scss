@@ -1,3 +1,4 @@
+@import 'abstracts/breakpoints';
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
@@ -17,6 +18,7 @@
 
 @import 'pages/comments';
 @import 'pages/devise';
+@import 'pages/error';
 @import 'pages/gamesIndex';
 @import 'pages/gamesShow';
 @import 'pages/genresShow';

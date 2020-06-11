@@ -6,9 +6,9 @@ body.comments {
   background-blend-mode: lighten !important;
 
   .nav-link {
-    color: #000 !important;
+    color: $black !important;
     &:hover {
-      color: $red !important;
+      color: $red-300 !important;
     }
   }
 }

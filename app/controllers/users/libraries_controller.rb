@@ -3,8 +3,10 @@ class Users::LibrariesController < ApplicationController
 
   def show
     @library.update_games_display if params[:status]
-  rescue NoMethodError
-    redirect_to root_url, alert: "That user does not exist!"
+
+    if invalid_user_id?
+      redirect_to root_url, alert: "Sorry, that user does not exist."
+    end
   end
 
   private
@@ -13,5 +15,9 @@ class Users::LibrariesController < ApplicationController
     user = User.find_by(id: params[:user_id])
 
     @library = LibraryFacade.new(user, params[:status])
+  end
+
+  def invalid_user_id?
+    @library.owner.nil?
   end
 end

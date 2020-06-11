@@ -1,12 +1,12 @@
 .card {
   border: none !important;
-  border-bottom: 4px solid $yellow !important;
+  border-bottom: 4px solid $yellow-300 !important;
   border-radius: 0 !important;
   box-shadow: 0 .3rem .5rem rgba(0,0,0,0.5);
   transition: all .2s;
   @media only screen and (min-width: 700px) {
     &:hover {
-      border-bottom: 4px solid $blue !important;
+      border-bottom: 4px solid $blue-300 !important;
       box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
       transform: scale(1.1);
       z-index: 10;
@@ -20,7 +20,7 @@
 
   &__heading {
     &:hover {
-      color: $red;
+      color: $red-300;
     }
     &:focus {
       outline: none;
@@ -35,7 +35,7 @@
   }
 
   &__icon {
-    color: $blue;
+    color: $blue-300;
     font-size: 2rem;
   }
 

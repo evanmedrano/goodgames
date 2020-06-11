@@ -11,7 +11,7 @@
     &:focus {
       outline: none;
     }
-    
+
     #nav-query {
       border-radius: 3rem;
       font-size: 1.4rem;
@@ -19,10 +19,10 @@
       transition: all .2s;
       width: 80%;
       &:hover {
-        border: 1px solid $blue;
+        border: 1px solid $blue-300;
       }
       &:focus {
-        border: 1px solid $green;
+        border: 1px solid $teal-300;
         box-shadow: none;
         width: 95%;
       }
@@ -40,11 +40,11 @@
   }
 
   .navbar.navbar-light .nav-link {
-    color: $green;
+    color: $teal-300;
     font-size: 1.4rem;
     &:hover,
     &.dropdown-toggle:focus {
-      color: $red;
+      color: $red-300;
     }
     @media only screen and (min-width: 975px) and (max-width: 1200px) {
       font-size: 1.1rem;
@@ -52,10 +52,10 @@
   }
 
   .dropdown-item {
-    color: $blue;
+    color: $blue-300;
     font-size: 1.4rem;
     &:hover {
-      color: $yellow;
+      color: $yellow-300;
     }
   }
 
@@ -67,7 +67,7 @@
   }
 
   .navbar-collapse.show {
-    background-color: #fff;
+    background-color: $white;
     padding: 1rem;
     z-index: 1000;
   }
