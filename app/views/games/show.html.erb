@@ -38,7 +38,7 @@
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
             <% @game.users_playing.each do |user| %>
-              <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
+              <%= link_to user.name, user_library_path(user), class: "btn btn--blue" %>
             <% end %>
           <% else %>
             <h2 class="heading mb-3">
@@ -55,7 +55,7 @@
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
             <% @game.users_finished.each do |user| %>
-              <%= link_to user.name, games_user_path(user), class: "btn btn--blue" %>
+              <%= link_to user.name, user_library_path(user), class: "btn btn--blue" %>
             <% end %>
           <% else %>
             <h2 class="heading mb-3">
@@ -72,7 +72,7 @@
               <%= link_to(
                 platform["name"],
                 platform_path(platform["slug"]),
-                class: "btn btn--green mt-3",
+                class: "btn btn--teal mt-3",
               ) %>
             <% end %>
           <% end %>
@@ -137,7 +137,7 @@
 
       <!-- COMMENTS -->
       <div class="col-lg-5">
-        <h2 class="heading heading--big text--green text-center my-5 mt-lg-0">
+        <h2 class="heading heading--big text--teal text-center my-5 mt-lg-0">
           <u>Comments</u>
         </h2>
         <% @game.comments.first(3).each do |comment| %>
@@ -152,7 +152,7 @@
                 -<%= comment.user.name %>
               </span>
               <%= link_to(
-                games_user_path(comment.user),
+                user_library_path(comment.user),
                 class: "comment comment__profile"
               ) do %>
                 check out <%= comment.user.name %>'s game library &raquo;
@@ -181,7 +181,7 @@
           <%= link_to(
             "Add a comment",
             new_game_comment_path(@game.slug),
-            class: "btn btn--green"
+            class: "btn btn--teal"
           ) %>
           <% if @game.comments.any? %>
             <%= link_to(

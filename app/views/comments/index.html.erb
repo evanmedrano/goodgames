@@ -11,7 +11,7 @@
         <p class="comment comment__body"><%= comment.body %></p>
         <div class="d-flex align-items-center position-relative">
           <span class="comment comment__user mr-3">-<%= comment.user_first_name %></span>
-          <%= link_to games_user_path(comment.user), class: "comment comment__profile" do %>
+          <%= link_to user_library_path(comment.user), class: "comment comment__profile" do %>
             check out <%= comment.user_first_name %>'s game library &raquo; 
           <% end %>
         </div>
@@ -25,7 +25,7 @@
       </div>
     <% end %>
     <div class="text-center">
-      <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn-block btn--green mb-5" %>
+      <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn-block btn--teal mb-5" %>
     </div>
   </div>
 </body>

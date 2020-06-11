@@ -25,22 +25,22 @@
 
 .text {
 
-  &--green {
-    color: $green;
+  &--teal {
+    color: $teal-300;
   }
 
   &--yellow {
-    color: $yellow;
+    color: $yellow-300;
   }
 
   &--red {
-    color: $red;
+    color: $red-300;
   }
 
   &--blue {
-    color: $blue;
+    color: $blue-300;
   }
-  
+
   &--logo-left {
     color: $logo-left;
   }
@@ -59,31 +59,31 @@
 }
 
 .link {
-  &--green {
-    color: $green;
+  &--teal {
+    color: $teal-300;
      &:hover {
-      color: $yellow;
+      color: $yellow-300;
     }
   }
 
   &--yellow {
-    color: $yellow;
+    color: $yellow-300;
      &:hover {
-      color: $blue;
+      color: $blue-300;
     }
   }
 
   &--red {
-    color: $red;
+    color: $red-300;
     &:hover {
-      color: $green;
+      color: $teal-300;
     }
   }
 
   &--blue {
-    color: $blue;
+    color: $blue-300;
      &:hover {
-      color: $red;
+      color: $red-300;
     }
   }
 }

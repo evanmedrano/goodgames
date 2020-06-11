@@ -1,0 +1,35 @@
+.error {
+  color: $white;
+
+  &__background {
+    background: url("error") no-repeat bottom;
+    background-size: cover;
+    height: 100%;
+  }
+
+  &__text-container {
+    @include padding($su-8, $su-4, null, $su-4);
+    text-align: center;
+
+    @include respond-to('lg') {
+      @include padding($su-10, $su-10, null, null);
+      text-align: right;
+    }
+  }
+
+  &__headline {
+    font-size: $fs-7;
+
+    @include respond-to('lg') {
+      font-size: $fs-9;
+    }
+  }
+
+  &__button {
+    font-size: $fs-4 !important;
+
+    @include respond-to('lg') {
+      font-size: $fs-5 !important;
+    }
+  }
+}

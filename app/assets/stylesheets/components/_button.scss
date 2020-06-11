@@ -1,11 +1,11 @@
 .btn {
   padding: 1rem 2rem !important;
 
-  &--green {
-    background-color: $green !important;
-    color: #fff !important;
+  &--teal {
+    background-color: $teal-300 !important;
+    color: $white !important;
     &:hover {
-      background-color: darken($green, 5%) !important;
+      background-color: darken($teal-300, 5%) !important;
       box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
       transform: translateY(-5px) !important;
     }
@@ -16,10 +16,10 @@
   }
 
   &--yellow {
-    background-color: $yellow !important;
-    color: #fff !important;
+    background-color: $yellow-300 !important;
+    color: $white !important;
      &:hover {
-      background-color: darken($yellow, 5%) !important;
+      background-color: darken($yellow-300, 5%) !important;
       box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
       transform: translateY(-5px) !important;
     }
@@ -30,10 +30,10 @@
   }
 
   &--red {
-    background-color: $red !important;
-    color: #fff !important;
+    background-color: $red-300 !important;
+    color: $white !important;
      &:hover {
-      background-color: darken($red, 5%) !important;
+      background-color: darken($red-300, 5%) !important;
       box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
       transform: translateY(-5px) !important;
     }
@@ -44,10 +44,10 @@
   }
 
   &--blue {
-    background-color: $blue !important; 
-    color: #fff !important;
+    background-color: $blue-300 !important; 
+    color: $white !important;
      &:hover {
-      background-color: darken($blue, 5%) !important;
+      background-color: darken($blue-300, 5%) !important;
       box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
       transform: translateY(-5px) !important;
     }
@@ -56,9 +56,9 @@
       transform: translateY(-2px) !important;
     }
   }
-  
+
   &--yellow,
-  &--green,
+  &--teal,
   &--blue,
   &--red {
     font-size: 1.4rem !important;

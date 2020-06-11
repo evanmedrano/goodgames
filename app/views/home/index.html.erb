@@ -6,7 +6,7 @@
     </h2>
     <h2 class="hero__text text-white">All the games you <span class="text--red">love</span> in one place</h2>
     <div class="btn__wrapper mt-5">
-      <%= link_to "Build your library", games_path, class: "btn btn--green mr-3" %>
+      <%= link_to "Build your library", games_path, class: "btn btn--teal mr-3" %>
       <% if user_signed_in? %>
         <%= link_to "My games", user_library_path(current_user), class: "btn btn--blue" %>
       <% else %>
@@ -15,46 +15,3 @@
     </div>
   </div>
 </section>
-
-<!--<div class="vh-85 mt-5">
-  <div class="row">
-    <div class="col-4">
-      <div class="app-info mt-5">
-        <h1 class="heading heading--large heading--yellow">
-          <span class="heading--red">G</span>ood<span class="heading--green u-horz-flip">G</span>ames
-        </h1>
-        <h2 class="heading">All the games you <u class="heading--red">love</u> in one place</h2>
-        <ul class="app-info__list">
-          <li class="app-info__list-item">
-            <%= fa_icon "crosshairs", class: "app-info__icon color--red" %>
-            Keep track of all the games that you are playing or beat
-          </li>
-          <li class="app-info__list-item">
-            <%= fa_icon "scroll", class: "app-info__icon color--yellow" %>
-            Add to your GoodGames library as you continue leveling up your personal collection
-          </li>
-          <li class="app-info__list-item">
-            <%= fa_icon "gamepad", class: "app-info__icon color--blue" %>
-            Top players are ranked by their overall gaming performance, so defeat those bosses!
-          </li>
-        </ul>
-        <div class="btn__wrapper ml-5 mt-5">
-          <%= link_to "Search all games", games_path, class: "btn btn--green mr-3" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn--blue" %>
-        </div>
-      </div>
-    </div>
-    <div class="col-8">
-      <div class="position-relative mt-5">
-        <% @games.each_with_index do |game, i| %>
-          <div class="card game-<%= i %>">
-            <h2 class="card__title"><%= game.name %></h2>
-            <%#= image_tag game.background_image, class: "card__image" %>
-            <%= link_to "See more", game_path(game), class: "btn btn--yellow" %>
-          </div> 
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>-->
-

@@ -11,10 +11,10 @@
       padding: 2rem 2rem 2.5rem 2rem;
       width: 100%;
       &:hover {
-        border: 1px solid $red;
+        border: 1px solid $red-300;
       }
       &:focus {
-        border: 1px solid $yellow;
+        border: 1px solid $yellow-300;
         box-shadow: none;
       }
     }
