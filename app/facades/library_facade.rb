@@ -2,7 +2,7 @@ class LibraryFacade
   attr_accessor :games
 
   def initialize(user, status = "")
-    @user = user
+    @user = user || Guest.new
     @status = status
   end
 
