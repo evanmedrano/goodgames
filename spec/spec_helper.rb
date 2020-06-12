@@ -112,6 +112,9 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
   config.ignore_localhost = true
   config.hook_into :webmock
+
+  record_mode = ENV["VCR"] ? ENV["VCR"].to_sym : :once
+  config.default_cassette_options = { record: record_mode }
 end
 
 Capybara.configure do |config|

@@ -1,6 +1,6 @@
 .footer {
+  @include padding($su-8, null, $su-8, null);
   background-color: $blue-300;
   color: $neutral-100;
-  padding: 3rem;
   text-align: center;
 }

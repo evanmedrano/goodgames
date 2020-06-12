@@ -14,6 +14,7 @@ FactoryBot.define do
   end
 
   factory :comment do
+    association :user
     title { "MyString" }
     body { "MyText" }
     commentable nil
