@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 feature "user signs up" do
-  scenario "successfully" do
+  scenario "successfully and has a confirmation instructions email sent" do
     visit new_user_registration_path
 
     submit_form
 
     expect(User.count).to eq(1)
-    expect(page).to have_content("Sign out")
+    expect(page).not_to have_content("Sign out")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "with missing fields" do
