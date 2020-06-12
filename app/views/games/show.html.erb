@@ -40,7 +40,7 @@
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
             <% @game.users_playing.each do |user| %>
-              <%= link_to user.name, user_library_path(user), class: "btn btn--blue" %>
+              <%= link_to user.name, user_library_path(user), class: "button button--blue" %>
             <% end %>
           <% else %>
             <h2 class="heading mb-3">
@@ -57,7 +57,7 @@
               <span class="text--red mt-3"><%= @game.name %></span>
             </h2>
             <% @game.users_finished.each do |user| %>
-              <%= link_to user.name, user_library_path(user), class: "btn btn--blue" %>
+              <%= link_to user.name, user_library_path(user), class: "button button--blue" %>
             <% end %>
           <% else %>
             <h2 class="heading mb-3">
@@ -74,7 +74,7 @@
               <%= link_to(
                 platform["name"],
                 platform_path(platform["slug"]),
-                class: "btn btn--teal mt-3",
+                class: "button button--teal mt-3",
               ) %>
             <% end %>
           <% end %>
@@ -85,7 +85,7 @@
               <%= link_to(
                 genre["name"],
                 genre_path(genre["slug"]),
-                class: "btn btn--red",
+                class: "button button--red",
               ) %>
             <% end %>
          </div>
@@ -119,20 +119,20 @@
               data: {
                 confirm: 'Are you sure you want to remove this game from your library?'
               },
-              class: "btn--red btn-block btn mt-3 w-100",
+              class: "button--red button--block button mt-3 w-100",
             ) %>
           <% else %>
             <%= button_to(
               "Add to library",
               games_path(game: { slug: @game.slug }),
-              class: "btn btn--blue btn-block mt-3 w-100",
+              class: "button button--blue button--block mt-3 w-100",
             ) %>
           <% end %>
 
           <%= link_to(
             "Games like this",
             game_discover_index_path(@game.slug),
-            class: "btn--yellow my-3 btn btn-block"
+            class: "button--yellow my-3 button button--block"
           ) %>
         </div>
       </div>
@@ -183,13 +183,13 @@
           <%= link_to(
             "Add a comment",
             new_game_comment_path(@game.slug),
-            class: "btn btn--teal"
+            class: "button button--teal"
           ) %>
           <% if @game.comments.any? %>
             <%= link_to(
               "All comments",
               game_comments_path(@game),
-              class: "btn btn--yellow"
+              class: "button button--yellow"
             ) %>
           <% end %>
         </div>

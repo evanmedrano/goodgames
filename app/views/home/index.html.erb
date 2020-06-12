@@ -5,12 +5,12 @@
       <span class="text--logo-left">G</span>ood<span class="text--logo-right">G</span>ames
     </h2>
     <h2 class="hero__text text-white">All the games you <span class="text--red">love</span> in one place</h2>
-    <div class="btn__wrapper mt-5">
-      <%= link_to "Build your library", games_path, class: "btn btn--teal mr-3" %>
+    <div class="button__wrapper mt-5">
+      <%= link_to "Build your library", games_path, class: "button button--teal mr-3" %>
       <% if user_signed_in? %>
-        <%= link_to "My games", user_library_path(current_user), class: "btn btn--blue" %>
+        <%= link_to "My games", user_library_path(current_user), class: "button button--blue" %>
       <% else %>
-        <%= link_to "Sign in", new_user_session_path, class: "btn btn--blue" %>
+        <%= link_to "Sign in", new_user_session_path, class: "button button--blue" %>
       <% end %>
     </div>
   </div>

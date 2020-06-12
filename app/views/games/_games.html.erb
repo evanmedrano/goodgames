@@ -33,16 +33,16 @@
           </div>
 
           <!-- CARD BUTTONS -->
-          <div class="card__btn-wrapper">
+          <div class="card__button-wrapper">
             <%= link_to(
               "Show more",
               game_path(game.slug),
-              class: "btn--teal btn"
+              class: "button--teal button"
             ) %>
             <%= link_to(
               "Games like this",
               game_discover_index_path(game.slug),
-              class: "btn--yellow my-3 btn"
+              class: "button--yellow my-3 button"
             ) %>
             <% if current_user.added_game?(game) %>
               <%= render "games/form", game: game %>
@@ -53,13 +53,13 @@
                 data: {
                   confirm: 'Are you sure you want to remove this game from your library?'
                 },
-                class: "btn--red btn mt-5 w-100"
+                class: "button--red button mt-5 w-100"
               ) %>
             <% else %>
               <%= button_to(
                 "Add to library",
                 games_path(game: { slug: game.slug }),
-                class: "btn btn--blue w-100"
+                class: "button button--blue w-100"
               ) %>
             <% end %>
           </div>

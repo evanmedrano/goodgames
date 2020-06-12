@@ -1,16 +1,9 @@
 body.games.show {
-  background-size: 100% auto !important; 
-  background-color: rgba(255,255,255,0.7) !important;
-  background-blend-mode: lighten !important;
+  @include faded-background;
 }
-.games.show {
 
-  .nav-link {
-    color: $black !important;
-    &:hover {
-      color: $red-300 !important;
-    }
-  }
+.games.show {
+  @include dark-nav-links;
 }
 
 .game {
@@ -44,10 +37,6 @@ body.games.show {
     background-color: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.4);
     padding: 3rem;
-  }
-
-  &__comment-link {
-    
   }
 
   &__gamer-statuses {

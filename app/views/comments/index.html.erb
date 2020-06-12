@@ -25,7 +25,11 @@
       </div>
     <% end %>
     <div class="text-center">
-      <%= link_to "Add a comment", new_game_comment_path(@game), class: "btn btn-block btn--teal mb-5" %>
+      <%= link_to(
+        "Add a comment",
+        new_game_comment_path(@game),
+        class: "button button--block button--teal mb-5",
+      ) %>
     </div>
   </div>
 </body>
