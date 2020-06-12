@@ -3,7 +3,7 @@ module TitlesHelper
     if content_for?(:title)
       "#{content_for :title}"
     else
-      "GoodGames | All the games you love in one place"
+      default_title
     end
   end
 
@@ -25,5 +25,9 @@ module TitlesHelper
     else
       "Add a comment for #{game.name} | GoodGames"
     end
+  end
+
+  def default_title
+    "GoodGames | All the games you love in one place"
   end
 end
