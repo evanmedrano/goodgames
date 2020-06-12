@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 02:32:14 GMT
+      - Fri, 12 Jun 2020 03:07:23 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 03:32:14 GMT
+      - Fri, 12 Jun 2020 04:07:23 GMT
       Location:
       - https://api.rawg.io/api/games/1
       Cf-Request-Id:
-      - 0347f7f59c0000e740e0bb7200000001
+      - '03481822280000ccee3399c200000001'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a2029029c8be740-EWR
+      - 5a205c7d0b76ccee-EWR
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 02:32:14 GMT
+  recorded_at: Fri, 12 Jun 2020 03:07:23 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/1
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 02:32:15 GMT
+      - Fri, 12 Jun 2020 03:07:23 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dc52c997acdca208a2ba2e0697024dde71591929135; expires=Sun, 12-Jul-20
-        02:32:15 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d3061a67bf9df6fcb053c7abf0d8ce2bf1591931243; expires=Sun, 12-Jul-20
+        03:07:23 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, PATCH, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0347f7f7ed0000e6d495045200000001
+      - '034818228400009270dab7e200000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,7 +87,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a2029064e7be6d4-EWR
+      - 5a205c7da8029270-EWR
     body:
       encoding: UTF-8
       string: '{"id":1,"slug":"dgeneration-hd","name":"D/Generation HD","name_original":"D/Generation
@@ -144,5 +144,5 @@ http_interactions:
         menu\nCan save at any point in the game\nLeaderboards\nAchievements\nSame
         great gameplay"}'
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 02:32:15 GMT
+  recorded_at: Fri, 12 Jun 2020 03:07:23 GMT
 recorded_with: VCR 5.0.0
