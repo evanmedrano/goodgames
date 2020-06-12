@@ -1,11 +1,8 @@
 body.genres.show {
-  background-size: 100% auto !important; 
-  background-color: rgba(255,255,255,0.7) !important;
-  background-blend-mode: lighten !important;
+  @include faded-background;
 }
 
 .genre {
-
   &__description {
     background-color: rgba(255,255,255,.7);
     border-radius: 3rem;
@@ -14,6 +11,7 @@ body.genres.show {
     line-height: 1.8;
     margin: 3rem 0;
     padding: 3rem;
+
     @media only screen and (min-width: 570px) and (max-width: 770px) {
       font-size: 1.3rem;
     }

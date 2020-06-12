@@ -16,15 +16,13 @@
 @import 'layouts/footer';
 @import 'layouts/header';
 
-@import 'pages/comments';
-@import 'pages/devise';
-@import 'pages/error';
-@import 'pages/gamesIndex';
-@import 'pages/gamesShow';
-@import 'pages/genresShow';
-@import 'pages/homeIndex';
-@import 'pages/platformsShow';
-@import 'pages/userGames';
+@import 'pages/devise/footer';
+@import 'pages/errors/show';
+@import 'pages/games/**/*';
+@import 'pages/genres/*';
+@import 'pages/platforms/*';
+@import 'pages/static/*';
+@import 'pages/users/**/*';
 
 @import 'font_awesome5_webfont';
 @import 'bootstrap';

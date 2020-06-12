@@ -10,10 +10,16 @@
     margin: 3rem 0;
     padding: 1rem;
     transition: all .2s;
+
     &:hover {
       box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
       transform: scale(1.1) translateY(-1rem);
     }
+  }
+
+  &__box:hover &__profile {
+    right: 0;
+    opacity: 1;
   }
 
   &__title {
@@ -31,27 +37,19 @@
     position: absolute;
     opacity: 0;
     transition: all .5s;
+
     &:hover {
       color: $yellow-300;
     }
   }
 
-  &__box:hover &__profile {
-    right: 0;
-    opacity: 1;
+  &__edit,
+  &__edit:hover {
+    color: $blue-300;
   }
 
-  &__edit {
-    &,
-    &:hover {
-      color: $blue-300;
-    }
-  }
-
-  &__delete {
-    &,
-    &:hover {
-      color: $red-300;
-    }
+  &__delete,
+  &__delete:hover {
+    color: $red-300;
   }
 }

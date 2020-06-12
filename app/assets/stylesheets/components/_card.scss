@@ -4,6 +4,7 @@
   border-radius: 0 !important;
   box-shadow: 0 .3rem .5rem rgba(0,0,0,0.5);
   transition: all .2s;
+
   @media only screen and (min-width: 700px) {
     &:hover {
       border-bottom: 4px solid $blue-300 !important;
@@ -13,25 +14,32 @@
     }
   }
 
+  &:hover &__info {
+    display: none;
+  }
+
+  &:hover &__button-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+  }
+
   &-img-top[poster] {
     object-fit: cover;
     object-position: top;
   }
 
   &__heading {
-    &:hover {
-      color: $red-300;
-    }
     &:focus {
       outline: none;
+    }
+    &:hover {
+      color: $red-300;
     }
   }
 
   &__info {
     font-size: 1.3rem;
-  }
-  &:hover &__info {
-    display: none;
   }
 
   &__icon {
@@ -39,12 +47,7 @@
     font-size: 2rem;
   }
 
-  &__btn-wrapper {
+  &__button-wrapper {
     display: none;
-  }
-  &:hover &__btn-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 3rem;
   }
 }

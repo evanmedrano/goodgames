@@ -5,7 +5,7 @@
 
 <body style="background: url(<%= commentable.background_image %>) no-repeat;">
   <div class="container">
-    <div class="form__box my-2 pt-3 pb-5 px-5">
+    <div class="form__box my-5 pt-3 pb-5 px-5">
       <div class="text-center">
         <%= link_to(
           "Back to #{commentable.name}",
@@ -34,7 +34,7 @@
           ) %>
         </div>
 
-        <%= f.submit class: "btn btn-block btn--teal mt-5" %>
+        <%= f.submit class: "button button--block button--teal mt-5" %>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games/random-nonexisting-game
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Fri, 12 Jun 2020 02:35:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Fri, 12 Jun 2020 03:35:39 GMT
+      Location:
+      - https://api.rawg.io/api/games/random-nonexisting-game
+      Cf-Request-Id:
+      - 0347fb14c500009a1af4aea200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5a202e0139089a1a-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 12 Jun 2020 02:35:39 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games/random-nonexisting-game
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 12 Jun 2020 02:35:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '23'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfe7a120932eea080b3c90ae755c50c7f1591929339; expires=Sun, 12-Jul-20
+        02:35:39 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, PATCH, HEAD, OPTIONS
+      Path:
+      - api-game-detail
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 0347fb16440000efc4b40aa200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5a202e03adccefc4-EWR
+    body:
+      encoding: UTF-8
+      string: '{"detail":"Not found."}'
+    http_version: 
+  recorded_at: Fri, 12 Jun 2020 02:35:39 GMT
+recorded_with: VCR 5.0.0

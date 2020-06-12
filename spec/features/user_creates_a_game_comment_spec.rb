@@ -40,6 +40,14 @@ feature "user creates a game comment" do
     end
   end
 
+  scenario "for a game that does not exist" do
+    VCR.use_cassette("user adds game comment of a non-existing game") do
+      visit new_game_comment_path("random-nonexisting-game")
+
+      expect(page).to have_content("Game over!")
+    end
+  end
+
   def submit_form(options = {})
     fill_in "Title", with: "Great game"
     fill_in "Comment", with: options[:body] || "I rate this game a 5 out of 5!"

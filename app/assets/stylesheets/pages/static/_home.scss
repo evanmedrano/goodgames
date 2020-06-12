@@ -1,0 +1,18 @@
+.home.index {
+  .footer {
+    display: none;
+  }
+}
+
+.hero {
+  background: url("mario") no-repeat center center;
+  background-size: cover;
+
+  &__heading {
+    letter-spacing: -1.2rem;
+  }
+
+  &__text {
+    text-shadow: 0 1rem 2rem rgba(0,0,0,1);
+  }
+}
