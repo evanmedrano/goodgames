@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 00:24:21 GMT
+      - Fri, 12 Jun 2020 03:08:12 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 01:24:21 GMT
+      - Fri, 12 Jun 2020 04:08:12 GMT
       Location:
       - https://api.rawg.io/api/games?search=randomunsuccessfulquery
       Cf-Request-Id:
-      - '034782e03b0000e83d289dd200000001'
+      - '034818e38b0000c5ec4d88a200000001'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a1f6dad2a3de83d-EWR
+      - 5a205db27d86c5ec-EWR
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 00:24:21 GMT
+  recorded_at: Fri, 12 Jun 2020 03:08:12 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games?search=randomunsuccessfulquery
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 00:24:21 GMT
+      - Fri, 12 Jun 2020 03:08:13 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=daa4ef366c5de1550bfa0683d096196351591921461; expires=Sun, 12-Jul-20
-        00:24:21 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=da4c203ea5435ef69d340a9b41ab7cbce1591931292; expires=Sun, 12-Jul-20
+        03:08:12 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, POST, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '034782e0a500000cada93e0200000001'
+      - '034818e3da0000e859c8aff200000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,10 +87,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a1f6daddf710cad-EWR
+      - 5a205db2f95ce859-EWR
     body:
       encoding: UTF-8
       string: '{"count":0,"next":null,"previous":null,"results":[],"user_platforms":false}'
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 00:24:21 GMT
+  recorded_at: Fri, 12 Jun 2020 03:08:13 GMT
 recorded_with: VCR 5.0.0

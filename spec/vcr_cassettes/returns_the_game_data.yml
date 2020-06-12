@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 00:24:34 GMT
+      - Fri, 12 Jun 2020 03:08:28 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 01:24:34 GMT
+      - Fri, 12 Jun 2020 04:08:28 GMT
       Location:
       - https://api.rawg.io/api/games/portal-2
       Cf-Request-Id:
-      - '034783145e0000e740d8883200000001'
+      - '03481922f20000ccc661a5f200000001'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a1f6e009947e740-EWR
+      - 5a205e17ec9eccc6-EWR
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 00:24:34 GMT
+  recorded_at: Fri, 12 Jun 2020 03:08:28 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/portal-2
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 00:24:35 GMT
+      - Fri, 12 Jun 2020 03:08:28 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d5f315f7de52e4b6f1224bea28f014c9e1591921474; expires=Sun, 12-Jul-20
-        00:24:34 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d77ab2e48de7fb984c9dc1fd7da27e1901591931308; expires=Sun, 12-Jul-20
+        03:08:28 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, PATCH, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '03478314ae0000f005bd047200000001'
+      - '03481923460000f0253730e200000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,7 +87,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a1f6e011ca8f005-EWR
+      - 5a205e187f52f025-EWR
     body:
       encoding: UTF-8
       string: '{"id":4200,"slug":"portal-2","name":"Portal 2","name_original":"Portal
@@ -163,5 +163,5 @@ http_interactions:
         2 also features a co-op mode where two players take on the roles of robots
         being led through tests by GladOS, as well as an in-depth level editor."}'
     http_version: 
-  recorded_at: Fri, 12 Jun 2020 00:24:35 GMT
+  recorded_at: Fri, 12 Jun 2020 03:08:28 GMT
 recorded_with: VCR 5.0.0
