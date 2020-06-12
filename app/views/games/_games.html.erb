@@ -2,13 +2,18 @@
   <div class="row justify-content-center">
     <% games.each do |game| %>
       <!-- GAME CARDS -->
-      <div class="card mx-4 my-5 p-0 col-lg-3 col-md-5 col-sm-12" id="<%= game.slug %>">
+      <div
+        data-controller="game-card"
+        data-action="mouseover->game-card#playVideo mouseout->game-card#pauseVideo"
+        class="card mx-4 my-5 p-0 col-lg-3 col-md-5 col-sm-12" id="<%= game.slug %>"
+      >
         <!-- GAME CLIPS/IMAGES -->
         <% if game.clip != nil %>
           <%= video_tag(
             game.clip,
             poster: game.background_image,
             muted: true,
+            data: { "game-card-target": "gameVideo" },
             skip_pipeline: true,
             class: "card-img-top",
           ) %>

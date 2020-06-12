@@ -43,6 +43,11 @@ FactoryBot.define do
     email
     name
     password { "foobar123" }
+
+    after(:create) do |user|
+      user.skip_confirmation!
+      user.save
+    end
   end
 
   factory :user_game do
