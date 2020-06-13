@@ -5,13 +5,8 @@ class GamesController < ApplicationController
   def index
     @games = RawgApi::GameService.all(query)
 
-    # if @games.empty?
-    #   redirect_to games_url, alert: "Sorry, that game isn't in our database."
-    # end
-
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @games }
+    if @games.empty?
+      redirect_to games_url, alert: "Sorry, that game isn't in our database."
     end
   end
 

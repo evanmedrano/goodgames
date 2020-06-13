@@ -4,6 +4,8 @@ describe User do
   context "associations" do
     context "has_many" do
       it { should have_many(:comments).dependent(:destroy) }
+      it { should have_many(:friendships).dependent(:destroy) }
+      it { should have_many(:friends).through(:friendships) }
       it { should have_many(:user_games).dependent(:destroy) }
       it { should have_many(:games).through(:user_games) }
     end

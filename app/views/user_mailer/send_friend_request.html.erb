@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h2>Guess what, <%= @friend.name %>?<h2>
+
+    <p>
+      <%= @user.name %> just sent you a friend request!
+    <p>
+    <p>
+      <%= link_to(
+        "Click here to accept the request.",
+        user_friend_requests_url(@friend),
+      ) %>
+    </p>
+
+    <p>Take care, and keep on gaming!<p>
+  </body>
+</html>

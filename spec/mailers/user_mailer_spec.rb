@@ -1,19 +1,27 @@
 require "rails_helper"
 
 describe UserMailer do
-  describe "#confirmation_instructions" do
-    it "an email is sent after a user is created" do
-      user = create(:user)
-      mail = ActionMailer::Base.deliveries.first
+  describe "#send_friend_request" do
+    it "sends the request to the requested friend's email" do
+      user, friend = create(:user), create(:user)
 
-      expect(mail).not_to be(nil)
+      send_friend_request_email(user, friend)
+
+      mail = ActionMailer::Base.deliveries.first
+      expect([friend.email]).to eq(mail.to)
     end
 
-    it "sends confirmation instructions to the user's email" do
-      user = create(:user)
-      mail = ActionMailer::Base.deliveries.first
+    it "displays the requester's name in the email's subject" do
+      user, friend = create(:user), create(:user)
 
-      expect([user.email]).to eq(mail.to)
+      send_friend_request_email(user, friend)
+
+      mail = ActionMailer::Base.deliveries.first
+      expect(mail.subject).to include(user.name)
     end
+  end
+
+  def send_friend_request_email(user, friend)
+    described_class.send_friend_request(user: user, friend: friend).deliver_now
   end
 end

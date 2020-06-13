@@ -20,6 +20,11 @@ FactoryBot.define do
     commentable nil
   end
 
+  factory :friendship do
+    association :friend, factory: :user
+    association :user
+  end
+
   factory :game do
     name
     slug
@@ -44,9 +49,15 @@ FactoryBot.define do
     name
     password { "foobar123" }
 
-    after(:create) do |user|
+    before(:create) do |user|
       user.skip_confirmation!
       user.save
+    end
+
+    trait :with_confirmation_email do
+      after(:create) do |user|
+        user.send_confirmation_instructions
+      end
     end
   end
 
