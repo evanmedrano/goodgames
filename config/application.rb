@@ -12,6 +12,8 @@ module Goodgames
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
 
+    config.react.server_renderer_extensions = ["jsx", "js", "tsx", "ts"]
+
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/facades)
     config.autoload_paths += %W(#{config.root}/app/services)

@@ -5,6 +5,8 @@
     <u><span class="text--red">G</span>ather your <span class="text--blue">G</span>ames!</u>
   </h1>
 
+  <%= react_component("SearchBar") %>
+
   <div class="d-flex justify-content-center mt-5 mb-4">
     <%= form_tag games_path, method: :get, class: "form-inline my-2 my-lg-0", id: "game-search" do %>
       <%= text_field_tag :query, nil, class: "form-control", placeholder: "Search 347,170 games!" %>
