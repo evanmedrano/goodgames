@@ -7,6 +7,10 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "@types/axios": "^0.14.0",
+    "@types/react": "^16.9.36",
+    "@types/react-dom": "^16.9.8",
+    "axios": "^0.19.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.4.1",
@@ -17,7 +21,9 @@
     "react-dom": "^16.13.1",
     "react_ujs": "^2.6.1",
     "stimulus": "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz",
-    "turbolinks": "^5.2.0"
+    "ts-loader": "^7.0.5",
+    "turbolinks": "^5.2.0",
+    "typescript": "^3.9.5"
   },
   "version": "0.1.0",
   "devDependencies": {
