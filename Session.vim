@@ -11,15 +11,12 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .
+$argadd ~/code/projects/projects2020/side-projects/originals/goodgames
 edit app/controllers/games_controller.rb
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-wincmd _ | wincmd |
-split
-2wincmd k
-wincmd w
+1wincmd k
 wincmd w
 set nosplitbelow
 set nosplitright
@@ -39,30 +36,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 14) / 29)
+let s:l = 49 - ((21 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 0
-wincmd w
-argglobal
-if bufexists("app/javascript/components/SearchBar.jsx") | buffer app/javascript/components/SearchBar.jsx | else | edit app/javascript/components/SearchBar.jsx | endif
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 61 - ((23 * winheight(0) + 14) / 29)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-61
-normal! 07|
+49
+normal! 03|
 wincmd w
 argglobal
 if bufexists("app/views/games/index.html.erb") | buffer app/views/games/index.html.erb | else | edit app/views/games/index.html.erb | endif
@@ -75,28 +54,28 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 14) / 28)
+let s:l = 23 - ((22 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 039|
+23
+normal! 0
 wincmd w
+2wincmd w
 wincmd =
 tabnext 1
+badd +1 ~/code/projects/projects2020/side-projects/originals/goodgames
+badd +8 app/controllers/games_controller.rb
+badd +23 app/views/games/index.html.erb
 badd +31 app/javascript/packs/application.js
 badd +4 app/javascript/packs/server_rendering.js
 badd +5 app/javascript/channels/index.js
 badd +16 config/application.rb
-badd +8 app/views/games/_games.html.erb
-badd +0 app/views/games/index.html.erb
+badd +3 app/views/games/_games.html.erb
 badd +8 app/javascript/controllers/index.js
 badd +10 app/javascript/controllers/game_card_controller.ts
-badd +0 tsconfig.json
-badd +14 app/controllers/games_controller.rb
-badd +1 app/javascript/components/SearchBar.jsx
-badd +0 app/assets/stylesheets/components/_SearchBar.scss
-badd +13 app/assets/stylesheets/application.scss
+badd +1 tsconfig.json
+badd +14 app/assets/stylesheets/application.scss
 badd +10 app/controllers/application_controller.rb
 badd +145 ~/.vimrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
