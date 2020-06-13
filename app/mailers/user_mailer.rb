@@ -1,10 +1,11 @@
-class UserMailer < Devise::Mailer
-  helper :application
-  default template_path: 'devise/mailer'
-  default from: "no-reply@goodgames.com"
+class UserMailer < ApplicationMailer
+  def send_friend_request(user:, friend:)
+    @user = user
+    @friend = friend
 
-  def confirmation_instructions(record, token, opts={})
-    opts[:from] = "registrations@goodgames.com"
-    super
+    mail(
+      to: friend.email,
+      subject: "#{user.name} has sent you a friend request!"
+    )
   end
 end

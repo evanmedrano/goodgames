@@ -18,10 +18,13 @@ Rails.application.routes.draw do
     resources :discover, only: [:index]
   end
 
+  resources :friend_requests, only: [:create]
+  resources :friendships, only: [:create, :destroy]
   resources :genres,    only: [:index, :show]
   resources :platforms, only: [:index, :show]
 
   resources :users, only: [] do
+    resources :friend_requests, only: [:index], module: :users
     resource :library, only: [:show], module: :users
   end
 

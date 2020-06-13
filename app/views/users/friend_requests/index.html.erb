@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Pending friend requests</h2>
+
+  <% @friend_requests.each do |request| %>
+    <span>Friend request from <%= request.user.name %></span>
+    <%= button_to(
+      "Accept",
+      friendships_path(
+        friendship: { user_id: request.user.id, friend_id: current_user.id }
+        ),
+      class: "button button--yellow",
+    ) %>
+  <% end %>
+</div>

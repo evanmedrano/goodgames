@@ -1,12 +1,26 @@
 <% content_for(:title, games_library_title(@library)) %>
 
-<div class="container mt-5">
+<div class="container mt-5 library">
   <h1 class="text-center heading heading--large">
     <span class="text--teal"><%= @library.owner %>'s</span> games
     <% if params[:status] %>
       - <span class="text--teal"><%= params[:status] %></span>
     <% end %>
   </h1>
+
+  <% if current_user.id == @library.id %>
+    <%= link_to "My friend requests", user_friend_requests_path(current_user) %>
+  <% end %>
+
+  <% if current_user.id != @library.id %>
+    <%= button_to(
+      "Send friend request",
+      friend_requests_path(
+        friend_request: { user_id: current_user.id, friend_id: @library.id }
+      ),
+      class: "button button--teal text-center mt-2",
+    ) %>
+  <% end %>
 
   <ul class="status__list">
     <li class="status__list-item">
