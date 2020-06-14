@@ -46,8 +46,8 @@ class FriendshipService
   end
 
   def user_friendships
-    user_friendship = Friendship.new(user_id: user_id, friend_id: friend_id)
-    friend_friendship = Friendship.new(user_id: friend_id, friend_id: user_id)
+    user_friendship = initialize_friendship(user_id, friend_id, user_id)
+    friend_friendship = initialize_friendship(friend_id, user_id, user_id)
 
     [user_friendship, friend_friendship]
   end
@@ -57,5 +57,11 @@ class FriendshipService
     friend_friendship = Friendship.find_by(user_id: friend_id, friend_id: user_id)
 
     [user_friendship, friend_friendship]
+  end
+
+  def initialize_friendship(user_id, friend_id, requester)
+    Friendship.new(
+      user_id: user_id, friend_id: friend_id, request_sent_by: requester
+    )
   end
 end

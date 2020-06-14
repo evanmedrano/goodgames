@@ -12,7 +12,8 @@ feature "user sends a friend request" do
 
   scenario "as a logged in user" do
     user = create(:user)
-    visit user_library_path(user, as: logged_in_user)
+    requester = create(:user)
+    visit user_library_path(user, as: logged_in_user(requester))
 
     click_button "Send friend request"
 

@@ -2,13 +2,29 @@
   <h2>Pending friend requests</h2>
 
   <% @friend_requests.each do |request| %>
-    <span>Friend request from <%= request.user.name %></span>
-    <%= button_to(
-      "Accept",
-      friendships_path(
-        friendship: { user_id: request.user.id, friend_id: current_user.id }
-        ),
-      class: "button button--yellow",
-    ) %>
+    <% if current_user.sent_friend_request_to?(request.friend.id) %>
+      <span>
+        Friend request sent to <%= link_to(
+          request.friend.name,
+          user_library_path(request.friend.id),
+          class: "text--blue",
+        ) %> is still pending
+      </span>
+    <% else %>
+      <span>
+        Friend request from <%= link_to(
+          request.friend.name,
+          user_library_path(request.friend.id),
+          class: "text--blue",
+        ) %>
+      </span>
+      <%= button_to(
+        "Accept",
+        friendships_path(
+          friendship: { user_id: current_user.id, friend_id: request.friend.id }
+          ),
+        class: "button button--yellow",
+      ) %>
+    <% end %>
   <% end %>
 </div>
