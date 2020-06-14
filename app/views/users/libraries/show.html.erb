@@ -13,13 +13,29 @@
   <% end %>
 
   <% if current_user.id != @library.id %>
-    <%= button_to(
-      "Send friend request",
-      friend_requests_path(
-        friend_request: { user_id: current_user.id, friend_id: @library.id }
-      ),
-      class: "button button--teal text-center mt-2",
-    ) %>
+    <% if current_user.has_pending_friendship_with?(@library.id) %>
+      <%= button_to(
+        "Friend request pending",
+        "#",
+        disabled: true,
+        class: "button button--yellow text-center mt-2",
+      ) %>
+    <% elsif current_user.is_friends_with?(@library.id) %>
+      <%= button_to(
+        "Friends",
+        "#",
+        disabled: true,
+        class: "button button--blue text-center mt-2",
+      ) %>
+    <% else %>
+      <%= button_to(
+        "Send friend request",
+        friend_requests_path(
+          friend_request: { user_id: current_user.id, friend_id: @library.id }
+        ),
+        class: "button button--teal text-center mt-2",
+      ) %>
+    <% end %>
   <% end %>
 
   <ul class="status__list">

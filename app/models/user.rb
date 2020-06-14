@@ -35,6 +35,20 @@ class User < ApplicationRecord
     self.class.filter_user_game_platform(platform).where(id: self.id).count
   end
 
+  def has_pending_friendship_with?(library_owner_id)
+    friendships.where(friend_id: library_owner_id, pending: true).any?
+  end
+
+  def is_friends_with?(library_owner_id)
+    friendships.where(friend_id: library_owner_id, pending: false).any?
+  end
+
+  def sent_friend_request_to?(friend_id)
+    friendships.where(
+      user_id: self.id, friend_id: friend_id, request_sent_by: self.id
+    ).any?
+  end
+
   def first_name
     name.split[0]
   end

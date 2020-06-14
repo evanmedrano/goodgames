@@ -20,7 +20,7 @@ class Users::FriendRequestsController < ApplicationController
   end
 
   def pending_friend_requests
-    Friendship.includes(:user).where(friend: @user, pending: true)
+    Friendship.includes(:user).where(user: @user, pending: true)
   end
 
   def incorrect_user?
