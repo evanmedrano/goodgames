@@ -17,7 +17,7 @@ feature "user views friend requests" do
 
   scenario "that were sent to other users" do
     user, friend = create(:user), create(:user)
-    create_friendships(user, friend)
+    create_friendships_for(user: user, friend: friend)
 
     visit user_friend_requests_path(user, as: logged_in_user(user))
 
@@ -27,7 +27,7 @@ feature "user views friend requests" do
 
   scenario "that were sent by other users" do
     user, friend = create(:user), create(:user)
-    create_friendships(user, friend, requester: friend.id)
+    create_friendships_for(user: user, friend: friend, requester: friend.id)
 
     visit user_friend_requests_path(user, as: logged_in_user(user))
 
@@ -37,7 +37,7 @@ feature "user views friend requests" do
 
   scenario "and accepts the request" do
     user, friend = create(:user), create(:user)
-    create_friendships(user, friend, requester: friend.id)
+    create_friendships_for(user: user, friend: friend, requester: friend.id)
 
     visit user_friend_requests_path(user, as: logged_in_user(user))
     click_button("Accept")
@@ -45,11 +45,6 @@ feature "user views friend requests" do
     expect(page).to have_content "Friendship saved!"
     expect(friendships.count).to eq(2)
     expect(all_friendships_are_not_pending?).to be(true)
-  end
-
-  def create_friendships(user, friend, requester: user.id)
-    create(:friendship, user: user, friend: friend, request_sent_by: requester)
-    create(:friendship, user: friend, friend: user, request_sent_by: requester)
   end
 
   def have_pending_text_for(friend)

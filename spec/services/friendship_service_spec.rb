@@ -42,6 +42,16 @@ describe FriendshipService do
     end
   end
 
+  describe "#destroy" do
+    it "removes both friendships involving the users from the database" do
+      user, friend = create(:user), create(:user)
+      friendship_service = save_friendships_for(user, friend)
+
+      expect(friendship_service.destroy).to be(true)
+      expect(friendships.count).to eq(0)
+    end
+  end
+
   def all_friendships_pending?
     friendships.all? { |friendship| friendship.pending == true }
   end
@@ -52,5 +62,12 @@ describe FriendshipService do
 
   def friendships
     Friendship.all
+  end
+
+  def save_friendships_for(user, friend)
+    initialize_friendship_service(user, friend).tap do |friendship_service|
+      friendship_service.pending_friend_request
+      friendship_service.save
+    end
   end
 end
