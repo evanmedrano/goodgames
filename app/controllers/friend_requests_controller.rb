@@ -12,7 +12,7 @@ class FriendRequestsController < ApplicationController
   private
 
   def friend_request_sent
-    friendship = FriendshipService.new(user_id: user_id, friend_id: friend_id)
+    friendship = FriendshipService.new(friend_request_params)
     friendship.pending_friend_request
   end
 
@@ -24,18 +24,6 @@ class FriendRequestsController < ApplicationController
   def render_errors
     flash[:alert] = "There was an error sending the friend request."
     redirect_back(fallback_location: root_url)
-  end
-
-  def user_id
-    friend_request[:user_id]
-  end
-
-  def friend_id
-    friend_request[:friend_id]
-  end
-
-  def friend_request
-    params.fetch(:friend_request, {})
   end
 
   def friend_request_params

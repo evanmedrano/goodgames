@@ -14,7 +14,7 @@ describe "Friendships" do
       it "sets both friendships pending status to false" do
         user, friend = create(:user), create(:user)
         params = { friendship: { user_id: user.id, friend_id: friend.id } }
-        create_friendships_for(user, friend)
+        create_friendships_for(user: user, friend: friend)
         sign_in user
 
         post friendships_path, params: params
@@ -28,16 +28,23 @@ describe "Friendships" do
       it "displays a flash with an error message" do
         sign_in create(:user)
 
-        post friendships_path, params: { friendship: {} }
+        post friendships_path, params: { friendship: { user_id: nil } }
 
         expect(flash["alert"]).to include("There was an error")
       end
     end
   end
 
-  def create_friendships_for(user, friend)
-    create(:friendship, user: user, friend: friend)
-    create(:friendship, user: friend, friend: user)
+  describe "#destroy" do
+    it "removes both friendships involving the users from the database" do
+      user, friend = create(:user), create(:user)
+      create_friendships_for(user: user, friend: friend)
+      sign_in user
+
+      delete friendship_path(friend.id)
+
+      expect(friendships.count).to eq(0)
+    end
   end
 
   def all_friendships_pending?

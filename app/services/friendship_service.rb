@@ -1,7 +1,7 @@
 class FriendshipService
-  def initialize(user_id:, friend_id:)
-    @user_id = user_id
-    @friend_id = friend_id
+  def initialize(args = {})
+    @user_id = args[:user_id]
+    @friend_id = args[:friend_id]
   end
 
   def pending_friend_request
@@ -23,6 +23,15 @@ class FriendshipService
     end
   end
 
+  def destroy
+    if both_friendships_are_persisted?
+      delete_friendships
+      true
+    else
+      false
+    end
+  end
+
   private
 
   attr_reader :friend_id, :user_id
@@ -35,6 +44,10 @@ class FriendshipService
     return false if friendships_are_not_persisted
 
     find_friendships.all?(&:persisted?)
+  end
+
+  def delete_friendships
+    find_friendships.each(&:destroy)
   end
 
   def update_pending_status

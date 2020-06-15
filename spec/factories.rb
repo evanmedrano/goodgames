@@ -23,6 +23,8 @@ FactoryBot.define do
   factory :friendship do
     association :friend, factory: :user
     association :user
+    pending { true }
+    request_sent_by { user.id > friend.id ? user.id : friend.id }
   end
 
   factory :game do
