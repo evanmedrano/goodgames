@@ -33,10 +33,12 @@ class FriendshipsController < ApplicationController
   end
 
   def redirect_with_notice(notice: "Friendship saved!")
-    redirect_to root_url, notice: notice
+    flash[:notice] = notice
+    redirect_back(fallback_location: root_url)
   end
 
   def render_errors
-    redirect_to root_url, alert: "There was an error with the request."
+    flash[:alert] = "There was an error with the request."
+    redirect_back(fallback_location: root_url)
   end
 end

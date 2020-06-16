@@ -8,41 +8,39 @@
     <% end %>
   </h1>
 
-  <% if current_user.id == @library.id %>
-    <%= link_to "My friend requests", user_friend_requests_path(current_user) %>
-  <% end %>
-
   <% if current_user.id != @library.id %>
-    <% if current_user.has_pending_friendship_with?(@library.id) %>
-      <%= button_to(
-        "Friend request pending",
-        "#",
-        disabled: true,
-        class: "button button--yellow text-center mt-2",
-      ) %>
-    <% elsif current_user.is_friends_with?(@library.id) %>
-      <%= button_to(
-        "Friends",
-        "#",
-        disabled: true,
-        class: "button button--blue text-center mt-2",
-      ) %>
-      <%= button_to(
-        "Remove friend",
-        friendship_path(@library.id),
-        method: :delete,
-        data: { confirm: "Are you sure you remove this friend?" },
-        class: "button button--red",
-      ) %>
-    <% else %>
-      <%= button_to(
-        "Send friend request",
-        friend_requests_path(
-          friend_request: { user_id: current_user.id, friend_id: @library.id }
-        ),
-        class: "button button--teal text-center mt-2",
-      ) %>
-    <% end %>
+    <div class="library__friend-buttons-container">
+      <% if current_user.has_pending_friendship_with?(@library.id) %>
+        <%= button_to(
+          "Friend request pending",
+          "#",
+          disabled: true,
+          class: "button button--yellow text-center mt-2",
+        ) %>
+      <% elsif current_user.is_friends_with?(@library.id) %>
+        <%= button_to(
+          "Friends",
+          "#",
+          disabled: true,
+          class: "button button--blue mt-2 library__friends",
+        ) %>
+        <%= button_to(
+          "Unfriend",
+          friendship_path(@library.id),
+          method: :delete,
+          data: { confirm: "Are you sure you remove this friend?" },
+          class: "button button--red mt-2 library__unfriend",
+        ) %>
+      <% else %>
+        <%= button_to(
+          "Send friend request",
+          friend_requests_path(
+            friend_request: { user_id: current_user.id, friend_id: @library.id }
+          ),
+          class: "button button--teal text-center mt-2",
+        ) %>
+      <% end %>
+    </div>
   <% end %>
 
   <ul class="status__list">

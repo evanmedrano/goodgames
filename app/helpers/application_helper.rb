@@ -26,4 +26,10 @@ module ApplicationHelper
   def date_formatter(date)
     Date.parse(date.to_s).strftime("%m-%d-%Y")
   end
+
+  def active_class(page)
+    hyphenated_class = page.gsub(/^\/|[^\/\D][\d\/]/, "").gsub(/\/|_/, "-")
+
+    "#{hyphenated_class}--active"
+  end
 end

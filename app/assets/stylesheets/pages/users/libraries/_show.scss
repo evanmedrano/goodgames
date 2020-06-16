@@ -1,6 +1,19 @@
 .library {
-  .button_to {
-    text-align: center;
+  &__friend-buttons-container {
+    @include margin(null, auto, null, auto);
+    width: fit-content;
+  }
+
+  &__friend-buttons-container:hover &__friends {
+    display: none;
+  }
+
+  &__friend-buttons-container:hover &__unfriend {
+    display: block;
+  }
+
+  &__unfriend {
+    display: none;
   }
 }
 

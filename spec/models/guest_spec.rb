@@ -17,6 +17,14 @@ describe Guest do
     end
   end
 
+  describe "#last_name" do
+    it "returns nil" do
+      guest = Guest.new
+
+      expect(guest.last_name).to be(nil)
+    end
+  end
+
   describe "#games" do
     it "returns empty array" do
       guest = Guest.new
@@ -30,6 +38,46 @@ describe Guest do
       guest = Guest.new
 
       expect(guest.added_game?("no")).to be(false)
+    end
+  end
+
+  describe "#has_pending_friendship_with??" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.has_pending_friendship_with?("nobody")).to be(false)
+    end
+  end
+
+  describe "#is_friends_with?" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.is_friends_with?("nobody")).to be(false)
+    end
+  end
+
+  describe "#sent_friend_request_to?" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.sent_friend_request_to?("nobody")).to be(false)
+    end
+  end
+
+  describe "#is_currently_playing_a_game?" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.is_currently_playing_a_game?).to be(false)
+    end
+  end
+
+  describe "#currently_playing" do
+    it "returns nil" do
+      guest = Guest.new
+
+      expect(guest.currently_playing).to be(nil)
     end
   end
 end

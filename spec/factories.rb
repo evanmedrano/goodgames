@@ -5,6 +5,14 @@ FactoryBot.define do
     "user#{n}@example.com"
   end
 
+  sequence :first_name do |n|
+    "first name #{n}"
+  end
+
+  sequence :last_name do |n|
+    "last name #{n}"
+  end
+
   sequence :name do |n|
     "name #{n}"
   end
@@ -48,7 +56,8 @@ FactoryBot.define do
 
   factory :user do
     email
-    name
+    first_name
+    last_name
     password { "foobar123" }
 
     before(:create) do |user|
@@ -59,6 +68,20 @@ FactoryBot.define do
     trait :with_confirmation_email do
       after(:create) do |user|
         user.send_confirmation_instructions
+      end
+    end
+
+    trait :with_a_games_library do
+      after(:create) do |user|
+        user.games << create(:game)
+        user.games << create(:game)
+      end
+    end
+
+    trait :with_friends do
+      after(:create) do |user|
+        user.friends << create(:user)
+        user.friends << create(:user)
       end
     end
   end

@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :user_games, dependent: :destroy
   has_many :games, through: :user_games
 
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def self.same_game_status(current_user:, game:, status:)
     joins(:user_games).where(user_games: { game: game, status: status }).
@@ -21,6 +22,12 @@ class User < ApplicationRecord
 
   def self.filter_user_game_platform(platform)
     joins(:games).merge(Game.filter_by_platform(platform))
+  end
+
+  def self.all_friends_of(user)
+    params = { friend_id: user.id, pending: false }
+
+    includes(:friendships).where(friendships: params)
   end
 
   def added_game?(game)
@@ -39,8 +46,8 @@ class User < ApplicationRecord
     friendships.where(friend_id: library_owner_id, pending: true).any?
   end
 
-  def is_friends_with?(library_owner_id)
-    friendships.where(friend_id: library_owner_id, pending: false).any?
+  def is_friends_with?(user_id)
+    friendships.where(friend_id: user_id, pending: false).any?
   end
 
   def sent_friend_request_to?(friend_id)
@@ -49,7 +56,19 @@ class User < ApplicationRecord
     ).any?
   end
 
-  def first_name
-    name.split[0]
+  def is_currently_playing_a_game?
+    user_games.where(status: "Playing").any?
+  end
+
+  def currently_playing
+    games.where(user_games: { status: 'Playing' }).first
+  end
+
+  def can_add_as_a_friend?(friend)
+    self != friend && !self.is_friends_with?(friend.id)
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 end

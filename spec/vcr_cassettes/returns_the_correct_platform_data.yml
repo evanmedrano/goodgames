@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:36 GMT
+      - Tue, 16 Jun 2020 17:44:22 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 04:08:36 GMT
+      - Tue, 16 Jun 2020 18:44:22 GMT
       Location:
       - https://api.rawg.io/api/platforms/pc
       Cf-Request-Id:
-      - '034819410a00000cb1be85a200000001'
+      - 035fd479fa00000cc93b986200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e481a8f0cb1-EWR
+      - 5a4656a32c290cc9-EWR
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:36 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:22 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/platforms/pc
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:36 GMT
+      - Tue, 16 Jun 2020 17:44:22 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d7935248edc50df2aa98031817cead3c21591931316; expires=Sun, 12-Jul-20
-        03:08:36 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d781620a6fe6d9bc075c05531d06a39f31592329462; expires=Thu, 16-Jul-20
+        17:44:22 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '03481941650000e6b46f0b2200000001'
+      - 035fd47a5b0000e859ef3d4200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,10 +87,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e48ad46e6b4-EWR
+      - 5a4656a3cab2e859-EWR
     body:
       encoding: UTF-8
-      string: '{"id":4,"name":"PC","slug":"pc","games_count":229183,"image_background":"https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg","description":"<p>PC
+      string: '{"id":4,"name":"PC","slug":"pc","games_count":231047,"image_background":"https://media.rawg.io/media/games/b11/b115b2bc6a5957a917bc7601f4abdda2.jpg","description":"<p>PC
         games, or personal computer games, started with the video game crash of 1983.
         PC games became popular after the development of the microprocessor and microcomputer.
         Some of the first PC games were Bertie the Brain, OXO and Spacewar!<br />\nAs
@@ -105,6 +105,6 @@ http_interactions:
         shooters are easy to play due to the mouse controllers. However, the main
         reason for the PC games popularity is their lower prices and the backward
         compatibility with older titles, which leaves much to be desired on cosoles.</p>","image":null,"year_start":null,"year_end":null}'
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:36 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:22 GMT
 recorded_with: VCR 5.0.0
