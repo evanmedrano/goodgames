@@ -1,5 +1,5 @@
 .users-friend-requests {
-  @include padding(null, $su-10 !important, null, $su-10 !important);
+  @include padding(null, $su-5 !important, null, $su-5 !important);
   font-size: $fs-3;
 
   &__nav {

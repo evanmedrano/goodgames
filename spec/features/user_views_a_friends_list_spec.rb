@@ -37,7 +37,19 @@ feature "user views a friends list" do
     visit user_friendships_path(user)
     select "last name", from: "sort_by"
 
-    expect(page.first('.users-friendships__friend')).to have_content("Alvin")
+    expect(page.first('.users-friendships__friend-info')).to have_content("Alvin")
+  end
+
+  scenario "and removes one of their friends" do
+    user = create(:user)
+    friend = create(:user, first_name: "Evan", last_name: "Medrano")
+    create_friendships_for(user: user, friend: friend, pending: false)
+
+    visit user_friendships_path(user, as: logged_in_user(user))
+    click_link "Unfriend", match: :first
+
+    expect(page).to have_content("Friendship removed")
+    expect(page).not_to have_content("Evan Medrano")
   end
 
   def create_friendships(user)

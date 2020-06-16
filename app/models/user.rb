@@ -46,14 +46,26 @@ class User < ApplicationRecord
     friendships.where(friend_id: library_owner_id, pending: true).any?
   end
 
-  def is_friends_with?(library_owner_id)
-    friendships.where(friend_id: library_owner_id, pending: false).any?
+  def is_friends_with?(user_id)
+    friendships.where(friend_id: user_id, pending: false).any?
   end
 
   def sent_friend_request_to?(friend_id)
     friendships.where(
       user_id: self.id, friend_id: friend_id, request_sent_by: self.id
     ).any?
+  end
+
+  def is_currently_playing_a_game?
+    user_games.where(status: "Playing").any?
+  end
+
+  def currently_playing
+    games.where(user_games: { status: 'Playing' }).first
+  end
+
+  def can_add_as_a_friend?(friend)
+    self != friend && !self.is_friends_with?(friend.id)
   end
 
   def name

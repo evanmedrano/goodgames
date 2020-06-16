@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:34 GMT
+      - Tue, 16 Jun 2020 17:44:18 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 04:08:34 GMT
+      - Tue, 16 Jun 2020 18:44:18 GMT
       Location:
       - https://api.rawg.io/api/genres/action
       Cf-Request-Id:
-      - '03481938770000e7286d07e200000001'
+      - 035fd46a880000e6c42eab8200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e3a592ae728-EWR
+      - 5a46568a7b6ae6c4-EWR
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:34 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:18 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/genres/action
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:34 GMT
+      - Tue, 16 Jun 2020 17:44:18 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d9d93f1ff9be54f13e14fa24ec3ee64171591931314; expires=Sun, 12-Jul-20
-        03:08:34 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d8544b9b3c3085b891c03af8baedc10a11592329458; expires=Thu, 16-Jul-20
+        17:44:18 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '03481938d70000e839d6afe200000001'
+      - 035fd46ad700000ce98f98a200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,10 +87,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e3afa48e839-EWR
+      - 5a46568afd280ce9-EWR
     body:
       encoding: UTF-8
-      string: '{"id":4,"name":"Action","slug":"action","games_count":88041,"image_background":"https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg","description":"<p>The
+      string: '{"id":4,"name":"Action","slug":"action","games_count":88550,"image_background":"https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg","description":"<p>The
         action game is a genre that includes fights, puzzles, and strategies emphasizing
         coordination and reaction. It includes a large variety of sub-genres like
         fighting, beat &#39;em ups, shooters, survivals, mazes, and platforms; sometimes
@@ -104,6 +104,6 @@ http_interactions:
         appears at the last level; he has unique abilities and a longer health bar.
         Pong is one of the first action games, released in 1972; the latest include
         Battlefield, Assasin&#39;s Creed, Fortnite and Dark Souls.</p>"}'
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:34 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:18 GMT
 recorded_with: VCR 5.0.0

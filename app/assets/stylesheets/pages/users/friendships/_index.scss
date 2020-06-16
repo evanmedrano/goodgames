@@ -1,9 +1,11 @@
 .users-friendships {
-  @include padding(null, $su-10 !important, null, $su-10 !important);
-  font-size: $fs-3;
+  @include padding(null, $su-5 !important, null, $su-5 !important);
+  font-size: $fs-2;
 
   &__nav {
+    align-items: baseline;
     border-bottom: 1px solid $neutral-100;
+    display: flex;
   }
 
   &--active,
@@ -46,5 +48,57 @@
       border: 1px solid $neutral-400;
       outline: none;
     }
+  }
+
+  &__friends-list-container {
+    @include padding($su-2, $su-2, $su-2, $su-2);
+    border-bottom: 1px solid $neutral-200;
+    border-top: 1px solid $neutral-200;
+    display: flex;
+
+    &:not(:last-child) {
+      @include margin(null, null, $su-3, null);
+    }
+  }
+
+  &__friends-list-container a {
+    color: $teal-300;
+
+    &:hover {
+      color: $teal-300;
+    }
+  }
+
+  &__friends-list-container &__friends-name {
+    color: $teal-400;
+
+    display: block;
+    &:hover {
+      color: $teal-400;
+    }
+  }
+
+  &__friends-list {
+    list-style: none;
+  }
+
+  &__friend-info {
+    width: 15rem;
+  }
+
+  &__friends-image {
+    @include margin(null, $su-2, null, null);
+    height: 6.5rem;
+    object-fit: cover;
+    width: 5rem;
+  }
+
+  &__separator {
+    @include margin(null, -.5rem, null, -.5rem);
+    color: $neutral-200;
+  }
+
+  &__placeholder {
+    width: 20.5rem;
   }
 }

@@ -107,6 +107,26 @@ describe User do
     end
   end
 
+  describe "#is_currently_playing_a_game?" do
+    it "returns true if a player is currently playing a game" do
+      user = create(:user)
+      user.user_games << create(:user_game, status: "Playing")
+
+      expect(user.is_currently_playing_a_game?).to be(true)
+    end
+  end
+
+  describe "#currently_playing" do
+    it "returns the last game added to a user's 'Playing' games list" do
+      user, game_one, game_two = create(:user), create(:game), create(:game)
+
+      user.user_games << create(:user_game, game: game_one, status: "Playing")
+      user.user_games << create(:user_game, game: game_two, status: "Playing")
+
+      expect(user.currently_playing).to eq(game_two)
+    end
+  end
+
   def expect_same_game_status_count(user, game, status)
     expect(
       described_class.

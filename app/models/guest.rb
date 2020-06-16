@@ -32,4 +32,12 @@ class Guest
   def sent_friend_request_to?(anybody)
     false
   end
+
+  def is_currently_playing_a_game?
+    false
+  end
+
+  def currently_playing
+    nil
+  end
 end

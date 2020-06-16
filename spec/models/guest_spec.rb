@@ -64,4 +64,20 @@ describe Guest do
       expect(guest.sent_friend_request_to?("nobody")).to be(false)
     end
   end
+
+  describe "#is_currently_playing_a_game?" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.is_currently_playing_a_game?).to be(false)
+    end
+  end
+
+  describe "#currently_playing" do
+    it "returns nil" do
+      guest = Guest.new
+
+      expect(guest.currently_playing).to be(nil)
+    end
+  end
 end
