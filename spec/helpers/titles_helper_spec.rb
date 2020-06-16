@@ -50,6 +50,30 @@ describe TitlesHelper do
     end
   end
 
+  describe "#user_friends_title" do
+    context "when the current user is viewing their friends" do
+      it "returns a friends title without their name" do
+        user = build(:user)
+
+        allow(controller).to receive(:current_user).and_return(user)
+        helper.content_for(:title, helper.user_friends_title(user: user))
+
+        expect(helper.title).to eq("Friends | GoodGames")
+      end
+    end
+
+    context "when the current user is viewing another user's friends" do
+      it "returns the other user's name in the title" do
+        user, current_user = build(:user), build(:user)
+
+        allow(controller).to receive(:current_user).and_return(current_user)
+        helper.content_for(:title, helper.user_friends_title(user: user))
+
+        expect(helper.title).to include("#{user.first_name}")
+      end
+    end
+  end
+
   describe "#default_title" do
     it "returns the default title" do
       expect(helper.default_title).to eq(default_title_for_spec)

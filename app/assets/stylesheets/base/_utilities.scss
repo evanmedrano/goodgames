@@ -15,6 +15,10 @@
   list-style: none;
 }
 
+.u-border-bottom {
+  border-bottom: 1px solid $neutral-100;
+}
+
 //* COLORS
 .bg {
   &--yellow {

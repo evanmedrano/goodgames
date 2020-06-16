@@ -1,0 +1,119 @@
+  <%= link_to "GoodGames", root_path, class: "header__brand" %>
+
+  <%= button_tag(
+    class: "navbar-toggler",
+    type: "button",
+    data: { toggle: "collapse", target: "#headerToggler" },
+    aria: { controls: "headerToggler", expanded: false, label: "Toggle navigation" },
+  ) do %>
+    <span class="navbar-toggler-icon"></span>
+  <% end %>
+
+  <div class="collapse navbar-collapse" id="headerToggler">
+    <%= render 'games/search', id: "nav-search", margin: "mr-auto" %>
+
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item">
+        <%= link_to root_path, class: "nav-link" do %>
+          Home
+          <span class="sr-only">(current)</span>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Find a game", games_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item dropdown">
+        <%= link_to(
+          "Genres",
+          "#",
+          class: "nav-link dropdown-toggle",
+          id: "genreDropdown",
+          role: "button",
+          data: { toggle: "dropdown" },
+          aria: { haspopup: true, expanded: false },
+        ) %>
+
+        <div class="dropdown-menu" aria-labelledby="genreDropdown">
+          <% top_genres.each do |genre| %>
+            <%= link_to(
+              genre,
+              genre_path(convert_to_slug(genre)),
+              class: "dropdown-item",
+            ) %>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "All genres", genres_path, class: "dropdown-item" %>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <%= link_to(
+          "Platforms",
+          "#",
+          class: "nav-link dropdown-toggle",
+          id: "navbarDropdown",
+          role: "button",
+          data: { toggle: "dropdown" },
+          aria: { haspopup: true, expanded: false },
+        ) %>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% top_platforms.each do |platform| %>
+            <%= link_to(
+              platform,
+              platform_path(convert_to_slug(platform)),
+              class: "dropdown-item",
+            ) %>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "All platforms", platforms_path, class: "dropdown-item" %>
+        </div>
+      </li>
+
+      <% if user_signed_in? %>
+
+        <li class="nav-item dropdown">
+          <%= link_to(
+            current_user.first_name,
+            "#",
+            class: "nav-link dropdown-toggle",
+            id: "userDropdown",
+            role: "button",
+            data: { toggle: "dropdown" },
+            aria: { haspopup: true, expanded: false },
+          ) %>
+
+          <div class="dropdown-menu" aria-labelledby="userDropdown">
+            <%= link_to(
+              "My games",
+              user_library_path(current_user),
+              class: "dropdown-item",
+            ) %>
+            <%= link_to(
+              "Friends",
+              user_friendships_path(current_user),
+              class: "dropdown-item",
+            ) %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Settings", "#", class: "dropdown-item" %>
+            <%= link_to(
+              "Sign out",
+              destroy_user_session_path,
+              class: "dropdown-item",
+            ) %>
+          </div>
+        </li>
+
+      <% else %>
+
+        <li class="nav-item">
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </li>
+
+      <% end %>
+    </ul>
+  </div>

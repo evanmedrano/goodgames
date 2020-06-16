@@ -14,7 +14,8 @@ describe User do
   context "validations" do
     context "presence" do
       it { should validate_presence_of(:email) }
-      it { should validate_presence_of(:name) }
+      it { should validate_presence_of(:first_name) }
+      it { should validate_presence_of(:last_name) }
       it { should validate_presence_of(:password) }
     end
 
@@ -98,21 +99,31 @@ describe User do
     end
   end
 
-  describe "#first_name" do
-    context "when the user's name is more than one word" do
-      it "returns the user's first name" do
-        user = build_stubbed(:user, name: "Evan Medrano")
+  describe "#name" do
+    it "returns both first and last name" do
+      user = build_stubbed(:user, first_name: "Evan", last_name: "Medrano")
 
-        expect(user.first_name).to eq("Evan")
-      end
+      expect(user.name).to eq("Evan Medrano")
     end
+  end
 
-    context "when the user's name is only one word" do
-      it "returns the user's name" do
-        user = build_stubbed(:user, name: "Evan")
+  describe "#is_currently_playing_a_game?" do
+    it "returns true if a player is currently playing a game" do
+      user = create(:user)
+      user.user_games << create(:user_game, status: "Playing")
 
-        expect(user.first_name).to eq("Evan")
-      end
+      expect(user.is_currently_playing_a_game?).to be(true)
+    end
+  end
+
+  describe "#currently_playing" do
+    it "returns the last game added to a user's 'Playing' games list" do
+      user, game_one, game_two = create(:user), create(:game), create(:game)
+
+      user.user_games << create(:user_game, game: game_one, status: "Playing")
+      user.user_games << create(:user_game, game: game_two, status: "Playing")
+
+      expect(user.currently_playing).to eq(game_two)
     end
   end
 

@@ -12,7 +12,7 @@ describe LibraryFacade do
 
   describe "#owner" do
     it "returns the user's first name" do
-      user = create(:user, name: "Evan M")
+      user = create(:user, first_name: "Evan")
       library_facade = described_class.new(user)
 
       expect(library_facade.owner).to eq("Evan")
@@ -22,7 +22,7 @@ describe LibraryFacade do
   describe "#games" do
     context "when there is no game status param" do
       it "returns all of the user's games" do
-        user = create(:user, name: "Evan M")
+        user = create(:user, first_name: "Evan")
         library_facade = described_class.new(user)
 
         add_games_to_library(user)
@@ -33,7 +33,7 @@ describe LibraryFacade do
 
     context "when there is a game status param" do
       it "returns all of the games that have the given status" do
-        user = create(:user, name: "Evan M")
+        user = create(:user, first_name: "Evan")
         library_facade = described_class.new(user, "Owned")
 
         add_games_to_library(user)
@@ -46,7 +46,7 @@ describe LibraryFacade do
 
   describe "#update_games_display" do
     it "updates the user's games array based on status" do
-      user = create(:user, name: "Evan M")
+      user = create(:user, first_name: "Evan")
       library_facade = described_class.new(user, "Owned")
 
       add_games_to_library(user)

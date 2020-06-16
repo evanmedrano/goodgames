@@ -27,6 +27,14 @@ module TitlesHelper
     end
   end
 
+  def user_friends_title(user:)
+    if user == current_user
+      "Friends | GoodGames"
+    else
+      "#{user.first_name}'s friends | GoodGames"
+    end
+  end
+
   def default_title
     "GoodGames | All the games you love in one place"
   end

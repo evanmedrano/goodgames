@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:07:23 GMT
+      - Tue, 16 Jun 2020 17:42:44 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 04:07:23 GMT
+      - Tue, 16 Jun 2020 18:42:44 GMT
       Location:
       - https://api.rawg.io/api/games/1
       Cf-Request-Id:
-      - '03481822280000ccee3399c200000001'
+      - 035fd2fb830000ccbe571bf200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205c7d0b76ccee-EWR
+      - 5a46543f3a1fccbe-EWR
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:07:23 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:42:44 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/1
@@ -52,16 +52,16 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:07:23 GMT
+      - Tue, 16 Jun 2020 17:42:44 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '9197'
+      - '9195'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d3061a67bf9df6fcb053c7abf0d8ce2bf1591931243; expires=Sun, 12-Jul-20
-        03:07:23 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=dfb0ad0f98d6e13d35532e060e26005df1592329364; expires=Thu, 16-Jul-20
+        17:42:44 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, PATCH, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '034818228400009270dab7e200000001'
+      - 035fd2fbf20000e76405a4e200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,7 +87,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205c7da8029270-EWR
+      - 5a46543fe852e764-EWR
     body:
       encoding: UTF-8
       string: '{"id":1,"slug":"dgeneration-hd","name":"D/Generation HD","name_original":"D/Generation
@@ -106,25 +106,25 @@ http_interactions:
         your life?<br/><br/>Key Features<br/><ul><li> New high res graphics<br/></li><li>
         New music by Mark ''TDK'' Knight<br/></li><li> New control menu<br/></li><li>
         Can save at any point in the game<br/></li><li> Leaderboards<br/></li><li>
-        Achievements<br/></li><li> Same great gameplay</li></ul>","metacritic":null,"metacritic_platforms":[],"released":"2015-10-23","tba":false,"updated":"2019-09-17T11:58:57","background_image":"https://media.rawg.io/media/screenshots/5c4/5c41cb3b0d15ef0974f930898cedbc6c.jpg","background_image_additional":"https://media.rawg.io/media/screenshots/8bd/8bd3afed5e0bb62ea03899f9807d1b38.jpg","website":"http://dgeneration.net","rating":0.0,"rating_top":0,"ratings":[{"id":1,"title":"skip","count":2,"percent":66.67},{"id":5,"title":"exceptional","count":1,"percent":33.33}],"reactions":{"13":2},"added":87,"added_by_status":{"yet":3,"owned":81,"beaten":2,"toplay":1},"playtime":1,"screenshots_count":28,"movies_count":0,"creators_count":0,"achievements_count":80,"parent_achievements_count":49,"reddit_url":"","reddit_name":"","reddit_description":"","reddit_logo":"","reddit_count":0,"twitch_count":11,"youtube_count":1000000,"reviews_text_count":2,"ratings_count":1,"suggestions_count":288,"alternative_names":[],"metacritic_url":"","parents_count":0,"additions_count":0,"game_series_count":0,"user_game":null,"reviews_count":3,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":2,"name":"PlayStation","slug":"playstation"}},{"platform":{"id":3,"name":"Xbox","slug":"xbox"}},{"platform":{"id":5,"name":"Apple
-        Macintosh","slug":"mac"}},{"platform":{"id":7,"name":"Nintendo","slug":"nintendo"}}],"platforms":[{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":229085,"image_background":"https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg"},"released_at":"2015-10-23","requirements":{"minimum":"<strong>Minimum:</strong><br><ul
+        Achievements<br/></li><li> Same great gameplay</li></ul>","metacritic":null,"metacritic_platforms":[],"released":"2015-10-23","tba":false,"updated":"2019-09-17T11:58:57","background_image":"https://media.rawg.io/media/screenshots/5c4/5c41cb3b0d15ef0974f930898cedbc6c.jpg","background_image_additional":"https://media.rawg.io/media/screenshots/8bd/8bd3afed5e0bb62ea03899f9807d1b38.jpg","website":"http://dgeneration.net","rating":0.0,"rating_top":0,"ratings":[{"id":1,"title":"skip","count":2,"percent":66.67},{"id":5,"title":"exceptional","count":1,"percent":33.33}],"reactions":{"13":2},"added":87,"added_by_status":{"yet":3,"owned":81,"beaten":2,"toplay":1},"playtime":1,"screenshots_count":28,"movies_count":0,"creators_count":0,"achievements_count":80,"parent_achievements_count":49,"reddit_url":"","reddit_name":"","reddit_description":"","reddit_logo":"","reddit_count":0,"twitch_count":11,"youtube_count":1000000,"reviews_text_count":2,"ratings_count":1,"suggestions_count":287,"alternative_names":[],"metacritic_url":"","parents_count":0,"additions_count":0,"game_series_count":0,"user_game":null,"reviews_count":3,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":2,"name":"PlayStation","slug":"playstation"}},{"platform":{"id":3,"name":"Xbox","slug":"xbox"}},{"platform":{"id":5,"name":"Apple
+        Macintosh","slug":"mac"}},{"platform":{"id":7,"name":"Nintendo","slug":"nintendo"}}],"platforms":[{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":231032,"image_background":"https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"},"released_at":"2015-10-23","requirements":{"minimum":"<strong>Minimum:</strong><br><ul
         class=\"bb_ul\"><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>DirectX:</strong>
         Version 11</li></ul>","recommended":"<strong>Recommended:</strong><br><ul
         class=\"bb_ul\"><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>DirectX:</strong>
-        Version 11</li></ul>"}},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":52802,"image_background":"https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg"},"released_at":"2015-10-23","requirements":{"minimum":"<strong>Minimum:</strong><br><ul
+        Version 11</li></ul>"}},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":53173,"image_background":"https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"},"released_at":"2015-10-23","requirements":{"minimum":"<strong>Minimum:</strong><br><ul
         class=\"bb_ul\"><li><strong>Memory:</strong> 4 GB RAM</li></ul>","recommended":"<strong>Recommended:</strong><br><ul
         class=\"bb_ul\"><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong>
-        Nvidia or AMD graphics</li></ul>"}},{"platform":{"id":1,"name":"Xbox One","slug":"xbox-one","image":null,"year_end":null,"year_start":null,"games_count":3364,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":"2016-02-12","requirements":null},{"platform":{"id":18,"name":"PlayStation
-        4","slug":"playstation4","image":null,"year_end":null,"year_start":null,"games_count":4778,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"},"released_at":null,"requirements":null},{"platform":{"id":7,"name":"Nintendo
-        Switch","slug":"nintendo-switch","image":null,"year_end":null,"year_start":null,"games_count":3233,"image_background":"https://media.rawg.io/media/games/974/974342a3959981a17bdbbff2fd7f97b0.jpg"},"released_at":"2018-03-27","requirements":null}],"stores":[{"id":46741,"url":"https://www.nintendo.com/games/detail/d-generation-hd-switch","store":{"id":6,"name":"Nintendo
-        Store","slug":"nintendo","domain":"nintendo.com","games_count":7715,"image_background":"https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg"}},{"id":19827,"url":"http://store.steampowered.com/app/389740/","store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41670,"image_background":"https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg"}},{"id":2808,"url":"https://store.playstation.com/en-us/product/UP1640-CUSA04221_00-0000000000000001","store":{"id":3,"name":"PlayStation
-        Store","slug":"playstation-store","domain":"store.playstation.com","games_count":6424,"image_background":"https://media.rawg.io/media/games/88c/88c5b4d7c80276c03ff62aebb1a99ad4.jpg"}},{"id":1,"url":"https://www.microsoft.com/en-us/store/p/d-generation-hd/c2tnxshx530h","store":{"id":2,"name":"Xbox
-        Store","slug":"xbox-store","domain":"microsoft.com","games_count":2977,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"}}],"developers":[{"id":10183,"name":"West
+        Nvidia or AMD graphics</li></ul>"}},{"platform":{"id":1,"name":"Xbox One","slug":"xbox-one","image":null,"year_end":null,"year_start":null,"games_count":3384,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"released_at":"2016-02-12","requirements":null},{"platform":{"id":18,"name":"PlayStation
+        4","slug":"playstation4","image":null,"year_end":null,"year_start":null,"games_count":4802,"image_background":"https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"},"released_at":null,"requirements":null},{"platform":{"id":7,"name":"Nintendo
+        Switch","slug":"nintendo-switch","image":null,"year_end":null,"year_start":null,"games_count":3249,"image_background":"https://media.rawg.io/media/games/4ba/4ba9b4b68ffcc7019b112174883ba4d6.jpg"},"released_at":"2018-03-27","requirements":null}],"stores":[{"id":46741,"url":"https://www.nintendo.com/games/detail/d-generation-hd-switch","store":{"id":6,"name":"Nintendo
+        Store","slug":"nintendo","domain":"nintendo.com","games_count":7725,"image_background":"https://media.rawg.io/media/games/275/2759da6fcaa8f81f21800926168c85f6.jpg"}},{"id":19827,"url":"http://store.steampowered.com/app/389740/","store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41684,"image_background":"https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"}},{"id":2808,"url":"https://store.playstation.com/en-us/product/UP1640-CUSA04221_00-0000000000000001","store":{"id":3,"name":"PlayStation
+        Store","slug":"playstation-store","domain":"store.playstation.com","games_count":6439,"image_background":"https://media.rawg.io/media/games/88c/88c5b4d7c80276c03ff62aebb1a99ad4.jpg"}},{"id":1,"url":"https://www.microsoft.com/en-us/store/p/d-generation-hd/c2tnxshx530h","store":{"id":2,"name":"Xbox
+        Store","slug":"xbox-store","domain":"microsoft.com","games_count":2992,"image_background":"https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg"}}],"developers":[{"id":10183,"name":"West
         Coast Software","slug":"west-coast-software","games_count":3,"image_background":"https://media.rawg.io/media/screenshots/5c4/5c41cb3b0d15ef0974f930898cedbc6c.jpg"},{"id":1288,"name":"West
-        Coast Software Limited","slug":"west-coast-software-limited","games_count":2,"image_background":"https://media.rawg.io/media/screenshots/592/59280b54d91d4d555a864767a7ac8a4a.jpeg"}],"genres":[{"id":3,"name":"Adventure","slug":"adventure","games_count":61005,"image_background":"https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":46515,"image_background":"https://media.rawg.io/media/screenshots/9d2/9d22689a1c2a7ced9d1690e0c5c66871.jpg"}],"tags":[{"id":40836,"name":"Full
-        controller support","slug":"full-controller-support","language":"eng","games_count":8588,"image_background":"https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg"},{"id":40847,"name":"Steam
-        Achievements","slug":"steam-achievements","language":"eng","games_count":18292,"image_background":"https://media.rawg.io/media/games/64b/64bb90ca6b1df8a36d710f6542111142.jpg"},{"id":40850,"name":"Steam
-        Leaderboards","slug":"steam-leaderboards","language":"eng","games_count":4118,"image_background":"https://media.rawg.io/media/games/234/23410661770ae13eac11066980834367.jpg"},{"id":74,"name":"Retro","slug":"retro","language":"eng","games_count":13821,"image_background":"https://media.rawg.io/media/games/9cc/9cc11e2e81403186c7fa9c00c143d6e4.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":74172,"image_background":"https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"}],"publishers":[{"id":8169,"name":"West
+        Coast Software Limited","slug":"west-coast-software-limited","games_count":2,"image_background":"https://media.rawg.io/media/screenshots/592/59280b54d91d4d555a864767a7ac8a4a.jpeg"}],"genres":[{"id":3,"name":"Adventure","slug":"adventure","games_count":61504,"image_background":"https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":46844,"image_background":"https://media.rawg.io/media/games/956/95640d5ea0288c187dbce849a4254a41.jpg"}],"tags":[{"id":40836,"name":"Full
+        controller support","slug":"full-controller-support","language":"eng","games_count":8588,"image_background":"https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg"},{"id":40847,"name":"Steam
+        Achievements","slug":"steam-achievements","language":"eng","games_count":18292,"image_background":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"},{"id":40850,"name":"Steam
+        Leaderboards","slug":"steam-leaderboards","language":"eng","games_count":4118,"image_background":"https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg"},{"id":74,"name":"Retro","slug":"retro","language":"eng","games_count":13933,"image_background":"https://media.rawg.io/media/screenshots/010/0101f021b2dc123c98969fda7e4bcd92.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":74814,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"}],"publishers":[{"id":8169,"name":"West
         Coast Software","slug":"west-coast-software","games_count":4,"image_background":"https://media.rawg.io/media/screenshots/5c4/5c41cb3b0d15ef0974f930898cedbc6c.jpg"},{"id":1,"name":"West
         Coast Software Limited","slug":"west-coast-software-limited","games_count":2,"image_background":"https://media.rawg.io/media/screenshots/592/59280b54d91d4d555a864767a7ac8a4a.jpeg"}],"esrb_rating":{"id":2,"name":"Everyone
         10+","slug":"everyone-10-plus"},"clip":null,"description_raw":"The year is
@@ -143,6 +143,6 @@ http_interactions:
         Features\nNew high res graphics\nNew music by Mark ''TDK'' Knight\nNew control
         menu\nCan save at any point in the game\nLeaderboards\nAchievements\nSame
         great gameplay"}'
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:07:23 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:42:45 GMT
 recorded_with: VCR 5.0.0

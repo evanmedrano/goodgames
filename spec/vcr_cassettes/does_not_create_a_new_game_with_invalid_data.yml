@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:33 GMT
+      - Tue, 16 Jun 2020 17:44:17 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Fri, 12 Jun 2020 04:08:33 GMT
+      - Tue, 16 Jun 2020 18:44:17 GMT
       Location:
       - https://api.rawg.io/api/games/
       Cf-Request-Id:
-      - '034819344900000cf1870c9200000001'
+      - 035fd465ed0000e6f4c2996200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e33afa10cf1-EWR
+      - 5a4656831e14e6f4-EWR
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:33 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:17 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/
@@ -52,7 +52,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Fri, 12 Jun 2020 03:08:33 GMT
+      - Tue, 16 Jun 2020 17:44:17 GMT
       Content-Type:
       - text/html
       Transfer-Encoding:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d9cef1cef92622214ffb60baf8fab43a51591931313; expires=Sun, 12-Jul-20
-        03:08:33 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d4fa2f05f1601be33efdfd281c7898c871592329457; expires=Thu, 16-Jul-20
+        17:44:17 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Vary:
       - Accept-Encoding
       - Origin
@@ -72,7 +72,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '03481934a20000c5d0ff0f3200000001'
+      - 035fd4668b00000cb12a261200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -80,10 +80,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a205e343a9bc5d0-EWR
+      - 5a46568418de0cb1-EWR
     body:
       encoding: UTF-8
       string: "<h1>Not Found</h1><p>The requested resource was not found on this server.</p>"
-    http_version: 
-  recorded_at: Fri, 12 Jun 2020 03:08:33 GMT
+    http_version:
+  recorded_at: Tue, 16 Jun 2020 17:44:17 GMT
 recorded_with: VCR 5.0.0

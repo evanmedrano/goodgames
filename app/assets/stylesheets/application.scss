@@ -1,28 +1,12 @@
-@import 'abstracts/breakpoints';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+@import 'abstracts/*';
 
-@import 'base/base';
-@import 'base/typography';
-@import 'base/utilities';
+@import 'base/*';
 
-@import 'components/button';
-@import 'components/card';
-@import 'components/comment';
-@import 'components/form';
+@import 'components/*';
 
-@import 'layouts/container';
-@import 'layouts/footer';
-@import 'layouts/header';
+@import 'layouts/*';
 
-@import 'pages/devise/footer';
-@import 'pages/errors/show';
-@import 'pages/games/**/*';
-@import 'pages/genres/*';
-@import 'pages/platforms/*';
-@import 'pages/static/*';
-@import 'pages/users/**/*';
+@import 'pages/**/*';
 
 @import 'font_awesome5_webfont';
 @import 'bootstrap';
