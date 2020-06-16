@@ -9,6 +9,10 @@ class Guest
     nil
   end
 
+  def last_name
+    nil
+  end
+
   def games
     Array.new
   end

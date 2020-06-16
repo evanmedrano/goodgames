@@ -3,7 +3,7 @@
   color: $white;
   display: inline-block;
   font-size: 1.4rem;
-  padding: 1rem 2rem;
+  padding: .8rem 1.6rem;
   text-align: center;
   transition: all .3s;
   vertical-align: middle;
@@ -25,60 +25,32 @@
   &--teal {
     background-color: $teal-300;
 
-    &:active {
-      box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
-      transform: translateY(-2px);
-    }
-
     &:hover {
       background-color: $teal-400;
-      box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
-      transform: translateY(-5px);
     }
   }
 
   &--yellow {
     background-color: $yellow-300;
 
-    &:active {
-      box-shadow: 0 .5rem .5rem rgba(0,0,0,0.4);
-      transform: translateY(-2px);
-    }
-
     &:hover {
       background-color: $yellow-400;
-      box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
-      transform: translateY(-5px);
     }
   }
 
   &--red {
     background-color: $red-300;
 
-    &:active {
-      box-shadow: 0 .5rem .5rem rgba(0,0,0,0.4);
-      transform: scale(1.1) translateY(-2px);
-    }
-
     &:hover {
       background-color: $red-400;
-      box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
-      transform: translateY(-5px);
     }
   }
 
   &--blue {
     background-color: $blue-300;
 
-    &:active {
-      box-shadow: 0 .5rem .5rem rgba(0,0,0,0.4);
-      transform: translateY(-2px);
-    }
-
     &:hover {
       background-color: $blue-400;
-      box-shadow: 0 .5rem .4rem rgba(0,0,0,0.4);
-      transform: translateY(-5px);
     }
   }
 }

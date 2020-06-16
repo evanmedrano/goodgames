@@ -41,6 +41,10 @@
     color: $blue-300;
   }
 
+  &--black {
+    color: $black;
+  }
+
   &--logo-left {
     color: $logo-left;
   }
@@ -84,6 +88,13 @@
     color: $blue-300;
      &:hover {
       color: $red-300;
+    }
+  }
+
+  &--black {
+    color: $black;
+     &:hover {
+      color: $black;
     }
   }
 }

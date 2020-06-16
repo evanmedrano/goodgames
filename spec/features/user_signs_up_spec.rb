@@ -31,7 +31,8 @@ feature "user signs up" do
   end
 
   def submit_form(options = {})
-    fill_in "Name", with: "Evan Medrano"
+    fill_in "First name", with: "Evan"
+    fill_in "Last name", with: "Medrano"
     fill_in "Email", with: options[:email] || "evan@example.com"
     fill_in "Password", with: "foobar"
     fill_in "Password confirmation", with: "foobar"
