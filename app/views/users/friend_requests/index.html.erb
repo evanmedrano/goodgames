@@ -1,5 +1,17 @@
-<div class="container">
-  <h2>Pending friend requests</h2>
+<div class="container users-friend-requests">
+  <div class="d-flex align-items-baseline">
+    <h2 class="mr-auto">Pending friend requests</h2>
+    <%= link_to(
+      "Friends",
+      user_friendships_path(current_user),
+      class: "users-friend-requests__nav-link",
+    ) %>
+    <%= link_to(
+      "Friend requests",
+      user_friend_requests_path(current_user),
+      class: "#{active_class(user_friend_requests_path)}",
+    ) %>
+  </div>
 
   <% @friend_requests.each do |request| %>
     <% if current_user.sent_friend_request_to?(request.friend.id) %>

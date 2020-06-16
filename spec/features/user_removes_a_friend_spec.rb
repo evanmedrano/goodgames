@@ -28,7 +28,7 @@ feature "user removes a friend" do
     create_friendships_for(user: user, friend: friend, pending: false)
     visit user_library_path(friend, as: logged_in_user(user))
 
-    click_button "Remove friend"
+    click_button "Unfriend"
 
     expect(page).to have_content ("Friendship removed.")
     expect(Friendship.count).to eq(0)

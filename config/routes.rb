@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :friend_requests, only: [:index], module: :users
+    resources :friendships, only: [:index], module: :users
     resource :library, only: [:show], module: :users
   end
 

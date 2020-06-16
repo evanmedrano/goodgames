@@ -1,0 +1,12 @@
+.users-friendships {
+  @include padding(null, $su-10 !important, null, $su-10 !important);
+  font-size: $fs-3;
+
+  &--active {
+    text-decoration: underline;
+  }
+
+  &__nav-link {
+    @include margin(null, null, null, $su-4);
+  }
+}

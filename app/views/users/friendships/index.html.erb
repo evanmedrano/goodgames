@@ -1,0 +1,33 @@
+<% content_for(:title, user_friends_title(user: @user).html_safe) %>
+
+<div class="container users-friendships">
+  <div class="d-flex align-items-baseline">
+    <% if current_user == @user %>
+      <h2 class="mr-auto">Friends</h2>
+      <%= link_to(
+        "Friends",
+        user_friendships_path(current_user),
+        class: "#{active_class(user_friendships_path)}",
+      ) %>
+      <%= link_to(
+        "Friend requests",
+        user_friend_requests_path(current_user),
+        class: "users-friendships__nav-link",
+      ) %>
+    <% else %>
+      <h2>Friends of <%= @user.first_name %></h2>
+      <%= link_to(
+        "#{@user.first_name}'s profile'",
+        user_friend_requests_path(current_user),
+      ) %>
+    <% end %>
+  </div>
+
+  <ul>
+    <% @friends.each do |friend| %>
+      <li>
+        <%= link_to friend.first_name, user_library_path(friend) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

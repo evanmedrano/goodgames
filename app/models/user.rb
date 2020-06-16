@@ -23,6 +23,10 @@ class User < ApplicationRecord
     joins(:games).merge(Game.filter_by_platform(platform))
   end
 
+  def self.all_friends_of(user)
+    includes(:friendships).where(friendships: { friend_id: user.id })
+  end
+
   def added_game?(game)
     self.games.include?(game)
   end

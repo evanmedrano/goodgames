@@ -1,0 +1,13 @@
+<%= form_tag(
+  games_path,
+  method: :get,
+  id: id,
+  class: "form-inline my-2 my-lg-0 #{margin}",
+) do %>
+  <%= text_field_tag(
+    :query,
+    nil,
+    placeholder: "Search 347,170 games!",
+    class: "form-control nav-query"
+  ) %>
+<% end %>

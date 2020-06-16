@@ -1,7 +1,15 @@
 .header {
-  .navbar-brand {
+  &__brand {
+    @include margin(null, $su-3, null, null);
+    color: $logo-right;
     font-size: 2.5rem;
+
+    &:hover {
+      color: $logo-left;
+      text-decoration: none;
+    }
   }
+
   .navbar-brand.navbar-shadow {
     text-shadow: 0 0.2rem 0.1rem rgba(0,0,0,.8);
   }
@@ -12,7 +20,7 @@
       outline: none;
     }
 
-    #nav-query {
+    .nav-query {
       border-radius: 3rem;
       font-size: 1.4rem;
       padding: .5rem 2rem;
