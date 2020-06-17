@@ -80,4 +80,12 @@ describe Guest do
       expect(guest.currently_playing).to be(nil)
     end
   end
+
+  describe "#can_add_as_a_friend?" do
+    it "returns false" do
+      guest = Guest.new
+
+      expect(guest.can_add_as_a_friend?("nobody")).to be(false)
+    end
+  end
 end

@@ -78,6 +78,17 @@
     }
   }
 
+  &__friends-pagination {
+    border-bottom: 1px solid $neutral-200;
+    display: flex;
+    justify-content: space-between;
+
+    .pagination {
+      @include padding(0, null, 0, null);
+      font-size: $fs-2;
+    }
+  }
+
   &__friends-list {
     list-style: none;
   }
@@ -98,7 +109,9 @@
     color: $neutral-200;
   }
 
-  &__placeholder {
-    width: 20.5rem;
+  &__placeholder,
+  &__game {
+    max-width: 20.5rem;
+    width: 100%;
   }
 }
