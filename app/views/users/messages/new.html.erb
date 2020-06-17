@@ -1,0 +1,14 @@
+<div class="container">
+  <%= form_with model: @message, url: user_messages_path do |f| %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+    <%= f.hidden_field :recipient_id, value: @user.id %>
+
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+
+    <%= f.label :body, "Message" %>
+    <%= f.text_area :body %>
+
+    <%= f.submit "Send message" %>
+  <% end %>
+</div>

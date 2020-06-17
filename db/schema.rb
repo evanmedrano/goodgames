@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_113149) do
+ActiveRecord::Schema.define(version: 2020_06_17_121359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 2020_06_16_113149) do
     t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "recipient_id", null: false
+    t.bigint "sender_id", null: false
+    t.string "subject", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
   create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -94,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_113149) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "messages", "users", column: "recipient_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "user_games", "games"
   add_foreign_key "user_games", "users"
 end

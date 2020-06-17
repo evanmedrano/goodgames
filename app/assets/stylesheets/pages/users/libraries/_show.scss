@@ -1,6 +1,8 @@
 .library {
   &__friend-buttons-container {
     @include margin(null, auto, null, auto);
+    align-items: flex-end;
+    display: flex;
     width: fit-content;
   }
 

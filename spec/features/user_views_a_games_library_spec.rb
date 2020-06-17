@@ -47,8 +47,7 @@ feature "user views a games library" do
   scenario "with an invalid user_id in params" do
     visit user_library_path(1)
 
-    expect(current_path).to eq("/")
-    expect(page).to have_content("Sorry, that user does not exist.")
+    expect(page).to have_content("Game over!")
   end
 
 

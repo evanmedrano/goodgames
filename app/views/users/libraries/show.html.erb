@@ -40,6 +40,13 @@
           class: "button button--teal text-center mt-2",
         ) %>
       <% end %>
+      <% if current_user.id != @library.id %>
+        <%= link_to(
+          "Message",
+          new_user_message_path(@library.id),
+          class: "button button--teal ml-3",
+        ) %>
+      <% end %>
     </div>
   <% end %>
 
