@@ -1,0 +1,29 @@
+.error {
+  &__container {
+    @include margin(null, auto, null, auto);
+    border: 2px solid $red-400;
+    border-radius: .5rem;
+    font-size: $fs-3;
+    width: fit-content;
+  }
+
+  &__count-container {
+    @include padding($su-2, $su-2, $su-2, $su-2);
+    background-color: $red-400;
+    color: $white;
+  }
+
+  &__message-container {
+    @include padding($su-2, $su-2, $su-2, $su-2);
+    background-color: $red-100;
+    color: $black;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__message {
+
+  }
+}

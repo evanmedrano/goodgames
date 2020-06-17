@@ -1,4 +1,9 @@
 class MessageService
+  include ActiveModel::Model
+
+  validates :body, presence: true
+  validates :subject, presence: true
+
   def initialize(params = {})
     @body = params[:body]
     @recipient_id = params[:recipient_id]
@@ -7,7 +12,7 @@ class MessageService
   end
 
   def save
-    if initialized_message.valid?
+    if valid?
       initialized_message.save
       enqueue_user_message_job
       true

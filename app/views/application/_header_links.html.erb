@@ -95,6 +95,11 @@
               user_friendships_path(current_user),
               class: "dropdown-item",
             ) %>
+            <%= link_to(
+              "Messages",
+              user_inbox_index_path(current_user),
+              class: "dropdown-item",
+            ) %>
             <div class="dropdown-divider"></div>
             <%= link_to "Settings", "#", class: "dropdown-item" %>
             <%= link_to(
