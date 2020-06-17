@@ -15,9 +15,9 @@ class Users::MessagesController < ApplicationController
   end
 
   def create
-    message = MessageService.new(message_params)
+    @message = MessageService.new(message_params)
 
-    if message.save
+    if @message.save
       redirect_to user_library_url(@user), notice: "Message sent!"
     else
       flash.now[:alert] = "There was an error saving the message."

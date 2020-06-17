@@ -1,0 +1,28 @@
+.messages-new {
+  @include padding(null, null, $su-4, null);
+  font-size: $fs-3;
+  max-width: 70rem;
+  width: 100%;
+
+  &__from span,
+  &__to span {
+    display: inline-block;
+    width: 6rem;
+  }
+
+  &__form-field {
+    @include margin($su-3, null, null, null);
+
+    input,
+    textarea {
+      @include padding($su-1, $su-1, $su-1, $su-1);
+      border: 1px solid $neutral-200;
+
+      &:focus {
+        border: 1px solid $neutral-400;
+        outline: none;
+      }
+    }
+  }
+
+}
