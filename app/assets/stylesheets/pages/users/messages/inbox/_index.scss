@@ -1,0 +1,12 @@
+.messages-inbox {
+  font-size: $fs-3;
+
+  &__message-table thead,
+  &__message-table tbody {
+    border-bottom: 1px solid $neutral-100;
+  }
+
+  &__message-table td {
+    @include padding($su-2, $su-6, $su-2, $su-6);
+  }
+}

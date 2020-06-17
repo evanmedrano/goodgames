@@ -1,14 +1,7 @@
 class Users::MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
-  before_action :require_permission!, only: [:index, :show]
-  before_action :set_message, only: [:show, :delete]
-
-  def index
-  end
-
-  def show
-  end
+  before_action :set_message, only: [:delete]
 
   def new
     @message = Message.new
@@ -43,12 +36,6 @@ class Users::MessagesController < ApplicationController
 
   def set_message
     @message = Message.find_by(id: params[:id])
-  end
-
-  def require_permission!
-    if current_user != @user
-      redirect_to root_url, alert: "You do not have access to this page."
-    end
   end
 
   def message_params

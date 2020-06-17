@@ -1,0 +1,67 @@
+<% content_for(:title, "my inbox | GoodGames") %>
+
+<div class="container">
+  <div class="messages-inbox">
+    <div class="d-flex align-items-baseline">
+      <h2 class="mr-3">my inbox</h2>
+
+      <small>
+        <% if @messages.any? %>
+          showing 1-<%= @messages.size %> of <%= @messages.size %>
+        <% else %>
+          showing 0-0 of 0
+        <% end %>
+      </small>
+    </div>
+
+    <div class="d-flex mt-4">
+      <div class="messages-inbox__message-filter">
+        <p>compose</p>
+        <p>inbox</p>
+        <p>sent</p>
+      </div>
+
+      <div class="messages-inbox__message-info ml-5">
+        <table class="messages-inbox__message-table">
+          <thead>
+            <tr>
+              <td>from</td>
+              <td>subject</td>
+              <td>date</td>
+            </tr>
+          </thead>
+
+          <% if @messages.any? %>
+            <tbody>
+              <% @messages.each do |message| %>
+                <tr class="u-border-bottom">
+                  <td>
+                    <%= link_to(
+                      message.sender.name,
+                      user_library_path(message.sender),
+                      class: "link--teal",
+                    ) %>
+                  </td>
+                  <td>
+                    <%= link_to(
+                      message.subject,
+                      user_inbox_path(current_user, message),
+                      class: "link--blue",
+                    ) %>
+                  </td>
+                  <td class="text--neutral">
+                    <%= date_formatter(message.created_at) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          <% end %>
+        </table>
+
+        <% if @messages.empty? %>
+          <p class="ml-3 mt-4">There are no messages in this folder.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
