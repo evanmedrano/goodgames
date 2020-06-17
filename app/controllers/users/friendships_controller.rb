@@ -5,7 +5,7 @@ class Users::FriendshipsController < ApplicationController
     if @user.nil?
       render_errors
     else
-      @friends = FriendsListService.new(@user, params).friends
+      @friends = Kaminari.paginate_array(friends).page(params[:page]).per(10)
     end
   end
 
@@ -17,5 +17,9 @@ class Users::FriendshipsController < ApplicationController
 
   def render_errors
     render "errors/show"
+  end
+
+  def friends
+    FriendsListService.new(@user, params).friends
   end
 end

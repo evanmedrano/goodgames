@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
-    @games = RawgApi::GameService.all(query)
+    @games = Kaminari.paginate_array(games).page(params[:page]).per(9)
 
     if @games.empty?
       redirect_to games_url, alert: "Sorry, that game isn't in our database."
@@ -37,6 +37,10 @@ class GamesController < ApplicationController
     if @game.name
       RawgApi::GameService.set_related_game_content(@game, current_user)
     end
+  end
+
+  def games
+    RawgApi::GameService.all(query)
   end
 
   def query

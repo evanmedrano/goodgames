@@ -6,12 +6,12 @@ class FriendsListService
 
   def friends
     if params.include?(:sort_by)
-      return sorted_friends
+      sorted_friends
     elsif params.include?(:search)
-      return searched_friends
+      searched_friends
+    else
+      friends_list
     end
-
-    friends_list
   end
 
   private

@@ -127,6 +127,27 @@ describe User do
     end
   end
 
+  describe "#can_add_as_a_friend?" do
+    it "returns false when the current user is the friend" do
+      user = build_stubbed(:user)
+
+      expect(user.can_add_as_a_friend?(user)).to be(false)
+    end
+
+    it "returns false when the user is already friends with the user" do
+      user, friend = create(:user), create(:user)
+      create_friendships_for(user: user, friend: friend, pending: false)
+
+      expect(user.can_add_as_a_friend?(friend)).to be(false)
+    end
+
+    it "returns true when the user is not friends with the user" do
+      user, friend = create(:user), create(:user)
+
+      expect(user.can_add_as_a_friend?(friend)).to be(true)
+    end
+  end
+
   def expect_same_game_status_count(user, game, status)
     expect(
       described_class.

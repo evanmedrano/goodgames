@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Tue, 16 Jun 2020 17:43:40 GMT
+      - Wed, 17 Jun 2020 00:49:13 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Tue, 16 Jun 2020 18:43:40 GMT
+      - Wed, 17 Jun 2020 01:49:13 GMT
       Location:
       - https://api.rawg.io/api/
       Cf-Request-Id:
-      - 035fd3d8440000f06001baa200000001
+      - '03615971220000ccfa81383200000001'
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a4655a06d47f060-EWR
+      - 5a48c4fb6a33ccfa-EWR
     body:
       encoding: UTF-8
       string: ''
     http_version:
-  recorded_at: Tue, 16 Jun 2020 17:43:40 GMT
+  recorded_at: Wed, 17 Jun 2020 00:49:13 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/
@@ -52,7 +52,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Jun 2020 17:43:41 GMT
+      - Wed, 17 Jun 2020 00:49:13 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d9c03c1da7bd280c40d3dd1788f01ce4b1592329420; expires=Thu, 16-Jul-20
-        17:43:40 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d0a4d1e49ee19688014451975b526d7d11592354953; expires=Fri, 17-Jul-20
+        00:49:13 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 035fd3d8be0000c5fc868c0200000001
+      - '036159718100000c91e6347200000001'
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,10 +87,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a4655a13ad0c5fc-EWR
+      - 5a48c4fc0eee0c91-EWR
     body:
       encoding: UTF-8
       string: "{}"
     http_version:
-  recorded_at: Tue, 16 Jun 2020 17:43:41 GMT
+  recorded_at: Wed, 17 Jun 2020 00:49:13 GMT
 recorded_with: VCR 5.0.0

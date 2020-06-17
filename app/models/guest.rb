@@ -40,4 +40,8 @@ class Guest
   def currently_playing
     nil
   end
+
+  def can_add_as_a_friend?(anybody)
+    false
+  end
 end

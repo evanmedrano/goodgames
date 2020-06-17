@@ -1,0 +1,17 @@
+.pagination {
+  @include padding($su-4, null, $su-4, null);
+  font-size: $fs-4;
+  justify-content: center;
+
+  span {
+    color: $black;
+
+    &:not(:last-child) {
+      @include margin(null, $su-3, null, null);
+    }
+  }
+
+  span a {
+    color: $teal-300;
+  }
+}
