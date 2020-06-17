@@ -8,4 +8,14 @@ class UserMailer < ApplicationMailer
       subject: "#{user.name} has sent you a friend request!"
     )
   end
+
+  def send_user_message(recipient:, sender:)
+    @recipient = recipient
+    @sender = sender
+
+    mail(
+      to: recipient.email,
+      subject: "#{sender.name} has sent you a message!"
+    )
+  end
 end

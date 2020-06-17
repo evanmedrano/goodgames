@@ -3,7 +3,7 @@ class Users::LibrariesController < ApplicationController
 
   def show
     if invalid_user_id?
-      redirect_with_alert
+      render_errors
     end
   end
 
@@ -19,8 +19,8 @@ class Users::LibrariesController < ApplicationController
     @library.owner.nil?
   end
 
-  def redirect_with_alert
-    redirect_to root_url, alert: "Sorry, that user does not exist."
+  def render_errors
+    render "errors/show"
   end
 
   def status

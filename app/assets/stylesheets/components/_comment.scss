@@ -9,7 +9,7 @@
     box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,.3);
     margin: 3rem 0;
     padding: 1rem;
-    transition: all .2s;
+    transition: transform .2s;
 
     &:hover {
       box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
@@ -20,6 +20,10 @@
   &__box:hover &__profile {
     right: 0;
     opacity: 1;
+  }
+
+  &__box:hover &__user {
+    display: none;
   }
 
   &__title {
@@ -33,9 +37,11 @@
   }
 
   &__profile {
-    right: 30%;
-    position: absolute;
+    @include margin($su-2, null, null, null);
+    color: $teal-300;
     opacity: 0;
+    position: absolute;
+    right: 30%;
     transition: all .5s;
 
     &:hover {

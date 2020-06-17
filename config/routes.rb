@@ -26,7 +26,23 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :friend_requests, only: [:index], module: :users
     resources :friendships, only: [:index], module: :users
-    resource :library, only: [:show], module: :users
+    resource  :library, only: [:show], module: :users
+
+    resources(
+      :inbox,
+      module: 'users/messages',
+      only: [:index, :show],
+      path: 'messages/inbox',
+    )
+
+    resources :messages, module: :users, only: [:new, :create, :destroy]
+
+    resources(
+      :sent,
+      module: 'users/messages',
+      only: [:index, :show],
+      path: 'messages/sent',
+    )
   end
 
   resources :user_games, only: [:update, :destroy]

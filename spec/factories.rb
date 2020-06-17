@@ -54,6 +54,13 @@ FactoryBot.define do
     website { "www.example.com" }
   end
 
+  factory :message do
+    association :recipient, factory: :user
+    association :sender, factory: :user
+    subject "MyString"
+    body "MyText"
+  end
+
   factory :user do
     email
     first_name
