@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       path: 'messages/inbox',
     )
 
-    resources :messages, module: :users, only: [:new, :create, :delete]
+    resources :messages, module: :users, only: [:new, :create, :destroy]
 
     resources(
       :sent,
