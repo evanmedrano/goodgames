@@ -3,13 +3,11 @@ import { Controller } from 'stimulus';
 class GameCardController extends Controller {
   static targets = ["gameVideo"];
 
-  gameVideoTarget: HTMLVideoElement;
-
-  playVideo(): void {
+  playVideo() {
     this.gameVideoTarget.play();
   }
 
-  pauseVideo(): void {
+  pauseVideo() {
     this.gameVideoTarget.pause();
   }
 }

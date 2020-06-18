@@ -2,11 +2,12 @@ class MessageService
   include ActiveModel::Model
 
   validates :body, presence: true
+  validates :recipient_id, presence: true
   validates :subject, presence: true
 
   def initialize(params = {})
     @body = params[:body]
-    @recipient_id = params[:recipient_id]
+    @recipient_id = convert_recipient_id?(params[:recipient_id])
     @sender_id = params[:sender_id]
     @subject = params[:subject]
   end
@@ -27,7 +28,10 @@ class MessageService
 
   def initialized_message
     Message.new(
-      body: body, recipient_id: recipient_id, sender_id: sender_id, subject: subject
+      body: body,
+      recipient_id: recipient_id,
+      sender_id: sender_id,
+      subject: subject
     )
   end
 
@@ -35,5 +39,18 @@ class MessageService
     UserMessageJob.perform_later(
       recipient_id: recipient_id, sender_id: sender_id
     )
+  end
+
+  def convert_recipient_id?(recipient_id)
+    if recipient_id_is_an_integer?(recipient_id)
+      recipient_id
+    else
+      first_name = recipient_id.split[0]
+      User.find_by(first_name: first_name).id
+    end
+  end
+
+  def recipient_id_is_an_integer?(recipient_id)
+    recipient_id.is_a?(Integer) || recipient_id.match?(/\d/)
   end
 end

@@ -22,9 +22,10 @@ class Users::MessagesController < ApplicationController
     message = Message.find_by(id: params[:id])
 
     if message.destroy
-      redirect_to user_messages_url(@user), notice: "Message deleted."
+      redirect_to user_inbox_index_url(current_user), notice: "Message deleted."
     else
-      redirect_to user_messages_url(@user), alert: "Unable to delete message."
+      flash[:alert] = "Unable to delete the message."
+      redirect_to user_inbox_index_url(current_user)
     end
   end
 

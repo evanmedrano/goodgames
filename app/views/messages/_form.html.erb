@@ -1,0 +1,85 @@
+<% content_for(:title, "Compose New Message | GoodGames") %>
+
+<div
+  data-controller="autocomplete"
+  data-action="click@window->autocomplete#closeContainer"
+  data-autocomplete-hidden-class="d-none"
+  class="container messages-new"
+>
+  <h2 class="mb-5">
+    <%= link_to(
+      "Messages",
+      user_inbox_index_path(current_user),
+      class: "link--teal",
+    ) %>
+    <span>> Compose New Message</span>
+  </h2>
+
+  <%= render "errors/messages", model: message %>
+
+  <div class="messages-new__from mb-2">
+    <span>from:</span>
+    <%= link_to(
+      current_user.name,
+      user_library_path(current_user),
+      class: "link--teal",
+    ) %>
+  </div>
+
+  <% if user %>
+    <div class="messages-new__to">
+      <span>to:</span>
+      <%= link_to user.name, user_library_path(user), class: "link--teal" %>
+    </div>
+  <% end %>
+
+  <%= form_with model: message, url: url, local: true do |f| %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+
+    <% if user %>
+      <%= f.hidden_field :recipient_id, value: user.id %>
+    <% else %>
+      <div class="messages-new__form-field d-flex align-items-start">
+        <%= f.label :recipient_id, "to:", class: "mr-5" %>
+
+        <div class="d-inline-block ml-4">
+          <%= f.text_field(
+            :recipient_id,
+            autocomplete: "off",
+            data: {
+              action: "keydown->autocomplete#filterUsers",
+              "autocomplete-target": "input",
+            },
+          ) %>
+          <div
+            data-autocomplete-target="inputContainer"
+            class="messages-new__user-autocomplete-container d-none"
+          >
+            <% current_user.friends.each do |friend| %>
+              <p
+                class="messages-new__user m-0"
+                data-autocomplete-target="user"
+                data-action="click->autocomplete#setInputValue"
+              >
+                <%= friend.name %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="messages-new__form-field">
+      <%= f.label :subject %>
+      <%= f.text_field :subject, class: "w-100" %>
+    </div>
+
+    <div class="messages-new__form-field">
+      <%= f.label :body, "Message" %>
+      <br />
+      <%= f.text_area :body, rows: 13, class: "w-100" %>
+    </div>
+
+    <%= f.submit "Send message", class: "button button--teal mt-4" %>
+  <% end %>
+</div>

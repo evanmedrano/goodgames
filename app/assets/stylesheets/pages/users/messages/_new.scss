@@ -25,4 +25,17 @@
     }
   }
 
+  &__user-autocomplete-container {
+    border: 1px solid $neutral-300;
+    z-index: 100;
+  }
+
+  &__user {
+    @include padding($su-1, $su-2, $su-1, $su-2);
+
+    &:hover {
+      background-color: $yellow-100;
+      cursor: pointer;
+    }
+  }
 }

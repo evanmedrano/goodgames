@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :friend_requests, only: [:create]
   resources :friendships, only: [:create, :destroy]
   resources :genres,    only: [:index, :show]
+  resources :messages, only: [:new, :create]
   resources :platforms, only: [:index, :show]
 
   resources :users, only: [] do
