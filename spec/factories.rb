@@ -80,15 +80,25 @@ FactoryBot.define do
 
     trait :with_a_games_library do
       after(:create) do |user|
-        user.games << create(:game)
-        user.games << create(:game)
+        2.times { user.games << create(:game) }
       end
     end
 
     trait :with_friends do
       after(:create) do |user|
-        user.friends << create(:user)
-        user.friends << create(:user)
+        2.times { user.friends << create(:user) }
+      end
+    end
+
+    trait :with_received_messages do
+      after(:create) do |user|
+        2.times { user.received_messages << create(:message) }
+      end
+    end
+
+    trait :with_sent_messages do
+      after(:create) do |user|
+        2.times { user.sent_messages << create(:message) }
       end
     end
   end

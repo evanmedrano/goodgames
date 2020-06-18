@@ -1,48 +1,6 @@
-<% content_for(:title, "Compose New Message | GoodGames") %>
-
-<div class="container">
-  <div class="messages-new">
-    <h2 class="mb-5">
-      <%= link_to(
-        "Messages",
-        user_messages_path(current_user),
-        class: "link--teal",
-      ) %>
-      <span>> Compose New Message</span>
-    </h2>
-
-    <div class="messages-new__from mb-2">
-      <span>from:</span>
-      <%= link_to(
-        current_user.name,
-        user_library_path(current_user),
-        class: "link--teal",
-      ) %>
-    </div>
-
-    <div class="messages-new__to">
-      <span>to:</span>
-      <%= link_to @user.name, user_library_path(@user), class: "link--teal" %>
-    </div>
-
-    <%= form_with model: @message, url: user_messages_path, local: true do |f| %>
-      <%= render "errors/messages", model: @message %>
-
-      <%= f.hidden_field :sender_id, value: current_user.id %>
-      <%= f.hidden_field :recipient_id, value: @user.id %>
-
-      <div class="messages-new__form-field">
-        <%= f.label :subject %>
-        <%= f.text_field :subject, class: "w-100" %>
-      </div>
-
-      <div class="messages-new__form-field">
-        <%= f.label :body, "Message" %>
-        <br />
-        <%= f.text_area :body, rows: 13, class: "w-100" %>
-      </div>
-
-      <%= f.submit "Send message", class: "button button--teal mt-4" %>
-    <% end %>
-  </div>
-</div>
+<%= render(
+  'messages/form',
+  user: @user,
+  message: @message,
+  url: user_messages_path,
+) %>

@@ -28,6 +28,17 @@ describe MessageService do
       end
     end
 
+    context "when the recipient_id is given as a user's name" do
+      it "finds the user by name to get the id in order to save the message" do
+        user = create(:user, first_name: "Evan", last_name: "Medrano")
+
+        message = described_class.new(params(recipient_id: "Evan Medrano"))
+
+        expect(message.save).to be(true)
+        expect(Message.count).to eq(1)
+      end
+    end
+
     context "when the message is invalid" do
       it "returns false" do
         message = described_class.new(params(body: ""))
@@ -37,12 +48,12 @@ describe MessageService do
     end
   end
 
-  def params(body: "Good luck!")
-    recipient, sender = create(:user), create(:user)
+  def params(recipient_id: create(:user).id, body: "Good luck!")
+    sender = create(:user)
 
     {
       body: body,
-      recipient_id: recipient.id,
+      recipient_id: recipient_id,
       sender_id: sender.id,
       subject: "Hey!"
     }
