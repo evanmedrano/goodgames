@@ -1,6 +1,7 @@
 class Users::MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :set_recipient, only: [:new, :create]
   before_action :set_message, only: [:delete]
 
   def new
@@ -32,6 +33,10 @@ class Users::MessagesController < ApplicationController
   private
 
   def set_user
+    @user = current_user
+  end
+
+  def set_recipient
     @user = User.find_by(id: params[:user_id])
   end
 

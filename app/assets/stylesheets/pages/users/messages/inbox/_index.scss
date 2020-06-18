@@ -9,4 +9,8 @@
   &__message-table td {
     @include padding($su-2, $su-6, $su-2, $su-6);
   }
+
+  &__unread {
+    background-color: $neutral-100;
+  }
 }

@@ -47,7 +47,7 @@
         <% if @messages.any? %>
           <tbody>
             <% @messages.each do |message| %>
-              <tr class="u-border-bottom">
+              <tr class="u-border-bottom <%= 'inbox-index__unread' if !message.read %>">
                 <td>
                   <%= link_to(
                     message.sender.name,
