@@ -26,6 +26,14 @@ describe MessageService do
 
         expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
       end
+
+      it "creates a notification" do
+        message = described_class.new(params)
+
+        message.save
+
+        expect(Notification.count).to eq(1)
+      end
     end
 
     context "when the recipient_id is given as a user's name" do

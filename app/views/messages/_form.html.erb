@@ -35,7 +35,10 @@
 
   <%= form_with model: message, url: url, local: true do |f| %>
 
-    <% if !user %>
+    <% if user %>
+      <%= f.hidden_field :sender_id, value: current_user.id %>
+      <%= f.hidden_field :recipient_id, value: user.id %>
+    <% else %>
       <div class="messages-new__form-field d-flex align-items-start">
         <%= f.label :recipient_id, "to:", class: "mr-5" %>
 

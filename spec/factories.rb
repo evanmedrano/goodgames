@@ -61,6 +61,14 @@ FactoryBot.define do
     body "MyText"
   end
 
+  factory :notification do
+    association :actor, factory: :user
+    association :notifiable, factory: :message
+    association :recipient, factory: :user
+    read_at "2020-06-18 19:48:32"
+    action "sent"
+  end
+
   factory :user do
     email
     first_name

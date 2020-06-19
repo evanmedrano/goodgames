@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :user_games, dependent: :destroy
   has_many :games, through: :user_games
+  has_many :notifications, dependent: :destroy, foreign_key: :recipient_id
   has_many :received_messages, dependent: :destroy, foreign_key: :recipient_id,
     class_name: "Message"
   has_many :sent_messages, dependent: :destroy, foreign_key: :sender_id,

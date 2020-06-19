@@ -20,7 +20,7 @@ describe "Messages" do
       it "saves a new message in the database" do
         recipient, sender = create(:user), create(:user)
 
-        post user_messages_path(user_id: recipient, as: logged_in_user(sender)),
+        post messages_path(user_id: recipient, as: logged_in_user(sender)),
           params: params(recipient, sender)
 
         expect(Message.count).to eq(1)
@@ -31,7 +31,7 @@ describe "Messages" do
       it "does not save a new message in the database" do
         recipient, sender = create(:user), create(:user)
 
-        post user_messages_path(user_id: recipient, as: logged_in_user(sender)),
+        post messages_path(user_id: recipient, as: logged_in_user(sender)),
           params: params(recipient, sender, subject: "")
 
         expect(Message.count).to eq(0)
@@ -40,7 +40,7 @@ describe "Messages" do
       it "re-renders the new action" do
         recipient, sender = create(:user), create(:user)
 
-        post user_messages_path(user_id: recipient, as: logged_in_user(sender)),
+        post messages_path(user_id: recipient, as: logged_in_user(sender)),
           params: params(recipient, sender, subject: "")
 
         expect(response).to render_template(:new)

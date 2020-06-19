@@ -14,8 +14,8 @@ class MessageService
 
   def save
     if valid?
-      initialized_message.save
       enqueue_user_message_job
+      create_notification
       true
     else
       false
@@ -41,6 +41,10 @@ class MessageService
     )
   end
 
+  def create_notification
+    NotificationService.new(notification_params).save
+  end
+
   def convert_recipient_id?(recipient_id)
     if recipient_id_is_an_integer?(recipient_id)
       recipient_id
@@ -52,5 +56,14 @@ class MessageService
 
   def recipient_id_is_an_integer?(recipient_id)
     recipient_id.is_a?(Integer) || recipient_id.match?(/\d/)
+  end
+
+  def notification_params
+    {
+      action: "sent",
+      actor_id: sender_id,
+      notifiable: initialized_message,
+      recipient_id: recipient_id,
+    }
   end
 end
