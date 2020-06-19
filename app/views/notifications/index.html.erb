@@ -1,0 +1,13 @@
+<% content_for(:title, "Notifications | GoodGames") %>
+
+<div class="container">
+  <h2>Notifications</h2>
+
+  <% @notifications.each do |notification| %>
+    <p>
+      <%= link_to notification.actor.first_name, user_library_path(notification.actor) %>
+      <span><%= notification.action %></span>
+      <%= link_to notification.notifiable_type, user_inbox_index_path(current_user) %>
+    </p>
+  <% end %>
+</div>

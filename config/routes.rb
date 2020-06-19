@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :destroy]
   resources :genres,    only: [:index, :show]
   resources :messages, only: [:new, :create]
+  resources :notifications, only: [:index] do
+    collection do
+      post :mark_as_read
+    end
+  end
   resources :platforms, only: [:index, :show]
 
   resources :users, only: [] do

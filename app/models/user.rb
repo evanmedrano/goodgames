@@ -73,6 +73,10 @@ class User < ApplicationRecord
     self != friend && !self.is_friends_with?(friend.id)
   end
 
+  def has_unread_notifications?
+    notifications.where(read_at: nil).any?
+  end
+
   def name
     "#{first_name} #{last_name}"
   end
