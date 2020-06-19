@@ -14,4 +14,12 @@ describe Message do
       it { should validate_presence_of(:subject) }
     end
   end
+
+  describe "#update_read_status" do
+    it "updates the read status from false to true" do
+      message = create(:message)
+
+      expect(message.update_read_status).to be(true)
+    end
+  end
 end

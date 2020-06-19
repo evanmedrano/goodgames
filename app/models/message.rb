@@ -6,4 +6,8 @@ class Message < ApplicationRecord
   validates :subject, presence: true
 
   default_scope { order(created_at: :desc) }
+
+  def update_read_status
+    update(read: true)
+  end
 end

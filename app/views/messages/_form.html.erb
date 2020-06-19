@@ -34,9 +34,9 @@
   <% end %>
 
   <%= form_with model: message, url: url, local: true do |f| %>
-    <%= f.hidden_field :sender_id, value: current_user.id %>
 
     <% if user %>
+      <%= f.hidden_field :sender_id, value: current_user.id %>
       <%= f.hidden_field :recipient_id, value: user.id %>
     <% else %>
       <div class="messages-new__form-field d-flex align-items-start">
@@ -51,20 +51,22 @@
               "autocomplete-target": "input",
             },
           ) %>
-          <div
-            data-autocomplete-target="inputContainer"
-            class="messages-new__user-autocomplete-container d-none"
-          >
-            <% current_user.friends.each do |friend| %>
-              <p
-                class="messages-new__user m-0"
-                data-autocomplete-target="user"
-                data-action="click->autocomplete#setInputValue"
-              >
-                <%= friend.name %>
-              </p>
-            <% end %>
-          </div>
+          <% if friends %>
+            <div
+              data-autocomplete-target="inputContainer"
+              class="messages-new__user-autocomplete-container d-none"
+            >
+              <% friends.each do |friend| %>
+                <p
+                  class="messages-new__user m-0"
+                  data-autocomplete-target="user"
+                  data-action="click->autocomplete#setInputValue"
+                >
+                  <%= friend.name %>
+                </p>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

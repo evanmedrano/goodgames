@@ -8,6 +8,7 @@ describe User do
       it { should have_many(:friends).through(:friendships) }
       it { should have_many(:user_games).dependent(:destroy) }
       it { should have_many(:games).through(:user_games) }
+      it { should have_many(:notifications).with_foreign_key(:recipient_id) }
       it { should have_many(:received_messages).dependent(:destroy) }
       it { should have_many(:sent_messages).dependent(:destroy) }
     end

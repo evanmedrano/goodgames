@@ -9,6 +9,7 @@ class Users::Messages::InboxController < ApplicationController
   end
 
   def show
+    @message.update_read_status
   end
 
   private

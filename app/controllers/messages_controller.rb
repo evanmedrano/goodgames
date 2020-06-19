@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :set_friends, only: [:new]
 
   def new
     @message = Message.new
@@ -21,6 +22,11 @@ class MessagesController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_friends
+    @friends = User.includes(:friendships).
+      where(friendships: { friend_id: @user.id, pending: false })
   end
 
   def message_params
