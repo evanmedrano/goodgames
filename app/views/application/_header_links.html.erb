@@ -13,12 +13,54 @@
     <%= render 'games/search', id: "nav-search", margin: "mr-auto" %>
 
     <ul class="navbar-nav mt-2 mt-lg-0">
+      <% if user_signed_in? %>
+        <li
+          data-controller="notification"
+          data-notification-target="notifications"
+          class="nav-item dropdown"
+        >
+          <%= link_to(
+            "#",
+            class: "nav-link dropdown-toggle",
+            id: "notificationDropdown",
+            role: "button",
+            data: { toggle: "dropdown", "notification-target": "notificationLink" },
+            aria: { haspopup: true, expanded: false },
+          ) do %>
+            <i class="fas fa-bell"></i>
+            <small
+              data-notification-target="unreadNotificationCount"
+              class="text--black"
+            ></small>
+          <% end %>
+
+          <div
+            aria-labelledby="notificationDropdown"
+            data-notification-target="notificationItems"
+            class="dropdown-menu"
+          >
+            <% if !current_user.has_unread_notifications? %>
+              <span class="dropdown-item">
+                You do not have any unread notifications.
+              </span>
+              <div class="dropdown-divider"></div>
+              <%= link_to(
+                "All notifications",
+                notifications_path,
+                class: "dropdown-item",
+              ) %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+
       <li class="nav-item">
         <%= link_to root_path, class: "nav-link" do %>
           Home
           <span class="sr-only">(current)</span>
         <% end %>
       </li>
+
       <li class="nav-item">
         <%= link_to "Find a game", games_path, class: "nav-link" %>
       </li>
@@ -72,7 +114,6 @@
       </li>
 
       <% if user_signed_in? %>
-
         <li class="nav-item dropdown">
           <%= link_to(
             current_user.first_name,
