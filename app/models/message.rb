@@ -10,4 +10,8 @@ class Message < ApplicationRecord
   def update_read_status
     update(read: true)
   end
+
+  def notification_link(user, message)
+    "/users/#{user.id}/messages/inbox/#{message.id}"
+  end
 end

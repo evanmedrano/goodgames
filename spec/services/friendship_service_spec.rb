@@ -13,6 +13,15 @@ describe FriendshipService do
 
         expect(all_friendships_pending?).to be(true)
       end
+
+      it "creates a notification for the recipient" do
+        user, friend = create(:user), create(:user)
+        friendship_service = initialize_friendship_service(user, friend)
+
+        friendship_service.pending_friend_request
+
+        expect(friend.notifications.count).to eq(1)
+      end
     end
 
     context "when the user already has the other user as a friend" do
@@ -38,6 +47,15 @@ describe FriendshipService do
 
         expect(friendship_service.save).to be(true)
         expect(all_friendships_pending?).to be(false)
+      end
+
+      it "sends a notification to the request sender" do
+        user, friend = create(:user), create(:user)
+
+        initialize_friendship_service(user, friend).pending_friend_request
+        initialize_friendship_service(friend, user).save
+
+        expect(user.notifications.count).to eq(1)
       end
     end
   end
