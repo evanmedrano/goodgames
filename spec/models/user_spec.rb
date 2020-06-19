@@ -151,6 +151,21 @@ describe User do
     end
   end
 
+  describe "#has_unread_notifications?" do
+    it "returns true if the user has notifications where read_at is nil" do
+      user = create(:user)
+      user.notifications << create(:notification, read_at: nil)
+
+      expect(user.has_unread_notifications?).to be(true)
+    end
+
+    it "returns false if the user has no notifications where read_at is nil" do
+      user = build_stubbed(:user)
+
+      expect(user.has_unread_notifications?).to be(false)
+    end
+  end
+
   def expect_same_game_status_count(user, game, status)
     expect(
       described_class.
