@@ -8,4 +8,12 @@ class UserMailerPreview < ActionMailer::Preview
   def send_user_message
     UserMailer.send_user_message(sender: User.first, recipient: User.second)
   end
+
+  def send_suggested_games
+    user = User.where.not(games: nil).first
+    game = user.games.first
+    games = RawgApi::GameService.set_suggested_games(game)
+
+    UserMailer.send_suggested_games(recipient: user, game: game, games: games)
+  end
 end

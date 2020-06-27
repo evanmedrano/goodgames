@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h2>You just beat <%= @game.name %>. Here are some games to tackle next!<h2>
+
+    <% @games.each do |game| %>
+      <p><%= link_to game.name, game_url(game.slug) %></p>
+    <% end %>
+
+    <p>Take care, and keep on gaming!<p>
+  </body>
+</html>
