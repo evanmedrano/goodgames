@@ -1,5 +1,5 @@
 class SuggestGamesJob < ApplicationJob
-  queue_as :mailers
+  queue_as :default
 
   def perform(user:, game:)
     games = RawgApi::GameService.set_suggested_games(game)
