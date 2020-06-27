@@ -6,7 +6,7 @@ class UserGameService
 
   def update
     if user_game.update(params)
-      suggest_new_games_to_play
+      check_if_user_beat_game
       true
     else
       false
