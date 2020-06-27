@@ -1,10 +1,11 @@
 class UserGamesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user_game, only: [:update]
 
   def update
-    @user_game = UserGame.find_by(id: params[:id])
+    user_game_service = UserGameService.new(@user_game, user_game_params)
 
-    if @user_game.update(user_game_params)
+    if user_game_service.update
       flash[:notice] = "You successfully updated #{@user_game.game_name}!"
       redirect_back(fallback_location: root_path)
     else
@@ -28,6 +29,10 @@ class UserGamesController < ApplicationController
   end
 
   private
+
+  def set_user_game
+    @user_game = UserGame.find_by(id: params[:id])
+  end
 
   def user_game_params
     params.permit(:user, :game, :status, :platform)

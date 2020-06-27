@@ -52,6 +52,14 @@ FactoryBot.define do
     ]
     released { "2000/01/23" }
     website { "www.example.com" }
+
+    trait :with_suggested_games do
+      after(:create) do |game|
+        game.suggested_games = []
+
+        3.times { game.suggested_games << create(:game) }
+      end
+    end
   end
 
   factory :message do

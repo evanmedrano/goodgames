@@ -18,4 +18,15 @@ class UserMailer < ApplicationMailer
       subject: "#{sender.name} has sent you a message!"
     )
   end
+
+  def send_suggested_games(recipient:, game:, games:)
+    @recipient = recipient
+    @game = game
+    @games = games
+
+    mail(
+      to: recipient.email,
+      subject: "You beat #{game.name}. What's the game to play?"
+    )
+  end
 end
