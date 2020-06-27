@@ -46,13 +46,12 @@ ActiveRecord::Schema.define(version: 2020_06_18_234832) do
     t.string "clip"
     t.string "esrb_rating"
     t.string "website"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
     t.jsonb "platforms", default: {}
     t.jsonb "genres", default: {}
     t.index ["name"], name: "index_games_on_name", unique: true
-    t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -74,12 +73,6 @@ ActiveRecord::Schema.define(version: 2020_06_18_234832) do
     t.string "action"
     t.integer "notifiable_id"
     t.string "notifiable_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "statuses", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
