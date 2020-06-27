@@ -4,9 +4,7 @@ Rails.application.configure do
   config.active_job.queue_name_delimiter = "_"
 
   config.action_mailer.default_options = { from: 'no-reply@goodgames.com'  }
-  config.action_mailer.default_url_options = {
-    host: 'www.goooodgames.herokuapp.com', protocol: 'https'
-  }
+  config.action_mailer.default_url_options = { host: 'goooodgames.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
