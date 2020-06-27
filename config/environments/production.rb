@@ -1,4 +1,20 @@
 Rails.application.configure do
+  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_name_prefix = "goodgames"
+  config.active_job.queue_name_delimiter = "_"
+
+  config.action_mailer.default_url_options = { host: 'www.goooodgames.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: ENV['PROD_USERNAME'],
+    password: ENV['PROD_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
