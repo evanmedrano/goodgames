@@ -26,6 +26,7 @@ feature "user updates game's status" do
 
       expect(game.current_status(user)).to eq("Beat")
       expect(ActiveJob::Base.queue_adapter.enqueued_jobs.count).to eq(1)
+      expect(page).to have_content("You successfully updated #{game.name}!")
     end
   end
 
