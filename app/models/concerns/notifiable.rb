@@ -1,4 +1,4 @@
-module Commentable
+module Notifiable
   extend ActiveSupport::Concern
 
   included do
