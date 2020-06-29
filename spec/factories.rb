@@ -95,8 +95,12 @@ FactoryBot.define do
     end
 
     trait :with_a_games_library do
-      after(:create) do |user|
-        2.times { user.games << create(:game) }
+      transient do
+        library_size { 2 }
+      end
+
+      after(:create) do |user, evaluator|
+        evaluator.library_size.times { user.games << create(:game) }
       end
     end
 

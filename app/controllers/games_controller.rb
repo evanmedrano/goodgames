@@ -52,8 +52,8 @@ class GamesController < ApplicationController
   end
 
   def persisted_game?
-    Game.includes(:comments, :users).find_by(slug: params[:id]) ||
-      Game.includes(:comments, :users).find_by(id: params[:id])
+    Game.includes(:comments).find_by(slug: params[:id]) ||
+      Game.includes(:comments).find_by(id: params[:id])
   end
 
   def fetch_game_data

@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Wed, 17 Jun 2020 00:49:29 GMT
+      - Mon, 29 Jun 2020 17:08:40 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Wed, 17 Jun 2020 01:49:29 GMT
+      - Mon, 29 Jun 2020 18:08:40 GMT
       Location:
       - https://api.rawg.io/api/games/portal-2
       Cf-Request-Id:
-      - '036159b17300000ce985a49200000001'
+      - 03a2a678c80000f03199b68200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a48c5625f930ce9-EWR
+      - 5ab1403add4ef031-EWR
     body:
       encoding: UTF-8
       string: ''
     http_version:
-  recorded_at: Wed, 17 Jun 2020 00:49:29 GMT
+  recorded_at: Mon, 29 Jun 2020 17:08:40 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/portal-2
@@ -52,16 +52,16 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Jun 2020 00:49:30 GMT
+      - Mon, 29 Jun 2020 17:08:41 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '14274'
+      - '14275'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d75d12f52fb0d12c59007b43efd9f29db1592354970; expires=Fri, 17-Jul-20
-        00:49:30 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d0b57ce5979a119c98eb4ed2e3ff805b91593450520; expires=Wed, 29-Jul-20
+        17:08:40 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, PATCH, HEAD, OPTIONS
       Path:
@@ -79,7 +79,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - '036159b1d500000ca1b0b2e200000001'
+      - 03a2a6792a0000c5cc6e1b4200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -87,7 +87,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a48c562ec810ca1-EWR
+      - 5ab1403b7e55c5cc-EWR
     body:
       encoding: UTF-8
       string: '{"id":4200,"slug":"portal-2","name":"Portal 2","name_original":"Portal
@@ -116,26 +116,26 @@ http_interactions:
         puzzle games. The series, its characters and even its items such as the portal
         gun and the companion cube have become a cultural icon within gaming communities.</p>\n<p>Portal
         2 also features a co-op mode where two players take on the roles of robots
-        being led through tests by GladOS, as well as an in-depth level editor.</p>","metacritic":95,"metacritic_platforms":[],"released":"2011-04-19","tba":false,"updated":"2019-10-28T23:38:15","background_image":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg","background_image_additional":"https://media.rawg.io/media/screenshots/9a9/9a995e75aba0f9ce01a341f506fc4e13.jpg","website":"http://www.thinkwithportals.com/","rating":4.61,"rating_top":5,"ratings":[{"id":5,"title":"exceptional","count":2216,"percent":69.71},{"id":4,"title":"recommended","count":820,"percent":25.79},{"id":3,"title":"meh","count":82,"percent":2.58},{"id":1,"title":"skip","count":61,"percent":1.92}],"reactions":{"1":18,"3":9,"4":13,"5":3,"7":2,"8":5,"9":1,"10":14,"11":11,"12":5,"16":1,"19":1,"21":1},"added":10628,"added_by_status":{"yet":328,"owned":6798,"beaten":2962,"toplay":177,"dropped":276,"playing":87},"playtime":11,"screenshots_count":24,"movies_count":0,"creators_count":8,"achievements_count":152,"parent_achievements_count":52,"reddit_url":"https://www.reddit.com/r/Portal/","reddit_name":"Portal","reddit_description":"Welcome
-        to Aperture Laboratories. The subreddit for Portal and Portal 2.","reddit_logo":"https://b.thumbs.redditmedia.com/ioptYyXFORB5pW3JqRhe95YYp4QjKlKduLmAnTJg5Ms.png","reddit_count":2062,"twitch_count":101,"youtube_count":1000000,"reviews_text_count":24,"ratings_count":3155,"suggestions_count":593,"alternative_names":[],"metacritic_url":"","parents_count":0,"additions_count":1,"game_series_count":2,"user_game":null,"reviews_count":3179,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":2,"name":"PlayStation","slug":"playstation"}},{"platform":{"id":3,"name":"Xbox","slug":"xbox"}},{"platform":{"id":5,"name":"Apple
+        being led through tests by GladOS, as well as an in-depth level editor.</p>","metacritic":95,"metacritic_platforms":[],"released":"2011-04-19","tba":false,"updated":"2019-10-28T23:38:15","background_image":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg","background_image_additional":"https://media.rawg.io/media/screenshots/9a9/9a995e75aba0f9ce01a341f506fc4e13.jpg","website":"http://www.thinkwithportals.com/","rating":4.61,"rating_top":5,"ratings":[{"id":5,"title":"exceptional","count":2245,"percent":69.72},{"id":4,"title":"recommended","count":831,"percent":25.81},{"id":3,"title":"meh","count":83,"percent":2.58},{"id":1,"title":"skip","count":61,"percent":1.89}],"reactions":{"1":18,"3":9,"4":13,"5":3,"7":2,"8":5,"9":1,"10":14,"11":11,"12":5,"16":1,"19":1,"21":1},"added":10749,"added_by_status":{"yet":337,"owned":6859,"beaten":3005,"toplay":181,"dropped":279,"playing":88},"playtime":11,"screenshots_count":24,"movies_count":0,"creators_count":8,"achievements_count":152,"parent_achievements_count":52,"reddit_url":"https://www.reddit.com/r/Portal/","reddit_name":"Portal","reddit_description":"Welcome
+        to Aperture Laboratories. The subreddit for Portal and Portal 2.","reddit_logo":"https://b.thumbs.redditmedia.com/ioptYyXFORB5pW3JqRhe95YYp4QjKlKduLmAnTJg5Ms.png","reddit_count":2185,"twitch_count":101,"youtube_count":1000000,"reviews_text_count":24,"ratings_count":3196,"suggestions_count":594,"alternative_names":[],"metacritic_url":"","parents_count":0,"additions_count":1,"game_series_count":2,"user_game":null,"reviews_count":3220,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":2,"name":"PlayStation","slug":"playstation"}},{"platform":{"id":3,"name":"Xbox","slug":"xbox"}},{"platform":{"id":5,"name":"Apple
         Macintosh","slug":"mac"}},{"platform":{"id":6,"name":"Linux","slug":"linux"}}],"platforms":[{"platform":{"id":16,"name":"PlayStation
-        3","slug":"playstation3","image":null,"year_end":null,"year_start":null,"games_count":3598,"image_background":"https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":231032,"image_background":"https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":14,"name":"Xbox
-        360","slug":"xbox360","image":null,"year_end":null,"year_start":null,"games_count":2527,"image_background":"https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":6,"name":"Linux","slug":"linux","image":null,"year_end":null,"year_start":null,"games_count":36004,"image_background":"https://media.rawg.io/media/games/530/5302dd22a190e664531236ca724e8726.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":53173,"image_background":"https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"},"released_at":"2011-04-19","requirements":null}],"stores":[{"id":33916,"url":"https://marketplace.xbox.com/en-us/product/portal-2/66acd000-77fe-1000-9115-d80245410912","store":{"id":7,"name":"Xbox
-        360 Store","slug":"xbox360","domain":"marketplace.xbox.com","games_count":1760,"image_background":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"}},{"id":4526,"url":"https://store.playstation.com/en-us/product/UP2061-NPUB31077_00-PORTAL2DIGITAL01","store":{"id":3,"name":"PlayStation
-        Store","slug":"playstation-store","domain":"store.playstation.com","games_count":6439,"image_background":"https://media.rawg.io/media/games/88c/88c5b4d7c80276c03ff62aebb1a99ad4.jpg"}},{"id":13134,"url":"http://store.steampowered.com/app/620/","store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41684,"image_background":"https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"}}],"developers":[{"id":1612,"name":"Valve
-        Software","slug":"valve-software","games_count":39,"image_background":"https://media.rawg.io/media/screenshots/dba/dbacb00b6ad30fae992c93173171ded4.jpg"}],"genres":[{"id":2,"name":"Shooter","slug":"shooter","games_count":26276,"image_background":"https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":46844,"image_background":"https://media.rawg.io/media/games/956/95640d5ea0288c187dbce849a4254a41.jpg"}],"tags":[{"id":40833,"name":"Captions
-        available","slug":"captions-available","language":"eng","games_count":966,"image_background":"https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"},{"id":40834,"name":"Commentary
-        available","slug":"commentary-available","language":"eng","games_count":201,"image_background":"https://media.rawg.io/media/screenshots/b20/b20a20205954f9765e82298dbd41e48a.jpg"},{"id":40836,"name":"Full
-        controller support","slug":"full-controller-support","language":"eng","games_count":8588,"image_background":"https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg"},{"id":40838,"name":"Includes
-        level editor","slug":"includes-level-editor","language":"eng","games_count":1239,"image_background":"https://media.rawg.io/media/games/1f5/1f5ddf7199f2778ff83663b93b5cb330.jpg"},{"id":40847,"name":"Steam
-        Achievements","slug":"steam-achievements","language":"eng","games_count":18292,"image_background":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"},{"id":40849,"name":"Steam
-        Cloud","slug":"steam-cloud","language":"eng","games_count":8601,"image_background":"https://media.rawg.io/media/games/5c0/5c0dd63002cb23f804aab327d40ef119.jpg"},{"id":13,"name":"Atmospheric","slug":"atmospheric","language":"eng","games_count":8259,"image_background":"https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg"},{"id":40852,"name":"Steam
-        Workshop","slug":"steam-workshop","language":"eng","games_count":1006,"image_background":"https://media.rawg.io/media/games/149/149bbed9d90dc09328ba79bbacfda3c8.jpg"},{"id":123,"name":"Comedy","slug":"comedy","language":"eng","games_count":4323,"image_background":"https://media.rawg.io/media/games/1bb/1bb86c35ffa3eb0d299b01a7c65bf908.jpg"},{"id":18,"name":"Co-op","slug":"co-op","language":"eng","games_count":5217,"image_background":"https://media.rawg.io/media/games/a3c/a3c529a12c896c0ef02db5b4741de2ba.jpg"},{"id":189,"name":"Female
-        Protagonist","slug":"female-protagonist","language":"eng","games_count":4235,"image_background":"https://media.rawg.io/media/games/2ad/2add0a457df49ab5efe2b5f754ef924f.jpg"},{"id":8,"name":"First-Person","slug":"first-person","language":"eng","games_count":7418,"image_background":"https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg"},{"id":30,"name":"FPS","slug":"fps","language":"eng","games_count":4965,"image_background":"https://media.rawg.io/media/games/7a2/7a2500ee8b2c0e1ff268bb4479463dea.jpg"},{"id":4,"name":"Funny","slug":"funny","language":"eng","games_count":8684,"image_background":"https://media.rawg.io/media/games/af7/af7a831001c5c32c46e950cc883b8cb7.jpg"},{"id":75,"name":"Local
-        Co-Op","slug":"local-co-op","language":"eng","games_count":3211,"image_background":"https://media.rawg.io/media/games/89a/89a700d3c6a76bd0610ca89ccd20da54.jpg"},{"id":7,"name":"Multiplayer","slug":"multiplayer","language":"eng","games_count":20233,"image_background":"https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg"},{"id":9,"name":"Online
-        Co-Op","slug":"online-co-op","language":"eng","games_count":2045,"image_background":"https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"},{"id":87,"name":"Science","slug":"science","language":"eng","games_count":759,"image_background":"https://media.rawg.io/media/screenshots/931/9316d5b7e0b90863ab3e8666df558dbd.jpg"},{"id":32,"name":"Sci-fi","slug":"sci-fi","language":"eng","games_count":6805,"image_background":"https://media.rawg.io/media/games/6c5/6c55e22185876626881b76c11922b073.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":74814,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},{"id":25,"name":"Space","slug":"space","language":"eng","games_count":18983,"image_background":"https://media.rawg.io/media/games/852/8522935d8ab27b610a254b52de0da212.jpg"},{"id":118,"name":"Story
-        Rich","slug":"story-rich","language":"eng","games_count":6419,"image_background":"https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"},{"id":411,"name":"cooperative","slug":"cooperative","language":"eng","games_count":2223,"image_background":"https://media.rawg.io/media/games/2c4/2c4ec7b64079b561667850593d23c417.jpg"},{"id":7808,"name":"steam-trading-cards","slug":"steam-trading-cards","language":"eng","games_count":7608,"image_background":"https://media.rawg.io/media/games/9fa/9fa63622543e5d4f6d99aa9d73b043de.jpg"},{"id":11669,"name":"stats","slug":"stats","language":"eng","games_count":3233,"image_background":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"}],"publishers":[{"id":354,"name":"Electronic
-        Arts","slug":"electronic-arts","games_count":1207,"image_background":"https://media.rawg.io/media/games/ebd/ebdbb7eb52bd58b0e7fa4538d9757b60.jpg"},{"id":3399,"name":"Valve","slug":"valve","games_count":40,"image_background":"https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg"}],"esrb_rating":{"id":2,"name":"Everyone
+        3","slug":"playstation3","image":null,"year_end":null,"year_start":null,"games_count":3596,"image_background":"https://media.rawg.io/media/games/ebd/ebdbb7eb52bd58b0e7fa4538d9757b60.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":234059,"image_background":"https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":14,"name":"Xbox
+        360","slug":"xbox360","image":null,"year_end":null,"year_start":null,"games_count":2533,"image_background":"https://media.rawg.io/media/games/c6b/c6bfece1daf8d06bc0a60632ac78e5bf.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":6,"name":"Linux","slug":"linux","image":null,"year_end":null,"year_start":null,"games_count":36499,"image_background":"https://media.rawg.io/media/games/e04/e04963f3ac4c4fa83a1dc0b9231e50db.jpg"},"released_at":"2011-04-19","requirements":null},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":53796,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},"released_at":"2011-04-19","requirements":null}],"stores":[{"id":33916,"url":"https://marketplace.xbox.com/en-us/product/portal-2/66acd000-77fe-1000-9115-d80245410912","store":{"id":7,"name":"Xbox
+        360 Store","slug":"xbox360","domain":"marketplace.xbox.com","games_count":1760,"image_background":"https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"}},{"id":4526,"url":"https://store.playstation.com/en-us/product/UP2061-NPUB31077_00-PORTAL2DIGITAL01","store":{"id":3,"name":"PlayStation
+        Store","slug":"playstation-store","domain":"store.playstation.com","games_count":6473,"image_background":"https://media.rawg.io/media/games/088/088b41ca3f9d22163e43be07acf42304.jpg"}},{"id":13134,"url":"http://store.steampowered.com/app/620/","store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41707,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"}}],"developers":[{"id":1612,"name":"Valve
+        Software","slug":"valve-software","games_count":39,"image_background":"https://media.rawg.io/media/screenshots/dba/dbacb00b6ad30fae992c93173171ded4.jpg"}],"genres":[{"id":2,"name":"Shooter","slug":"shooter","games_count":26685,"image_background":"https://media.rawg.io/media/games/15c/15c95a4915f88a3e89c821526afe05fc.jpg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":47511,"image_background":"https://media.rawg.io/media/games/df2/df20fd77db56ae7b0a26a7ff4baa9ccc.jpg"}],"tags":[{"id":40833,"name":"Captions
+        available","slug":"captions-available","language":"eng","games_count":967,"image_background":"https://media.rawg.io/media/games/fee/fee0100afd87b52bfbd33e26689fa26c.jpg"},{"id":40834,"name":"Commentary
+        available","slug":"commentary-available","language":"eng","games_count":201,"image_background":"https://media.rawg.io/media/games/4ba/4ba9b4b68ffcc7019b112174883ba4d6.jpg"},{"id":40836,"name":"Full
+        controller support","slug":"full-controller-support","language":"eng","games_count":8589,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},{"id":40838,"name":"Includes
+        level editor","slug":"includes-level-editor","language":"eng","games_count":1239,"image_background":"https://media.rawg.io/media/games/586/5864ca90a350c558f8ab02dd6784578f.jpg"},{"id":40847,"name":"Steam
+        Achievements","slug":"steam-achievements","language":"eng","games_count":18291,"image_background":"https://media.rawg.io/media/games/8e0/8e032ac4faf1136e7d708bb3ac61af23.jpg"},{"id":40849,"name":"Steam
+        Cloud","slug":"steam-cloud","language":"eng","games_count":8600,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},{"id":13,"name":"Atmospheric","slug":"atmospheric","language":"eng","games_count":8364,"image_background":"https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"},{"id":40852,"name":"Steam
+        Workshop","slug":"steam-workshop","language":"eng","games_count":1006,"image_background":"https://media.rawg.io/media/games/149/149bbed9d90dc09328ba79bbacfda3c8.jpg"},{"id":123,"name":"Comedy","slug":"comedy","language":"eng","games_count":4365,"image_background":"https://media.rawg.io/media/games/e3d/e3ddc524c6292a435d01d97cc5f42ea7.jpg"},{"id":18,"name":"Co-op","slug":"co-op","language":"eng","games_count":5242,"image_background":"https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg"},{"id":189,"name":"Female
+        Protagonist","slug":"female-protagonist","language":"eng","games_count":4266,"image_background":"https://media.rawg.io/media/games/bce/bce62fbc7cf74bf6a1a37340993ec148.jpg"},{"id":8,"name":"First-Person","slug":"first-person","language":"eng","games_count":7524,"image_background":"https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg"},{"id":30,"name":"FPS","slug":"fps","language":"eng","games_count":5012,"image_background":"https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg"},{"id":4,"name":"Funny","slug":"funny","language":"eng","games_count":8812,"image_background":"https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"},{"id":75,"name":"Local
+        Co-Op","slug":"local-co-op","language":"eng","games_count":3229,"image_background":"https://media.rawg.io/media/games/f6f/f6f39c5b56413f7f4513b25989a1b747.jpg"},{"id":7,"name":"Multiplayer","slug":"multiplayer","language":"eng","games_count":20390,"image_background":"https://media.rawg.io/media/games/2c4/2c4ec7b64079b561667850593d23c417.jpg"},{"id":9,"name":"Online
+        Co-Op","slug":"online-co-op","language":"eng","games_count":2046,"image_background":"https://media.rawg.io/media/games/d69/d69810315bd7e226ea2d21f9156af629.jpg"},{"id":87,"name":"Science","slug":"science","language":"eng","games_count":766,"image_background":"https://media.rawg.io/media/screenshots/552/552a90a0e1f1c75f99b67b3f5b300ee0.jpg"},{"id":32,"name":"Sci-fi","slug":"sci-fi","language":"eng","games_count":6888,"image_background":"https://media.rawg.io/media/games/7a2/7a2500ee8b2c0e1ff268bb4479463dea.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":75823,"image_background":"https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"},{"id":25,"name":"Space","slug":"space","language":"eng","games_count":19216,"image_background":"https://media.rawg.io/media/screenshots/4df/4df0b0812fd89af2285e683fb78f1323.jpg"},{"id":118,"name":"Story
+        Rich","slug":"story-rich","language":"eng","games_count":6489,"image_background":"https://media.rawg.io/media/games/e9c/e9cbc91e2090638ddab6ae0b3d334f90.jpg"},{"id":411,"name":"cooperative","slug":"cooperative","language":"eng","games_count":2224,"image_background":"https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg"},{"id":7808,"name":"steam-trading-cards","slug":"steam-trading-cards","language":"eng","games_count":7608,"image_background":"https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"},{"id":11669,"name":"stats","slug":"stats","language":"eng","games_count":3236,"image_background":"https://media.rawg.io/media/games/88c/88c5b4d7c80276c03ff62aebb1a99ad4.jpg"}],"publishers":[{"id":354,"name":"Electronic
+        Arts","slug":"electronic-arts","games_count":1215,"image_background":"https://media.rawg.io/media/games/9d5/9d5aa70db8c16566d79712df6417d13a.jpg"},{"id":3399,"name":"Valve","slug":"valve","games_count":40,"image_background":"https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg"}],"esrb_rating":{"id":2,"name":"Everyone
         10+","slug":"everyone-10-plus"},"clip":{"clip":"https://media.rawg.io/media/stories-640/fde/fde8aaeeab956f6b705bbb4161b09004.mp4","clips":{"320":"https://media.rawg.io/media/stories-320/b26/b265f65b9f16dc20245863636d4094b2.mp4","640":"https://media.rawg.io/media/stories-640/fde/fde8aaeeab956f6b705bbb4161b09004.mp4","full":"https://media.rawg.io/media/stories/671/67196dea179367b70212bdaed88ba451.mp4"},"video":"dVVZaZ8yO6o","preview":"https://media.rawg.io/media/stories-previews/faf/faf0bb37b806db65f1c76395c8f36c7c.jpg"},"description_raw":"Portal
         2 is a first-person puzzle game developed by Valve Corporation and released
         on April 19, 2011 on Steam, PS3 and Xbox 360. It was published by Valve Corporation
@@ -163,5 +163,5 @@ http_interactions:
         2 also features a co-op mode where two players take on the roles of robots
         being led through tests by GladOS, as well as an in-depth level editor."}'
     http_version:
-  recorded_at: Wed, 17 Jun 2020 00:49:30 GMT
+  recorded_at: Mon, 29 Jun 2020 17:08:41 GMT
 recorded_with: VCR 5.0.0
