@@ -15,7 +15,7 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-      - Mon, 29 Jun 2020 15:20:47 GMT
+      - Mon, 29 Jun 2020 17:08:58 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,20 +23,20 @@ http_interactions:
       Cache-Control:
       - max-age=3600
       Expires:
-      - Mon, 29 Jun 2020 16:20:47 GMT
+      - Mon, 29 Jun 2020 18:08:58 GMT
       Location:
       - https://api.rawg.io/api/games/random-game-data-here
       Cf-Request-Id:
-      - 03a243b1840000e76036843200000001
+      - 03a2a6bceb0000c1ed118f8200000001
       Server:
       - cloudflare
       Cf-Ray:
-      - 5ab0a22f3fcde760-EWR
+      - 5ab140a7d86ec1ed-IAD
     body:
       encoding: UTF-8
       string: ''
     http_version:
-  recorded_at: Mon, 29 Jun 2020 15:20:47 GMT
+  recorded_at: Mon, 29 Jun 2020 17:08:58 GMT
 - request:
     method: get
     uri: https://api.rawg.io/api/games/random-game-data-here
@@ -52,7 +52,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Mon, 29 Jun 2020 15:20:47 GMT
+      - Mon, 29 Jun 2020 17:08:58 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -60,8 +60,8 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=df200a2c65fcc661e0f601f268bcbacb21593444047; expires=Wed, 29-Jul-20
-        15:20:47 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d8846008ab108badc26932959f0c11f711593450538; expires=Wed, 29-Jul-20
+        17:08:58 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
       Allow:
       - GET, PATCH, HEAD, OPTIONS
       Path:
@@ -75,7 +75,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03a243b1f000000ced99923200000001
+      - 03a2a6bd5a0000c1c5de223200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -83,10 +83,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5ab0a22fe8a50ced-EWR
+      - 5ab140a89c09c1c5-IAD
     body:
       encoding: UTF-8
       string: '{"detail":"Not found."}'
     http_version:
-  recorded_at: Mon, 29 Jun 2020 15:20:48 GMT
+  recorded_at: Mon, 29 Jun 2020 17:08:58 GMT
 recorded_with: VCR 5.0.0

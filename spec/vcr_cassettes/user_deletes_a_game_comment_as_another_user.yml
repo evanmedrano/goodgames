@@ -1120,4 +1120,473 @@ http_interactions:
       string: '{"count":6,"next":null,"previous":null,"results":[{"id":315137,"image":"https://media.rawg.io/media/screenshots/d87/d8729a67937b0f14690cdcb1c5dcb403.jpg","width":640,"height":480,"is_deleted":false},{"id":315138,"image":"https://media.rawg.io/media/screenshots/7bc/7bc107062a1a5fa81aeb72a2a6753fc2.jpg","width":640,"height":480,"is_deleted":false},{"id":315139,"image":"https://media.rawg.io/media/screenshots/281/281aeb4b2bf35fbb82a3427f45ca512c.jpg","width":640,"height":480,"is_deleted":false},{"id":315140,"image":"https://media.rawg.io/media/screenshots/4a6/4a65dddb3f7e030d691a1e394a51d2bf.jpg","width":640,"height":480,"is_deleted":false},{"id":315141,"image":"https://media.rawg.io/media/screenshots/946/94610002c045c238cfff86d54156a92a.jpg","width":640,"height":480,"is_deleted":false},{"id":315142,"image":"https://media.rawg.io/media/screenshots/5ad/5ad4f6dd5104aaa3e8479eeee7e2b92b.jpg","width":800,"height":600,"is_deleted":false}]}'
     http_version:
   recorded_at: Mon, 29 Jun 2020 15:18:43 GMT
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games/game-30/suggested
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 29 Jun 2020 18:06:39 GMT
+      Location:
+      - https://api.rawg.io/api/games/game-30/suggested
+      Cf-Request-Id:
+      - 03a2a49f7700000ca5298a4200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d458c9a0ca5-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:39 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games/game-30/suggested
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '64402'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d796d81b1a1be93008476aedeedb7b3961593450399; expires=Wed, 29-Jul-20
+        17:06:39 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, HEAD, OPTIONS
+      Path:
+      - api-game-suggested
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03a2a49fd10000ccf69f283200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d461ab1ccf6-EWR
+    body:
+      encoding: UTF-8
+      string: '{"count":380,"next":"https://api.rawg.io/api/games/game-30/suggested?page=2","previous":null,"results":[{"id":80080,"slug":"dynamite-fishing-world-games-3","name":"Dynamite
+        Fishing World Games","released":"2015-03-11","tba":false,"background_image":"https://media.rawg.io/media/screenshots/19d/19d5597c6f884cf6cf97a0c309b0d89a.jpg","rating":0.0,"rating_top":0,"ratings":[{"id":3,"title":"meh","count":1,"percent":100.0}],"ratings_count":1,"reviews_text_count":0,"added":8,"added_by_status":{"owned":7,"dropped":1},"metacritic":null,"playtime":0,"suggestions_count":154,"user_game":null,"reviews_count":1,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2015-03-11","requirements_en":{"minimum":"iPhone
+        4, iPad 2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone
+        5, iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone
+        8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max,
+        iPhone X R, iPad 8 1 2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad
+        Mini 5 Cellular, iPad Air 3, iPad Air 3 Cellular, iPod Touch Seventh Gen"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}}],"genres":[{"id":4,"name":"Action","slug":"action","games_count":89401,"image_background":"https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"},{"id":11,"name":"Arcade","slug":"arcade","games_count":22078,"image_background":"https://media.rawg.io/media/games/640/6409857596fe6553d3bb5af9a17f6160.jpg"},{"id":40,"name":"Casual","slug":"casual","games_count":25835,"image_background":"https://media.rawg.io/media/screenshots/6fe/6fe228662a253cd929cc78a103541ee0.jpg"}],"stores":[{"id":71623,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/dynamite-fishing-world-games/id967219249?uo=4","url_ru":null}],"clip":null,"tags":[{"id":155,"name":"Fishing","slug":"fishing","language":"eng","games_count":864,"image_background":"https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"},{"id":581,"name":"Epic","slug":"epic","language":"eng","games_count":3072,"image_background":"https://media.rawg.io/media/screenshots/ab9/ab909eb012c4f69e0a5cab42bbe7851f.jpg"},{"id":730,"name":"youtube","slug":"youtube","language":"eng","games_count":2618,"image_background":"https://media.rawg.io/media/screenshots/348/3483d421eb388193dca2dffaeafec540.jpg"},{"id":808,"name":"character","slug":"character","language":"eng","games_count":5079,"image_background":"https://media.rawg.io/media/games/289/289951d92239d05f2a663d632aa3888a.jpg"},{"id":999,"name":"shark","slug":"shark","language":"eng","games_count":397,"image_background":"https://media.rawg.io/media/screenshots/1fb/1fbe75580659ed1708299577ff62cb8f.jpg"},{"id":1068,"name":"sea","slug":"sea","language":"eng","games_count":1658,"image_background":"https://media.rawg.io/media/screenshots/f26/f266add0404b80d8caebda642495d5e2.jpg"},{"id":1505,"name":"ship","slug":"ship","language":"eng","games_count":1725,"image_background":"https://media.rawg.io/media/screenshots/eeb/eeb8f0d889d20c9053c3c0234b6f07a8_1dE3LbR.jpg"},{"id":1524,"name":"beach","slug":"beach","language":"eng","games_count":879,"image_background":"https://media.rawg.io/media/screenshots/c43/c43b0ff7e41a7db647cd2b459c73cc0e_07s2Z5S.jpg"},{"id":1618,"name":"jungle","slug":"jungle","language":"eng","games_count":1149,"image_background":"https://media.rawg.io/media/screenshots/3f1/3f12b9b8db9968eab3ea327bb7b853fd.jpg"},{"id":1743,"name":"collect","slug":"collect","language":"eng","games_count":5536,"image_background":"https://media.rawg.io/media/screenshots/8a1/8a1d8cb1d53f723795150e580c0c3c6b.jpg"},{"id":1753,"name":"guns","slug":"guns","language":"eng","games_count":1874,"image_background":"https://media.rawg.io/media/screenshots/bc4/bc4c928cbb370668d3d54ccb4a24d437.jpg"},{"id":1807,"name":"water","slug":"water","language":"eng","games_count":2535,"image_background":"https://media.rawg.io/media/games/299/2993993d4063615a52a86c7f1b698610.jpg"},{"id":1889,"name":"fish","slug":"fish","language":"eng","games_count":898,"image_background":"https://media.rawg.io/media/screenshots/84d/84dda62b53c1517fed3630b721883a4e.jpg"},{"id":2184,"name":"hunt","slug":"hunt","language":"eng","games_count":1818,"image_background":"https://media.rawg.io/media/games/400/4002753ab3a1275bb1e46aa9fe2c3592.jpg"},{"id":2590,"name":"fun","slug":"fun","language":"eng","games_count":22393,"image_background":"https://media.rawg.io/media/screenshots/e9f/e9fec9933b304cfd718c4c5b391b2b12.jpg"},{"id":2657,"name":"boat","slug":"boat","language":"eng","games_count":673,"image_background":"https://media.rawg.io/media/screenshots/19d/19d5597c6f884cf6cf97a0c309b0d89a.jpg"},{"id":4927,"name":"fly","slug":"fly","language":"eng","games_count":2254,"image_background":"https://media.rawg.io/media/screenshots/348/3483d421eb388193dca2dffaeafec540.jpg"},{"id":5488,"name":"tank","slug":"tank","language":"eng","games_count":962,"image_background":"https://media.rawg.io/media/screenshots/f8c/f8cce87ddcd94af37b72a065170417f2.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/19d/19d5597c6f884cf6cf97a0c309b0d89a.jpg"},{"id":941355,"image":"https://media.rawg.io/media/screenshots/0a0/0a0ff027cdd930b095e1b73a2839ed5b.jpg"},{"id":941358,"image":"https://media.rawg.io/media/screenshots/ba2/ba26198c68e82fb523441b1290b746d6.jpg"},{"id":941362,"image":"https://media.rawg.io/media/screenshots/593/593a754075599b9a5d10aae4cb7be482.jpg"},{"id":941366,"image":"https://media.rawg.io/media/screenshots/cdb/cdbec91c26dc486cb9e9461923ba6297.jpg"},{"id":941368,"image":"https://media.rawg.io/media/screenshots/19d/19d5597c6f884cf6cf97a0c309b0d89a.jpg"}],"short_description":"Dynamite
+        Fishing World Games is a casual action-arcade game developed by HandyGames.
+        It came out on 11-03-2015. www.handy-games.com GmbH published the game. The
+        game is rated as \"Meh\" on RAWG. \nDynamite Fishing World Games is available
+        on iOS. The game is sold via App Store. \n\n"},{"id":7041,"slug":"game-of-thrones-ascent","name":"Game
+        of Thrones Ascent","released":"2014-03-26","tba":false,"background_image":"https://media.rawg.io/media/screenshots/1be/1becf98cc2cc532008b901bc0d044f72.jpg","rating":0.0,"rating_top":0,"ratings":[{"id":4,"title":"recommended","count":1,"percent":50.0},{"id":1,"title":"skip","count":1,"percent":50.0}],"ratings_count":2,"reviews_text_count":0,"added":13,"added_by_status":{"owned":10,"beaten":3},"metacritic":null,"playtime":1,"suggestions_count":476,"user_game":null,"reviews_count":2,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":21,"name":"Android","slug":"android","image":null,"year_end":null,"year_start":null,"games_count":30127,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":"2014-03-26","requirements_en":{"minimum":"4.0
+        and up"},"requirements_ru":null},{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2014-03-26","requirements_en":{"minimum":"iPhone
+        4, iPad 2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone
+        5, iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":8,"name":"Android","slug":"android"}}],"genres":[{"id":5,"name":"RPG","slug":"role-playing-games-rpg","games_count":28675,"image_background":"https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"},{"id":10,"name":"Strategy","slug":"strategy","games_count":29769,"image_background":"https://media.rawg.io/media/games/c22/c22d804ac753c72f2617b3708a625dec.jpg"}],"stores":[{"id":7629,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/game-of-thrones-ascent/id799145075?mt=8&uo=4","url_ru":null},{"id":214971,"store":{"id":8,"name":"Google
+        Play","slug":"google-play","domain":"play.google.com","games_count":16062,"image_background":"https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg"},"url_en":"https://play.google.com/store/apps/details?id=com.kongregate.mobile.gameofthronesascent.google&hl=en&gl=us","url_ru":null}],"clip":null,"tags":[{"id":39,"name":"Building","slug":"building","language":"eng","games_count":2504,"image_background":"https://media.rawg.io/media/games/92b/92bbf8a451e2742ab812a580546e593a.jpg"},{"id":215,"name":"Dragons","slug":"dragons","language":"eng","games_count":1408,"image_background":"https://media.rawg.io/media/screenshots/87f/87fd7f7312a5382dfe31fe9cf538d1c7.jpg"},{"id":24,"name":"RPG","slug":"rpg","language":"eng","games_count":9559,"image_background":"https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"},{"id":406,"name":"Story","slug":"story","language":"eng","games_count":6949,"image_background":"https://media.rawg.io/media/games/932/93221053809511fde4a0c6a9fddaf558.jpg"},{"id":888,"name":"hardcore","slug":"hardcore","language":"eng","games_count":695,"image_background":"https://media.rawg.io/media/screenshots/a82/a8218d24d083ddbd808e6d16f9063042.jpg"},{"id":974,"name":"death","slug":"death","language":"eng","games_count":2340,"image_background":"https://media.rawg.io/media/screenshots/586/5868542daecadd3e893778e5435fbc74.jpg"},{"id":980,"name":"winter","slug":"winter","language":"eng","games_count":963,"image_background":"https://media.rawg.io/media/screenshots/9f0/9f0c0e4d9961897b6037c4f2c9fb48a7_ytIOGel.jpeg"},{"id":1221,"name":"history","slug":"history","language":"eng","games_count":1651,"image_background":"https://media.rawg.io/media/games/998/9980c4296f311d8bcc5b451ca51e4fe1.jpg"},{"id":1897,"name":"fire","slug":"fire","language":"eng","games_count":4018,"image_background":"https://media.rawg.io/media/games/2d5/2d57e7ffa1e3af2fa34229bd1041461d.jpg"},{"id":1925,"name":"baby","slug":"baby","language":"eng","games_count":1109,"image_background":"https://media.rawg.io/media/screenshots/74c/74c201169b74b0aeeecc59dba130bbec_A4QLtL9.jpg"},{"id":1986,"name":"ice","slug":"ice","language":"eng","games_count":1665,"image_background":"https://media.rawg.io/media/games/bf2/bf2bf857be0759e8ae4ec8172648a555.jpg"},{"id":2118,"name":"snow","slug":"snow","language":"eng","games_count":576,"image_background":"https://media.rawg.io/media/screenshots/0aa/0aafbaf6dc90fde3b60273a2c3a56863.jpg"},{"id":2326,"name":"explore","slug":"explore","language":"eng","games_count":2249,"image_background":"https://media.rawg.io/media/screenshots/9bf/9bf17af55dba0e49bb9259f62dafd6bc.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/1be/1becf98cc2cc532008b901bc0d044f72.jpg"},{"id":46198,"image":"https://media.rawg.io/media/screenshots/9d7/9d7e9a22d712e9d7488469e80cadc403.jpeg"},{"id":1380575,"image":"https://media.rawg.io/media/screenshots/8bb/8bba31677b46814401a728e704938dc8.jpg"},{"id":1380576,"image":"https://media.rawg.io/media/screenshots/3f5/3f5e19cb0cd413152357fe50f0106ca9.jpg"},{"id":1380577,"image":"https://media.rawg.io/media/screenshots/3b4/3b4f04e4e74e2155d8b004e20fb89cf3.jpg"},{"id":1380578,"image":"https://media.rawg.io/media/screenshots/820/820a1ed595e8cddab3b2992a805c0cfa.jpg"},{"id":1380579,"image":"https://media.rawg.io/media/screenshots/26b/26bb2f52e21b8a402c213f2a80885b1d.jpg"}],"short_description":"Game
+        of Thrones Ascent is a RPG-strategy game developed by Disruptor Beam. It came
+        out on 26-03-2014. It was published by Disruptor Beam, Inc.. Most rawgers
+        rated the game as \"Recommended\". \nGame of Thrones Ascent is available on
+        Android and iOS. You can purchase the game on App Store and Google Play. \n\n"},{"id":21180,"slug":"cradle-of-rome","name":"Cradle
+        of Rome","released":"2008-11-18","tba":false,"background_image":"https://media.rawg.io/media/screenshots/b67/b670a329689de29b917ac1226dc3899a.jpg","rating":0.0,"rating_top":0,"ratings":[],"ratings_count":0,"reviews_text_count":0,"added":6,"added_by_status":{"owned":5,"beaten":1},"metacritic":null,"playtime":0,"suggestions_count":112,"user_game":null,"reviews_count":0,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2011-09-06","requirements_en":{"minimum":"iPad
+        2 Wifi, iPad 2 3G, iPad Third Gen, iPad Third Gen 4G, iPad Fourth Gen, iPad
+        Fourth Gen 4G, iPad Mini, iPad Mini 4G, iPad Air, iPad Air Cellular, iPad
+        Mini Retina, iPad Mini Retina Cellular, iPad Air 2, iPad Air 2 Cellular, iPad
+        Mini 3, iPad Mini 3 Cellular, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro,
+        iPad Pro Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPad 6 1 1, iPad 6
+        1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPad 7 5, iPad 7 6, iPad 8 1
+        2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8"},"requirements_ru":null},{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":234059,"image_background":"https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"},"released_at":"2010-02-20","requirements_en":{"minimum":"<ul>\n\t\t\t\t\t\t\t\t<li><strong>OS:</strong>
+        Windows 98/ME/2000/XP</li>\n\t\t\t\t\t\t\t\t<li><strong>Processor:</strong>
+        1000 MHz CPU</li>\n\t\t\t\t\t\t\t\t<li><strong>Memory:</strong> 256 MB RAM</li>\n\t\t\t\t\t\t\t\t<li><strong>Graphics:</strong>
+        32 MB Video Card</li>\n\t\t\t\t\t\t\t\t<li><strong>DirectX&reg;:</strong>
+        8</li>\t\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t"},"requirements_ru":null},{"platform":{"id":9,"name":"Nintendo
+        DS","slug":"nintendo-ds","image":null,"year_end":null,"year_start":null,"games_count":2273,"image_background":"https://media.rawg.io/media/screenshots/157/1571cdfb52888191eabaf53c2b897240.jpg"},"released_at":"2008-11-18","requirements_en":null,"requirements_ru":null},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":53796,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},"released_at":"2011-03-02","requirements_en":null,"requirements_ru":null}],"parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":5,"name":"Apple
+        Macintosh","slug":"mac"}},{"platform":{"id":7,"name":"Nintendo","slug":"nintendo"}}],"genres":[{"id":3,"name":"Adventure","slug":"adventure","games_count":62239,"image_background":"https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg"},{"id":40,"name":"Casual","slug":"casual","games_count":25835,"image_background":"https://media.rawg.io/media/screenshots/6fe/6fe228662a253cd929cc78a103541ee0.jpg"},{"id":19,"name":"Family","slug":"family","games_count":5240,"image_background":"https://media.rawg.io/media/screenshots/fb9/fb912e77c4295b0c47af632cd1b48522.jpeg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":47511,"image_background":"https://media.rawg.io/media/games/df2/df20fd77db56ae7b0a26a7ff4baa9ccc.jpg"}],"stores":[{"id":264949,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/cradle-of-rome/id417726009?mt=12&uo=4","url_ru":null},{"id":29000,"store":{"id":6,"name":"Nintendo
+        Store","slug":"nintendo","domain":"nintendo.com","games_count":7728,"image_background":"https://media.rawg.io/media/games/2c4/2c4ec7b64079b561667850593d23c417.jpg"},"url_en":"https://www.nintendo.com/games/detail/rQS3msCjiO6nmI0OPgrxWc5JM_QeqVQj","url_ru":null},{"id":23835,"store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41707,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"},"url_en":"http://store.steampowered.com/app/38170/","url_ru":null}],"clip":null,"tags":[{"id":299,"name":"Match
+        3","slug":"match-3","language":"eng","games_count":212,"image_background":"https://media.rawg.io/media/screenshots/d9f/d9f8b7d7832a2e1d9b795edeccca15f2.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":75823,"image_background":"https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"},{"id":1867,"name":"puzzles","slug":"puzzles","language":"eng","games_count":6715,"image_background":"https://media.rawg.io/media/games/c17/c17f265300a6adca4cde82562829cd92.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/b67/b670a329689de29b917ac1226dc3899a.jpg"},{"id":201652,"image":"https://media.rawg.io/media/screenshots/59a/59aeebce5291cbd907e1691274e13b6b.jpg"},{"id":201653,"image":"https://media.rawg.io/media/screenshots/3f0/3f02109873b88f60b7db57ab220f9662.jpg"},{"id":201654,"image":"https://media.rawg.io/media/screenshots/b67/b670a329689de29b917ac1226dc3899a.jpg"}],"short_description":"Cradle
+        of Rome is a casual adventure-puzzle game developed by Awem Studio and VADZIM
+        KAMKOU. It came out on 18-11-2008. It was published by iWin. \nCradle of Rome
+        is available on iOS, PC, Nintendo DS and macOS. You can purchase the game
+        on App Store, Nintendo eShop and Steam. \n\n"},{"id":9349,"slug":"virtual-villagers-3-the-secret-city","name":"Virtual
+        Villagers 3: The Secret City","released":"2009-10-31","tba":false,"background_image":"https://media.rawg.io/media/screenshots/004/004b4f6e2c251a3cd01db74a5a3ba7dd.jpeg","rating":0.0,"rating_top":0,"ratings":[],"ratings_count":0,"reviews_text_count":0,"added":4,"added_by_status":{"owned":4},"metacritic":null,"playtime":0,"suggestions_count":187,"user_game":null,"reviews_count":0,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2009-10-31","requirements_en":{"minimum":"iPhone
+        First Gen, iPod Touch First Gen, iPod Touch Second Gen, iPhone 3G, iPhone
+        3G S, iPad Wifi, iPad 3G, iPod Touch Third Gen, iPhone 4, iPod Touch Fourth
+        Gen, iPad 2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G,
+        iPhone 5, iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad
+        Mini, iPad Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad
+        Mini Retina, iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air
+        2, iPad Air 2 Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth
+        Gen, iPhone 6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro,
+        iPad Pro Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone
+        7, iPhone 7 Plus, iPad 6 1 1, iPad 6 1 2"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}}],"genres":[{"id":14,"name":"Simulation","slug":"simulation","games_count":36643,"image_background":"https://media.rawg.io/media/games/a91/a911f0a91991469e398fa70091507a5b.jpg"},{"id":19,"name":"Family","slug":"family","games_count":5240,"image_background":"https://media.rawg.io/media/screenshots/fb9/fb912e77c4295b0c47af632cd1b48522.jpeg"}],"stores":[{"id":10164,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/virtual-villagers-3-the-secret-city/id336705448?mt=8&uo=4","url_ru":null}],"clip":null,"tags":[{"id":684,"name":"children","slug":"children","language":"eng","games_count":2834,"image_background":"https://media.rawg.io/media/screenshots/e88/e88c0a6a46a15d4403df9c2d5971c3e4.jpg"},{"id":820,"name":"secrets","slug":"secrets","language":"eng","games_count":2135,"image_background":"https://media.rawg.io/media/screenshots/6ae/6ae63d3a127362ec8172868756d4cee5.jpg"},{"id":931,"name":"tycoon","slug":"tycoon","language":"eng","games_count":887,"image_background":"https://media.rawg.io/media/screenshots/93b/93b5c22efddaf7a5fd5549f4bcfeade9.jpg"},{"id":1302,"name":"windows","slug":"windows","language":"eng","games_count":1468,"image_background":"https://media.rawg.io/media/screenshots/b9d/b9df88f770eeb2247b8973ca488f69e0.jpg"},{"id":1529,"name":"fight","slug":"fight","language":"eng","games_count":5397,"image_background":"https://media.rawg.io/media/games/6f0/6f054b79d3fc71ad00784f844f3162c7.jpg"},{"id":1778,"name":"food","slug":"food","language":"eng","games_count":2871,"image_background":"https://media.rawg.io/media/screenshots/af8/af815da321205dab3878ff86912c2d31.jpg"},{"id":2030,"name":"city","slug":"city","language":"eng","games_count":6882,"image_background":"https://media.rawg.io/media/games/852/8522935d8ab27b610a254b52de0da212.jpg"},{"id":2842,"name":"sim","slug":"sim","language":"eng","games_count":653,"image_background":"https://media.rawg.io/media/screenshots/e7a/e7ab62265bcf0afc04e2482d82bc6f9e.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/004/004b4f6e2c251a3cd01db74a5a3ba7dd.jpeg"},{"id":67463,"image":"https://media.rawg.io/media/screenshots/196/196b1d32cbd43f3f8064efca2f843888.jpeg"},{"id":67464,"image":"https://media.rawg.io/media/screenshots/306/306e22d39dda2e53421402e00ea4b900.jpeg"},{"id":67465,"image":"https://media.rawg.io/media/screenshots/326/326e90cd8a9dd17b32eedfc846481bd0.jpeg"},{"id":67466,"image":"https://media.rawg.io/media/screenshots/7ad/7ad302b94e55adf8f51b5b80de187158.jpeg"},{"id":67467,"image":"https://media.rawg.io/media/screenshots/004/004b4f6e2c251a3cd01db74a5a3ba7dd.jpeg"}],"short_description":"Virtual
+        Villagers 3: The Secret City is a family simulation game developed by LDW
+        Software, LLC. It came out on 31-10-2009. It was published by LDW Software,
+        LLC. \nYou can play Virtual Villagers 3: The Secret City on iOS. You can purchase
+        the game on App Store. \n\n"},{"id":311903,"slug":"island-survival-quest-pro","name":"Island
+        Survival Quest Pro","released":"2019-02-16","tba":false,"background_image":"https://media.rawg.io/media/screenshots/d25/d25d1f666130a7e74dd2e8e06bf87d50.jpg","rating":0.0,"rating_top":0,"ratings":[],"ratings_count":0,"reviews_text_count":0,"added":1,"added_by_status":{"owned":1},"metacritic":null,"playtime":0,"suggestions_count":248,"user_game":null,"reviews_count":0,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2019-02-16","requirements_en":{"minimum":"iPad
+        2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone 5,
+        iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone
+        8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max,
+        iPhone X R, iPad 8 1 2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad
+        Mini 5 Cellular, iPad Air 3, iPad Air 3 Cellular"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}}],"genres":[{"id":3,"name":"Adventure","slug":"adventure","games_count":62197,"image_background":"https://media.rawg.io/media/games/1bb/1bb86c35ffa3eb0d299b01a7c65bf908.jpg"},{"id":14,"name":"Simulation","slug":"simulation","games_count":36622,"image_background":"https://media.rawg.io/media/games/683/6833fbb183fd72a61c032501e3bc6d36.jpg"}],"stores":[{"id":313442,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/island-survival-quest-pro/id1451936369?mt=8&uo=4","url_ru":null}],"clip":null,"tags":[{"id":181,"name":"Hunting","slug":"hunting","language":"eng","games_count":515,"image_background":"https://media.rawg.io/media/games/c69/c69e0952cdea6baa7cf0739b2e7792fb.jpg"},{"id":1,"name":"Survival","slug":"survival","language":"eng","games_count":3539,"image_background":"https://media.rawg.io/media/games/daa/daaee07fcb40744d90cf8142f94a241f.jpg"},{"id":822,"name":"escape","slug":"escape","language":"eng","games_count":4442,"image_background":"https://media.rawg.io/media/games/429/42939f939972728c1b61a8eafda79507.jpg"},{"id":997,"name":"island","slug":"island","language":"eng","games_count":1816,"image_background":"https://media.rawg.io/media/games/ea3/ea3228b5c6c749019a9ed42e90a4e7c6.jpg"},{"id":1015,"name":"survive","slug":"survive","language":"eng","games_count":770,"image_background":"https://media.rawg.io/media/screenshots/e3b/e3b8acd0185ff61b4e5eca125e10b1cb.jpg"},{"id":1129,"name":"art","slug":"art","language":"eng","games_count":4855,"image_background":"https://media.rawg.io/media/games/193/1934acd8d51d68a69e91d97c0bfd9b41.jpg"},{"id":1618,"name":"jungle","slug":"jungle","language":"eng","games_count":1149,"image_background":"https://media.rawg.io/media/screenshots/3f1/3f12b9b8db9968eab3ea327bb7b853fd.jpg"},{"id":1778,"name":"food","slug":"food","language":"eng","games_count":2869,"image_background":"https://media.rawg.io/media/screenshots/7b1/7b1d0f5e157ceb1937878cc8f0b95142.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/d25/d25d1f666130a7e74dd2e8e06bf87d50.jpg"},{"id":1906931,"image":"https://media.rawg.io/media/screenshots/c54/c54b067df5c73198b65f59123966a31d_g9YoZkS.jpg"},{"id":1906932,"image":"https://media.rawg.io/media/screenshots/abb/abb9372a1366e45510c63b1ed0b89130.jpg"},{"id":1906933,"image":"https://media.rawg.io/media/screenshots/fd5/fd5fcd6fe7a40f1c04cbc9b087250a53_fSzYstW.jpg"},{"id":1906934,"image":"https://media.rawg.io/media/screenshots/70e/70e343a8e174dbd1eba9fb63f845afc6_uvoOIXb.jpg"},{"id":1906935,"image":"https://media.rawg.io/media/screenshots/d25/d25d1f666130a7e74dd2e8e06bf87d50.jpg"}],"short_description":"Island
+        Survival Quest Pro is an adventure-simulation game developed by elinx technologies.
+        It came out on 16-02-2019. It was published by elinx technologies. \nYou can
+        play Island Survival Quest Pro on iOS. The game is sold via App Store. \n\n"},{"id":220090,"slug":"star-wars-kotor","name":"Star
+        Wars: KOTOR","released":"2013-05-30","tba":false,"background_image":"https://media.rawg.io/media/screenshots/3a7/3a76adb4888365d6bf9bb5cb2dd3d182.jpg","rating":0.0,"rating_top":0,"ratings":[{"id":5,"title":"exceptional","count":1,"percent":100.0}],"ratings_count":1,"reviews_text_count":0,"added":4,"added_by_status":{"owned":3,"beaten":1},"metacritic":null,"playtime":0,"suggestions_count":353,"user_game":null,"reviews_count":1,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2013-05-30","requirements_en":{"minimum":"iPad
+        2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone 5,
+        iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone
+        8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max,
+        iPhone X R, iPad 8 1 2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad
+        Mini 5 Cellular, iPad Air 3, iPad Air 3 Cellular, iPod Touch Seventh Gen"},"requirements_ru":null},{"platform":{"id":21,"name":"Android","slug":"android","image":null,"year_end":null,"year_start":null,"games_count":30127,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":null,"requirements_en":{"minimum":"4.1
+        and up"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":8,"name":"Android","slug":"android"}}],"genres":[{"id":3,"name":"Adventure","slug":"adventure","games_count":62239,"image_background":"https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg"},{"id":5,"name":"RPG","slug":"role-playing-games-rpg","games_count":28675,"image_background":"https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"}],"stores":[{"id":212216,"store":{"id":8,"name":"Google
+        Play","slug":"google-play","domain":"play.google.com","games_count":16062,"image_background":"https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg"},"url_en":"https://play.google.com/store/apps/details?id=com.aspyr.swkotor&hl=en&gl=us","url_ru":null},{"id":343447,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/star-wars-kotor/id611436052?uo=4","url_ru":null}],"clip":null,"tags":[{"id":115,"name":"Controller","slug":"controller","language":"eng","games_count":4417,"image_background":"https://media.rawg.io/media/games/03c/03c75b64106653bb5d997806383c04d2.jpg"},{"id":15,"name":"Stealth","slug":"stealth","language":"eng","games_count":2705,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},{"id":581,"name":"Epic","slug":"epic","language":"eng","games_count":3072,"image_background":"https://media.rawg.io/media/screenshots/ab9/ab909eb012c4f69e0a5cab42bbe7851f.jpg"},{"id":625,"name":"party","slug":"party","language":"eng","games_count":2964,"image_background":"https://media.rawg.io/media/games/137/137544a823a3b16a226878a9e5506c0c.jpg"},{"id":808,"name":"character","slug":"character","language":"eng","games_count":5079,"image_background":"https://media.rawg.io/media/games/289/289951d92239d05f2a663d632aa3888a.jpg"},{"id":1105,"name":"planet","slug":"planet","language":"eng","games_count":1836,"image_background":"https://media.rawg.io/media/screenshots/e94/e94ea9f01a10492acaaf6b194a976fe5.jpg"},{"id":1465,"name":"combat","slug":"combat","language":"eng","games_count":3483,"image_background":"https://media.rawg.io/media/screenshots/e3b/e3b7dfc3823777208c178a1f66e876b5.jpg"},{"id":2405,"name":"planets","slug":"planets","language":"eng","games_count":852,"image_background":"https://media.rawg.io/media/screenshots/77d/77d77b09526fb53080229fa0bb828750.jpg"},{"id":3068,"name":"future","slug":"future","language":"eng","games_count":1927,"image_background":"https://media.rawg.io/media/screenshots/10d/10db5d29da790ef08c915b7e121d280b.jpg"},{"id":7337,"name":"c","slug":"c","language":"eng","games_count":1415,"image_background":"https://media.rawg.io/media/games/c62/c62e21b805e3f4c13e99702d2eca6a65.jpg"},{"id":8234,"name":"fall","slug":"fall","language":"eng","games_count":2189,"image_background":"https://media.rawg.io/media/games/773/7731c87e1b3350634b1924a46f2da282.png"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/3a7/3a76adb4888365d6bf9bb5cb2dd3d182.jpg"},{"id":2045874,"image":"https://media.rawg.io/media/screenshots/6f8/6f88d2ee2159e4cc633de0716ed850c1.jpg"},{"id":2045875,"image":"https://media.rawg.io/media/screenshots/799/799f6f537dd36c4cdab6e82e86d85889_aXz6kwZ.jpg"},{"id":2045876,"image":"https://media.rawg.io/media/screenshots/34d/34d3b7472cd657c2fa08d1475500f8d9_EWJfMTM.jpg"},{"id":2045877,"image":"https://media.rawg.io/media/screenshots/c31/c31baefb9248a4f7109bba5f1ec7eb5a.jpg"},{"id":2045878,"image":"https://media.rawg.io/media/screenshots/940/9406ed8396462177a52bef563709a58b_iilLD27.jpg"},{"id":1340876,"image":"https://media.rawg.io/media/screenshots/a25/a252950317c4b959e8f91a39839f15dc.jpg"}],"short_description":"Star
+        Wars: KOTOR is an adventure-RPG game developed by Aspyr Media. It came out
+        on 30-05-2013. Aspyr published the game. Most rawgers rated the game as \"Exceptional\".
+        \nYou can play Star Wars: KOTOR on iOS and Android. The game is sold via Google
+        Play and App Store. \nCasey Hudson produced the game. It was directed by Casey
+        Hudson. It was scored by Jeremy Soule. \n"},{"id":26434,"slug":"the-last-airbender","name":"The
+        Last Airbender","released":"2010-06-29","tba":false,"background_image":"https://media.rawg.io/media/screenshots/62f/62fd10d234cd17e9b9dd034bc31d2e10.jpg","rating":0.0,"rating_top":0,"ratings":[],"ratings_count":0,"reviews_text_count":0,"added":1,"added_by_status":{"owned":1},"metacritic":null,"playtime":0,"suggestions_count":674,"user_game":null,"reviews_count":0,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":11,"name":"Wii","slug":"wii","image":null,"year_end":null,"year_start":null,"games_count":2330,"image_background":"https://media.rawg.io/media/games/956/95640d5ea0288c187dbce849a4254a41.jpg"},"released_at":"2010-06-29","requirements_en":null,"requirements_ru":null},{"platform":{"id":9,"name":"Nintendo
+        DS","slug":"nintendo-ds","image":null,"year_end":null,"year_start":null,"games_count":2273,"image_background":"https://media.rawg.io/media/screenshots/157/1571cdfb52888191eabaf53c2b897240.jpg"},"released_at":"2010-06-29","requirements_en":null,"requirements_ru":null}],"parent_platforms":[{"platform":{"id":7,"name":"Nintendo","slug":"nintendo"}}],"genres":[],"stores":[{"id":30971,"store":{"id":6,"name":"Nintendo
+        Store","slug":"nintendo","domain":"nintendo.com","games_count":7728,"image_background":"https://media.rawg.io/media/games/2c4/2c4ec7b64079b561667850593d23c417.jpg"},"url_en":"https://www.nintendo.com/games/detail/jABbO7Sj4FUbsK7fcBNLQjC_F1ogP4sD","url_ru":null}],"clip":null,"tags":[{"id":275,"name":"Movie","slug":"movie","language":"eng","games_count":752,"image_background":"https://media.rawg.io/media/screenshots/725/7250bd3762727b6c7d91a3c47811f02a.jpg"},{"id":188,"name":"Parkour","slug":"parkour","language":"eng","games_count":839,"image_background":"https://media.rawg.io/media/games/f52/f52cf6ba08089cd5f1a9c8f7fcc93d1f.jpg"},{"id":114,"name":"Physics","slug":"physics","language":"eng","games_count":9768,"image_background":"https://media.rawg.io/media/games/b34/b3419c2706f8f8dbe40d08e23642ad06.jpg"},{"id":15,"name":"Stealth","slug":"stealth","language":"eng","games_count":2705,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},{"id":581,"name":"Epic","slug":"epic","language":"eng","games_count":3072,"image_background":"https://media.rawg.io/media/screenshots/ab9/ab909eb012c4f69e0a5cab42bbe7851f.jpg"},{"id":808,"name":"character","slug":"character","language":"eng","games_count":5079,"image_background":"https://media.rawg.io/media/games/289/289951d92239d05f2a663d632aa3888a.jpg"},{"id":822,"name":"escape","slug":"escape","language":"eng","games_count":4446,"image_background":"https://media.rawg.io/media/screenshots/a7c/a7ca9252c52179cd8aea21c8132cc063.jpg"},{"id":981,"name":"battle","slug":"battle","language":"eng","games_count":7874,"image_background":"https://media.rawg.io/media/games/fd6/fd6a1eecd3ec0f875f1924f3656b7dd9.jpg"},{"id":1079,"name":"environment","slug":"environment","language":"eng","games_count":5308,"image_background":"https://media.rawg.io/media/games/4e8/4e8af08110715b8eb3f3e5a62133d451.jpg"},{"id":1465,"name":"combat","slug":"combat","language":"eng","games_count":3483,"image_background":"https://media.rawg.io/media/screenshots/e3b/e3b7dfc3823777208c178a1f66e876b5.jpg"},{"id":1652,"name":"night","slug":"night","language":"eng","games_count":2871,"image_background":"https://media.rawg.io/media/screenshots/bb3/bb30d5157a8ef647192d10140eabc7b6.jpg"},{"id":1807,"name":"water","slug":"water","language":"eng","games_count":2535,"image_background":"https://media.rawg.io/media/games/299/2993993d4063615a52a86c7f1b698610.jpg"},{"id":1897,"name":"fire","slug":"fire","language":"eng","games_count":4018,"image_background":"https://media.rawg.io/media/games/2d5/2d57e7ffa1e3af2fa34229bd1041461d.jpg"},{"id":2799,"name":"blue","slug":"blue","language":"eng","games_count":799,"image_background":"https://media.rawg.io/media/screenshots/349/349ab3f6ca306e2d4c1a74707e5b113f.jpg"},{"id":3117,"name":"shoot","slug":"shoot","language":"eng","games_count":5892,"image_background":"https://media.rawg.io/media/games/c17/c17f265300a6adca4cde82562829cd92.jpg"},{"id":5222,"name":"avoid","slug":"avoid","language":"eng","games_count":3124,"image_background":"https://media.rawg.io/media/screenshots/5b4/5b473ec4c966b215e851576c117e0d42.jpg"},{"id":6465,"name":"unique","slug":"unique","language":"eng","games_count":2025,"image_background":"https://media.rawg.io/media/screenshots/fbd/fbd5d0e3dee011b5231ba162c3e32e07_rqfVJfP.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/62f/62fd10d234cd17e9b9dd034bc31d2e10.jpg"},{"id":255211,"image":"https://media.rawg.io/media/screenshots/c94/c946a4e1a23741c9dbb42650d9c1b9d3.jpg"},{"id":255212,"image":"https://media.rawg.io/media/screenshots/b8e/b8e9af2b0b9b08c65124096a21877eab.jpg"},{"id":255213,"image":"https://media.rawg.io/media/screenshots/19b/19b76885260bb54b9c22c76166d1ae80.jpg"},{"id":255214,"image":"https://media.rawg.io/media/screenshots/f5d/f5d98ab46178560207c71cbec3dc485b.jpg"},{"id":255215,"image":"https://media.rawg.io/media/screenshots/ee8/ee83b891dc77bc63d086ebb25ea02f80.jpg"},{"id":255216,"image":"https://media.rawg.io/media/screenshots/f55/f551b6729026929990e97a90e06df41c.jpg"}],"short_description":"The
+        Last Airbender is a game developed by HalfBrick Studioes. It came out on 29-06-2010.
+        It was published by THQ. \nThe Last Airbender is available on Wii and Nintendo
+        DS. The game is sold via Nintendo eShop. \nIt was scored by Mick Gordon. \n"},{"id":74935,"slug":"garena-free-fire","name":"Garena
+        Free Fire","released":"2017-12-08","tba":false,"background_image":"https://media.rawg.io/media/screenshots/a2f/a2fc4a4a2c67b74b29bc6f4959c24f93.jpg","rating":3.83,"rating_top":4,"ratings":[{"id":4,"title":"recommended","count":3,"percent":50.0},{"id":3,"title":"meh","count":2,"percent":33.33},{"id":5,"title":"exceptional","count":1,"percent":16.67}],"ratings_count":6,"reviews_text_count":0,"added":12,"added_by_status":{"owned":4,"beaten":1,"toplay":1,"dropped":5,"playing":1},"metacritic":null,"playtime":0,"suggestions_count":355,"user_game":null,"reviews_count":6,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":21,"name":"Android","slug":"android","image":null,"year_end":null,"year_start":null,"games_count":30127,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":"2017-12-08","requirements_en":{"minimum":"4.0.3
+        and up"},"requirements_ru":null},{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2017-12-08","requirements_en":{"minimum":"iPad
+        2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone 5,
+        iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone
+        8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max,
+        iPhone X R, iPad 8 1 2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad
+        Mini 5 Cellular, iPad Air 3, iPad Air 3 Cellular, iPod Touch Seventh Gen"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":8,"name":"Android","slug":"android"}}],"genres":[{"id":4,"name":"Action","slug":"action","games_count":89401,"image_background":"https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"},{"id":3,"name":"Adventure","slug":"adventure","games_count":62239,"image_background":"https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg"}],"stores":[{"id":212672,"store":{"id":8,"name":"Google
+        Play","slug":"google-play","domain":"play.google.com","games_count":16062,"image_background":"https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg"},"url_en":"https://play.google.com/store/apps/details?id=com.dts.freefireth&hl=en&gl=us","url_ru":null},{"id":66219,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/garena-free-fire/id1300146617?uo=4","url_ru":null}],"clip":null,"tags":[{"id":98,"name":"Loot","slug":"loot","language":"eng","games_count":942,"image_background":"https://media.rawg.io/media/games/c6b/c6bfece1daf8d06bc0a60632ac78e5bf.jpg"},{"id":1,"name":"Survival","slug":"survival","language":"eng","games_count":3539,"image_background":"https://media.rawg.io/media/games/daa/daaee07fcb40744d90cf8142f94a241f.jpg"},{"id":581,"name":"Epic","slug":"epic","language":"eng","games_count":3072,"image_background":"https://media.rawg.io/media/screenshots/ab9/ab909eb012c4f69e0a5cab42bbe7851f.jpg"},{"id":744,"name":"friends","slug":"friends","language":"eng","games_count":12382,"image_background":"https://media.rawg.io/media/games/bc3/bc3c433821089108642a41a3057f92c5.jpg"},{"id":997,"name":"island","slug":"island","language":"eng","games_count":1816,"image_background":"https://media.rawg.io/media/games/ea3/ea3228b5c6c749019a9ed42e90a4e7c6.jpg"},{"id":1787,"name":"mobile","slug":"mobile","language":"eng","games_count":2822,"image_background":"https://media.rawg.io/media/screenshots/122/12264723d32364875be59f8f8ee8b1b3.jpeg"},{"id":1897,"name":"fire","slug":"fire","language":"eng","games_count":4018,"image_background":"https://media.rawg.io/media/games/2d5/2d57e7ffa1e3af2fa34229bd1041461d.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/a2f/a2fc4a4a2c67b74b29bc6f4959c24f93.jpg"},{"id":2040457,"image":"https://media.rawg.io/media/screenshots/96a/96ab17437e722c8e22240923dfdfcdd0_ftUmkIh.jpg"},{"id":2040458,"image":"https://media.rawg.io/media/screenshots/544/5441725f61b7efe7354fd98d3b846b12_mvlrFH5.jpg"},{"id":2040459,"image":"https://media.rawg.io/media/screenshots/f86/f86b85cff51220100c56d4dffca3d8fd_aduIAYV.jpg"},{"id":2040460,"image":"https://media.rawg.io/media/screenshots/504/504be43e3a08860e7fd9f3c06050fa32_ITcD2IT.jpg"},{"id":916434,"image":"https://media.rawg.io/media/screenshots/a56/a56aafcd9ab25d16800c4ff1e37daaa8_Zu0dVVr.jpg"},{"id":916435,"image":"https://media.rawg.io/media/screenshots/078/07839681f864cae3f30a57c3d1a19342_HNzQK5W.jpg"}],"short_description":"Garena
+        Free Fire is an action-adventure game developed by GARENA INTERNATIONAL I
+        PRIVATE LIMITED. It came out on 08-12-2017. GARENA INTERNATIONAL I PRIVATE
+        LIMITED published the game. Most rawgers rated the game as \"Recommended\".
+        \nGarena Free Fire is available on Android and iOS. The game is sold via Google
+        Play and App Store. \n\n"},{"id":82726,"slug":"ultimate-dinosaur-simulator","name":"Ultimate
+        Dinosaur Simulator","released":"2016-01-22","tba":false,"background_image":"https://media.rawg.io/media/screenshots/5fc/5fce0f45e4f2a6d7f33f6daf3f917f05.jpg","rating":0.0,"rating_top":0,"ratings":[],"ratings_count":0,"reviews_text_count":0,"added":1,"added_by_status":{"owned":1},"metacritic":null,"playtime":0,"suggestions_count":218,"user_game":null,"reviews_count":0,"community_rating":0,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":21,"name":"Android","slug":"android","image":null,"year_end":null,"year_start":null,"games_count":30127,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":"2016-01-22","requirements_en":{"minimum":"Varies
+        with device"},"requirements_ru":null},{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2016-01-22","requirements_en":{"minimum":"iPhone
+        3G S, iPhone 4, iPod Touch Fourth Gen, iPad 2 Wifi, iPad 2 3G, iPhone 4S,
+        iPad Third Gen, iPad Third Gen 4G, iPhone 5, iPod Touch Fifth Gen, iPad Fourth
+        Gen, iPad Fourth Gen 4G, iPad Mini, iPad Mini 4G, iPhone 5c, iPhone 5s, iPad
+        Air, iPad Air Cellular, iPad Mini Retina, iPad Mini Retina Cellular, iPhone
+        6, iPhone 6 Plus, iPad Air 2, iPad Air 2 Cellular, iPad Mini 3, iPad Mini
+        3 Cellular, iPod Touch Sixth Gen, iPhone 6s, iPhone 6s Plus, iPad Mini 4,
+        iPad Mini 4 Cellular, iPad Pro, iPad Pro Cellular, iPad Pro 9.7, iPad Pro
+        9.7 Cellular, iPhone SE, iPhone 7, iPhone 7 Plus, iPad 6 1 1, iPad 6 1 2,
+        iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone 8, iPhone 8 Plus, iPhone X,
+        iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max, iPhone X R, iPad 8 1 2, iPad
+        8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad Mini 5 Cellular, iPad Air
+        3, iPad Air 3 Cellular, iPod Touch Seventh Gen"},"requirements_ru":null}],"parent_platforms":[{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":8,"name":"Android","slug":"android"}}],"genres":[{"id":5,"name":"RPG","slug":"role-playing-games-rpg","games_count":28675,"image_background":"https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"},{"id":14,"name":"Simulation","slug":"simulation","games_count":36643,"image_background":"https://media.rawg.io/media/games/a91/a911f0a91991469e398fa70091507a5b.jpg"}],"stores":[{"id":74393,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/ultimate-dinosaur-simulator/id1010803520?uo=4","url_ru":null},{"id":228026,"store":{"id":8,"name":"Google
+        Play","slug":"google-play","domain":"play.google.com","games_count":16062,"image_background":"https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg"},"url_en":"https://play.google.com/store/apps/details?id=com.glutenfreegames.dinosaursimulatortwo&hl=en&gl=us","url_ru":null}],"clip":null,"tags":[{"id":270,"name":"Blood","slug":"blood","language":"eng","games_count":1257,"image_background":"https://media.rawg.io/media/games/053/053fc543bf488349610f1ae2d0c1b51b.jpg"},{"id":126,"name":"Dinosaurs","slug":"dinosaurs","language":"eng","games_count":897,"image_background":"https://media.rawg.io/media/screenshots/9e0/9e04875493799e1a3c52e5b681aece03.jpg"},{"id":651,"name":"ragdoll","slug":"ragdoll","language":"eng","games_count":332,"image_background":"https://media.rawg.io/media/screenshots/e25/e256ddaacee98d6e66328236fceab484.jpg"},{"id":844,"name":"simulator","slug":"simulator","language":"eng","games_count":5774,"image_background":"https://media.rawg.io/media/screenshots/208/208e983dced48525cf4cf490b39b83bb.jpg"},{"id":892,"name":"love","slug":"love","language":"eng","games_count":5027,"image_background":"https://media.rawg.io/media/games/db4/db4d474031c73087027cbf09e43e3282.jpg"},{"id":905,"name":"Animals","slug":"animals","language":"eng","games_count":4305,"image_background":"https://media.rawg.io/media/screenshots/60f/60fc2ae0587611cbf088a332a0b286b7.jpg"},{"id":941,"name":"Mountains","slug":"mountains","language":"eng","games_count":1023,"image_background":"https://media.rawg.io/media/screenshots/204/2045df9733cb3a37c7d7b15b5e5c4746.jpg"},{"id":944,"name":"wolf","slug":"wolf","language":"eng","games_count":563,"image_background":"https://media.rawg.io/media/games/985/985295de438e1ea6356adbe34c56094b.jpg"},{"id":981,"name":"battle","slug":"battle","language":"eng","games_count":7874,"image_background":"https://media.rawg.io/media/games/fd6/fd6a1eecd3ec0f875f1924f3656b7dd9.jpg"},{"id":1411,"name":"build","slug":"build","language":"eng","games_count":3237,"image_background":"https://media.rawg.io/media/screenshots/3fe/3fe6ce21089c28d7e616ac901e4d0c10.jpg"},{"id":1465,"name":"combat","slug":"combat","language":"eng","games_count":3483,"image_background":"https://media.rawg.io/media/screenshots/e3b/e3b7dfc3823777208c178a1f66e876b5.jpg"},{"id":1652,"name":"night","slug":"night","language":"eng","games_count":2871,"image_background":"https://media.rawg.io/media/screenshots/bb3/bb30d5157a8ef647192d10140eabc7b6.jpg"},{"id":1778,"name":"food","slug":"food","language":"eng","games_count":2871,"image_background":"https://media.rawg.io/media/screenshots/af8/af815da321205dab3878ff86912c2d31.jpg"},{"id":1807,"name":"water","slug":"water","language":"eng","games_count":2535,"image_background":"https://media.rawg.io/media/games/299/2993993d4063615a52a86c7f1b698610.jpg"},{"id":1925,"name":"baby","slug":"baby","language":"eng","games_count":1109,"image_background":"https://media.rawg.io/media/screenshots/74c/74c201169b74b0aeeecc59dba130bbec_A4QLtL9.jpg"},{"id":2269,"name":"animal","slug":"animal","language":"eng","games_count":979,"image_background":"https://media.rawg.io/media/screenshots/cc5/cc578d56c05ded976ed0267683193edb.jpg"},{"id":3758,"name":"speed","slug":"speed","language":"eng","games_count":6085,"image_background":"https://media.rawg.io/media/screenshots/bde/bde92c356326c0cc9aff3dabb8c2f4a8.jpg"},{"id":3803,"name":"boss","slug":"boss","language":"eng","games_count":1774,"image_background":"https://media.rawg.io/media/games/985/985295de438e1ea6356adbe34c56094b.jpg"},{"id":5777,"name":"pack","slug":"pack","language":"eng","games_count":1441,"image_background":"https://media.rawg.io/media/screenshots/333/3331f53d03b183fd1e749b462ff06c98.jpg"},{"id":6465,"name":"unique","slug":"unique","language":"eng","games_count":2025,"image_background":"https://media.rawg.io/media/screenshots/fbd/fbd5d0e3dee011b5231ba162c3e32e07_rqfVJfP.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/5fc/5fce0f45e4f2a6d7f33f6daf3f917f05.jpg"},{"id":1968001,"image":"https://media.rawg.io/media/screenshots/d4a/d4ab1469e1108fbdeec5e774e203d4bc.jpg"},{"id":1968002,"image":"https://media.rawg.io/media/screenshots/0fb/0fbc34645c8be7cf6b8405a1f8ab60af_ZyiBPwJ.jpg"},{"id":1968003,"image":"https://media.rawg.io/media/screenshots/52a/52aff4be6cef941a768b8e2445caa2e8.jpg"},{"id":1968004,"image":"https://media.rawg.io/media/screenshots/111/1117c28e1ed15245c49a1091d1d1b60a_VioCPmh.jpg"},{"id":1968005,"image":"https://media.rawg.io/media/screenshots/054/054f25ebe9b1d7a62f29033fbc19c8bc_xLtd9w6.jpg"},{"id":953928,"image":"https://media.rawg.io/media/screenshots/870/87049aab1b62fa28385d4a9bfe0f267b.jpg"}],"short_description":"Ultimate
+        Dinosaur Simulator is a RPG-simulation game developed by Gluten Free Games
+        and Gluten Free Games LLC. It came out on 22-01-2016. It was published by
+        Gluten Free Games LLC. \nYou can play Ultimate Dinosaur Simulator on Android
+        and iOS. The game is sold via App Store and Google Play. \n\n"},{"id":3389,"slug":"sparkle-2","name":"Sparkle
+        2","released":"2013-06-06","tba":false,"background_image":"https://media.rawg.io/media/screenshots/7be/7be7f1d2f9e67fd57c84d769b751a307.jpeg","rating":2.95,"rating_top":3,"ratings":[{"id":3,"title":"meh","count":24,"percent":40.0},{"id":4,"title":"recommended","count":19,"percent":31.67},{"id":1,"title":"skip","count":14,"percent":23.33},{"id":5,"title":"exceptional","count":3,"percent":5.0}],"ratings_count":60,"reviews_text_count":0,"added":384,"added_by_status":{"yet":17,"owned":330,"beaten":18,"dropped":16,"playing":3},"metacritic":null,"playtime":5,"suggestions_count":237,"user_game":null,"reviews_count":60,"saturated_color":"0f0f0f","dominant_color":"0f0f0f","platforms":[{"platform":{"id":3,"name":"iOS","slug":"ios","image":null,"year_end":null,"year_start":null,"games_count":66311,"image_background":"https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg"},"released_at":"2013-06-06","requirements_en":{"minimum":"iPad
+        2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone 5,
+        iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad
+        Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina,
+        iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2
+        Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone
+        6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro
+        Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone
+        7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone
+        8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max,
+        iPhone X R, iPad 8 1 2, iPad 8 3 4, iPad 8 5 6, iPad 8 7 8, iPad Mini 5, iPad
+        Mini 5 Cellular, iPad Air 3, iPad Air 3 Cellular, iPod Touch Seventh Gen"},"requirements_ru":null},{"platform":{"id":21,"name":"Android","slug":"android","image":null,"year_end":null,"year_start":null,"games_count":30127,"image_background":"https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"},"released_at":"2013-06-06","requirements_en":{"minimum":"3.0
+        and up"},"requirements_ru":null},{"platform":{"id":4,"name":"PC","slug":"pc","image":null,"year_end":null,"year_start":null,"games_count":234059,"image_background":"https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"},"released_at":"2015-06-01","requirements_en":{"minimum":"<strong>Minimum:</strong><br><ul
+        class=\"bb_ul\"><li><strong>OS:</strong> Windows XP / Vista / 7<br></li><li><strong>Processor:</strong>
+        1 Ghz<br></li><li><strong>Memory:</strong> 256 MB RAM<br></li><li><strong>DirectX:</strong>
+        Version 8.0<br></li><li><strong>Storage:</strong> 100 MB available space</li></ul>"},"requirements_ru":null},{"platform":{"id":1,"name":"Xbox
+        One","slug":"xbox-one","image":null,"year_end":null,"year_start":null,"games_count":3421,"image_background":"https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg"},"released_at":"2016-01-27","requirements_en":null,"requirements_ru":null},{"platform":{"id":7,"name":"Nintendo
+        Switch","slug":"nintendo-switch","image":null,"year_end":null,"year_start":null,"games_count":3266,"image_background":"https://media.rawg.io/media/games/e2d/e2d3f396b16dded0f841c17c9799a882.jpg"},"released_at":"2017-09-28","requirements_en":null,"requirements_ru":null},{"platform":{"id":16,"name":"PlayStation
+        3","slug":"playstation3","image":null,"year_end":null,"year_start":null,"games_count":3596,"image_background":"https://media.rawg.io/media/games/ebd/ebdbb7eb52bd58b0e7fa4538d9757b60.jpg"},"released_at":null,"requirements_en":null,"requirements_ru":null},{"platform":{"id":18,"name":"PlayStation
+        4","slug":"playstation4","image":null,"year_end":null,"year_start":null,"games_count":4847,"image_background":"https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"},"released_at":"2014-05-20","requirements_en":null,"requirements_ru":null},{"platform":{"id":19,"name":"PS
+        Vita","slug":"ps-vita","image":null,"year_end":null,"year_start":null,"games_count":1912,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"},"released_at":"2014-05-20","requirements_en":null,"requirements_ru":null},{"platform":{"id":5,"name":"macOS","slug":"macos","image":null,"year_end":null,"year_start":null,"games_count":53796,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},"released_at":"2014-03-20","requirements_en":null,"requirements_ru":null}],"parent_platforms":[{"platform":{"id":1,"name":"PC","slug":"pc"}},{"platform":{"id":2,"name":"PlayStation","slug":"playstation"}},{"platform":{"id":3,"name":"Xbox","slug":"xbox"}},{"platform":{"id":4,"name":"iOS","slug":"ios"}},{"platform":{"id":8,"name":"Android","slug":"android"}},{"platform":{"id":5,"name":"Apple
+        Macintosh","slug":"mac"}},{"platform":{"id":7,"name":"Nintendo","slug":"nintendo"}}],"genres":[{"id":4,"name":"Action","slug":"action","games_count":89401,"image_background":"https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"},{"id":3,"name":"Adventure","slug":"adventure","games_count":62239,"image_background":"https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg"},{"id":40,"name":"Casual","slug":"casual","games_count":25835,"image_background":"https://media.rawg.io/media/screenshots/6fe/6fe228662a253cd929cc78a103541ee0.jpg"},{"id":51,"name":"Indie","slug":"indie","games_count":29808,"image_background":"https://media.rawg.io/media/games/cef/cefedf18016cbab466861eb698daf988.jpg"},{"id":7,"name":"Puzzle","slug":"puzzle","games_count":47511,"image_background":"https://media.rawg.io/media/games/df2/df20fd77db56ae7b0a26a7ff4baa9ccc.jpg"}],"stores":[{"id":8102,"store":{"id":4,"name":"App
+        Store","slug":"apple-appstore","domain":"apps.apple.com","games_count":64787,"image_background":"https://media.rawg.io/media/games/81b/81b138691f027ed1f8720758daa0d895.jpg"},"url_en":"https://apps.apple.com/us/app/sparkle-2/id814966315?mt=12&uo=4","url_ru":null},{"id":40692,"store":{"id":8,"name":"Google
+        Play","slug":"google-play","domain":"play.google.com","games_count":16062,"image_background":"https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg"},"url_en":"https://play.google.com/store/apps/details?id=com.the10tons.sparkle.two&hl=en&gl=us","url_ru":null},{"id":39255,"store":{"id":6,"name":"Nintendo
+        Store","slug":"nintendo","domain":"nintendo.com","games_count":7728,"image_background":"https://media.rawg.io/media/games/2c4/2c4ec7b64079b561667850593d23c417.jpg"},"url_en":"https://www.nintendo.com/games/detail/sparkle-2-switch","url_ru":null},{"id":17568,"store":{"id":1,"name":"Steam","slug":"steam","domain":"store.steampowered.com","games_count":41707,"image_background":"https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"},"url_en":"http://store.steampowered.com/app/370550/","url_ru":null},{"id":3638,"store":{"id":2,"name":"Xbox
+        Store","slug":"xbox-store","domain":"microsoft.com","games_count":3018,"image_background":"https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg"},"url_en":"https://www.microsoft.com/en-us/store/p/sparkle-2/brx5rdkz44nv","url_ru":null},{"id":3662,"store":{"id":3,"name":"PlayStation
+        Store","slug":"playstation-store","domain":"store.playstation.com","games_count":6473,"image_background":"https://media.rawg.io/media/games/088/088b41ca3f9d22163e43be07acf42304.jpg"},"url_en":"https://store.playstation.com/en-us/product/UP4403-NPUB31640_00-SPARKLE2UNLOCK00","url_ru":null}],"clip":null,"tags":[{"id":45,"name":"2D","slug":"2d","language":"eng","games_count":66177,"image_background":"https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg"},{"id":40847,"name":"Steam
+        Achievements","slug":"steam-achievements","language":"eng","games_count":18291,"image_background":"https://media.rawg.io/media/games/8e0/8e032ac4faf1136e7d708bb3ac61af23.jpg"},{"id":40849,"name":"Steam
+        Cloud","slug":"steam-cloud","language":"eng","games_count":8600,"image_background":"https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"},{"id":193,"name":"Classic","slug":"classic","language":"eng","games_count":1427,"image_background":"https://media.rawg.io/media/games/55e/55ee6432ac2bf224610fa17e4c652107.jpg"},{"id":64,"name":"Fantasy","slug":"fantasy","language":"eng","games_count":8754,"image_background":"https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg"},{"id":299,"name":"Match
+        3","slug":"match-3","language":"eng","games_count":212,"image_background":"https://media.rawg.io/media/screenshots/d9f/d9f8b7d7832a2e1d9b795edeccca15f2.jpg"},{"id":31,"name":"Singleplayer","slug":"singleplayer","language":"eng","games_count":75823,"image_background":"https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"},{"id":1867,"name":"puzzles","slug":"puzzles","language":"eng","games_count":6715,"image_background":"https://media.rawg.io/media/games/c17/c17f265300a6adca4cde82562829cd92.jpg"},{"id":7808,"name":"steam-trading-cards","slug":"steam-trading-cards","language":"eng","games_count":7608,"image_background":"https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"}],"short_screenshots":[{"id":-1,"image":"https://media.rawg.io/media/screenshots/7be/7be7f1d2f9e67fd57c84d769b751a307.jpeg"},{"id":30788,"image":"https://media.rawg.io/media/screenshots/4cc/4cc284c9b8f7fbdb42669b359c701206.jpg"},{"id":30795,"image":"https://media.rawg.io/media/screenshots/513/513a29ba307b021d0a7a05cff3a76b25.jpg"},{"id":30800,"image":"https://media.rawg.io/media/screenshots/f9c/f9cf9c5737606e3f34cc248f88f46faa.jpg"},{"id":30808,"image":"https://media.rawg.io/media/screenshots/893/893edc3d23048f3ca17db7f00c660de4.jpg"},{"id":30817,"image":"https://media.rawg.io/media/screenshots/250/2503fc18022b4b9898b77502851c18bc.jpg"},{"id":30908,"image":"https://media.rawg.io/media/screenshots/f77/f775350bd56f37d132cc9a4f1c9f7739.jpg"}],"short_description":"Sparkle
+        2 is a casual, action, adventure and puzzle game developed by 10tons Ltd.
+        It was originally released in 2013. It was published by 10tons Ltd. Most rawgers
+        rated the game as \"Meh\". \nYou can play Sparkle 2 on iOS, Android, PC and
+        Xbox One. You can purchase the game on App Store, Google Play, Nintendo eShop
+        and Steam. \n\n"}],"updated":"2019-05-20T10:41:50","seo_text":"If you want
+        to find games like New Robinson, we''ve got you covered. This is a list of
+        games similar to New Robinson. If you are looking for something like that,
+        you''ll likely enjoy some of these games."}'
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:40 GMT
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games/game-30/game-series
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:40 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 29 Jun 2020 18:06:40 GMT
+      Location:
+      - https://api.rawg.io/api/games/game-30/game-series
+      Cf-Request-Id:
+      - 03a2a4a3cd0000f011deb1d200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d4c7f62f011-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:40 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games/game-30/game-series
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '52'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d4443382df206206e0d04a35c4cd155bb1593450400; expires=Wed, 29-Jul-20
+        17:06:40 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Path:
+      - api-game-series-list
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03a2a4a4450000e6b0343e7200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d4d3feae6b0-EWR
+    body:
+      encoding: UTF-8
+      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:41 GMT
+- request:
+    method: get
+    uri: http://api.rawg.io/api/games/game-30/screenshots
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:41 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 29 Jun 2020 18:06:41 GMT
+      Location:
+      - https://api.rawg.io/api/games/game-30/screenshots
+      Cf-Request-Id:
+      - 03a2a4a7b10000e6f8d7054200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d52bedbe6f8-EWR
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:41 GMT
+- request:
+    method: get
+    uri: https://api.rawg.io/api/games/game-30/screenshots
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - GoodGames (+gooooodgames.herokuapp.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Jun 2020 17:06:42 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '945'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc994a93178ce96a11af22a31c6a9eda71593450401; expires=Wed, 29-Jul-20
+        17:06:41 GMT; path=/; domain=.rawg.io; HttpOnly; SameSite=Lax; Secure
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Path:
+      - api-screenshots-list
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Origin
+      Content-Language:
+      - en
+      X-Cache-Status:
+      - MISS
+      X-Server:
+      - api_rawg_io
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03a2a4a81a0000e72c25299200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ab13d535bb0e72c-EWR
+    body:
+      encoding: UTF-8
+      string: '{"count":6,"next":null,"previous":null,"results":[{"id":309360,"image":"https://media.rawg.io/media/screenshots/d23/d23cde33143dfe6d51497787a8201020.jpg","width":640,"height":480,"is_deleted":false},{"id":309361,"image":"https://media.rawg.io/media/screenshots/bd5/bd536ffbaaf20ee3d179a4c32a88b9ae.jpg","width":640,"height":480,"is_deleted":false},{"id":309362,"image":"https://media.rawg.io/media/screenshots/b3b/b3bd984d46a8edb9b2ed9b33aa780371.jpg","width":640,"height":480,"is_deleted":false},{"id":309363,"image":"https://media.rawg.io/media/screenshots/de4/de47f591bdcd1446bbfde1176ee2ca42.jpg","width":640,"height":480,"is_deleted":false},{"id":309364,"image":"https://media.rawg.io/media/screenshots/311/31144638ee948223d1a14b9d5d3f59df.jpg","width":640,"height":480,"is_deleted":false},{"id":309365,"image":"https://media.rawg.io/media/screenshots/cce/cce6166506bc763f8a44c62d6388d50d.jpg","width":640,"height":480,"is_deleted":false}]}'
+    http_version:
+  recorded_at: Mon, 29 Jun 2020 17:06:42 GMT
 recorded_with: VCR 5.0.0

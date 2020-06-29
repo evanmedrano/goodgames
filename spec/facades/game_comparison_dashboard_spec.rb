@@ -1,18 +1,6 @@
 require 'rails_helper'
 
 describe GameComparisonDashboard do
-  describe "#other_users_games" do
-    it "returns the other users games that both users don't have in common" do
-      user, game = create(:user), create(:game)
-      user_two = create(:user, :with_a_games_library, library_size: 4)
-      user.games << game
-      user_two.games << game
-      g_c_d = described_class.new(user, user_two)
-
-      expect(g_c_d.other_users_games.count).to eq(4)
-    end
-  end
-
   describe "#games_not_in_common_for" do
     it "returns the count of games not in common for a particular user" do
       user, game = create(:user), create(:game)
