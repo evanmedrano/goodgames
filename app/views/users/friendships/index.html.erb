@@ -148,7 +148,11 @@
                     <% end %>
                   </div>
 
-                  <%= link_to "Compare games", "#", class: "mr-auto" %>
+                  <%= link_to(
+                    "Compare games",
+                    user_game_comparisons_path(friend),
+                    class: "mr-auto",
+                  ) %>
 
                   <% if current_user == @user %>
                     <%= link_to(

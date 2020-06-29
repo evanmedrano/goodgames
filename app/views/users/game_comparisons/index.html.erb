@@ -1,0 +1,78 @@
+<div class="container game-comparisons">
+  <h2>
+    <%= link_to @user.name, user_library_path(@user) %>
+    <span>> Compare Games</span>
+  </h2>
+
+  <% if @user.games.empty? %>
+    <p><%= @user.first_name %> hasn't added any games.</p>
+  <% end %>
+
+  <% if @g_c_d.games_in_common.any? %>
+    <p>
+      <span>
+        <%= @user.first_name %>'s games: <%= @user.games.size %>
+      </span>
+      <span>
+        (<%= @g_c_d.total_games_not_in_common_for(@user) %> not in common)
+      </span>
+    </p>
+
+    <p>
+      <span>
+        Games in common: <%= @g_c_d.games_in_common.size %>
+      </span>
+      <span>
+        (<%= @g_c_d.percentage_in_common_for(current_user) %> of your library
+        and <%= @g_c_d.percentage_in_common_for(@user) %> of their library)
+      </span>
+    </p>
+
+    <p>
+      <span>
+        My games: <%= current_user.games.size %>
+      </span>
+      <span>
+        (<%= @g_c_d.total_games_not_in_common_for(current_user) %> not in common)
+      </span>
+    </p>
+
+    <div class="game-comparisons__games-in-common">
+      <table>
+        <thead>
+          <tr>
+            <td>game</td>
+            <td>name</td>
+            <td><%= @user.first_name %>'s status</td>
+            <td>my status</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @g_c_d.games_in_common.each do |game| %>
+            <tr>
+              <td>
+                <%= image_tag(
+                  game.background_image,
+                  class: "game-comparisons__game-image"
+                ) %>
+              </td>
+              <td>
+                <%= game.name %>
+              </td>
+              <% game.user_games.each do |user_game| %>
+                <td>
+                  <%= user_game.status %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  <% else %>
+
+    <p>You and <%= @user.first_name %> don't have games in common.</p>
+  <% end %>
+</div>

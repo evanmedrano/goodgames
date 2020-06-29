@@ -25,6 +25,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
+  gem 'bullet'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'rspec-rails', '~> 4.0.0'

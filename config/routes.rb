@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :platforms, only: [:index, :show]
 
   resources :users, only: [] do
-    resources :compare_games, only: [:index], module: :users
+    resources :game_comparisons, only: [:index], module: :users
     resources :friend_requests, only: [:index], module: :users
     resources :friendships, only: [:index], module: :users
     resource  :library, only: [:show], module: :users
