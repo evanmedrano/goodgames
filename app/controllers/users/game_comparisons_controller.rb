@@ -1,9 +1,9 @@
-class Users::CompareGamesController < ApplicationController
+class Users::GameComparisonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
   def index
-    @games = Game.joins(:users).where(users: {id: @user.id && current_user.id})
+    @g_c_d = GameComparisonDashboard.new(current_user, @user)
   end
 
   private

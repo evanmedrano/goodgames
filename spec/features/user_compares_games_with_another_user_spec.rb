@@ -4,7 +4,7 @@ feature "user compares games with another user" do
   scenario "when the other user has no added games to their library" do
     user = create(:user, first_name: "Evan")
 
-    visit user_compare_games_path(user, as: logged_in_user)
+    visit user_game_comparisons_path(user, as: logged_in_user)
 
     expect(page).to have_content("Evan hasn't added any games.")
   end
@@ -12,7 +12,7 @@ feature "user compares games with another user" do
   scenario "when the current user has no games in common with the other user" do
     user = create(:user, :with_a_games_library, first_name: "Evan")
 
-    visit user_compare_games_path(user, as: logged_in_user)
+    visit user_game_comparisons_path(user, as: logged_in_user)
 
     expect(page).to have_content("You and Evan don't have games in common.")
   end
@@ -25,7 +25,7 @@ feature "user compares games with another user" do
     other_user.games << game
 
 
-    visit user_compare_games_path(other_user, as: logged_in_user(current_user))
+    visit user_game_comparisons_path(other_user, as: logged_in_user(current_user))
 
     expect(page).to have_content("Evan's games: 3 (2 not in common)")
     expect(page).to have_content("Games in common: 1")
