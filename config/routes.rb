@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :discover, only: [:index]
   end
 
+  resource :dashboard, only: [:show]
   resources :friend_requests, only: [:create]
   resources :friendships, only: [:create, :destroy]
   resources :genres,    only: [:index, :show]
